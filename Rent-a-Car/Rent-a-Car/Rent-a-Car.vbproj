@@ -94,6 +94,9 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clsAgencia.vb" />
+    <Compile Include="clsCoche.vb" />
+    <Compile Include="clsRenta.vb" />
     <Compile Include="frmBase.vb">
       <SubType>Form</SubType>
     </Compile>
