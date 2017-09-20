@@ -1,4 +1,5 @@
-﻿Public Class clsUsuarios
+﻿Imports System.Text.RegularExpressions
+Public Class clsUsuarios
     'Atributos
     Friend Nombres As String
     Friend Apellidos As String
@@ -42,14 +43,15 @@
     'Metodos Generales
     Public Function IniciarSesion(ByVal _nombreUsuario As String, ByVal _contrasenna As String) As Boolean
         _nombreUsuario = _nombreUsuario.Trim
+        Dim rgx_usuarios = New Regex("^(A{1}|G{1}|C{1})\d{5}$") 'Regex de validacion
 
-        If _nombreUsuario.Length > 0 Then 'Falta Regex
+        If _nombreUsuario.Length = 0 Then 'Falta Regex
             MsgBox("Error: Ingrese un nombre de usuario válido")
             Return False
         End If
 
         _contrasenna = _contrasenna.Trim
-        If _contrasenna.Length > 0 Then 'Falta Regex 
+        If _contrasenna.Length < 8 Then 'Falta Regex 
             MsgBox("Error: Ingrese una contraseña")
             Return False
         End If
@@ -58,6 +60,25 @@
     End Function
 
     Public Function Registrar(ByVal _nombres As String, ByVal _apellidos As String, ByVal _tipoUsuario As String)
+        'Tpos de usuarios: Administrador(A00000), Gerente(G0000), Contador(C0000)
+        Return True
+    End Function
+    Public Sub CrearCodigo(ByVal _tipousuario As String)
+
+    End Sub
+    Public Sub CrearContrasenna()
+
+    End Sub
+    Public Function ArmarEncriptacion(ByVal _contrasenna As String)
 
     End Function
+    Public Function DesarmarEncriptacion(ByVal _contrasenna As String)
+
+    End Function
+    Public Sub VerRegistros(ByVal Optional _tipoUsuario As String = Nothing)
+
+    End Sub
+    Public Sub VerificarCodigoUsuario(ByVal _tipoUsuario As String)
+
+    End Sub
 End Class
