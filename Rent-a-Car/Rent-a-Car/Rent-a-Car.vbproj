@@ -100,6 +100,7 @@
     <Compile Include="clsCoche.vb" />
     <Compile Include="clsContador.vb" />
     <Compile Include="clsGerente.vb" />
+    <Compile Include="clsMulta.vb" />
     <Compile Include="clsRenta.vb" />
     <Compile Include="clsUsuarios.vb" />
     <Compile Include="frmBase.vb">

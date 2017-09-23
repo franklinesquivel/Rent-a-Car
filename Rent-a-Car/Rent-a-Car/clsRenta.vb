@@ -22,6 +22,18 @@
         End Get
     End Property
 
+    Public ReadOnly Property estado
+        Get
+            Return _estado
+        End Get
+    End Property
+
+    Public WriteOnly Property cambiarEstado() As Boolean
+        Set(ByVal value As Boolean)
+            _estado = value
+        End Set
+    End Property
+
     Public Function registrarRenta(ByVal idCliente As Integer, ByVal idAgencia As Integer, ByVal idCoche As Integer, ByVal idUsuario As String, ByVal fechaRetiro As Date, ByVal fechaEntrega As Date) As Boolean
         If _buscarRegistro("clientes", "id_cliente", idCliente) Then
             _idCliente = idCliente
