@@ -55,4 +55,6 @@
         direccion = _direccion
         telefono = _telefono
     End Sub
+
+
 End Class
