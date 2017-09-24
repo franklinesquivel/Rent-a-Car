@@ -77,6 +77,17 @@ Public Class clsReserva
             MsgBox("Error: Ingrese un código de cliente válido")
             Return False
         End If
+
+        If _fechaInicio >= _fechaFin Then
+            MsgBox("Error: La fecha de incio no puede ser mayor a la fecha final")
+            Return False
+        End If
+
+        If _fechaFin < Now Then
+            MsgBox("Error: No puede ingresar una fecha de inicio menor a la actual")
+            Return False
+        End If
+
         'NOTA: Falta verificar(antes de ser true) el método 'chequearReserva'
         Return True
     End Function

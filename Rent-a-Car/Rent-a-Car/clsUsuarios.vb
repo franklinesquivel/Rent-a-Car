@@ -45,17 +45,31 @@ Public Class clsUsuarios
         _nombreUsuario = _nombreUsuario.Trim
         Dim rgx_usuarios = New Regex("^(A{1}|G{1}|C{1})\d{5}$") 'Regex de validacion
 
-        If _nombreUsuario.Length = 0 Then 'Falta Regex
+        If _nombreUsuario.Length = 0 Or Not rgx_usuarios.IsMatch(_nombreUsuario) Then 'Falta Regex
             MsgBox("Error: Ingrese un nombre de usuario válido")
             Return False
         End If
 
         _contrasenna = _contrasenna.Trim
-        If _contrasenna.Length < 8 Then 'Falta Regex 
+        If _contrasenna.Length < 8 Then
             MsgBox("Error: Ingrese una contraseña")
             Return False
         End If
 
+        'Inicio de Sesión estático
+        'Administrador
+        If _nombreUsuario = "A17987" And _contrasenna = "1234567aa" Then
+            frmMenu_Admin.Show()
+            'Gerente
+        ElseIf _nombreUsuario = "G17977" And _contrasenna = "1234567bb" Then
+            frmMenu_Agentes.Show()
+            'Contador
+        ElseIf _nombreUsuario = "C17887" And _contrasenna = "12345yuo" Then
+            frmMenu_contador.Show()
+        Else
+            MsgBox("Error: Usuario no encontrado")
+            Return False
+        End If
         Return True
     End Function
 
