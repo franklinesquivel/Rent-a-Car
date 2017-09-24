@@ -95,6 +95,16 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clsCliente.vb" />
+    <Compile Include="clsAdministrador.vb" />
+    <Compile Include="clsAgencia.vb" />
+    <Compile Include="clsCoche.vb" />
+    <Compile Include="clsContador.vb" />
+    <Compile Include="clsGerente.vb" />
+    <Compile Include="clsMulta.vb" />
+    <Compile Include="clsRenta.vb" />
+    <Compile Include="clsUsuarios.vb" />
+    <Compile Include="frmBase.vb">
     <Compile Include="frmAgencias.Designer.vb">
       <DependentUpon>frmAgencias.vb</DependentUpon>
     </Compile>
@@ -191,6 +201,7 @@
     <Compile Include="frmUsuarios.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="mdlValidaciones.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -206,6 +217,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="clsReserva.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="frmAgencias.resx">
