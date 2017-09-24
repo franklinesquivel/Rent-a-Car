@@ -22,214 +22,214 @@ Partial Class frmAgencias
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.MaterialLabel3 = New MaterialSkin.Controls.MaterialLabel()
-        Me.MaterialLabel4 = New MaterialSkin.Controls.MaterialLabel()
-        Me.MaterialSingleLineTextField3 = New MaterialSkin.Controls.MaterialSingleLineTextField()
-        Me.MaterialFlatButton1 = New MaterialSkin.Controls.MaterialFlatButton()
-        Me.MaterialLabel9 = New MaterialSkin.Controls.MaterialLabel()
-        Me.MaterialLabel6 = New MaterialSkin.Controls.MaterialLabel()
-        Me.MaterialSingleLineTextField6 = New MaterialSkin.Controls.MaterialSingleLineTextField()
-        Me.MaterialSingleLineTextField5 = New MaterialSkin.Controls.MaterialSingleLineTextField()
-        Me.MaterialSingleLineTextField1 = New MaterialSkin.Controls.MaterialSingleLineTextField()
-        Me.MaterialRaisedButton1 = New MaterialSkin.Controls.MaterialRaisedButton()
-        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
-        Me.CerrarSesiónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.MenuStrip1.SuspendLayout()
+        Me.lblTelefono = New MaterialSkin.Controls.MaterialLabel()
+        Me.lblNombre_Agencia = New MaterialSkin.Controls.MaterialLabel()
+        Me.txbCodigo = New MaterialSkin.Controls.MaterialSingleLineTextField()
+        Me.btnAgregar_Agencia = New MaterialSkin.Controls.MaterialFlatButton()
+        Me.lblDireccion = New MaterialSkin.Controls.MaterialLabel()
+        Me.lblCodigo = New MaterialSkin.Controls.MaterialLabel()
+        Me.txbNombre_Agencia = New MaterialSkin.Controls.MaterialSingleLineTextField()
+        Me.txbDireccion = New MaterialSkin.Controls.MaterialSingleLineTextField()
+        Me.txbTelefono = New MaterialSkin.Controls.MaterialSingleLineTextField()
+        Me.btnRegresar = New MaterialSkin.Controls.MaterialRaisedButton()
+        Me.mnsMenu = New System.Windows.Forms.MenuStrip()
+        Me.mnsCerrar_Sesion = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnsMenu.SuspendLayout()
         Me.SuspendLayout()
         '
-        'MaterialLabel3
+        'lblTelefono
         '
-        Me.MaterialLabel3.AutoSize = True
-        Me.MaterialLabel3.Depth = 0
-        Me.MaterialLabel3.Font = New System.Drawing.Font("Roboto", 11.0!)
-        Me.MaterialLabel3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.MaterialLabel3.Location = New System.Drawing.Point(26, 230)
-        Me.MaterialLabel3.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialLabel3.Name = "MaterialLabel3"
-        Me.MaterialLabel3.Size = New System.Drawing.Size(69, 19)
-        Me.MaterialLabel3.TabIndex = 48
-        Me.MaterialLabel3.Text = "Teléfono"
+        Me.lblTelefono.AutoSize = True
+        Me.lblTelefono.Depth = 0
+        Me.lblTelefono.Font = New System.Drawing.Font("Roboto", 11.0!)
+        Me.lblTelefono.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblTelefono.Location = New System.Drawing.Point(26, 230)
+        Me.lblTelefono.MouseState = MaterialSkin.MouseState.HOVER
+        Me.lblTelefono.Name = "lblTelefono"
+        Me.lblTelefono.Size = New System.Drawing.Size(69, 19)
+        Me.lblTelefono.TabIndex = 48
+        Me.lblTelefono.Text = "Teléfono"
         '
-        'MaterialLabel4
+        'lblNombre_Agencia
         '
-        Me.MaterialLabel4.AutoSize = True
-        Me.MaterialLabel4.Depth = 0
-        Me.MaterialLabel4.Font = New System.Drawing.Font("Roboto", 11.0!)
-        Me.MaterialLabel4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.MaterialLabel4.Location = New System.Drawing.Point(26, 141)
-        Me.MaterialLabel4.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialLabel4.Name = "MaterialLabel4"
-        Me.MaterialLabel4.Size = New System.Drawing.Size(155, 19)
-        Me.MaterialLabel4.TabIndex = 47
-        Me.MaterialLabel4.Text = "Nombre de la agencia"
+        Me.lblNombre_Agencia.AutoSize = True
+        Me.lblNombre_Agencia.Depth = 0
+        Me.lblNombre_Agencia.Font = New System.Drawing.Font("Roboto", 11.0!)
+        Me.lblNombre_Agencia.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblNombre_Agencia.Location = New System.Drawing.Point(26, 141)
+        Me.lblNombre_Agencia.MouseState = MaterialSkin.MouseState.HOVER
+        Me.lblNombre_Agencia.Name = "lblNombre_Agencia"
+        Me.lblNombre_Agencia.Size = New System.Drawing.Size(155, 19)
+        Me.lblNombre_Agencia.TabIndex = 47
+        Me.lblNombre_Agencia.Text = "Nombre de la agencia"
         '
-        'MaterialSingleLineTextField3
+        'txbCodigo
         '
-        Me.MaterialSingleLineTextField3.Depth = 0
-        Me.MaterialSingleLineTextField3.Hint = ""
-        Me.MaterialSingleLineTextField3.Location = New System.Drawing.Point(114, 97)
-        Me.MaterialSingleLineTextField3.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialSingleLineTextField3.Name = "MaterialSingleLineTextField3"
-        Me.MaterialSingleLineTextField3.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.MaterialSingleLineTextField3.SelectedText = ""
-        Me.MaterialSingleLineTextField3.SelectionLength = 0
-        Me.MaterialSingleLineTextField3.SelectionStart = 0
-        Me.MaterialSingleLineTextField3.Size = New System.Drawing.Size(289, 23)
-        Me.MaterialSingleLineTextField3.TabIndex = 46
-        Me.MaterialSingleLineTextField3.UseSystemPasswordChar = False
+        Me.txbCodigo.Depth = 0
+        Me.txbCodigo.Hint = ""
+        Me.txbCodigo.Location = New System.Drawing.Point(114, 97)
+        Me.txbCodigo.MouseState = MaterialSkin.MouseState.HOVER
+        Me.txbCodigo.Name = "txbCodigo"
+        Me.txbCodigo.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.txbCodigo.SelectedText = ""
+        Me.txbCodigo.SelectionLength = 0
+        Me.txbCodigo.SelectionStart = 0
+        Me.txbCodigo.Size = New System.Drawing.Size(289, 23)
+        Me.txbCodigo.TabIndex = 46
+        Me.txbCodigo.UseSystemPasswordChar = False
         '
-        'MaterialFlatButton1
+        'btnAgregar_Agencia
         '
-        Me.MaterialFlatButton1.AutoSize = True
-        Me.MaterialFlatButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.MaterialFlatButton1.Depth = 0
-        Me.MaterialFlatButton1.Location = New System.Drawing.Point(138, 282)
-        Me.MaterialFlatButton1.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
-        Me.MaterialFlatButton1.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialFlatButton1.Name = "MaterialFlatButton1"
-        Me.MaterialFlatButton1.Primary = False
-        Me.MaterialFlatButton1.Size = New System.Drawing.Size(146, 36)
-        Me.MaterialFlatButton1.TabIndex = 45
-        Me.MaterialFlatButton1.Text = "+ Agregar agencia"
-        Me.MaterialFlatButton1.UseVisualStyleBackColor = True
+        Me.btnAgregar_Agencia.AutoSize = True
+        Me.btnAgregar_Agencia.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.btnAgregar_Agencia.Depth = 0
+        Me.btnAgregar_Agencia.Location = New System.Drawing.Point(138, 282)
+        Me.btnAgregar_Agencia.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
+        Me.btnAgregar_Agencia.MouseState = MaterialSkin.MouseState.HOVER
+        Me.btnAgregar_Agencia.Name = "btnAgregar_Agencia"
+        Me.btnAgregar_Agencia.Primary = False
+        Me.btnAgregar_Agencia.Size = New System.Drawing.Size(146, 36)
+        Me.btnAgregar_Agencia.TabIndex = 45
+        Me.btnAgregar_Agencia.Text = "+ Agregar agencia"
+        Me.btnAgregar_Agencia.UseVisualStyleBackColor = True
         '
-        'MaterialLabel9
+        'lblDireccion
         '
-        Me.MaterialLabel9.AutoSize = True
-        Me.MaterialLabel9.Depth = 0
-        Me.MaterialLabel9.Font = New System.Drawing.Font("Roboto", 11.0!)
-        Me.MaterialLabel9.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.MaterialLabel9.Location = New System.Drawing.Point(26, 184)
-        Me.MaterialLabel9.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialLabel9.Name = "MaterialLabel9"
-        Me.MaterialLabel9.Size = New System.Drawing.Size(73, 19)
-        Me.MaterialLabel9.TabIndex = 44
-        Me.MaterialLabel9.Text = "Dirección"
+        Me.lblDireccion.AutoSize = True
+        Me.lblDireccion.Depth = 0
+        Me.lblDireccion.Font = New System.Drawing.Font("Roboto", 11.0!)
+        Me.lblDireccion.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblDireccion.Location = New System.Drawing.Point(26, 184)
+        Me.lblDireccion.MouseState = MaterialSkin.MouseState.HOVER
+        Me.lblDireccion.Name = "lblDireccion"
+        Me.lblDireccion.Size = New System.Drawing.Size(73, 19)
+        Me.lblDireccion.TabIndex = 44
+        Me.lblDireccion.Text = "Dirección"
         '
-        'MaterialLabel6
+        'lblCodigo
         '
-        Me.MaterialLabel6.AutoSize = True
-        Me.MaterialLabel6.Depth = 0
-        Me.MaterialLabel6.Font = New System.Drawing.Font("Roboto", 11.0!)
-        Me.MaterialLabel6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.MaterialLabel6.Location = New System.Drawing.Point(26, 101)
-        Me.MaterialLabel6.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialLabel6.Name = "MaterialLabel6"
-        Me.MaterialLabel6.Size = New System.Drawing.Size(57, 19)
-        Me.MaterialLabel6.TabIndex = 43
-        Me.MaterialLabel6.Text = "Código"
+        Me.lblCodigo.AutoSize = True
+        Me.lblCodigo.Depth = 0
+        Me.lblCodigo.Font = New System.Drawing.Font("Roboto", 11.0!)
+        Me.lblCodigo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblCodigo.Location = New System.Drawing.Point(26, 101)
+        Me.lblCodigo.MouseState = MaterialSkin.MouseState.HOVER
+        Me.lblCodigo.Name = "lblCodigo"
+        Me.lblCodigo.Size = New System.Drawing.Size(57, 19)
+        Me.lblCodigo.TabIndex = 43
+        Me.lblCodigo.Text = "Código"
         '
-        'MaterialSingleLineTextField6
+        'txbNombre_Agencia
         '
-        Me.MaterialSingleLineTextField6.Depth = 0
-        Me.MaterialSingleLineTextField6.Hint = ""
-        Me.MaterialSingleLineTextField6.Location = New System.Drawing.Point(209, 137)
-        Me.MaterialSingleLineTextField6.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialSingleLineTextField6.Name = "MaterialSingleLineTextField6"
-        Me.MaterialSingleLineTextField6.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.MaterialSingleLineTextField6.SelectedText = ""
-        Me.MaterialSingleLineTextField6.SelectionLength = 0
-        Me.MaterialSingleLineTextField6.SelectionStart = 0
-        Me.MaterialSingleLineTextField6.Size = New System.Drawing.Size(194, 23)
-        Me.MaterialSingleLineTextField6.TabIndex = 42
-        Me.MaterialSingleLineTextField6.UseSystemPasswordChar = False
+        Me.txbNombre_Agencia.Depth = 0
+        Me.txbNombre_Agencia.Hint = ""
+        Me.txbNombre_Agencia.Location = New System.Drawing.Point(209, 137)
+        Me.txbNombre_Agencia.MouseState = MaterialSkin.MouseState.HOVER
+        Me.txbNombre_Agencia.Name = "txbNombre_Agencia"
+        Me.txbNombre_Agencia.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.txbNombre_Agencia.SelectedText = ""
+        Me.txbNombre_Agencia.SelectionLength = 0
+        Me.txbNombre_Agencia.SelectionStart = 0
+        Me.txbNombre_Agencia.Size = New System.Drawing.Size(194, 23)
+        Me.txbNombre_Agencia.TabIndex = 42
+        Me.txbNombre_Agencia.UseSystemPasswordChar = False
         '
-        'MaterialSingleLineTextField5
+        'txbDireccion
         '
-        Me.MaterialSingleLineTextField5.Depth = 0
-        Me.MaterialSingleLineTextField5.Hint = ""
-        Me.MaterialSingleLineTextField5.Location = New System.Drawing.Point(114, 184)
-        Me.MaterialSingleLineTextField5.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialSingleLineTextField5.Name = "MaterialSingleLineTextField5"
-        Me.MaterialSingleLineTextField5.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.MaterialSingleLineTextField5.SelectedText = ""
-        Me.MaterialSingleLineTextField5.SelectionLength = 0
-        Me.MaterialSingleLineTextField5.SelectionStart = 0
-        Me.MaterialSingleLineTextField5.Size = New System.Drawing.Size(289, 23)
-        Me.MaterialSingleLineTextField5.TabIndex = 41
-        Me.MaterialSingleLineTextField5.UseSystemPasswordChar = False
+        Me.txbDireccion.Depth = 0
+        Me.txbDireccion.Hint = ""
+        Me.txbDireccion.Location = New System.Drawing.Point(114, 184)
+        Me.txbDireccion.MouseState = MaterialSkin.MouseState.HOVER
+        Me.txbDireccion.Name = "txbDireccion"
+        Me.txbDireccion.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.txbDireccion.SelectedText = ""
+        Me.txbDireccion.SelectionLength = 0
+        Me.txbDireccion.SelectionStart = 0
+        Me.txbDireccion.Size = New System.Drawing.Size(289, 23)
+        Me.txbDireccion.TabIndex = 41
+        Me.txbDireccion.UseSystemPasswordChar = False
         '
-        'MaterialSingleLineTextField1
+        'txbTelefono
         '
-        Me.MaterialSingleLineTextField1.Depth = 0
-        Me.MaterialSingleLineTextField1.Hint = ""
-        Me.MaterialSingleLineTextField1.Location = New System.Drawing.Point(114, 230)
-        Me.MaterialSingleLineTextField1.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialSingleLineTextField1.Name = "MaterialSingleLineTextField1"
-        Me.MaterialSingleLineTextField1.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.MaterialSingleLineTextField1.SelectedText = ""
-        Me.MaterialSingleLineTextField1.SelectionLength = 0
-        Me.MaterialSingleLineTextField1.SelectionStart = 0
-        Me.MaterialSingleLineTextField1.Size = New System.Drawing.Size(215, 23)
-        Me.MaterialSingleLineTextField1.TabIndex = 49
-        Me.MaterialSingleLineTextField1.UseSystemPasswordChar = False
+        Me.txbTelefono.Depth = 0
+        Me.txbTelefono.Hint = ""
+        Me.txbTelefono.Location = New System.Drawing.Point(114, 230)
+        Me.txbTelefono.MouseState = MaterialSkin.MouseState.HOVER
+        Me.txbTelefono.Name = "txbTelefono"
+        Me.txbTelefono.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.txbTelefono.SelectedText = ""
+        Me.txbTelefono.SelectionLength = 0
+        Me.txbTelefono.SelectionStart = 0
+        Me.txbTelefono.Size = New System.Drawing.Size(215, 23)
+        Me.txbTelefono.TabIndex = 49
+        Me.txbTelefono.UseSystemPasswordChar = False
         '
-        'MaterialRaisedButton1
+        'btnRegresar
         '
-        Me.MaterialRaisedButton1.Depth = 0
-        Me.MaterialRaisedButton1.Location = New System.Drawing.Point(307, 318)
-        Me.MaterialRaisedButton1.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialRaisedButton1.Name = "MaterialRaisedButton1"
-        Me.MaterialRaisedButton1.Primary = True
-        Me.MaterialRaisedButton1.Size = New System.Drawing.Size(106, 27)
-        Me.MaterialRaisedButton1.TabIndex = 51
-        Me.MaterialRaisedButton1.Text = "Regresar"
-        Me.MaterialRaisedButton1.UseVisualStyleBackColor = True
+        Me.btnRegresar.Depth = 0
+        Me.btnRegresar.Location = New System.Drawing.Point(307, 318)
+        Me.btnRegresar.MouseState = MaterialSkin.MouseState.HOVER
+        Me.btnRegresar.Name = "btnRegresar"
+        Me.btnRegresar.Primary = True
+        Me.btnRegresar.Size = New System.Drawing.Size(106, 27)
+        Me.btnRegresar.TabIndex = 51
+        Me.btnRegresar.Text = "Regresar"
+        Me.btnRegresar.UseVisualStyleBackColor = True
         '
-        'MenuStrip1
+        'mnsMenu
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CerrarSesiónToolStripMenuItem})
-        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
-        Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(425, 27)
-        Me.MenuStrip1.TabIndex = 52
-        Me.MenuStrip1.Text = "MenuStrip1"
+        Me.mnsMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnsCerrar_Sesion})
+        Me.mnsMenu.Location = New System.Drawing.Point(0, 0)
+        Me.mnsMenu.Name = "mnsMenu"
+        Me.mnsMenu.Size = New System.Drawing.Size(425, 27)
+        Me.mnsMenu.TabIndex = 52
+        Me.mnsMenu.Text = "MenuStrip1"
         '
-        'CerrarSesiónToolStripMenuItem
+        'mnsCerrar_Sesion
         '
-        Me.CerrarSesiónToolStripMenuItem.BackColor = System.Drawing.Color.Transparent
-        Me.CerrarSesiónToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.CerrarSesiónToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Transparent
-        Me.CerrarSesiónToolStripMenuItem.Name = "CerrarSesiónToolStripMenuItem"
-        Me.CerrarSesiónToolStripMenuItem.Size = New System.Drawing.Size(102, 23)
-        Me.CerrarSesiónToolStripMenuItem.Text = "Cerrar Sesión"
+        Me.mnsCerrar_Sesion.BackColor = System.Drawing.Color.Transparent
+        Me.mnsCerrar_Sesion.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.mnsCerrar_Sesion.ImageTransparentColor = System.Drawing.Color.Transparent
+        Me.mnsCerrar_Sesion.Name = "mnsCerrar_Sesion"
+        Me.mnsCerrar_Sesion.Size = New System.Drawing.Size(102, 23)
+        Me.mnsCerrar_Sesion.Text = "Cerrar Sesión"
         '
         'frmAgencias
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(425, 357)
-        Me.Controls.Add(Me.MaterialRaisedButton1)
-        Me.Controls.Add(Me.MaterialSingleLineTextField1)
-        Me.Controls.Add(Me.MaterialLabel3)
-        Me.Controls.Add(Me.MaterialLabel4)
-        Me.Controls.Add(Me.MaterialSingleLineTextField3)
-        Me.Controls.Add(Me.MaterialFlatButton1)
-        Me.Controls.Add(Me.MaterialLabel9)
-        Me.Controls.Add(Me.MaterialLabel6)
-        Me.Controls.Add(Me.MaterialSingleLineTextField6)
-        Me.Controls.Add(Me.MaterialSingleLineTextField5)
-        Me.Controls.Add(Me.MenuStrip1)
-        Me.MainMenuStrip = Me.MenuStrip1
+        Me.Controls.Add(Me.btnRegresar)
+        Me.Controls.Add(Me.txbTelefono)
+        Me.Controls.Add(Me.lblTelefono)
+        Me.Controls.Add(Me.lblNombre_Agencia)
+        Me.Controls.Add(Me.txbCodigo)
+        Me.Controls.Add(Me.btnAgregar_Agencia)
+        Me.Controls.Add(Me.lblDireccion)
+        Me.Controls.Add(Me.lblCodigo)
+        Me.Controls.Add(Me.txbNombre_Agencia)
+        Me.Controls.Add(Me.txbDireccion)
+        Me.Controls.Add(Me.mnsMenu)
+        Me.MainMenuStrip = Me.mnsMenu
         Me.Name = "frmAgencias"
         Me.Text = "Registro de agencia                                         Rent-a-Car"
-        Me.MenuStrip1.ResumeLayout(False)
-        Me.MenuStrip1.PerformLayout()
+        Me.mnsMenu.ResumeLayout(False)
+        Me.mnsMenu.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
-    Friend WithEvents MaterialLabel3 As MaterialSkin.Controls.MaterialLabel
-    Friend WithEvents MaterialLabel4 As MaterialSkin.Controls.MaterialLabel
-    Friend WithEvents MaterialSingleLineTextField3 As MaterialSkin.Controls.MaterialSingleLineTextField
-    Friend WithEvents MaterialFlatButton1 As MaterialSkin.Controls.MaterialFlatButton
-    Friend WithEvents MaterialLabel9 As MaterialSkin.Controls.MaterialLabel
-    Friend WithEvents MaterialLabel6 As MaterialSkin.Controls.MaterialLabel
-    Friend WithEvents MaterialSingleLineTextField6 As MaterialSkin.Controls.MaterialSingleLineTextField
-    Friend WithEvents MaterialSingleLineTextField5 As MaterialSkin.Controls.MaterialSingleLineTextField
-    Friend WithEvents MaterialSingleLineTextField1 As MaterialSkin.Controls.MaterialSingleLineTextField
-    Friend WithEvents MaterialRaisedButton1 As MaterialSkin.Controls.MaterialRaisedButton
-    Friend WithEvents MenuStrip1 As MenuStrip
-    Friend WithEvents CerrarSesiónToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents lblTelefono As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents lblNombre_Agencia As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents txbCodigo As MaterialSkin.Controls.MaterialSingleLineTextField
+    Friend WithEvents btnAgregar_Agencia As MaterialSkin.Controls.MaterialFlatButton
+    Friend WithEvents lblDireccion As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents lblCodigo As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents txbNombre_Agencia As MaterialSkin.Controls.MaterialSingleLineTextField
+    Friend WithEvents txbDireccion As MaterialSkin.Controls.MaterialSingleLineTextField
+    Friend WithEvents txbTelefono As MaterialSkin.Controls.MaterialSingleLineTextField
+    Friend WithEvents btnRegresar As MaterialSkin.Controls.MaterialRaisedButton
+    Friend WithEvents mnsMenu As MenuStrip
+    Friend WithEvents mnsCerrar_Sesion As ToolStripMenuItem
 End Class

@@ -22,288 +22,288 @@ Partial Class frmUsuarios
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.MaterialLabel4 = New MaterialSkin.Controls.MaterialLabel()
-        Me.MaterialSingleLineTextField3 = New MaterialSkin.Controls.MaterialSingleLineTextField()
-        Me.MaterialFlatButton1 = New MaterialSkin.Controls.MaterialFlatButton()
-        Me.MaterialLabel6 = New MaterialSkin.Controls.MaterialLabel()
-        Me.MaterialSingleLineTextField6 = New MaterialSkin.Controls.MaterialSingleLineTextField()
-        Me.MaterialLabel2 = New MaterialSkin.Controls.MaterialLabel()
-        Me.MaterialSingleLineTextField2 = New MaterialSkin.Controls.MaterialSingleLineTextField()
-        Me.MaterialLabel1 = New MaterialSkin.Controls.MaterialLabel()
-        Me.MaterialSingleLineTextField1 = New MaterialSkin.Controls.MaterialSingleLineTextField()
-        Me.MaterialLabel3 = New MaterialSkin.Controls.MaterialLabel()
-        Me.MaterialRadioButton1 = New MaterialSkin.Controls.MaterialRadioButton()
-        Me.MaterialRadioButton2 = New MaterialSkin.Controls.MaterialRadioButton()
-        Me.MaterialRadioButton3 = New MaterialSkin.Controls.MaterialRadioButton()
-        Me.MaterialRaisedButton1 = New MaterialSkin.Controls.MaterialRaisedButton()
-        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
-        Me.CerrarSesiónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.MenuStrip1.SuspendLayout()
+        Me.lblContraseña = New MaterialSkin.Controls.MaterialLabel()
+        Me.txbContraseña = New MaterialSkin.Controls.MaterialSingleLineTextField()
+        Me.btnAgregar_Usuario = New MaterialSkin.Controls.MaterialFlatButton()
+        Me.lblNombre_Usuario = New MaterialSkin.Controls.MaterialLabel()
+        Me.txbNombre_Usuario = New MaterialSkin.Controls.MaterialSingleLineTextField()
+        Me.lblNombre = New MaterialSkin.Controls.MaterialLabel()
+        Me.txbNombre = New MaterialSkin.Controls.MaterialSingleLineTextField()
+        Me.lblApellido = New MaterialSkin.Controls.MaterialLabel()
+        Me.txbApellido = New MaterialSkin.Controls.MaterialSingleLineTextField()
+        Me.lblPerfil = New MaterialSkin.Controls.MaterialLabel()
+        Me.rdbAdministrador = New MaterialSkin.Controls.MaterialRadioButton()
+        Me.rdbContador = New MaterialSkin.Controls.MaterialRadioButton()
+        Me.rdbAgente = New MaterialSkin.Controls.MaterialRadioButton()
+        Me.btn_Regresar = New MaterialSkin.Controls.MaterialRaisedButton()
+        Me.mnsMenu = New System.Windows.Forms.MenuStrip()
+        Me.mnsCerrar_Sesion = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnsMenu.SuspendLayout()
         Me.SuspendLayout()
         '
-        'MaterialLabel4
+        'lblContraseña
         '
-        Me.MaterialLabel4.AutoSize = True
-        Me.MaterialLabel4.Depth = 0
-        Me.MaterialLabel4.Font = New System.Drawing.Font("Roboto", 11.0!)
-        Me.MaterialLabel4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.MaterialLabel4.Location = New System.Drawing.Point(29, 239)
-        Me.MaterialLabel4.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialLabel4.Name = "MaterialLabel4"
-        Me.MaterialLabel4.Size = New System.Drawing.Size(86, 19)
-        Me.MaterialLabel4.TabIndex = 53
-        Me.MaterialLabel4.Text = "Contraseña"
+        Me.lblContraseña.AutoSize = True
+        Me.lblContraseña.Depth = 0
+        Me.lblContraseña.Font = New System.Drawing.Font("Roboto", 11.0!)
+        Me.lblContraseña.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblContraseña.Location = New System.Drawing.Point(29, 239)
+        Me.lblContraseña.MouseState = MaterialSkin.MouseState.HOVER
+        Me.lblContraseña.Name = "lblContraseña"
+        Me.lblContraseña.Size = New System.Drawing.Size(86, 19)
+        Me.lblContraseña.TabIndex = 53
+        Me.lblContraseña.Text = "Contraseña"
         '
-        'MaterialSingleLineTextField3
+        'txbContraseña
         '
-        Me.MaterialSingleLineTextField3.Depth = 0
-        Me.MaterialSingleLineTextField3.Hint = ""
-        Me.MaterialSingleLineTextField3.Location = New System.Drawing.Point(131, 239)
-        Me.MaterialSingleLineTextField3.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialSingleLineTextField3.Name = "MaterialSingleLineTextField3"
-        Me.MaterialSingleLineTextField3.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.MaterialSingleLineTextField3.SelectedText = ""
-        Me.MaterialSingleLineTextField3.SelectionLength = 0
-        Me.MaterialSingleLineTextField3.SelectionStart = 0
-        Me.MaterialSingleLineTextField3.Size = New System.Drawing.Size(249, 23)
-        Me.MaterialSingleLineTextField3.TabIndex = 52
-        Me.MaterialSingleLineTextField3.UseSystemPasswordChar = False
+        Me.txbContraseña.Depth = 0
+        Me.txbContraseña.Hint = ""
+        Me.txbContraseña.Location = New System.Drawing.Point(131, 239)
+        Me.txbContraseña.MouseState = MaterialSkin.MouseState.HOVER
+        Me.txbContraseña.Name = "txbContraseña"
+        Me.txbContraseña.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.txbContraseña.SelectedText = ""
+        Me.txbContraseña.SelectionLength = 0
+        Me.txbContraseña.SelectionStart = 0
+        Me.txbContraseña.Size = New System.Drawing.Size(249, 23)
+        Me.txbContraseña.TabIndex = 52
+        Me.txbContraseña.UseSystemPasswordChar = False
         '
-        'MaterialFlatButton1
+        'btnAgregar_Usuario
         '
-        Me.MaterialFlatButton1.AutoSize = True
-        Me.MaterialFlatButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.MaterialFlatButton1.Depth = 0
-        Me.MaterialFlatButton1.Location = New System.Drawing.Point(131, 337)
-        Me.MaterialFlatButton1.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
-        Me.MaterialFlatButton1.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialFlatButton1.Name = "MaterialFlatButton1"
-        Me.MaterialFlatButton1.Primary = False
-        Me.MaterialFlatButton1.Size = New System.Drawing.Size(146, 36)
-        Me.MaterialFlatButton1.TabIndex = 51
-        Me.MaterialFlatButton1.Text = "+ Agregar usuario"
-        Me.MaterialFlatButton1.UseVisualStyleBackColor = True
+        Me.btnAgregar_Usuario.AutoSize = True
+        Me.btnAgregar_Usuario.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.btnAgregar_Usuario.Depth = 0
+        Me.btnAgregar_Usuario.Location = New System.Drawing.Point(131, 337)
+        Me.btnAgregar_Usuario.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
+        Me.btnAgregar_Usuario.MouseState = MaterialSkin.MouseState.HOVER
+        Me.btnAgregar_Usuario.Name = "btnAgregar_Usuario"
+        Me.btnAgregar_Usuario.Primary = False
+        Me.btnAgregar_Usuario.Size = New System.Drawing.Size(146, 36)
+        Me.btnAgregar_Usuario.TabIndex = 51
+        Me.btnAgregar_Usuario.Text = "+ Agregar usuario"
+        Me.btnAgregar_Usuario.UseVisualStyleBackColor = True
         '
-        'MaterialLabel6
+        'lblNombre_Usuario
         '
-        Me.MaterialLabel6.AutoSize = True
-        Me.MaterialLabel6.Depth = 0
-        Me.MaterialLabel6.Font = New System.Drawing.Font("Roboto", 11.0!)
-        Me.MaterialLabel6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.MaterialLabel6.Location = New System.Drawing.Point(29, 192)
-        Me.MaterialLabel6.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialLabel6.Name = "MaterialLabel6"
-        Me.MaterialLabel6.Size = New System.Drawing.Size(137, 19)
-        Me.MaterialLabel6.TabIndex = 47
-        Me.MaterialLabel6.Text = "Nombre de usuario"
+        Me.lblNombre_Usuario.AutoSize = True
+        Me.lblNombre_Usuario.Depth = 0
+        Me.lblNombre_Usuario.Font = New System.Drawing.Font("Roboto", 11.0!)
+        Me.lblNombre_Usuario.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblNombre_Usuario.Location = New System.Drawing.Point(29, 192)
+        Me.lblNombre_Usuario.MouseState = MaterialSkin.MouseState.HOVER
+        Me.lblNombre_Usuario.Name = "lblNombre_Usuario"
+        Me.lblNombre_Usuario.Size = New System.Drawing.Size(137, 19)
+        Me.lblNombre_Usuario.TabIndex = 47
+        Me.lblNombre_Usuario.Text = "Nombre de usuario"
         '
-        'MaterialSingleLineTextField6
+        'txbNombre_Usuario
         '
-        Me.MaterialSingleLineTextField6.Depth = 0
-        Me.MaterialSingleLineTextField6.Hint = ""
-        Me.MaterialSingleLineTextField6.Location = New System.Drawing.Point(184, 192)
-        Me.MaterialSingleLineTextField6.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialSingleLineTextField6.Name = "MaterialSingleLineTextField6"
-        Me.MaterialSingleLineTextField6.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.MaterialSingleLineTextField6.SelectedText = ""
-        Me.MaterialSingleLineTextField6.SelectionLength = 0
-        Me.MaterialSingleLineTextField6.SelectionStart = 0
-        Me.MaterialSingleLineTextField6.Size = New System.Drawing.Size(196, 23)
-        Me.MaterialSingleLineTextField6.TabIndex = 46
-        Me.MaterialSingleLineTextField6.UseSystemPasswordChar = False
+        Me.txbNombre_Usuario.Depth = 0
+        Me.txbNombre_Usuario.Hint = ""
+        Me.txbNombre_Usuario.Location = New System.Drawing.Point(184, 192)
+        Me.txbNombre_Usuario.MouseState = MaterialSkin.MouseState.HOVER
+        Me.txbNombre_Usuario.Name = "txbNombre_Usuario"
+        Me.txbNombre_Usuario.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.txbNombre_Usuario.SelectedText = ""
+        Me.txbNombre_Usuario.SelectionLength = 0
+        Me.txbNombre_Usuario.SelectionStart = 0
+        Me.txbNombre_Usuario.Size = New System.Drawing.Size(196, 23)
+        Me.txbNombre_Usuario.TabIndex = 46
+        Me.txbNombre_Usuario.UseSystemPasswordChar = False
         '
-        'MaterialLabel2
+        'lblNombre
         '
-        Me.MaterialLabel2.AutoSize = True
-        Me.MaterialLabel2.Depth = 0
-        Me.MaterialLabel2.Font = New System.Drawing.Font("Roboto", 11.0!)
-        Me.MaterialLabel2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.MaterialLabel2.Location = New System.Drawing.Point(33, 94)
-        Me.MaterialLabel2.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialLabel2.Name = "MaterialLabel2"
-        Me.MaterialLabel2.Size = New System.Drawing.Size(63, 19)
-        Me.MaterialLabel2.TabIndex = 44
-        Me.MaterialLabel2.Text = "Nombre"
+        Me.lblNombre.AutoSize = True
+        Me.lblNombre.Depth = 0
+        Me.lblNombre.Font = New System.Drawing.Font("Roboto", 11.0!)
+        Me.lblNombre.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblNombre.Location = New System.Drawing.Point(33, 94)
+        Me.lblNombre.MouseState = MaterialSkin.MouseState.HOVER
+        Me.lblNombre.Name = "lblNombre"
+        Me.lblNombre.Size = New System.Drawing.Size(63, 19)
+        Me.lblNombre.TabIndex = 44
+        Me.lblNombre.Text = "Nombre"
         '
-        'MaterialSingleLineTextField2
+        'txbNombre
         '
-        Me.MaterialSingleLineTextField2.Depth = 0
-        Me.MaterialSingleLineTextField2.Hint = ""
-        Me.MaterialSingleLineTextField2.Location = New System.Drawing.Point(113, 94)
-        Me.MaterialSingleLineTextField2.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialSingleLineTextField2.Name = "MaterialSingleLineTextField2"
-        Me.MaterialSingleLineTextField2.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.MaterialSingleLineTextField2.SelectedText = ""
-        Me.MaterialSingleLineTextField2.SelectionLength = 0
-        Me.MaterialSingleLineTextField2.SelectionStart = 0
-        Me.MaterialSingleLineTextField2.Size = New System.Drawing.Size(267, 23)
-        Me.MaterialSingleLineTextField2.TabIndex = 43
-        Me.MaterialSingleLineTextField2.UseSystemPasswordChar = False
+        Me.txbNombre.Depth = 0
+        Me.txbNombre.Hint = ""
+        Me.txbNombre.Location = New System.Drawing.Point(113, 94)
+        Me.txbNombre.MouseState = MaterialSkin.MouseState.HOVER
+        Me.txbNombre.Name = "txbNombre"
+        Me.txbNombre.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.txbNombre.SelectedText = ""
+        Me.txbNombre.SelectionLength = 0
+        Me.txbNombre.SelectionStart = 0
+        Me.txbNombre.Size = New System.Drawing.Size(267, 23)
+        Me.txbNombre.TabIndex = 43
+        Me.txbNombre.UseSystemPasswordChar = False
         '
-        'MaterialLabel1
+        'lblApellido
         '
-        Me.MaterialLabel1.AutoSize = True
-        Me.MaterialLabel1.Depth = 0
-        Me.MaterialLabel1.Font = New System.Drawing.Font("Roboto", 11.0!)
-        Me.MaterialLabel1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.MaterialLabel1.Location = New System.Drawing.Point(29, 150)
-        Me.MaterialLabel1.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialLabel1.Name = "MaterialLabel1"
-        Me.MaterialLabel1.Size = New System.Drawing.Size(64, 19)
-        Me.MaterialLabel1.TabIndex = 42
-        Me.MaterialLabel1.Text = "Apellido"
+        Me.lblApellido.AutoSize = True
+        Me.lblApellido.Depth = 0
+        Me.lblApellido.Font = New System.Drawing.Font("Roboto", 11.0!)
+        Me.lblApellido.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblApellido.Location = New System.Drawing.Point(29, 150)
+        Me.lblApellido.MouseState = MaterialSkin.MouseState.HOVER
+        Me.lblApellido.Name = "lblApellido"
+        Me.lblApellido.Size = New System.Drawing.Size(64, 19)
+        Me.lblApellido.TabIndex = 42
+        Me.lblApellido.Text = "Apellido"
         '
-        'MaterialSingleLineTextField1
+        'txbApellido
         '
-        Me.MaterialSingleLineTextField1.Depth = 0
-        Me.MaterialSingleLineTextField1.Hint = ""
-        Me.MaterialSingleLineTextField1.Location = New System.Drawing.Point(113, 150)
-        Me.MaterialSingleLineTextField1.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialSingleLineTextField1.Name = "MaterialSingleLineTextField1"
-        Me.MaterialSingleLineTextField1.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.MaterialSingleLineTextField1.SelectedText = ""
-        Me.MaterialSingleLineTextField1.SelectionLength = 0
-        Me.MaterialSingleLineTextField1.SelectionStart = 0
-        Me.MaterialSingleLineTextField1.Size = New System.Drawing.Size(267, 23)
-        Me.MaterialSingleLineTextField1.TabIndex = 41
-        Me.MaterialSingleLineTextField1.UseSystemPasswordChar = False
+        Me.txbApellido.Depth = 0
+        Me.txbApellido.Hint = ""
+        Me.txbApellido.Location = New System.Drawing.Point(113, 150)
+        Me.txbApellido.MouseState = MaterialSkin.MouseState.HOVER
+        Me.txbApellido.Name = "txbApellido"
+        Me.txbApellido.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.txbApellido.SelectedText = ""
+        Me.txbApellido.SelectionLength = 0
+        Me.txbApellido.SelectionStart = 0
+        Me.txbApellido.Size = New System.Drawing.Size(267, 23)
+        Me.txbApellido.TabIndex = 41
+        Me.txbApellido.UseSystemPasswordChar = False
         '
-        'MaterialLabel3
+        'lblPerfil
         '
-        Me.MaterialLabel3.AutoSize = True
-        Me.MaterialLabel3.Depth = 0
-        Me.MaterialLabel3.Font = New System.Drawing.Font("Roboto", 11.0!)
-        Me.MaterialLabel3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.MaterialLabel3.Location = New System.Drawing.Point(29, 288)
-        Me.MaterialLabel3.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialLabel3.Name = "MaterialLabel3"
-        Me.MaterialLabel3.Size = New System.Drawing.Size(44, 19)
-        Me.MaterialLabel3.TabIndex = 55
-        Me.MaterialLabel3.Text = "Perfil"
+        Me.lblPerfil.AutoSize = True
+        Me.lblPerfil.Depth = 0
+        Me.lblPerfil.Font = New System.Drawing.Font("Roboto", 11.0!)
+        Me.lblPerfil.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblPerfil.Location = New System.Drawing.Point(29, 288)
+        Me.lblPerfil.MouseState = MaterialSkin.MouseState.HOVER
+        Me.lblPerfil.Name = "lblPerfil"
+        Me.lblPerfil.Size = New System.Drawing.Size(44, 19)
+        Me.lblPerfil.TabIndex = 55
+        Me.lblPerfil.Text = "Perfil"
         '
-        'MaterialRadioButton1
+        'rdbAdministrador
         '
-        Me.MaterialRadioButton1.AutoSize = True
-        Me.MaterialRadioButton1.Depth = 0
-        Me.MaterialRadioButton1.Font = New System.Drawing.Font("Roboto", 10.0!)
-        Me.MaterialRadioButton1.Location = New System.Drawing.Point(282, 283)
-        Me.MaterialRadioButton1.Margin = New System.Windows.Forms.Padding(0)
-        Me.MaterialRadioButton1.MouseLocation = New System.Drawing.Point(-1, -1)
-        Me.MaterialRadioButton1.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialRadioButton1.Name = "MaterialRadioButton1"
-        Me.MaterialRadioButton1.Ripple = True
-        Me.MaterialRadioButton1.Size = New System.Drawing.Size(117, 30)
-        Me.MaterialRadioButton1.TabIndex = 56
-        Me.MaterialRadioButton1.TabStop = True
-        Me.MaterialRadioButton1.Text = "Administrador"
-        Me.MaterialRadioButton1.UseVisualStyleBackColor = True
+        Me.rdbAdministrador.AutoSize = True
+        Me.rdbAdministrador.Depth = 0
+        Me.rdbAdministrador.Font = New System.Drawing.Font("Roboto", 10.0!)
+        Me.rdbAdministrador.Location = New System.Drawing.Point(282, 283)
+        Me.rdbAdministrador.Margin = New System.Windows.Forms.Padding(0)
+        Me.rdbAdministrador.MouseLocation = New System.Drawing.Point(-1, -1)
+        Me.rdbAdministrador.MouseState = MaterialSkin.MouseState.HOVER
+        Me.rdbAdministrador.Name = "rdbAdministrador"
+        Me.rdbAdministrador.Ripple = True
+        Me.rdbAdministrador.Size = New System.Drawing.Size(117, 30)
+        Me.rdbAdministrador.TabIndex = 56
+        Me.rdbAdministrador.TabStop = True
+        Me.rdbAdministrador.Text = "Administrador"
+        Me.rdbAdministrador.UseVisualStyleBackColor = True
         '
-        'MaterialRadioButton2
+        'rdbContador
         '
-        Me.MaterialRadioButton2.AutoSize = True
-        Me.MaterialRadioButton2.Depth = 0
-        Me.MaterialRadioButton2.Font = New System.Drawing.Font("Roboto", 10.0!)
-        Me.MaterialRadioButton2.Location = New System.Drawing.Point(90, 283)
-        Me.MaterialRadioButton2.Margin = New System.Windows.Forms.Padding(0)
-        Me.MaterialRadioButton2.MouseLocation = New System.Drawing.Point(-1, -1)
-        Me.MaterialRadioButton2.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialRadioButton2.Name = "MaterialRadioButton2"
-        Me.MaterialRadioButton2.Ripple = True
-        Me.MaterialRadioButton2.Size = New System.Drawing.Size(86, 30)
-        Me.MaterialRadioButton2.TabIndex = 57
-        Me.MaterialRadioButton2.TabStop = True
-        Me.MaterialRadioButton2.Text = "Contador"
-        Me.MaterialRadioButton2.UseVisualStyleBackColor = True
+        Me.rdbContador.AutoSize = True
+        Me.rdbContador.Depth = 0
+        Me.rdbContador.Font = New System.Drawing.Font("Roboto", 10.0!)
+        Me.rdbContador.Location = New System.Drawing.Point(90, 283)
+        Me.rdbContador.Margin = New System.Windows.Forms.Padding(0)
+        Me.rdbContador.MouseLocation = New System.Drawing.Point(-1, -1)
+        Me.rdbContador.MouseState = MaterialSkin.MouseState.HOVER
+        Me.rdbContador.Name = "rdbContador"
+        Me.rdbContador.Ripple = True
+        Me.rdbContador.Size = New System.Drawing.Size(86, 30)
+        Me.rdbContador.TabIndex = 57
+        Me.rdbContador.TabStop = True
+        Me.rdbContador.Text = "Contador"
+        Me.rdbContador.UseVisualStyleBackColor = True
         '
-        'MaterialRadioButton3
+        'rdbAgente
         '
-        Me.MaterialRadioButton3.AutoSize = True
-        Me.MaterialRadioButton3.Depth = 0
-        Me.MaterialRadioButton3.Font = New System.Drawing.Font("Roboto", 10.0!)
-        Me.MaterialRadioButton3.Location = New System.Drawing.Point(194, 283)
-        Me.MaterialRadioButton3.Margin = New System.Windows.Forms.Padding(0)
-        Me.MaterialRadioButton3.MouseLocation = New System.Drawing.Point(-1, -1)
-        Me.MaterialRadioButton3.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialRadioButton3.Name = "MaterialRadioButton3"
-        Me.MaterialRadioButton3.Ripple = True
-        Me.MaterialRadioButton3.Size = New System.Drawing.Size(73, 30)
-        Me.MaterialRadioButton3.TabIndex = 58
-        Me.MaterialRadioButton3.TabStop = True
-        Me.MaterialRadioButton3.Text = "Agente"
-        Me.MaterialRadioButton3.UseVisualStyleBackColor = True
+        Me.rdbAgente.AutoSize = True
+        Me.rdbAgente.Depth = 0
+        Me.rdbAgente.Font = New System.Drawing.Font("Roboto", 10.0!)
+        Me.rdbAgente.Location = New System.Drawing.Point(194, 283)
+        Me.rdbAgente.Margin = New System.Windows.Forms.Padding(0)
+        Me.rdbAgente.MouseLocation = New System.Drawing.Point(-1, -1)
+        Me.rdbAgente.MouseState = MaterialSkin.MouseState.HOVER
+        Me.rdbAgente.Name = "rdbAgente"
+        Me.rdbAgente.Ripple = True
+        Me.rdbAgente.Size = New System.Drawing.Size(73, 30)
+        Me.rdbAgente.TabIndex = 58
+        Me.rdbAgente.TabStop = True
+        Me.rdbAgente.Text = "Agente"
+        Me.rdbAgente.UseVisualStyleBackColor = True
         '
-        'MaterialRaisedButton1
+        'btn_Regresar
         '
-        Me.MaterialRaisedButton1.Depth = 0
-        Me.MaterialRaisedButton1.Location = New System.Drawing.Point(293, 377)
-        Me.MaterialRaisedButton1.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialRaisedButton1.Name = "MaterialRaisedButton1"
-        Me.MaterialRaisedButton1.Primary = True
-        Me.MaterialRaisedButton1.Size = New System.Drawing.Size(106, 27)
-        Me.MaterialRaisedButton1.TabIndex = 77
-        Me.MaterialRaisedButton1.Text = "Regresar"
-        Me.MaterialRaisedButton1.UseVisualStyleBackColor = True
+        Me.btn_Regresar.Depth = 0
+        Me.btn_Regresar.Location = New System.Drawing.Point(293, 377)
+        Me.btn_Regresar.MouseState = MaterialSkin.MouseState.HOVER
+        Me.btn_Regresar.Name = "btn_Regresar"
+        Me.btn_Regresar.Primary = True
+        Me.btn_Regresar.Size = New System.Drawing.Size(106, 27)
+        Me.btn_Regresar.TabIndex = 77
+        Me.btn_Regresar.Text = "Regresar"
+        Me.btn_Regresar.UseVisualStyleBackColor = True
         '
-        'MenuStrip1
+        'mnsMenu
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CerrarSesiónToolStripMenuItem})
-        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
-        Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(416, 27)
-        Me.MenuStrip1.TabIndex = 78
-        Me.MenuStrip1.Text = "MenuStrip1"
+        Me.mnsMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnsCerrar_Sesion})
+        Me.mnsMenu.Location = New System.Drawing.Point(0, 0)
+        Me.mnsMenu.Name = "mnsMenu"
+        Me.mnsMenu.Size = New System.Drawing.Size(416, 27)
+        Me.mnsMenu.TabIndex = 78
+        Me.mnsMenu.Text = "MenuStrip1"
         '
-        'CerrarSesiónToolStripMenuItem
+        'mnsCerrar_Sesion
         '
-        Me.CerrarSesiónToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.CerrarSesiónToolStripMenuItem.Name = "CerrarSesiónToolStripMenuItem"
-        Me.CerrarSesiónToolStripMenuItem.Size = New System.Drawing.Size(102, 23)
-        Me.CerrarSesiónToolStripMenuItem.Text = "Cerrar Sesión"
+        Me.mnsCerrar_Sesion.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.mnsCerrar_Sesion.Name = "mnsCerrar_Sesion"
+        Me.mnsCerrar_Sesion.Size = New System.Drawing.Size(104, 23)
+        Me.mnsCerrar_Sesion.Text = "Cerrar_Sesion"
         '
         'frmUsuarios
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(416, 416)
-        Me.Controls.Add(Me.MaterialRaisedButton1)
-        Me.Controls.Add(Me.MaterialRadioButton3)
-        Me.Controls.Add(Me.MaterialRadioButton2)
-        Me.Controls.Add(Me.MaterialRadioButton1)
-        Me.Controls.Add(Me.MaterialLabel3)
-        Me.Controls.Add(Me.MaterialLabel4)
-        Me.Controls.Add(Me.MaterialSingleLineTextField3)
-        Me.Controls.Add(Me.MaterialFlatButton1)
-        Me.Controls.Add(Me.MaterialLabel6)
-        Me.Controls.Add(Me.MaterialSingleLineTextField6)
-        Me.Controls.Add(Me.MaterialLabel2)
-        Me.Controls.Add(Me.MaterialSingleLineTextField2)
-        Me.Controls.Add(Me.MaterialLabel1)
-        Me.Controls.Add(Me.MaterialSingleLineTextField1)
-        Me.Controls.Add(Me.MenuStrip1)
-        Me.MainMenuStrip = Me.MenuStrip1
+        Me.Controls.Add(Me.btn_Regresar)
+        Me.Controls.Add(Me.rdbAgente)
+        Me.Controls.Add(Me.rdbContador)
+        Me.Controls.Add(Me.rdbAdministrador)
+        Me.Controls.Add(Me.lblPerfil)
+        Me.Controls.Add(Me.lblContraseña)
+        Me.Controls.Add(Me.txbContraseña)
+        Me.Controls.Add(Me.btnAgregar_Usuario)
+        Me.Controls.Add(Me.lblNombre_Usuario)
+        Me.Controls.Add(Me.txbNombre_Usuario)
+        Me.Controls.Add(Me.lblNombre)
+        Me.Controls.Add(Me.txbNombre)
+        Me.Controls.Add(Me.lblApellido)
+        Me.Controls.Add(Me.txbApellido)
+        Me.Controls.Add(Me.mnsMenu)
+        Me.MainMenuStrip = Me.mnsMenu
         Me.Name = "frmUsuarios"
         Me.Text = "Registro de Usuarios                                      Rent-a-Car      "
-        Me.MenuStrip1.ResumeLayout(False)
-        Me.MenuStrip1.PerformLayout()
+        Me.mnsMenu.ResumeLayout(False)
+        Me.mnsMenu.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
-    Friend WithEvents MaterialLabel4 As MaterialSkin.Controls.MaterialLabel
-    Friend WithEvents MaterialSingleLineTextField3 As MaterialSkin.Controls.MaterialSingleLineTextField
-    Friend WithEvents MaterialFlatButton1 As MaterialSkin.Controls.MaterialFlatButton
-    Friend WithEvents MaterialLabel6 As MaterialSkin.Controls.MaterialLabel
-    Friend WithEvents MaterialSingleLineTextField6 As MaterialSkin.Controls.MaterialSingleLineTextField
-    Friend WithEvents MaterialLabel2 As MaterialSkin.Controls.MaterialLabel
-    Friend WithEvents MaterialSingleLineTextField2 As MaterialSkin.Controls.MaterialSingleLineTextField
-    Friend WithEvents MaterialLabel1 As MaterialSkin.Controls.MaterialLabel
-    Friend WithEvents MaterialSingleLineTextField1 As MaterialSkin.Controls.MaterialSingleLineTextField
-    Friend WithEvents MaterialLabel3 As MaterialSkin.Controls.MaterialLabel
-    Friend WithEvents MaterialRadioButton1 As MaterialSkin.Controls.MaterialRadioButton
-    Friend WithEvents MaterialRadioButton2 As MaterialSkin.Controls.MaterialRadioButton
-    Friend WithEvents MaterialRadioButton3 As MaterialSkin.Controls.MaterialRadioButton
-    Friend WithEvents MaterialRaisedButton1 As MaterialSkin.Controls.MaterialRaisedButton
-    Friend WithEvents MenuStrip1 As MenuStrip
-    Friend WithEvents CerrarSesiónToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents lblContraseña As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents txbContraseña As MaterialSkin.Controls.MaterialSingleLineTextField
+    Friend WithEvents btnAgregar_Usuario As MaterialSkin.Controls.MaterialFlatButton
+    Friend WithEvents lblNombre_Usuario As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents txbNombre_Usuario As MaterialSkin.Controls.MaterialSingleLineTextField
+    Friend WithEvents lblNombre As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents txbNombre As MaterialSkin.Controls.MaterialSingleLineTextField
+    Friend WithEvents lblApellido As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents txbApellido As MaterialSkin.Controls.MaterialSingleLineTextField
+    Friend WithEvents lblPerfil As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents rdbAdministrador As MaterialSkin.Controls.MaterialRadioButton
+    Friend WithEvents rdbContador As MaterialSkin.Controls.MaterialRadioButton
+    Friend WithEvents rdbAgente As MaterialSkin.Controls.MaterialRadioButton
+    Friend WithEvents btn_Regresar As MaterialSkin.Controls.MaterialRaisedButton
+    Friend WithEvents mnsMenu As MenuStrip
+    Friend WithEvents mnsCerrar_Sesion As ToolStripMenuItem
 End Class

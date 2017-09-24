@@ -22,315 +22,389 @@ Partial Class frmClientes
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.MaterialFlatButton1 = New MaterialSkin.Controls.MaterialFlatButton()
-        Me.MaterialLabel9 = New MaterialSkin.Controls.MaterialLabel()
-        Me.MaterialLabel7 = New MaterialSkin.Controls.MaterialLabel()
-        Me.MaterialSingleLineTextField7 = New MaterialSkin.Controls.MaterialSingleLineTextField()
-        Me.MaterialLabel6 = New MaterialSkin.Controls.MaterialLabel()
-        Me.MaterialSingleLineTextField6 = New MaterialSkin.Controls.MaterialSingleLineTextField()
-        Me.MaterialSingleLineTextField5 = New MaterialSkin.Controls.MaterialSingleLineTextField()
-        Me.MaterialLabel2 = New MaterialSkin.Controls.MaterialLabel()
-        Me.MaterialSingleLineTextField2 = New MaterialSkin.Controls.MaterialSingleLineTextField()
-        Me.MaterialLabel1 = New MaterialSkin.Controls.MaterialLabel()
-        Me.MaterialSingleLineTextField1 = New MaterialSkin.Controls.MaterialSingleLineTextField()
-        Me.MaterialLabel3 = New MaterialSkin.Controls.MaterialLabel()
-        Me.MaterialLabel4 = New MaterialSkin.Controls.MaterialLabel()
-        Me.MaterialSingleLineTextField3 = New MaterialSkin.Controls.MaterialSingleLineTextField()
-        Me.MaterialSingleLineTextField4 = New MaterialSkin.Controls.MaterialSingleLineTextField()
-        Me.MaterialRaisedButton1 = New MaterialSkin.Controls.MaterialRaisedButton()
-        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
-        Me.CerrarSesiónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.MenuStrip1.SuspendLayout()
+        Me.btnAgregar_Cliente = New MaterialSkin.Controls.MaterialFlatButton()
+        Me.lblEmail = New MaterialSkin.Controls.MaterialLabel()
+        Me.lblCiudad = New MaterialSkin.Controls.MaterialLabel()
+        Me.txbCiudad = New MaterialSkin.Controls.MaterialSingleLineTextField()
+        Me.lblDireccion = New MaterialSkin.Controls.MaterialLabel()
+        Me.txbDireccion = New MaterialSkin.Controls.MaterialSingleLineTextField()
+        Me.txbEmail = New MaterialSkin.Controls.MaterialSingleLineTextField()
+        Me.lblNombre = New MaterialSkin.Controls.MaterialLabel()
+        Me.txbNombre = New MaterialSkin.Controls.MaterialSingleLineTextField()
+        Me.lblDUI = New MaterialSkin.Controls.MaterialLabel()
+        Me.txbDui = New MaterialSkin.Controls.MaterialSingleLineTextField()
+        Me.lblTelefono = New MaterialSkin.Controls.MaterialLabel()
+        Me.lblPais = New MaterialSkin.Controls.MaterialLabel()
+        Me.txbPais = New MaterialSkin.Controls.MaterialSingleLineTextField()
+        Me.txbTelefono = New MaterialSkin.Controls.MaterialSingleLineTextField()
+        Me.btnRegresar = New MaterialSkin.Controls.MaterialRaisedButton()
+        Me.mnsMenu = New System.Windows.Forms.MenuStrip()
+        Me.mnsCerrar_Sesion = New System.Windows.Forms.ToolStripMenuItem()
+        Me.lblPasaporte = New MaterialSkin.Controls.MaterialLabel()
+        Me.txbPasaporte = New MaterialSkin.Controls.MaterialSingleLineTextField()
+        Me.rbtPasaporte = New MaterialSkin.Controls.MaterialRadioButton()
+        Me.rbtDui = New MaterialSkin.Controls.MaterialRadioButton()
+        Me.mnsMenu.SuspendLayout()
         Me.SuspendLayout()
         '
-        'MaterialFlatButton1
+        'btnAgregar_Cliente
         '
-        Me.MaterialFlatButton1.AutoSize = True
-        Me.MaterialFlatButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.MaterialFlatButton1.Depth = 0
-        Me.MaterialFlatButton1.Location = New System.Drawing.Point(304, 314)
-        Me.MaterialFlatButton1.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
-        Me.MaterialFlatButton1.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialFlatButton1.Name = "MaterialFlatButton1"
-        Me.MaterialFlatButton1.Primary = False
-        Me.MaterialFlatButton1.Size = New System.Drawing.Size(142, 36)
-        Me.MaterialFlatButton1.TabIndex = 36
-        Me.MaterialFlatButton1.Text = "+ Agregar cliente"
-        Me.MaterialFlatButton1.UseVisualStyleBackColor = True
+        Me.btnAgregar_Cliente.AutoSize = True
+        Me.btnAgregar_Cliente.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.btnAgregar_Cliente.Depth = 0
+        Me.btnAgregar_Cliente.Location = New System.Drawing.Point(296, 366)
+        Me.btnAgregar_Cliente.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
+        Me.btnAgregar_Cliente.MouseState = MaterialSkin.MouseState.HOVER
+        Me.btnAgregar_Cliente.Name = "btnAgregar_Cliente"
+        Me.btnAgregar_Cliente.Primary = False
+        Me.btnAgregar_Cliente.Size = New System.Drawing.Size(142, 36)
+        Me.btnAgregar_Cliente.TabIndex = 36
+        Me.btnAgregar_Cliente.Text = "+ Agregar cliente"
+        Me.btnAgregar_Cliente.UseVisualStyleBackColor = True
         '
-        'MaterialLabel9
+        'lblEmail
         '
-        Me.MaterialLabel9.AutoSize = True
-        Me.MaterialLabel9.Depth = 0
-        Me.MaterialLabel9.Font = New System.Drawing.Font("Roboto", 11.0!)
-        Me.MaterialLabel9.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.MaterialLabel9.Location = New System.Drawing.Point(395, 221)
-        Me.MaterialLabel9.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialLabel9.Name = "MaterialLabel9"
-        Me.MaterialLabel9.Size = New System.Drawing.Size(47, 19)
-        Me.MaterialLabel9.TabIndex = 35
-        Me.MaterialLabel9.Text = "Email"
+        Me.lblEmail.AutoSize = True
+        Me.lblEmail.Depth = 0
+        Me.lblEmail.Font = New System.Drawing.Font("Roboto", 11.0!)
+        Me.lblEmail.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblEmail.Location = New System.Drawing.Point(391, 274)
+        Me.lblEmail.MouseState = MaterialSkin.MouseState.HOVER
+        Me.lblEmail.Name = "lblEmail"
+        Me.lblEmail.Size = New System.Drawing.Size(47, 19)
+        Me.lblEmail.TabIndex = 35
+        Me.lblEmail.Text = "Email"
         '
-        'MaterialLabel7
+        'lblCiudad
         '
-        Me.MaterialLabel7.AutoSize = True
-        Me.MaterialLabel7.Depth = 0
-        Me.MaterialLabel7.Font = New System.Drawing.Font("Roboto", 11.0!)
-        Me.MaterialLabel7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.MaterialLabel7.Location = New System.Drawing.Point(395, 178)
-        Me.MaterialLabel7.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialLabel7.Name = "MaterialLabel7"
-        Me.MaterialLabel7.Size = New System.Drawing.Size(55, 19)
-        Me.MaterialLabel7.TabIndex = 34
-        Me.MaterialLabel7.Text = "Ciudad"
+        Me.lblCiudad.AutoSize = True
+        Me.lblCiudad.Depth = 0
+        Me.lblCiudad.Font = New System.Drawing.Font("Roboto", 11.0!)
+        Me.lblCiudad.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblCiudad.Location = New System.Drawing.Point(40, 324)
+        Me.lblCiudad.MouseState = MaterialSkin.MouseState.HOVER
+        Me.lblCiudad.Name = "lblCiudad"
+        Me.lblCiudad.Size = New System.Drawing.Size(55, 19)
+        Me.lblCiudad.TabIndex = 34
+        Me.lblCiudad.Text = "Ciudad"
         '
-        'MaterialSingleLineTextField7
+        'txbCiudad
         '
-        Me.MaterialSingleLineTextField7.Depth = 0
-        Me.MaterialSingleLineTextField7.Hint = ""
-        Me.MaterialSingleLineTextField7.Location = New System.Drawing.Point(466, 174)
-        Me.MaterialSingleLineTextField7.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialSingleLineTextField7.Name = "MaterialSingleLineTextField7"
-        Me.MaterialSingleLineTextField7.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.MaterialSingleLineTextField7.SelectedText = ""
-        Me.MaterialSingleLineTextField7.SelectionLength = 0
-        Me.MaterialSingleLineTextField7.SelectionStart = 0
-        Me.MaterialSingleLineTextField7.Size = New System.Drawing.Size(237, 23)
-        Me.MaterialSingleLineTextField7.TabIndex = 33
-        Me.MaterialSingleLineTextField7.UseSystemPasswordChar = False
+        Me.txbCiudad.Depth = 0
+        Me.txbCiudad.Hint = ""
+        Me.txbCiudad.Location = New System.Drawing.Point(119, 320)
+        Me.txbCiudad.MouseState = MaterialSkin.MouseState.HOVER
+        Me.txbCiudad.Name = "txbCiudad"
+        Me.txbCiudad.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.txbCiudad.SelectedText = ""
+        Me.txbCiudad.SelectionLength = 0
+        Me.txbCiudad.SelectionStart = 0
+        Me.txbCiudad.Size = New System.Drawing.Size(255, 23)
+        Me.txbCiudad.TabIndex = 33
+        Me.txbCiudad.UseSystemPasswordChar = False
         '
-        'MaterialLabel6
+        'lblDireccion
         '
-        Me.MaterialLabel6.AutoSize = True
-        Me.MaterialLabel6.Depth = 0
-        Me.MaterialLabel6.Font = New System.Drawing.Font("Roboto", 11.0!)
-        Me.MaterialLabel6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.MaterialLabel6.Location = New System.Drawing.Point(31, 220)
-        Me.MaterialLabel6.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialLabel6.Name = "MaterialLabel6"
-        Me.MaterialLabel6.Size = New System.Drawing.Size(73, 19)
-        Me.MaterialLabel6.TabIndex = 32
-        Me.MaterialLabel6.Text = "Dirección"
+        Me.lblDireccion.AutoSize = True
+        Me.lblDireccion.Depth = 0
+        Me.lblDireccion.Font = New System.Drawing.Font("Roboto", 11.0!)
+        Me.lblDireccion.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblDireccion.Location = New System.Drawing.Point(31, 231)
+        Me.lblDireccion.MouseState = MaterialSkin.MouseState.HOVER
+        Me.lblDireccion.Name = "lblDireccion"
+        Me.lblDireccion.Size = New System.Drawing.Size(73, 19)
+        Me.lblDireccion.TabIndex = 32
+        Me.lblDireccion.Text = "Dirección"
         '
-        'MaterialSingleLineTextField6
+        'txbDireccion
         '
-        Me.MaterialSingleLineTextField6.Depth = 0
-        Me.MaterialSingleLineTextField6.Hint = ""
-        Me.MaterialSingleLineTextField6.Location = New System.Drawing.Point(115, 220)
-        Me.MaterialSingleLineTextField6.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialSingleLineTextField6.Name = "MaterialSingleLineTextField6"
-        Me.MaterialSingleLineTextField6.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.MaterialSingleLineTextField6.SelectedText = ""
-        Me.MaterialSingleLineTextField6.SelectionLength = 0
-        Me.MaterialSingleLineTextField6.SelectionStart = 0
-        Me.MaterialSingleLineTextField6.Size = New System.Drawing.Size(255, 23)
-        Me.MaterialSingleLineTextField6.TabIndex = 31
-        Me.MaterialSingleLineTextField6.UseSystemPasswordChar = False
+        Me.txbDireccion.Depth = 0
+        Me.txbDireccion.Hint = ""
+        Me.txbDireccion.Location = New System.Drawing.Point(119, 231)
+        Me.txbDireccion.MouseState = MaterialSkin.MouseState.HOVER
+        Me.txbDireccion.Name = "txbDireccion"
+        Me.txbDireccion.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.txbDireccion.SelectedText = ""
+        Me.txbDireccion.SelectionLength = 0
+        Me.txbDireccion.SelectionStart = 0
+        Me.txbDireccion.Size = New System.Drawing.Size(580, 23)
+        Me.txbDireccion.TabIndex = 31
+        Me.txbDireccion.UseSystemPasswordChar = False
         '
-        'MaterialSingleLineTextField5
+        'txbEmail
         '
-        Me.MaterialSingleLineTextField5.Depth = 0
-        Me.MaterialSingleLineTextField5.Hint = ""
-        Me.MaterialSingleLineTextField5.Location = New System.Drawing.Point(466, 221)
-        Me.MaterialSingleLineTextField5.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialSingleLineTextField5.Name = "MaterialSingleLineTextField5"
-        Me.MaterialSingleLineTextField5.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.MaterialSingleLineTextField5.SelectedText = ""
-        Me.MaterialSingleLineTextField5.SelectionLength = 0
-        Me.MaterialSingleLineTextField5.SelectionStart = 0
-        Me.MaterialSingleLineTextField5.Size = New System.Drawing.Size(237, 23)
-        Me.MaterialSingleLineTextField5.TabIndex = 29
-        Me.MaterialSingleLineTextField5.UseSystemPasswordChar = False
+        Me.txbEmail.Depth = 0
+        Me.txbEmail.Hint = ""
+        Me.txbEmail.Location = New System.Drawing.Point(462, 274)
+        Me.txbEmail.MouseState = MaterialSkin.MouseState.HOVER
+        Me.txbEmail.Name = "txbEmail"
+        Me.txbEmail.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.txbEmail.SelectedText = ""
+        Me.txbEmail.SelectionLength = 0
+        Me.txbEmail.SelectionStart = 0
+        Me.txbEmail.Size = New System.Drawing.Size(237, 23)
+        Me.txbEmail.TabIndex = 29
+        Me.txbEmail.UseSystemPasswordChar = False
         '
-        'MaterialLabel2
+        'lblNombre
         '
-        Me.MaterialLabel2.AutoSize = True
-        Me.MaterialLabel2.Depth = 0
-        Me.MaterialLabel2.Font = New System.Drawing.Font("Roboto", 11.0!)
-        Me.MaterialLabel2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.MaterialLabel2.Location = New System.Drawing.Point(31, 122)
-        Me.MaterialLabel2.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialLabel2.Name = "MaterialLabel2"
-        Me.MaterialLabel2.Size = New System.Drawing.Size(63, 19)
-        Me.MaterialLabel2.TabIndex = 24
-        Me.MaterialLabel2.Text = "Nombre"
+        Me.lblNombre.AutoSize = True
+        Me.lblNombre.Depth = 0
+        Me.lblNombre.Font = New System.Drawing.Font("Roboto", 11.0!)
+        Me.lblNombre.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblNombre.Location = New System.Drawing.Point(31, 99)
+        Me.lblNombre.MouseState = MaterialSkin.MouseState.HOVER
+        Me.lblNombre.Name = "lblNombre"
+        Me.lblNombre.Size = New System.Drawing.Size(63, 19)
+        Me.lblNombre.TabIndex = 24
+        Me.lblNombre.Text = "Nombre"
         '
-        'MaterialSingleLineTextField2
+        'txbNombre
         '
-        Me.MaterialSingleLineTextField2.Depth = 0
-        Me.MaterialSingleLineTextField2.Hint = ""
-        Me.MaterialSingleLineTextField2.Location = New System.Drawing.Point(111, 122)
-        Me.MaterialSingleLineTextField2.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialSingleLineTextField2.Name = "MaterialSingleLineTextField2"
-        Me.MaterialSingleLineTextField2.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.MaterialSingleLineTextField2.SelectedText = ""
-        Me.MaterialSingleLineTextField2.SelectionLength = 0
-        Me.MaterialSingleLineTextField2.SelectionStart = 0
-        Me.MaterialSingleLineTextField2.Size = New System.Drawing.Size(374, 23)
-        Me.MaterialSingleLineTextField2.TabIndex = 23
-        Me.MaterialSingleLineTextField2.UseSystemPasswordChar = False
+        Me.txbNombre.Depth = 0
+        Me.txbNombre.Hint = ""
+        Me.txbNombre.Location = New System.Drawing.Point(111, 99)
+        Me.txbNombre.MouseState = MaterialSkin.MouseState.HOVER
+        Me.txbNombre.Name = "txbNombre"
+        Me.txbNombre.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.txbNombre.SelectedText = ""
+        Me.txbNombre.SelectionLength = 0
+        Me.txbNombre.SelectionStart = 0
+        Me.txbNombre.Size = New System.Drawing.Size(588, 23)
+        Me.txbNombre.TabIndex = 23
+        Me.txbNombre.UseSystemPasswordChar = False
         '
-        'MaterialLabel1
+        'lblDUI
         '
-        Me.MaterialLabel1.AutoSize = True
-        Me.MaterialLabel1.Depth = 0
-        Me.MaterialLabel1.Font = New System.Drawing.Font("Roboto", 11.0!)
-        Me.MaterialLabel1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.MaterialLabel1.Location = New System.Drawing.Point(31, 178)
-        Me.MaterialLabel1.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialLabel1.Name = "MaterialLabel1"
-        Me.MaterialLabel1.Size = New System.Drawing.Size(117, 19)
-        Me.MaterialLabel1.TabIndex = 22
-        Me.MaterialLabel1.Text = "DUI o pasaporte"
+        Me.lblDUI.AutoSize = True
+        Me.lblDUI.Depth = 0
+        Me.lblDUI.Font = New System.Drawing.Font("Roboto", 11.0!)
+        Me.lblDUI.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblDUI.Location = New System.Drawing.Point(40, 185)
+        Me.lblDUI.MouseState = MaterialSkin.MouseState.HOVER
+        Me.lblDUI.Name = "lblDUI"
+        Me.lblDUI.Size = New System.Drawing.Size(33, 19)
+        Me.lblDUI.TabIndex = 22
+        Me.lblDUI.Text = "DUI"
         '
-        'MaterialSingleLineTextField1
+        'txbDui
         '
-        Me.MaterialSingleLineTextField1.Depth = 0
-        Me.MaterialSingleLineTextField1.Hint = ""
-        Me.MaterialSingleLineTextField1.Location = New System.Drawing.Point(162, 174)
-        Me.MaterialSingleLineTextField1.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialSingleLineTextField1.Name = "MaterialSingleLineTextField1"
-        Me.MaterialSingleLineTextField1.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.MaterialSingleLineTextField1.SelectedText = ""
-        Me.MaterialSingleLineTextField1.SelectionLength = 0
-        Me.MaterialSingleLineTextField1.SelectionStart = 0
-        Me.MaterialSingleLineTextField1.Size = New System.Drawing.Size(208, 23)
-        Me.MaterialSingleLineTextField1.TabIndex = 21
-        Me.MaterialSingleLineTextField1.UseSystemPasswordChar = False
+        Me.txbDui.Depth = 0
+        Me.txbDui.Hint = ""
+        Me.txbDui.Location = New System.Drawing.Point(97, 181)
+        Me.txbDui.MouseState = MaterialSkin.MouseState.HOVER
+        Me.txbDui.Name = "txbDui"
+        Me.txbDui.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.txbDui.SelectedText = ""
+        Me.txbDui.SelectionLength = 0
+        Me.txbDui.SelectionStart = 0
+        Me.txbDui.Size = New System.Drawing.Size(259, 23)
+        Me.txbDui.TabIndex = 21
+        Me.txbDui.UseSystemPasswordChar = False
         '
-        'MaterialLabel3
+        'lblTelefono
         '
-        Me.MaterialLabel3.AutoSize = True
-        Me.MaterialLabel3.Depth = 0
-        Me.MaterialLabel3.Font = New System.Drawing.Font("Roboto", 11.0!)
-        Me.MaterialLabel3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.MaterialLabel3.Location = New System.Drawing.Point(395, 267)
-        Me.MaterialLabel3.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialLabel3.Name = "MaterialLabel3"
-        Me.MaterialLabel3.Size = New System.Drawing.Size(143, 19)
-        Me.MaterialLabel3.TabIndex = 40
-        Me.MaterialLabel3.Text = "Número de telefono"
+        Me.lblTelefono.AutoSize = True
+        Me.lblTelefono.Depth = 0
+        Me.lblTelefono.Font = New System.Drawing.Font("Roboto", 11.0!)
+        Me.lblTelefono.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblTelefono.Location = New System.Drawing.Point(391, 320)
+        Me.lblTelefono.MouseState = MaterialSkin.MouseState.HOVER
+        Me.lblTelefono.Name = "lblTelefono"
+        Me.lblTelefono.Size = New System.Drawing.Size(143, 19)
+        Me.lblTelefono.TabIndex = 40
+        Me.lblTelefono.Text = "Número de telefono"
         '
-        'MaterialLabel4
+        'lblPais
         '
-        Me.MaterialLabel4.AutoSize = True
-        Me.MaterialLabel4.Depth = 0
-        Me.MaterialLabel4.Font = New System.Drawing.Font("Roboto", 11.0!)
-        Me.MaterialLabel4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.MaterialLabel4.Location = New System.Drawing.Point(40, 267)
-        Me.MaterialLabel4.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialLabel4.Name = "MaterialLabel4"
-        Me.MaterialLabel4.Size = New System.Drawing.Size(38, 19)
-        Me.MaterialLabel4.TabIndex = 39
-        Me.MaterialLabel4.Text = "País"
+        Me.lblPais.AutoSize = True
+        Me.lblPais.Depth = 0
+        Me.lblPais.Font = New System.Drawing.Font("Roboto", 11.0!)
+        Me.lblPais.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblPais.Location = New System.Drawing.Point(40, 278)
+        Me.lblPais.MouseState = MaterialSkin.MouseState.HOVER
+        Me.lblPais.Name = "lblPais"
+        Me.lblPais.Size = New System.Drawing.Size(38, 19)
+        Me.lblPais.TabIndex = 39
+        Me.lblPais.Text = "País"
         '
-        'MaterialSingleLineTextField3
+        'txbPais
         '
-        Me.MaterialSingleLineTextField3.Depth = 0
-        Me.MaterialSingleLineTextField3.Hint = ""
-        Me.MaterialSingleLineTextField3.Location = New System.Drawing.Point(111, 267)
-        Me.MaterialSingleLineTextField3.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialSingleLineTextField3.Name = "MaterialSingleLineTextField3"
-        Me.MaterialSingleLineTextField3.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.MaterialSingleLineTextField3.SelectedText = ""
-        Me.MaterialSingleLineTextField3.SelectionLength = 0
-        Me.MaterialSingleLineTextField3.SelectionStart = 0
-        Me.MaterialSingleLineTextField3.Size = New System.Drawing.Size(259, 23)
-        Me.MaterialSingleLineTextField3.TabIndex = 38
-        Me.MaterialSingleLineTextField3.UseSystemPasswordChar = False
+        Me.txbPais.Depth = 0
+        Me.txbPais.Hint = ""
+        Me.txbPais.Location = New System.Drawing.Point(115, 278)
+        Me.txbPais.MouseState = MaterialSkin.MouseState.HOVER
+        Me.txbPais.Name = "txbPais"
+        Me.txbPais.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.txbPais.SelectedText = ""
+        Me.txbPais.SelectionLength = 0
+        Me.txbPais.SelectionStart = 0
+        Me.txbPais.Size = New System.Drawing.Size(259, 23)
+        Me.txbPais.TabIndex = 38
+        Me.txbPais.UseSystemPasswordChar = False
         '
-        'MaterialSingleLineTextField4
+        'txbTelefono
         '
-        Me.MaterialSingleLineTextField4.Depth = 0
-        Me.MaterialSingleLineTextField4.Hint = ""
-        Me.MaterialSingleLineTextField4.Location = New System.Drawing.Point(544, 267)
-        Me.MaterialSingleLineTextField4.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialSingleLineTextField4.Name = "MaterialSingleLineTextField4"
-        Me.MaterialSingleLineTextField4.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.MaterialSingleLineTextField4.SelectedText = ""
-        Me.MaterialSingleLineTextField4.SelectionLength = 0
-        Me.MaterialSingleLineTextField4.SelectionStart = 0
-        Me.MaterialSingleLineTextField4.Size = New System.Drawing.Size(159, 23)
-        Me.MaterialSingleLineTextField4.TabIndex = 37
-        Me.MaterialSingleLineTextField4.UseSystemPasswordChar = False
+        Me.txbTelefono.Depth = 0
+        Me.txbTelefono.Hint = ""
+        Me.txbTelefono.Location = New System.Drawing.Point(540, 320)
+        Me.txbTelefono.MouseState = MaterialSkin.MouseState.HOVER
+        Me.txbTelefono.Name = "txbTelefono"
+        Me.txbTelefono.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.txbTelefono.SelectedText = ""
+        Me.txbTelefono.SelectionLength = 0
+        Me.txbTelefono.SelectionStart = 0
+        Me.txbTelefono.Size = New System.Drawing.Size(159, 23)
+        Me.txbTelefono.TabIndex = 37
+        Me.txbTelefono.UseSystemPasswordChar = False
         '
-        'MaterialRaisedButton1
+        'btnRegresar
         '
-        Me.MaterialRaisedButton1.Depth = 0
-        Me.MaterialRaisedButton1.Location = New System.Drawing.Point(597, 336)
-        Me.MaterialRaisedButton1.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialRaisedButton1.Name = "MaterialRaisedButton1"
-        Me.MaterialRaisedButton1.Primary = True
-        Me.MaterialRaisedButton1.Size = New System.Drawing.Size(106, 27)
-        Me.MaterialRaisedButton1.TabIndex = 52
-        Me.MaterialRaisedButton1.Text = "Regresar"
-        Me.MaterialRaisedButton1.UseVisualStyleBackColor = True
+        Me.btnRegresar.Depth = 0
+        Me.btnRegresar.Location = New System.Drawing.Point(589, 388)
+        Me.btnRegresar.MouseState = MaterialSkin.MouseState.HOVER
+        Me.btnRegresar.Name = "btnRegresar"
+        Me.btnRegresar.Primary = True
+        Me.btnRegresar.Size = New System.Drawing.Size(106, 27)
+        Me.btnRegresar.TabIndex = 52
+        Me.btnRegresar.Text = "Regresar"
+        Me.btnRegresar.UseVisualStyleBackColor = True
         '
-        'MenuStrip1
+        'mnsMenu
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CerrarSesiónToolStripMenuItem})
-        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
-        Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(733, 27)
-        Me.MenuStrip1.TabIndex = 53
-        Me.MenuStrip1.Text = "MenuStrip1"
+        Me.mnsMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnsCerrar_Sesion})
+        Me.mnsMenu.Location = New System.Drawing.Point(0, 0)
+        Me.mnsMenu.Name = "mnsMenu"
+        Me.mnsMenu.Size = New System.Drawing.Size(733, 27)
+        Me.mnsMenu.TabIndex = 53
+        Me.mnsMenu.Text = "MenuStrip1"
         '
-        'CerrarSesiónToolStripMenuItem
+        'mnsCerrar_Sesion
         '
-        Me.CerrarSesiónToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.CerrarSesiónToolStripMenuItem.Name = "CerrarSesiónToolStripMenuItem"
-        Me.CerrarSesiónToolStripMenuItem.Size = New System.Drawing.Size(102, 23)
-        Me.CerrarSesiónToolStripMenuItem.Text = "Cerrar Sesión"
+        Me.mnsCerrar_Sesion.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.mnsCerrar_Sesion.Name = "mnsCerrar_Sesion"
+        Me.mnsCerrar_Sesion.Size = New System.Drawing.Size(102, 23)
+        Me.mnsCerrar_Sesion.Text = "Cerrar Sesión"
+        '
+        'lblPasaporte
+        '
+        Me.lblPasaporte.AutoSize = True
+        Me.lblPasaporte.Depth = 0
+        Me.lblPasaporte.Font = New System.Drawing.Font("Roboto", 11.0!)
+        Me.lblPasaporte.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblPasaporte.Location = New System.Drawing.Point(390, 185)
+        Me.lblPasaporte.MouseState = MaterialSkin.MouseState.HOVER
+        Me.lblPasaporte.Name = "lblPasaporte"
+        Me.lblPasaporte.Size = New System.Drawing.Size(77, 19)
+        Me.lblPasaporte.TabIndex = 55
+        Me.lblPasaporte.Text = "Pasaporte"
+        '
+        'txbPasaporte
+        '
+        Me.txbPasaporte.Depth = 0
+        Me.txbPasaporte.Hint = ""
+        Me.txbPasaporte.Location = New System.Drawing.Point(474, 181)
+        Me.txbPasaporte.MouseState = MaterialSkin.MouseState.HOVER
+        Me.txbPasaporte.Name = "txbPasaporte"
+        Me.txbPasaporte.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.txbPasaporte.SelectedText = ""
+        Me.txbPasaporte.SelectionLength = 0
+        Me.txbPasaporte.SelectionStart = 0
+        Me.txbPasaporte.Size = New System.Drawing.Size(224, 23)
+        Me.txbPasaporte.TabIndex = 54
+        Me.txbPasaporte.UseSystemPasswordChar = False
+        '
+        'rbtPasaporte
+        '
+        Me.rbtPasaporte.AutoSize = True
+        Me.rbtPasaporte.Depth = 0
+        Me.rbtPasaporte.Font = New System.Drawing.Font("Roboto", 10.0!)
+        Me.rbtPasaporte.Location = New System.Drawing.Point(390, 135)
+        Me.rbtPasaporte.Margin = New System.Windows.Forms.Padding(0)
+        Me.rbtPasaporte.MouseLocation = New System.Drawing.Point(-1, -1)
+        Me.rbtPasaporte.MouseState = MaterialSkin.MouseState.HOVER
+        Me.rbtPasaporte.Name = "rbtPasaporte"
+        Me.rbtPasaporte.Ripple = True
+        Me.rbtPasaporte.Size = New System.Drawing.Size(92, 30)
+        Me.rbtPasaporte.TabIndex = 59
+        Me.rbtPasaporte.TabStop = True
+        Me.rbtPasaporte.Text = "Pasaporte"
+        Me.rbtPasaporte.UseVisualStyleBackColor = True
+        '
+        'rbtDui
+        '
+        Me.rbtDui.AutoSize = True
+        Me.rbtDui.Depth = 0
+        Me.rbtDui.Font = New System.Drawing.Font("Roboto", 10.0!)
+        Me.rbtDui.Location = New System.Drawing.Point(307, 135)
+        Me.rbtDui.Margin = New System.Windows.Forms.Padding(0)
+        Me.rbtDui.MouseLocation = New System.Drawing.Point(-1, -1)
+        Me.rbtDui.MouseState = MaterialSkin.MouseState.HOVER
+        Me.rbtDui.Name = "rbtDui"
+        Me.rbtDui.Ripple = True
+        Me.rbtDui.Size = New System.Drawing.Size(49, 30)
+        Me.rbtDui.TabIndex = 58
+        Me.rbtDui.TabStop = True
+        Me.rbtDui.Text = "Dui"
+        Me.rbtDui.UseVisualStyleBackColor = True
         '
         'frmClientes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(733, 385)
-        Me.Controls.Add(Me.MaterialRaisedButton1)
-        Me.Controls.Add(Me.MaterialLabel3)
-        Me.Controls.Add(Me.MaterialLabel4)
-        Me.Controls.Add(Me.MaterialSingleLineTextField3)
-        Me.Controls.Add(Me.MaterialSingleLineTextField4)
-        Me.Controls.Add(Me.MaterialFlatButton1)
-        Me.Controls.Add(Me.MaterialLabel9)
-        Me.Controls.Add(Me.MaterialLabel7)
-        Me.Controls.Add(Me.MaterialSingleLineTextField7)
-        Me.Controls.Add(Me.MaterialLabel6)
-        Me.Controls.Add(Me.MaterialSingleLineTextField6)
-        Me.Controls.Add(Me.MaterialSingleLineTextField5)
-        Me.Controls.Add(Me.MaterialLabel2)
-        Me.Controls.Add(Me.MaterialSingleLineTextField2)
-        Me.Controls.Add(Me.MaterialLabel1)
-        Me.Controls.Add(Me.MaterialSingleLineTextField1)
-        Me.Controls.Add(Me.MenuStrip1)
-        Me.MainMenuStrip = Me.MenuStrip1
+        Me.ClientSize = New System.Drawing.Size(733, 436)
+        Me.Controls.Add(Me.rbtPasaporte)
+        Me.Controls.Add(Me.rbtDui)
+        Me.Controls.Add(Me.lblPasaporte)
+        Me.Controls.Add(Me.txbPasaporte)
+        Me.Controls.Add(Me.btnRegresar)
+        Me.Controls.Add(Me.lblTelefono)
+        Me.Controls.Add(Me.lblPais)
+        Me.Controls.Add(Me.txbPais)
+        Me.Controls.Add(Me.txbTelefono)
+        Me.Controls.Add(Me.btnAgregar_Cliente)
+        Me.Controls.Add(Me.lblEmail)
+        Me.Controls.Add(Me.lblCiudad)
+        Me.Controls.Add(Me.txbCiudad)
+        Me.Controls.Add(Me.lblDireccion)
+        Me.Controls.Add(Me.txbDireccion)
+        Me.Controls.Add(Me.txbEmail)
+        Me.Controls.Add(Me.lblNombre)
+        Me.Controls.Add(Me.txbNombre)
+        Me.Controls.Add(Me.lblDUI)
+        Me.Controls.Add(Me.txbDui)
+        Me.Controls.Add(Me.mnsMenu)
+        Me.MainMenuStrip = Me.mnsMenu
         Me.Name = "frmClientes"
         Me.Text = "Registro de usuarios                                                             " &
     "                                                      Rent-a-Car"
-        Me.MenuStrip1.ResumeLayout(False)
-        Me.MenuStrip1.PerformLayout()
+        Me.mnsMenu.ResumeLayout(False)
+        Me.mnsMenu.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
-    Friend WithEvents MaterialFlatButton1 As MaterialSkin.Controls.MaterialFlatButton
-    Friend WithEvents MaterialLabel9 As MaterialSkin.Controls.MaterialLabel
-    Friend WithEvents MaterialLabel7 As MaterialSkin.Controls.MaterialLabel
-    Friend WithEvents MaterialSingleLineTextField7 As MaterialSkin.Controls.MaterialSingleLineTextField
-    Friend WithEvents MaterialLabel6 As MaterialSkin.Controls.MaterialLabel
-    Friend WithEvents MaterialSingleLineTextField6 As MaterialSkin.Controls.MaterialSingleLineTextField
-    Friend WithEvents MaterialSingleLineTextField5 As MaterialSkin.Controls.MaterialSingleLineTextField
-    Friend WithEvents MaterialLabel2 As MaterialSkin.Controls.MaterialLabel
-    Friend WithEvents MaterialSingleLineTextField2 As MaterialSkin.Controls.MaterialSingleLineTextField
-    Friend WithEvents MaterialLabel1 As MaterialSkin.Controls.MaterialLabel
-    Friend WithEvents MaterialSingleLineTextField1 As MaterialSkin.Controls.MaterialSingleLineTextField
-    Friend WithEvents MaterialLabel3 As MaterialSkin.Controls.MaterialLabel
-    Friend WithEvents MaterialLabel4 As MaterialSkin.Controls.MaterialLabel
-    Friend WithEvents MaterialSingleLineTextField3 As MaterialSkin.Controls.MaterialSingleLineTextField
-    Friend WithEvents MaterialSingleLineTextField4 As MaterialSkin.Controls.MaterialSingleLineTextField
-    Friend WithEvents MaterialRaisedButton1 As MaterialSkin.Controls.MaterialRaisedButton
-    Friend WithEvents MenuStrip1 As MenuStrip
-    Friend WithEvents CerrarSesiónToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents btnAgregar_Cliente As MaterialSkin.Controls.MaterialFlatButton
+    Friend WithEvents lblEmail As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents lblCiudad As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents txbCiudad As MaterialSkin.Controls.MaterialSingleLineTextField
+    Friend WithEvents lblDireccion As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents txbDireccion As MaterialSkin.Controls.MaterialSingleLineTextField
+    Friend WithEvents txbEmail As MaterialSkin.Controls.MaterialSingleLineTextField
+    Friend WithEvents lblNombre As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents txbNombre As MaterialSkin.Controls.MaterialSingleLineTextField
+    Friend WithEvents lblDUI As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents txbDui As MaterialSkin.Controls.MaterialSingleLineTextField
+    Friend WithEvents lblTelefono As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents lblPais As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents txbPais As MaterialSkin.Controls.MaterialSingleLineTextField
+    Friend WithEvents txbTelefono As MaterialSkin.Controls.MaterialSingleLineTextField
+    Friend WithEvents btnRegresar As MaterialSkin.Controls.MaterialRaisedButton
+    Friend WithEvents mnsMenu As MenuStrip
+    Friend WithEvents mnsCerrar_Sesion As ToolStripMenuItem
+    Friend WithEvents lblPasaporte As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents txbPasaporte As MaterialSkin.Controls.MaterialSingleLineTextField
+    Friend WithEvents rbtPasaporte As MaterialSkin.Controls.MaterialRadioButton
+    Friend WithEvents rbtDui As MaterialSkin.Controls.MaterialRadioButton
 End Class

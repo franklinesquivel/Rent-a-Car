@@ -22,265 +22,265 @@ Partial Class frmReservas
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.MaterialLabel4 = New MaterialSkin.Controls.MaterialLabel()
-        Me.MaterialLabel6 = New MaterialSkin.Controls.MaterialLabel()
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
-        Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
-        Me.MaterialSingleLineTextField3 = New MaterialSkin.Controls.MaterialSingleLineTextField()
-        Me.MaterialLabel1 = New MaterialSkin.Controls.MaterialLabel()
-        Me.MaterialSingleLineTextField2 = New MaterialSkin.Controls.MaterialSingleLineTextField()
-        Me.MaterialLabel3 = New MaterialSkin.Controls.MaterialLabel()
-        Me.DataGridView2 = New System.Windows.Forms.DataGridView()
-        Me.MaterialSingleLineTextField1 = New MaterialSkin.Controls.MaterialSingleLineTextField()
-        Me.MaterialLabel2 = New MaterialSkin.Controls.MaterialLabel()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.MaterialFlatButton1 = New MaterialSkin.Controls.MaterialFlatButton()
-        Me.MaterialRaisedButton1 = New MaterialSkin.Controls.MaterialRaisedButton()
-        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
-        Me.CerrarSesiónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.MenuStrip1.SuspendLayout()
+        Me.lblFecha_Devolucion = New MaterialSkin.Controls.MaterialLabel()
+        Me.lblFecha_Entrega = New MaterialSkin.Controls.MaterialLabel()
+        Me.dtpFecha_Entrega = New System.Windows.Forms.DateTimePicker()
+        Me.dtpFecha_Devolucion = New System.Windows.Forms.DateTimePicker()
+        Me.txbAgencia = New MaterialSkin.Controls.MaterialSingleLineTextField()
+        Me.lblAgencia = New MaterialSkin.Controls.MaterialLabel()
+        Me.txbBuscar_Codigo = New MaterialSkin.Controls.MaterialSingleLineTextField()
+        Me.lblBuscar_Codigo = New MaterialSkin.Controls.MaterialLabel()
+        Me.dgvBuscar_Usuario = New System.Windows.Forms.DataGridView()
+        Me.txbBuscar_Coche = New MaterialSkin.Controls.MaterialSingleLineTextField()
+        Me.lblBuscar_Coche = New MaterialSkin.Controls.MaterialLabel()
+        Me.dgvBuscar_Coche = New System.Windows.Forms.DataGridView()
+        Me.btnReservar_Coche = New MaterialSkin.Controls.MaterialFlatButton()
+        Me.btnRegresar = New MaterialSkin.Controls.MaterialRaisedButton()
+        Me.mnsMenu = New System.Windows.Forms.MenuStrip()
+        Me.mnsCerrar_Sesion = New System.Windows.Forms.ToolStripMenuItem()
+        CType(Me.dgvBuscar_Usuario, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvBuscar_Coche, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.mnsMenu.SuspendLayout()
         Me.SuspendLayout()
         '
-        'MaterialLabel4
+        'lblFecha_Devolucion
         '
-        Me.MaterialLabel4.AutoSize = True
-        Me.MaterialLabel4.Depth = 0
-        Me.MaterialLabel4.Font = New System.Drawing.Font("Roboto", 11.0!)
-        Me.MaterialLabel4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.MaterialLabel4.Location = New System.Drawing.Point(27, 149)
-        Me.MaterialLabel4.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialLabel4.Name = "MaterialLabel4"
-        Me.MaterialLabel4.Size = New System.Drawing.Size(230, 19)
-        Me.MaterialLabel4.TabIndex = 51
-        Me.MaterialLabel4.Text = "Fecha de devolución del vehículo"
+        Me.lblFecha_Devolucion.AutoSize = True
+        Me.lblFecha_Devolucion.Depth = 0
+        Me.lblFecha_Devolucion.Font = New System.Drawing.Font("Roboto", 11.0!)
+        Me.lblFecha_Devolucion.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblFecha_Devolucion.Location = New System.Drawing.Point(27, 149)
+        Me.lblFecha_Devolucion.MouseState = MaterialSkin.MouseState.HOVER
+        Me.lblFecha_Devolucion.Name = "lblFecha_Devolucion"
+        Me.lblFecha_Devolucion.Size = New System.Drawing.Size(230, 19)
+        Me.lblFecha_Devolucion.TabIndex = 51
+        Me.lblFecha_Devolucion.Text = "Fecha de devolución del vehículo"
         '
-        'MaterialLabel6
+        'lblFecha_Entrega
         '
-        Me.MaterialLabel6.AutoSize = True
-        Me.MaterialLabel6.Depth = 0
-        Me.MaterialLabel6.Font = New System.Drawing.Font("Roboto", 11.0!)
-        Me.MaterialLabel6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.MaterialLabel6.Location = New System.Drawing.Point(27, 111)
-        Me.MaterialLabel6.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialLabel6.Name = "MaterialLabel6"
-        Me.MaterialLabel6.Size = New System.Drawing.Size(207, 19)
-        Me.MaterialLabel6.TabIndex = 49
-        Me.MaterialLabel6.Text = "Fecha de entrega del vehículo"
+        Me.lblFecha_Entrega.AutoSize = True
+        Me.lblFecha_Entrega.Depth = 0
+        Me.lblFecha_Entrega.Font = New System.Drawing.Font("Roboto", 11.0!)
+        Me.lblFecha_Entrega.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblFecha_Entrega.Location = New System.Drawing.Point(27, 111)
+        Me.lblFecha_Entrega.MouseState = MaterialSkin.MouseState.HOVER
+        Me.lblFecha_Entrega.Name = "lblFecha_Entrega"
+        Me.lblFecha_Entrega.Size = New System.Drawing.Size(207, 19)
+        Me.lblFecha_Entrega.TabIndex = 49
+        Me.lblFecha_Entrega.Text = "Fecha de entrega del vehículo"
         '
-        'DateTimePicker1
+        'dtpFecha_Entrega
         '
-        Me.DateTimePicker1.CalendarFont = New System.Drawing.Font("Segoe UI Semilight", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DateTimePicker1.Font = New System.Drawing.Font("Segoe UI Semilight", 9.0!)
-        Me.DateTimePicker1.Location = New System.Drawing.Point(263, 111)
-        Me.DateTimePicker1.MaxDate = New Date(2100, 12, 31, 0, 0, 0, 0)
-        Me.DateTimePicker1.MinDate = New Date(2017, 9, 23, 0, 0, 0, 0)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(245, 23)
-        Me.DateTimePicker1.TabIndex = 52
+        Me.dtpFecha_Entrega.CalendarFont = New System.Drawing.Font("Segoe UI Semilight", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpFecha_Entrega.Font = New System.Drawing.Font("Segoe UI Semilight", 9.0!)
+        Me.dtpFecha_Entrega.Location = New System.Drawing.Point(263, 111)
+        Me.dtpFecha_Entrega.MaxDate = New Date(2100, 12, 31, 0, 0, 0, 0)
+        Me.dtpFecha_Entrega.MinDate = New Date(2017, 9, 23, 0, 0, 0, 0)
+        Me.dtpFecha_Entrega.Name = "dtpFecha_Entrega"
+        Me.dtpFecha_Entrega.Size = New System.Drawing.Size(245, 23)
+        Me.dtpFecha_Entrega.TabIndex = 52
         '
-        'DateTimePicker2
+        'dtpFecha_Devolucion
         '
-        Me.DateTimePicker2.CalendarFont = New System.Drawing.Font("Segoe UI Semilight", 9.0!)
-        Me.DateTimePicker2.Font = New System.Drawing.Font("Segoe UI Semilight", 9.0!)
-        Me.DateTimePicker2.Location = New System.Drawing.Point(263, 149)
-        Me.DateTimePicker2.MaxDate = New Date(2100, 12, 31, 0, 0, 0, 0)
-        Me.DateTimePicker2.MinDate = New Date(2017, 9, 23, 0, 0, 0, 0)
-        Me.DateTimePicker2.Name = "DateTimePicker2"
-        Me.DateTimePicker2.Size = New System.Drawing.Size(245, 23)
-        Me.DateTimePicker2.TabIndex = 53
+        Me.dtpFecha_Devolucion.CalendarFont = New System.Drawing.Font("Segoe UI Semilight", 9.0!)
+        Me.dtpFecha_Devolucion.Font = New System.Drawing.Font("Segoe UI Semilight", 9.0!)
+        Me.dtpFecha_Devolucion.Location = New System.Drawing.Point(263, 149)
+        Me.dtpFecha_Devolucion.MaxDate = New Date(2100, 12, 31, 0, 0, 0, 0)
+        Me.dtpFecha_Devolucion.MinDate = New Date(2017, 9, 23, 0, 0, 0, 0)
+        Me.dtpFecha_Devolucion.Name = "dtpFecha_Devolucion"
+        Me.dtpFecha_Devolucion.Size = New System.Drawing.Size(245, 23)
+        Me.dtpFecha_Devolucion.TabIndex = 53
         '
-        'MaterialSingleLineTextField3
+        'txbAgencia
         '
-        Me.MaterialSingleLineTextField3.Depth = 0
-        Me.MaterialSingleLineTextField3.Hint = ""
-        Me.MaterialSingleLineTextField3.Location = New System.Drawing.Point(120, 190)
-        Me.MaterialSingleLineTextField3.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialSingleLineTextField3.Name = "MaterialSingleLineTextField3"
-        Me.MaterialSingleLineTextField3.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.MaterialSingleLineTextField3.SelectedText = ""
-        Me.MaterialSingleLineTextField3.SelectionLength = 0
-        Me.MaterialSingleLineTextField3.SelectionStart = 0
-        Me.MaterialSingleLineTextField3.Size = New System.Drawing.Size(388, 23)
-        Me.MaterialSingleLineTextField3.TabIndex = 55
-        Me.MaterialSingleLineTextField3.UseSystemPasswordChar = False
+        Me.txbAgencia.Depth = 0
+        Me.txbAgencia.Hint = ""
+        Me.txbAgencia.Location = New System.Drawing.Point(120, 190)
+        Me.txbAgencia.MouseState = MaterialSkin.MouseState.HOVER
+        Me.txbAgencia.Name = "txbAgencia"
+        Me.txbAgencia.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.txbAgencia.SelectedText = ""
+        Me.txbAgencia.SelectionLength = 0
+        Me.txbAgencia.SelectionStart = 0
+        Me.txbAgencia.Size = New System.Drawing.Size(388, 23)
+        Me.txbAgencia.TabIndex = 55
+        Me.txbAgencia.UseSystemPasswordChar = False
         '
-        'MaterialLabel1
+        'lblAgencia
         '
-        Me.MaterialLabel1.AutoSize = True
-        Me.MaterialLabel1.Depth = 0
-        Me.MaterialLabel1.Font = New System.Drawing.Font("Roboto", 11.0!)
-        Me.MaterialLabel1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.MaterialLabel1.Location = New System.Drawing.Point(28, 190)
-        Me.MaterialLabel1.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialLabel1.Name = "MaterialLabel1"
-        Me.MaterialLabel1.Size = New System.Drawing.Size(63, 19)
-        Me.MaterialLabel1.TabIndex = 54
-        Me.MaterialLabel1.Text = "Agencia"
+        Me.lblAgencia.AutoSize = True
+        Me.lblAgencia.Depth = 0
+        Me.lblAgencia.Font = New System.Drawing.Font("Roboto", 11.0!)
+        Me.lblAgencia.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblAgencia.Location = New System.Drawing.Point(28, 190)
+        Me.lblAgencia.MouseState = MaterialSkin.MouseState.HOVER
+        Me.lblAgencia.Name = "lblAgencia"
+        Me.lblAgencia.Size = New System.Drawing.Size(63, 19)
+        Me.lblAgencia.TabIndex = 54
+        Me.lblAgencia.Text = "Agencia"
         '
-        'MaterialSingleLineTextField2
+        'txbBuscar_Codigo
         '
-        Me.MaterialSingleLineTextField2.Depth = 0
-        Me.MaterialSingleLineTextField2.Hint = ""
-        Me.MaterialSingleLineTextField2.Location = New System.Drawing.Point(219, 231)
-        Me.MaterialSingleLineTextField2.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialSingleLineTextField2.Name = "MaterialSingleLineTextField2"
-        Me.MaterialSingleLineTextField2.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.MaterialSingleLineTextField2.SelectedText = ""
-        Me.MaterialSingleLineTextField2.SelectionLength = 0
-        Me.MaterialSingleLineTextField2.SelectionStart = 0
-        Me.MaterialSingleLineTextField2.Size = New System.Drawing.Size(289, 23)
-        Me.MaterialSingleLineTextField2.TabIndex = 62
-        Me.MaterialSingleLineTextField2.UseSystemPasswordChar = False
+        Me.txbBuscar_Codigo.Depth = 0
+        Me.txbBuscar_Codigo.Hint = ""
+        Me.txbBuscar_Codigo.Location = New System.Drawing.Point(219, 231)
+        Me.txbBuscar_Codigo.MouseState = MaterialSkin.MouseState.HOVER
+        Me.txbBuscar_Codigo.Name = "txbBuscar_Codigo"
+        Me.txbBuscar_Codigo.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.txbBuscar_Codigo.SelectedText = ""
+        Me.txbBuscar_Codigo.SelectionLength = 0
+        Me.txbBuscar_Codigo.SelectionStart = 0
+        Me.txbBuscar_Codigo.Size = New System.Drawing.Size(289, 23)
+        Me.txbBuscar_Codigo.TabIndex = 62
+        Me.txbBuscar_Codigo.UseSystemPasswordChar = False
         '
-        'MaterialLabel3
+        'lblBuscar_Codigo
         '
-        Me.MaterialLabel3.AutoSize = True
-        Me.MaterialLabel3.Depth = 0
-        Me.MaterialLabel3.Font = New System.Drawing.Font("Roboto", 11.0!)
-        Me.MaterialLabel3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.MaterialLabel3.Location = New System.Drawing.Point(28, 231)
-        Me.MaterialLabel3.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialLabel3.Name = "MaterialLabel3"
-        Me.MaterialLabel3.Size = New System.Drawing.Size(179, 19)
-        Me.MaterialLabel3.TabIndex = 61
-        Me.MaterialLabel3.Text = "Buscar código de usuario"
+        Me.lblBuscar_Codigo.AutoSize = True
+        Me.lblBuscar_Codigo.Depth = 0
+        Me.lblBuscar_Codigo.Font = New System.Drawing.Font("Roboto", 11.0!)
+        Me.lblBuscar_Codigo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblBuscar_Codigo.Location = New System.Drawing.Point(28, 231)
+        Me.lblBuscar_Codigo.MouseState = MaterialSkin.MouseState.HOVER
+        Me.lblBuscar_Codigo.Name = "lblBuscar_Codigo"
+        Me.lblBuscar_Codigo.Size = New System.Drawing.Size(179, 19)
+        Me.lblBuscar_Codigo.TabIndex = 61
+        Me.lblBuscar_Codigo.Text = "Buscar código de usuario"
         '
-        'DataGridView2
+        'dgvBuscar_Usuario
         '
-        Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView2.Location = New System.Drawing.Point(32, 270)
-        Me.DataGridView2.Name = "DataGridView2"
-        Me.DataGridView2.Size = New System.Drawing.Size(476, 93)
-        Me.DataGridView2.TabIndex = 60
+        Me.dgvBuscar_Usuario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvBuscar_Usuario.Location = New System.Drawing.Point(32, 270)
+        Me.dgvBuscar_Usuario.Name = "dgvBuscar_Usuario"
+        Me.dgvBuscar_Usuario.Size = New System.Drawing.Size(476, 93)
+        Me.dgvBuscar_Usuario.TabIndex = 60
         '
-        'MaterialSingleLineTextField1
+        'txbBuscar_Coche
         '
-        Me.MaterialSingleLineTextField1.Depth = 0
-        Me.MaterialSingleLineTextField1.Hint = ""
-        Me.MaterialSingleLineTextField1.Location = New System.Drawing.Point(164, 376)
-        Me.MaterialSingleLineTextField1.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialSingleLineTextField1.Name = "MaterialSingleLineTextField1"
-        Me.MaterialSingleLineTextField1.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.MaterialSingleLineTextField1.SelectedText = ""
-        Me.MaterialSingleLineTextField1.SelectionLength = 0
-        Me.MaterialSingleLineTextField1.SelectionStart = 0
-        Me.MaterialSingleLineTextField1.Size = New System.Drawing.Size(344, 23)
-        Me.MaterialSingleLineTextField1.TabIndex = 65
-        Me.MaterialSingleLineTextField1.UseSystemPasswordChar = False
+        Me.txbBuscar_Coche.Depth = 0
+        Me.txbBuscar_Coche.Hint = ""
+        Me.txbBuscar_Coche.Location = New System.Drawing.Point(164, 376)
+        Me.txbBuscar_Coche.MouseState = MaterialSkin.MouseState.HOVER
+        Me.txbBuscar_Coche.Name = "txbBuscar_Coche"
+        Me.txbBuscar_Coche.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.txbBuscar_Coche.SelectedText = ""
+        Me.txbBuscar_Coche.SelectionLength = 0
+        Me.txbBuscar_Coche.SelectionStart = 0
+        Me.txbBuscar_Coche.Size = New System.Drawing.Size(344, 23)
+        Me.txbBuscar_Coche.TabIndex = 65
+        Me.txbBuscar_Coche.UseSystemPasswordChar = False
         '
-        'MaterialLabel2
+        'lblBuscar_Coche
         '
-        Me.MaterialLabel2.AutoSize = True
-        Me.MaterialLabel2.Depth = 0
-        Me.MaterialLabel2.Font = New System.Drawing.Font("Roboto", 11.0!)
-        Me.MaterialLabel2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.MaterialLabel2.Location = New System.Drawing.Point(28, 376)
-        Me.MaterialLabel2.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialLabel2.Name = "MaterialLabel2"
-        Me.MaterialLabel2.Size = New System.Drawing.Size(100, 19)
-        Me.MaterialLabel2.TabIndex = 64
-        Me.MaterialLabel2.Text = "Buscar coche"
+        Me.lblBuscar_Coche.AutoSize = True
+        Me.lblBuscar_Coche.Depth = 0
+        Me.lblBuscar_Coche.Font = New System.Drawing.Font("Roboto", 11.0!)
+        Me.lblBuscar_Coche.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblBuscar_Coche.Location = New System.Drawing.Point(28, 376)
+        Me.lblBuscar_Coche.MouseState = MaterialSkin.MouseState.HOVER
+        Me.lblBuscar_Coche.Name = "lblBuscar_Coche"
+        Me.lblBuscar_Coche.Size = New System.Drawing.Size(100, 19)
+        Me.lblBuscar_Coche.TabIndex = 64
+        Me.lblBuscar_Coche.Text = "Buscar coche"
         '
-        'DataGridView1
+        'dgvBuscar_Coche
         '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(32, 409)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(476, 132)
-        Me.DataGridView1.TabIndex = 63
+        Me.dgvBuscar_Coche.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvBuscar_Coche.Location = New System.Drawing.Point(32, 409)
+        Me.dgvBuscar_Coche.Name = "dgvBuscar_Coche"
+        Me.dgvBuscar_Coche.Size = New System.Drawing.Size(476, 132)
+        Me.dgvBuscar_Coche.TabIndex = 63
         '
-        'MaterialFlatButton1
+        'btnReservar_Coche
         '
-        Me.MaterialFlatButton1.AutoSize = True
-        Me.MaterialFlatButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.MaterialFlatButton1.Depth = 0
-        Me.MaterialFlatButton1.Location = New System.Drawing.Point(202, 559)
-        Me.MaterialFlatButton1.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
-        Me.MaterialFlatButton1.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialFlatButton1.Name = "MaterialFlatButton1"
-        Me.MaterialFlatButton1.Primary = False
-        Me.MaterialFlatButton1.Size = New System.Drawing.Size(128, 36)
-        Me.MaterialFlatButton1.TabIndex = 66
-        Me.MaterialFlatButton1.Text = "Reservar coche"
-        Me.MaterialFlatButton1.UseVisualStyleBackColor = True
+        Me.btnReservar_Coche.AutoSize = True
+        Me.btnReservar_Coche.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.btnReservar_Coche.Depth = 0
+        Me.btnReservar_Coche.Location = New System.Drawing.Point(202, 559)
+        Me.btnReservar_Coche.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
+        Me.btnReservar_Coche.MouseState = MaterialSkin.MouseState.HOVER
+        Me.btnReservar_Coche.Name = "btnReservar_Coche"
+        Me.btnReservar_Coche.Primary = False
+        Me.btnReservar_Coche.Size = New System.Drawing.Size(128, 36)
+        Me.btnReservar_Coche.TabIndex = 66
+        Me.btnReservar_Coche.Text = "Reservar coche"
+        Me.btnReservar_Coche.UseVisualStyleBackColor = True
         '
-        'MaterialRaisedButton1
+        'btnRegresar
         '
-        Me.MaterialRaisedButton1.Depth = 0
-        Me.MaterialRaisedButton1.Location = New System.Drawing.Point(402, 593)
-        Me.MaterialRaisedButton1.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialRaisedButton1.Name = "MaterialRaisedButton1"
-        Me.MaterialRaisedButton1.Primary = True
-        Me.MaterialRaisedButton1.Size = New System.Drawing.Size(106, 27)
-        Me.MaterialRaisedButton1.TabIndex = 77
-        Me.MaterialRaisedButton1.Text = "Regresar"
-        Me.MaterialRaisedButton1.UseVisualStyleBackColor = True
+        Me.btnRegresar.Depth = 0
+        Me.btnRegresar.Location = New System.Drawing.Point(402, 593)
+        Me.btnRegresar.MouseState = MaterialSkin.MouseState.HOVER
+        Me.btnRegresar.Name = "btnRegresar"
+        Me.btnRegresar.Primary = True
+        Me.btnRegresar.Size = New System.Drawing.Size(106, 27)
+        Me.btnRegresar.TabIndex = 77
+        Me.btnRegresar.Text = "Regresar"
+        Me.btnRegresar.UseVisualStyleBackColor = True
         '
-        'MenuStrip1
+        'mnsMenu
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CerrarSesiónToolStripMenuItem})
-        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
-        Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(541, 27)
-        Me.MenuStrip1.TabIndex = 78
-        Me.MenuStrip1.Text = "MenuStrip1"
+        Me.mnsMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnsCerrar_Sesion})
+        Me.mnsMenu.Location = New System.Drawing.Point(0, 0)
+        Me.mnsMenu.Name = "mnsMenu"
+        Me.mnsMenu.Size = New System.Drawing.Size(541, 27)
+        Me.mnsMenu.TabIndex = 78
+        Me.mnsMenu.Text = "MenuStrip1"
         '
-        'CerrarSesiónToolStripMenuItem
+        'mnsCerrar_Sesion
         '
-        Me.CerrarSesiónToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.CerrarSesiónToolStripMenuItem.Name = "CerrarSesiónToolStripMenuItem"
-        Me.CerrarSesiónToolStripMenuItem.Size = New System.Drawing.Size(102, 23)
-        Me.CerrarSesiónToolStripMenuItem.Text = "Cerrar Sesión"
+        Me.mnsCerrar_Sesion.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.mnsCerrar_Sesion.Name = "mnsCerrar_Sesion"
+        Me.mnsCerrar_Sesion.Size = New System.Drawing.Size(102, 23)
+        Me.mnsCerrar_Sesion.Text = "Cerrar Sesión"
         '
         'frmReservas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(541, 632)
-        Me.Controls.Add(Me.MaterialRaisedButton1)
-        Me.Controls.Add(Me.MaterialFlatButton1)
-        Me.Controls.Add(Me.MaterialSingleLineTextField1)
-        Me.Controls.Add(Me.MaterialLabel2)
-        Me.Controls.Add(Me.DataGridView1)
-        Me.Controls.Add(Me.MaterialSingleLineTextField2)
-        Me.Controls.Add(Me.MaterialLabel3)
-        Me.Controls.Add(Me.DataGridView2)
-        Me.Controls.Add(Me.MaterialSingleLineTextField3)
-        Me.Controls.Add(Me.MaterialLabel1)
-        Me.Controls.Add(Me.DateTimePicker2)
-        Me.Controls.Add(Me.DateTimePicker1)
-        Me.Controls.Add(Me.MaterialLabel4)
-        Me.Controls.Add(Me.MaterialLabel6)
-        Me.Controls.Add(Me.MenuStrip1)
-        Me.MainMenuStrip = Me.MenuStrip1
+        Me.Controls.Add(Me.btnRegresar)
+        Me.Controls.Add(Me.btnReservar_Coche)
+        Me.Controls.Add(Me.txbBuscar_Coche)
+        Me.Controls.Add(Me.lblBuscar_Coche)
+        Me.Controls.Add(Me.dgvBuscar_Coche)
+        Me.Controls.Add(Me.txbBuscar_Codigo)
+        Me.Controls.Add(Me.lblBuscar_Codigo)
+        Me.Controls.Add(Me.dgvBuscar_Usuario)
+        Me.Controls.Add(Me.txbAgencia)
+        Me.Controls.Add(Me.lblAgencia)
+        Me.Controls.Add(Me.dtpFecha_Devolucion)
+        Me.Controls.Add(Me.dtpFecha_Entrega)
+        Me.Controls.Add(Me.lblFecha_Devolucion)
+        Me.Controls.Add(Me.lblFecha_Entrega)
+        Me.Controls.Add(Me.mnsMenu)
+        Me.MainMenuStrip = Me.mnsMenu
         Me.Name = "frmReservas"
         Me.Text = "Reservas de coches                                                               " &
     "       Rent-a-Car                            "
-        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.MenuStrip1.ResumeLayout(False)
-        Me.MenuStrip1.PerformLayout()
+        CType(Me.dgvBuscar_Usuario, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvBuscar_Coche, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.mnsMenu.ResumeLayout(False)
+        Me.mnsMenu.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
-    Friend WithEvents MaterialLabel4 As MaterialSkin.Controls.MaterialLabel
-    Friend WithEvents MaterialLabel6 As MaterialSkin.Controls.MaterialLabel
-    Friend WithEvents DateTimePicker1 As DateTimePicker
-    Friend WithEvents DateTimePicker2 As DateTimePicker
-    Friend WithEvents MaterialSingleLineTextField3 As MaterialSkin.Controls.MaterialSingleLineTextField
-    Friend WithEvents MaterialLabel1 As MaterialSkin.Controls.MaterialLabel
-    Friend WithEvents MaterialSingleLineTextField2 As MaterialSkin.Controls.MaterialSingleLineTextField
-    Friend WithEvents MaterialLabel3 As MaterialSkin.Controls.MaterialLabel
-    Friend WithEvents DataGridView2 As DataGridView
-    Friend WithEvents MaterialSingleLineTextField1 As MaterialSkin.Controls.MaterialSingleLineTextField
-    Friend WithEvents MaterialLabel2 As MaterialSkin.Controls.MaterialLabel
-    Friend WithEvents DataGridView1 As DataGridView
-    Friend WithEvents MaterialFlatButton1 As MaterialSkin.Controls.MaterialFlatButton
-    Friend WithEvents MaterialRaisedButton1 As MaterialSkin.Controls.MaterialRaisedButton
-    Friend WithEvents MenuStrip1 As MenuStrip
-    Friend WithEvents CerrarSesiónToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents lblFecha_Devolucion As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents lblFecha_Entrega As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents dtpFecha_Entrega As DateTimePicker
+    Friend WithEvents dtpFecha_Devolucion As DateTimePicker
+    Friend WithEvents txbAgencia As MaterialSkin.Controls.MaterialSingleLineTextField
+    Friend WithEvents lblAgencia As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents txbBuscar_Codigo As MaterialSkin.Controls.MaterialSingleLineTextField
+    Friend WithEvents lblBuscar_Codigo As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents dgvBuscar_Usuario As DataGridView
+    Friend WithEvents txbBuscar_Coche As MaterialSkin.Controls.MaterialSingleLineTextField
+    Friend WithEvents lblBuscar_Coche As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents dgvBuscar_Coche As DataGridView
+    Friend WithEvents btnReservar_Coche As MaterialSkin.Controls.MaterialFlatButton
+    Friend WithEvents btnRegresar As MaterialSkin.Controls.MaterialRaisedButton
+    Friend WithEvents mnsMenu As MenuStrip
+    Friend WithEvents mnsCerrar_Sesion As ToolStripMenuItem
 End Class

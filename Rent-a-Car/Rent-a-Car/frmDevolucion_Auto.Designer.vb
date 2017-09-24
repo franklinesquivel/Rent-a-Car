@@ -22,224 +22,225 @@ Partial Class frmDevolucion_Auto
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.MaterialFlatButton1 = New MaterialSkin.Controls.MaterialFlatButton()
-        Me.MaterialRadioButton1 = New MaterialSkin.Controls.MaterialRadioButton()
-        Me.MaterialRadioButton2 = New MaterialSkin.Controls.MaterialRadioButton()
-        Me.MaterialLabel1 = New MaterialSkin.Controls.MaterialLabel()
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
-        Me.MaterialLabel6 = New MaterialSkin.Controls.MaterialLabel()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.MaterialLabel2 = New MaterialSkin.Controls.MaterialLabel()
-        Me.MaterialLabel3 = New MaterialSkin.Controls.MaterialLabel()
-        Me.MaterialSingleLineTextField1 = New MaterialSkin.Controls.MaterialSingleLineTextField()
-        Me.MaterialRaisedButton1 = New MaterialSkin.Controls.MaterialRaisedButton()
-        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
-        Me.CerrarSesiónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.MenuStrip1.SuspendLayout()
+        Me.btnConfirmar = New MaterialSkin.Controls.MaterialFlatButton()
+        Me.rdbBuen_Estado = New MaterialSkin.Controls.MaterialRadioButton()
+        Me.rdbChocado = New MaterialSkin.Controls.MaterialRadioButton()
+        Me.lblEstado_Coche = New MaterialSkin.Controls.MaterialLabel()
+        Me.dtpFecha_Devolucion = New System.Windows.Forms.DateTimePicker()
+        Me.lblFecha_Devolucion = New MaterialSkin.Controls.MaterialLabel()
+        Me.txbDescripcion_Problema = New System.Windows.Forms.TextBox()
+        Me.lblDescripcion_Problema = New MaterialSkin.Controls.MaterialLabel()
+        Me.lblMonto_Cancelar = New MaterialSkin.Controls.MaterialLabel()
+        Me.txbMonto_Cancelar = New MaterialSkin.Controls.MaterialSingleLineTextField()
+        Me.btnRegresar = New MaterialSkin.Controls.MaterialRaisedButton()
+        Me.mnsMenu = New System.Windows.Forms.MenuStrip()
+        Me.mnsCerrar_Sesion = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnsMenu.SuspendLayout()
         Me.SuspendLayout()
         '
-        'MaterialFlatButton1
+        'btnConfirmar
         '
-        Me.MaterialFlatButton1.AutoSize = True
-        Me.MaterialFlatButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.MaterialFlatButton1.Depth = 0
-        Me.MaterialFlatButton1.Location = New System.Drawing.Point(237, 432)
-        Me.MaterialFlatButton1.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
-        Me.MaterialFlatButton1.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialFlatButton1.Name = "MaterialFlatButton1"
-        Me.MaterialFlatButton1.Primary = False
-        Me.MaterialFlatButton1.Size = New System.Drawing.Size(90, 36)
-        Me.MaterialFlatButton1.TabIndex = 0
-        Me.MaterialFlatButton1.Text = "Confirmar"
-        Me.MaterialFlatButton1.UseVisualStyleBackColor = True
+        Me.btnConfirmar.AutoSize = True
+        Me.btnConfirmar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.btnConfirmar.Depth = 0
+        Me.btnConfirmar.Location = New System.Drawing.Point(237, 432)
+        Me.btnConfirmar.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
+        Me.btnConfirmar.MouseState = MaterialSkin.MouseState.HOVER
+        Me.btnConfirmar.Name = "btnConfirmar"
+        Me.btnConfirmar.Primary = False
+        Me.btnConfirmar.Size = New System.Drawing.Size(90, 36)
+        Me.btnConfirmar.TabIndex = 0
+        Me.btnConfirmar.Text = "Confirmar"
+        Me.btnConfirmar.UseVisualStyleBackColor = True
         '
-        'MaterialRadioButton1
+        'rdbBuen_Estado
         '
-        Me.MaterialRadioButton1.AutoSize = True
-        Me.MaterialRadioButton1.Depth = 0
-        Me.MaterialRadioButton1.Font = New System.Drawing.Font("Roboto", 10.0!)
-        Me.MaterialRadioButton1.Location = New System.Drawing.Point(43, 125)
-        Me.MaterialRadioButton1.Margin = New System.Windows.Forms.Padding(0)
-        Me.MaterialRadioButton1.MouseLocation = New System.Drawing.Point(-1, -1)
-        Me.MaterialRadioButton1.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialRadioButton1.Name = "MaterialRadioButton1"
-        Me.MaterialRadioButton1.Ripple = True
-        Me.MaterialRadioButton1.Size = New System.Drawing.Size(124, 30)
-        Me.MaterialRadioButton1.TabIndex = 1
-        Me.MaterialRadioButton1.TabStop = True
-        Me.MaterialRadioButton1.Text = "En buen estado"
-        Me.MaterialRadioButton1.UseVisualStyleBackColor = True
+        Me.rdbBuen_Estado.AutoSize = True
+        Me.rdbBuen_Estado.Depth = 0
+        Me.rdbBuen_Estado.Font = New System.Drawing.Font("Roboto", 10.0!)
+        Me.rdbBuen_Estado.Location = New System.Drawing.Point(43, 125)
+        Me.rdbBuen_Estado.Margin = New System.Windows.Forms.Padding(0)
+        Me.rdbBuen_Estado.MouseLocation = New System.Drawing.Point(-1, -1)
+        Me.rdbBuen_Estado.MouseState = MaterialSkin.MouseState.HOVER
+        Me.rdbBuen_Estado.Name = "rdbBuen_Estado"
+        Me.rdbBuen_Estado.Ripple = True
+        Me.rdbBuen_Estado.Size = New System.Drawing.Size(124, 30)
+        Me.rdbBuen_Estado.TabIndex = 1
+        Me.rdbBuen_Estado.TabStop = True
+        Me.rdbBuen_Estado.Text = "En buen estado"
+        Me.rdbBuen_Estado.UseVisualStyleBackColor = True
         '
-        'MaterialRadioButton2
+        'rdbChocado
         '
-        Me.MaterialRadioButton2.AutoSize = True
-        Me.MaterialRadioButton2.Depth = 0
-        Me.MaterialRadioButton2.Font = New System.Drawing.Font("Roboto", 10.0!)
-        Me.MaterialRadioButton2.Location = New System.Drawing.Point(212, 125)
-        Me.MaterialRadioButton2.Margin = New System.Windows.Forms.Padding(0)
-        Me.MaterialRadioButton2.MouseLocation = New System.Drawing.Point(-1, -1)
-        Me.MaterialRadioButton2.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialRadioButton2.Name = "MaterialRadioButton2"
-        Me.MaterialRadioButton2.Ripple = True
-        Me.MaterialRadioButton2.Size = New System.Drawing.Size(84, 30)
-        Me.MaterialRadioButton2.TabIndex = 2
-        Me.MaterialRadioButton2.TabStop = True
-        Me.MaterialRadioButton2.Text = "Chocado"
-        Me.MaterialRadioButton2.UseVisualStyleBackColor = True
+        Me.rdbChocado.AutoSize = True
+        Me.rdbChocado.Depth = 0
+        Me.rdbChocado.Font = New System.Drawing.Font("Roboto", 10.0!)
+        Me.rdbChocado.Location = New System.Drawing.Point(212, 125)
+        Me.rdbChocado.Margin = New System.Windows.Forms.Padding(0)
+        Me.rdbChocado.MouseLocation = New System.Drawing.Point(-1, -1)
+        Me.rdbChocado.MouseState = MaterialSkin.MouseState.HOVER
+        Me.rdbChocado.Name = "rdbChocado"
+        Me.rdbChocado.Ripple = True
+        Me.rdbChocado.Size = New System.Drawing.Size(84, 30)
+        Me.rdbChocado.TabIndex = 2
+        Me.rdbChocado.TabStop = True
+        Me.rdbChocado.Text = "Chocado"
+        Me.rdbChocado.UseVisualStyleBackColor = True
         '
-        'MaterialLabel1
+        'lblEstado_Coche
         '
-        Me.MaterialLabel1.AutoSize = True
-        Me.MaterialLabel1.Depth = 0
-        Me.MaterialLabel1.Font = New System.Drawing.Font("Roboto", 11.0!)
-        Me.MaterialLabel1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.MaterialLabel1.Location = New System.Drawing.Point(39, 87)
-        Me.MaterialLabel1.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialLabel1.Name = "MaterialLabel1"
-        Me.MaterialLabel1.Size = New System.Drawing.Size(125, 19)
-        Me.MaterialLabel1.TabIndex = 3
-        Me.MaterialLabel1.Text = "Estado del coche"
+        Me.lblEstado_Coche.AutoSize = True
+        Me.lblEstado_Coche.Depth = 0
+        Me.lblEstado_Coche.Font = New System.Drawing.Font("Roboto", 11.0!)
+        Me.lblEstado_Coche.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblEstado_Coche.Location = New System.Drawing.Point(39, 87)
+        Me.lblEstado_Coche.MouseState = MaterialSkin.MouseState.HOVER
+        Me.lblEstado_Coche.Name = "lblEstado_Coche"
+        Me.lblEstado_Coche.Size = New System.Drawing.Size(125, 19)
+        Me.lblEstado_Coche.TabIndex = 3
+        Me.lblEstado_Coche.Text = "Estado del coche"
         '
-        'DateTimePicker1
+        'dtpFecha_Devolucion
         '
-        Me.DateTimePicker1.CalendarFont = New System.Drawing.Font("Segoe UI Semilight", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DateTimePicker1.Font = New System.Drawing.Font("Segoe UI Semilight", 9.0!)
-        Me.DateTimePicker1.Location = New System.Drawing.Point(275, 177)
-        Me.DateTimePicker1.MaxDate = New Date(2100, 12, 31, 0, 0, 0, 0)
-        Me.DateTimePicker1.MinDate = New Date(2017, 9, 23, 0, 0, 0, 0)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(245, 23)
-        Me.DateTimePicker1.TabIndex = 54
+        Me.dtpFecha_Devolucion.CalendarFont = New System.Drawing.Font("Segoe UI Semilight", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpFecha_Devolucion.Font = New System.Drawing.Font("Segoe UI Semilight", 9.0!)
+        Me.dtpFecha_Devolucion.Location = New System.Drawing.Point(275, 177)
+        Me.dtpFecha_Devolucion.MaxDate = New Date(2100, 12, 31, 0, 0, 0, 0)
+        Me.dtpFecha_Devolucion.MinDate = New Date(2017, 9, 23, 0, 0, 0, 0)
+        Me.dtpFecha_Devolucion.Name = "dtpFecha_Devolucion"
+        Me.dtpFecha_Devolucion.Size = New System.Drawing.Size(245, 23)
+        Me.dtpFecha_Devolucion.TabIndex = 54
         '
-        'MaterialLabel6
+        'lblFecha_Devolucion
         '
-        Me.MaterialLabel6.AutoSize = True
-        Me.MaterialLabel6.Depth = 0
-        Me.MaterialLabel6.Font = New System.Drawing.Font("Roboto", 11.0!)
-        Me.MaterialLabel6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.MaterialLabel6.Location = New System.Drawing.Point(39, 181)
-        Me.MaterialLabel6.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialLabel6.Name = "MaterialLabel6"
-        Me.MaterialLabel6.Size = New System.Drawing.Size(215, 19)
-        Me.MaterialLabel6.TabIndex = 53
-        Me.MaterialLabel6.Text = "Fecha de devolución del coche"
+        Me.lblFecha_Devolucion.AutoSize = True
+        Me.lblFecha_Devolucion.Depth = 0
+        Me.lblFecha_Devolucion.Font = New System.Drawing.Font("Roboto", 11.0!)
+        Me.lblFecha_Devolucion.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblFecha_Devolucion.Location = New System.Drawing.Point(39, 181)
+        Me.lblFecha_Devolucion.MouseState = MaterialSkin.MouseState.HOVER
+        Me.lblFecha_Devolucion.Name = "lblFecha_Devolucion"
+        Me.lblFecha_Devolucion.Size = New System.Drawing.Size(215, 19)
+        Me.lblFecha_Devolucion.TabIndex = 53
+        Me.lblFecha_Devolucion.Text = "Fecha de devolución del coche"
         '
-        'TextBox1
+        'txbDescripcion_Problema
         '
-        Me.TextBox1.Location = New System.Drawing.Point(43, 245)
-        Me.TextBox1.Multiline = True
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(477, 99)
-        Me.TextBox1.TabIndex = 55
+        Me.txbDescripcion_Problema.BackColor = System.Drawing.SystemColors.Control
+        Me.txbDescripcion_Problema.Location = New System.Drawing.Point(43, 245)
+        Me.txbDescripcion_Problema.Multiline = True
+        Me.txbDescripcion_Problema.Name = "txbDescripcion_Problema"
+        Me.txbDescripcion_Problema.Size = New System.Drawing.Size(477, 99)
+        Me.txbDescripcion_Problema.TabIndex = 55
         '
-        'MaterialLabel2
+        'lblDescripcion_Problema
         '
-        Me.MaterialLabel2.AutoSize = True
-        Me.MaterialLabel2.Depth = 0
-        Me.MaterialLabel2.Font = New System.Drawing.Font("Roboto", 11.0!)
-        Me.MaterialLabel2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.MaterialLabel2.Location = New System.Drawing.Point(39, 214)
-        Me.MaterialLabel2.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialLabel2.Name = "MaterialLabel2"
-        Me.MaterialLabel2.Size = New System.Drawing.Size(180, 19)
-        Me.MaterialLabel2.TabIndex = 56
-        Me.MaterialLabel2.Text = "Descripción del problema"
+        Me.lblDescripcion_Problema.AutoSize = True
+        Me.lblDescripcion_Problema.Depth = 0
+        Me.lblDescripcion_Problema.Font = New System.Drawing.Font("Roboto", 11.0!)
+        Me.lblDescripcion_Problema.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblDescripcion_Problema.Location = New System.Drawing.Point(39, 214)
+        Me.lblDescripcion_Problema.MouseState = MaterialSkin.MouseState.HOVER
+        Me.lblDescripcion_Problema.Name = "lblDescripcion_Problema"
+        Me.lblDescripcion_Problema.Size = New System.Drawing.Size(180, 19)
+        Me.lblDescripcion_Problema.TabIndex = 56
+        Me.lblDescripcion_Problema.Text = "Descripción del problema"
         '
-        'MaterialLabel3
+        'lblMonto_Cancelar
         '
-        Me.MaterialLabel3.AutoSize = True
-        Me.MaterialLabel3.Depth = 0
-        Me.MaterialLabel3.Font = New System.Drawing.Font("Roboto", 11.0!)
-        Me.MaterialLabel3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.MaterialLabel3.Location = New System.Drawing.Point(42, 361)
-        Me.MaterialLabel3.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialLabel3.Name = "MaterialLabel3"
-        Me.MaterialLabel3.Size = New System.Drawing.Size(217, 19)
-        Me.MaterialLabel3.TabIndex = 57
-        Me.MaterialLabel3.Text = "Monto a cancelar por el cliente"
+        Me.lblMonto_Cancelar.AutoSize = True
+        Me.lblMonto_Cancelar.Depth = 0
+        Me.lblMonto_Cancelar.Font = New System.Drawing.Font("Roboto", 11.0!)
+        Me.lblMonto_Cancelar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblMonto_Cancelar.Location = New System.Drawing.Point(42, 361)
+        Me.lblMonto_Cancelar.MouseState = MaterialSkin.MouseState.HOVER
+        Me.lblMonto_Cancelar.Name = "lblMonto_Cancelar"
+        Me.lblMonto_Cancelar.Size = New System.Drawing.Size(217, 19)
+        Me.lblMonto_Cancelar.TabIndex = 57
+        Me.lblMonto_Cancelar.Text = "Monto a cancelar por el cliente"
         '
-        'MaterialSingleLineTextField1
+        'txbMonto_Cancelar
         '
-        Me.MaterialSingleLineTextField1.Depth = 0
-        Me.MaterialSingleLineTextField1.Hint = ""
-        Me.MaterialSingleLineTextField1.Location = New System.Drawing.Point(46, 394)
-        Me.MaterialSingleLineTextField1.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialSingleLineTextField1.Name = "MaterialSingleLineTextField1"
-        Me.MaterialSingleLineTextField1.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.MaterialSingleLineTextField1.SelectedText = ""
-        Me.MaterialSingleLineTextField1.SelectionLength = 0
-        Me.MaterialSingleLineTextField1.SelectionStart = 0
-        Me.MaterialSingleLineTextField1.Size = New System.Drawing.Size(474, 23)
-        Me.MaterialSingleLineTextField1.TabIndex = 58
-        Me.MaterialSingleLineTextField1.UseSystemPasswordChar = False
+        Me.txbMonto_Cancelar.Depth = 0
+        Me.txbMonto_Cancelar.Hint = ""
+        Me.txbMonto_Cancelar.Location = New System.Drawing.Point(46, 394)
+        Me.txbMonto_Cancelar.MouseState = MaterialSkin.MouseState.HOVER
+        Me.txbMonto_Cancelar.Name = "txbMonto_Cancelar"
+        Me.txbMonto_Cancelar.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.txbMonto_Cancelar.SelectedText = ""
+        Me.txbMonto_Cancelar.SelectionLength = 0
+        Me.txbMonto_Cancelar.SelectionStart = 0
+        Me.txbMonto_Cancelar.Size = New System.Drawing.Size(474, 23)
+        Me.txbMonto_Cancelar.TabIndex = 58
+        Me.txbMonto_Cancelar.UseSystemPasswordChar = False
         '
-        'MaterialRaisedButton1
+        'btnRegresar
         '
-        Me.MaterialRaisedButton1.Depth = 0
-        Me.MaterialRaisedButton1.Location = New System.Drawing.Point(414, 467)
-        Me.MaterialRaisedButton1.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialRaisedButton1.Name = "MaterialRaisedButton1"
-        Me.MaterialRaisedButton1.Primary = True
-        Me.MaterialRaisedButton1.Size = New System.Drawing.Size(106, 27)
-        Me.MaterialRaisedButton1.TabIndex = 59
-        Me.MaterialRaisedButton1.Text = "Regresar"
-        Me.MaterialRaisedButton1.UseVisualStyleBackColor = True
+        Me.btnRegresar.Depth = 0
+        Me.btnRegresar.Location = New System.Drawing.Point(414, 467)
+        Me.btnRegresar.MouseState = MaterialSkin.MouseState.HOVER
+        Me.btnRegresar.Name = "btnRegresar"
+        Me.btnRegresar.Primary = True
+        Me.btnRegresar.Size = New System.Drawing.Size(106, 27)
+        Me.btnRegresar.TabIndex = 59
+        Me.btnRegresar.Text = "Regresar"
+        Me.btnRegresar.UseVisualStyleBackColor = True
         '
-        'MenuStrip1
+        'mnsMenu
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CerrarSesiónToolStripMenuItem})
-        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
-        Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(562, 27)
-        Me.MenuStrip1.TabIndex = 60
-        Me.MenuStrip1.Text = "MenuStrip1"
+        Me.mnsMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnsCerrar_Sesion})
+        Me.mnsMenu.Location = New System.Drawing.Point(0, 0)
+        Me.mnsMenu.Name = "mnsMenu"
+        Me.mnsMenu.Size = New System.Drawing.Size(562, 27)
+        Me.mnsMenu.TabIndex = 60
+        Me.mnsMenu.Text = "MenuStrip1"
         '
-        'CerrarSesiónToolStripMenuItem
+        'mnsCerrar_Sesion
         '
-        Me.CerrarSesiónToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.CerrarSesiónToolStripMenuItem.Name = "CerrarSesiónToolStripMenuItem"
-        Me.CerrarSesiónToolStripMenuItem.Size = New System.Drawing.Size(102, 23)
-        Me.CerrarSesiónToolStripMenuItem.Text = "Cerrar Sesión"
+        Me.mnsCerrar_Sesion.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.mnsCerrar_Sesion.Name = "mnsCerrar_Sesion"
+        Me.mnsCerrar_Sesion.Size = New System.Drawing.Size(102, 23)
+        Me.mnsCerrar_Sesion.Text = "Cerrar Sesión"
         '
         'frmDevolucion_Auto
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(562, 506)
-        Me.Controls.Add(Me.MaterialRaisedButton1)
-        Me.Controls.Add(Me.MaterialSingleLineTextField1)
-        Me.Controls.Add(Me.MaterialLabel3)
-        Me.Controls.Add(Me.MaterialLabel2)
-        Me.Controls.Add(Me.TextBox1)
-        Me.Controls.Add(Me.DateTimePicker1)
-        Me.Controls.Add(Me.MaterialLabel6)
-        Me.Controls.Add(Me.MaterialLabel1)
-        Me.Controls.Add(Me.MaterialRadioButton2)
-        Me.Controls.Add(Me.MaterialRadioButton1)
-        Me.Controls.Add(Me.MaterialFlatButton1)
-        Me.Controls.Add(Me.MenuStrip1)
-        Me.MainMenuStrip = Me.MenuStrip1
+        Me.Controls.Add(Me.btnRegresar)
+        Me.Controls.Add(Me.txbMonto_Cancelar)
+        Me.Controls.Add(Me.lblMonto_Cancelar)
+        Me.Controls.Add(Me.lblDescripcion_Problema)
+        Me.Controls.Add(Me.txbDescripcion_Problema)
+        Me.Controls.Add(Me.dtpFecha_Devolucion)
+        Me.Controls.Add(Me.lblFecha_Devolucion)
+        Me.Controls.Add(Me.lblEstado_Coche)
+        Me.Controls.Add(Me.rdbChocado)
+        Me.Controls.Add(Me.rdbBuen_Estado)
+        Me.Controls.Add(Me.btnConfirmar)
+        Me.Controls.Add(Me.mnsMenu)
+        Me.MainMenuStrip = Me.mnsMenu
         Me.Name = "frmDevolucion_Auto"
         Me.Text = "Devolución de coches                                                             " &
     "          Rent-a-Car"
-        Me.MenuStrip1.ResumeLayout(False)
-        Me.MenuStrip1.PerformLayout()
+        Me.mnsMenu.ResumeLayout(False)
+        Me.mnsMenu.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
-    Friend WithEvents MaterialFlatButton1 As MaterialSkin.Controls.MaterialFlatButton
-    Friend WithEvents MaterialRadioButton1 As MaterialSkin.Controls.MaterialRadioButton
-    Friend WithEvents MaterialRadioButton2 As MaterialSkin.Controls.MaterialRadioButton
-    Friend WithEvents MaterialLabel1 As MaterialSkin.Controls.MaterialLabel
-    Friend WithEvents DateTimePicker1 As DateTimePicker
-    Friend WithEvents MaterialLabel6 As MaterialSkin.Controls.MaterialLabel
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents MaterialLabel2 As MaterialSkin.Controls.MaterialLabel
-    Friend WithEvents MaterialLabel3 As MaterialSkin.Controls.MaterialLabel
-    Friend WithEvents MaterialSingleLineTextField1 As MaterialSkin.Controls.MaterialSingleLineTextField
-    Friend WithEvents MaterialRaisedButton1 As MaterialSkin.Controls.MaterialRaisedButton
-    Friend WithEvents MenuStrip1 As MenuStrip
-    Friend WithEvents CerrarSesiónToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents btnConfirmar As MaterialSkin.Controls.MaterialFlatButton
+    Friend WithEvents rdbBuen_Estado As MaterialSkin.Controls.MaterialRadioButton
+    Friend WithEvents rdbChocado As MaterialSkin.Controls.MaterialRadioButton
+    Friend WithEvents lblEstado_Coche As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents dtpFecha_Devolucion As DateTimePicker
+    Friend WithEvents lblFecha_Devolucion As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents txbDescripcion_Problema As TextBox
+    Friend WithEvents lblDescripcion_Problema As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents lblMonto_Cancelar As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents txbMonto_Cancelar As MaterialSkin.Controls.MaterialSingleLineTextField
+    Friend WithEvents btnRegresar As MaterialSkin.Controls.MaterialRaisedButton
+    Friend WithEvents mnsMenu As MenuStrip
+    Friend WithEvents mnsCerrar_Sesion As ToolStripMenuItem
 End Class

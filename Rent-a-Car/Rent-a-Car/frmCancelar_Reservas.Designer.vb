@@ -22,124 +22,124 @@ Partial Class frmCancelar_Reservas
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.MaterialSingleLineTextField2 = New MaterialSkin.Controls.MaterialSingleLineTextField()
-        Me.MaterialLabel3 = New MaterialSkin.Controls.MaterialLabel()
-        Me.DataGridView2 = New System.Windows.Forms.DataGridView()
-        Me.MaterialFlatButton1 = New MaterialSkin.Controls.MaterialFlatButton()
-        Me.MaterialRaisedButton1 = New MaterialSkin.Controls.MaterialRaisedButton()
-        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
-        Me.CerrarSesiónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.MenuStrip1.SuspendLayout()
+        Me.txbCodigo_Reserva = New MaterialSkin.Controls.MaterialSingleLineTextField()
+        Me.lblCodigo_Reserva = New MaterialSkin.Controls.MaterialLabel()
+        Me.dgvCancelar_Reservas = New System.Windows.Forms.DataGridView()
+        Me.btnCancelar_Reservas = New MaterialSkin.Controls.MaterialFlatButton()
+        Me.btnRegresar = New MaterialSkin.Controls.MaterialRaisedButton()
+        Me.mnsMenu = New System.Windows.Forms.MenuStrip()
+        Me.mnsCerrar_Sesion = New System.Windows.Forms.ToolStripMenuItem()
+        CType(Me.dgvCancelar_Reservas, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.mnsMenu.SuspendLayout()
         Me.SuspendLayout()
         '
-        'MaterialSingleLineTextField2
+        'txbCodigo_Reserva
         '
-        Me.MaterialSingleLineTextField2.Depth = 0
-        Me.MaterialSingleLineTextField2.Hint = ""
-        Me.MaterialSingleLineTextField2.Location = New System.Drawing.Point(206, 102)
-        Me.MaterialSingleLineTextField2.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialSingleLineTextField2.Name = "MaterialSingleLineTextField2"
-        Me.MaterialSingleLineTextField2.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.MaterialSingleLineTextField2.SelectedText = ""
-        Me.MaterialSingleLineTextField2.SelectionLength = 0
-        Me.MaterialSingleLineTextField2.SelectionStart = 0
-        Me.MaterialSingleLineTextField2.Size = New System.Drawing.Size(289, 23)
-        Me.MaterialSingleLineTextField2.TabIndex = 65
-        Me.MaterialSingleLineTextField2.UseSystemPasswordChar = False
+        Me.txbCodigo_Reserva.Depth = 0
+        Me.txbCodigo_Reserva.Hint = ""
+        Me.txbCodigo_Reserva.Location = New System.Drawing.Point(206, 102)
+        Me.txbCodigo_Reserva.MouseState = MaterialSkin.MouseState.HOVER
+        Me.txbCodigo_Reserva.Name = "txbCodigo_Reserva"
+        Me.txbCodigo_Reserva.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.txbCodigo_Reserva.SelectedText = ""
+        Me.txbCodigo_Reserva.SelectionLength = 0
+        Me.txbCodigo_Reserva.SelectionStart = 0
+        Me.txbCodigo_Reserva.Size = New System.Drawing.Size(289, 23)
+        Me.txbCodigo_Reserva.TabIndex = 65
+        Me.txbCodigo_Reserva.UseSystemPasswordChar = False
         '
-        'MaterialLabel3
+        'lblCodigo_Reserva
         '
-        Me.MaterialLabel3.AutoSize = True
-        Me.MaterialLabel3.Depth = 0
-        Me.MaterialLabel3.Font = New System.Drawing.Font("Roboto", 11.0!)
-        Me.MaterialLabel3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.MaterialLabel3.Location = New System.Drawing.Point(15, 102)
-        Me.MaterialLabel3.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialLabel3.Name = "MaterialLabel3"
-        Me.MaterialLabel3.Size = New System.Drawing.Size(178, 19)
-        Me.MaterialLabel3.TabIndex = 64
-        Me.MaterialLabel3.Text = "Buscar código de reserva"
+        Me.lblCodigo_Reserva.AutoSize = True
+        Me.lblCodigo_Reserva.Depth = 0
+        Me.lblCodigo_Reserva.Font = New System.Drawing.Font("Roboto", 11.0!)
+        Me.lblCodigo_Reserva.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblCodigo_Reserva.Location = New System.Drawing.Point(15, 102)
+        Me.lblCodigo_Reserva.MouseState = MaterialSkin.MouseState.HOVER
+        Me.lblCodigo_Reserva.Name = "lblCodigo_Reserva"
+        Me.lblCodigo_Reserva.Size = New System.Drawing.Size(178, 19)
+        Me.lblCodigo_Reserva.TabIndex = 64
+        Me.lblCodigo_Reserva.Text = "Buscar código de reserva"
         '
-        'DataGridView2
+        'dgvCancelar_Reservas
         '
-        Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView2.Location = New System.Drawing.Point(19, 141)
-        Me.DataGridView2.Name = "DataGridView2"
-        Me.DataGridView2.Size = New System.Drawing.Size(476, 93)
-        Me.DataGridView2.TabIndex = 63
+        Me.dgvCancelar_Reservas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvCancelar_Reservas.Location = New System.Drawing.Point(19, 141)
+        Me.dgvCancelar_Reservas.Name = "dgvCancelar_Reservas"
+        Me.dgvCancelar_Reservas.Size = New System.Drawing.Size(476, 93)
+        Me.dgvCancelar_Reservas.TabIndex = 63
         '
-        'MaterialFlatButton1
+        'btnCancelar_Reservas
         '
-        Me.MaterialFlatButton1.AutoSize = True
-        Me.MaterialFlatButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.MaterialFlatButton1.Depth = 0
-        Me.MaterialFlatButton1.Location = New System.Drawing.Point(195, 263)
-        Me.MaterialFlatButton1.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
-        Me.MaterialFlatButton1.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialFlatButton1.Name = "MaterialFlatButton1"
-        Me.MaterialFlatButton1.Primary = False
-        Me.MaterialFlatButton1.Size = New System.Drawing.Size(144, 36)
-        Me.MaterialFlatButton1.TabIndex = 66
-        Me.MaterialFlatButton1.Text = "Cancelar Reserva"
-        Me.MaterialFlatButton1.UseVisualStyleBackColor = True
+        Me.btnCancelar_Reservas.AutoSize = True
+        Me.btnCancelar_Reservas.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.btnCancelar_Reservas.Depth = 0
+        Me.btnCancelar_Reservas.Location = New System.Drawing.Point(195, 263)
+        Me.btnCancelar_Reservas.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
+        Me.btnCancelar_Reservas.MouseState = MaterialSkin.MouseState.HOVER
+        Me.btnCancelar_Reservas.Name = "btnCancelar_Reservas"
+        Me.btnCancelar_Reservas.Primary = False
+        Me.btnCancelar_Reservas.Size = New System.Drawing.Size(144, 36)
+        Me.btnCancelar_Reservas.TabIndex = 66
+        Me.btnCancelar_Reservas.Text = "Cancelar Reserva"
+        Me.btnCancelar_Reservas.UseVisualStyleBackColor = True
         '
-        'MaterialRaisedButton1
+        'btnRegresar
         '
-        Me.MaterialRaisedButton1.Depth = 0
-        Me.MaterialRaisedButton1.Location = New System.Drawing.Point(389, 297)
-        Me.MaterialRaisedButton1.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialRaisedButton1.Name = "MaterialRaisedButton1"
-        Me.MaterialRaisedButton1.Primary = True
-        Me.MaterialRaisedButton1.Size = New System.Drawing.Size(106, 27)
-        Me.MaterialRaisedButton1.TabIndex = 67
-        Me.MaterialRaisedButton1.Text = "Regresar"
-        Me.MaterialRaisedButton1.UseVisualStyleBackColor = True
+        Me.btnRegresar.Depth = 0
+        Me.btnRegresar.Location = New System.Drawing.Point(389, 297)
+        Me.btnRegresar.MouseState = MaterialSkin.MouseState.HOVER
+        Me.btnRegresar.Name = "btnRegresar"
+        Me.btnRegresar.Primary = True
+        Me.btnRegresar.Size = New System.Drawing.Size(106, 27)
+        Me.btnRegresar.TabIndex = 67
+        Me.btnRegresar.Text = "Regresar"
+        Me.btnRegresar.UseVisualStyleBackColor = True
         '
-        'MenuStrip1
+        'mnsMenu
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CerrarSesiónToolStripMenuItem})
-        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
-        Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(517, 27)
-        Me.MenuStrip1.TabIndex = 68
-        Me.MenuStrip1.Text = "MenuStrip1"
+        Me.mnsMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnsCerrar_Sesion})
+        Me.mnsMenu.Location = New System.Drawing.Point(0, 0)
+        Me.mnsMenu.Name = "mnsMenu"
+        Me.mnsMenu.Size = New System.Drawing.Size(517, 27)
+        Me.mnsMenu.TabIndex = 68
+        Me.mnsMenu.Text = "MenuStrip1"
         '
-        'CerrarSesiónToolStripMenuItem
+        'mnsCerrar_Sesion
         '
-        Me.CerrarSesiónToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.CerrarSesiónToolStripMenuItem.Name = "CerrarSesiónToolStripMenuItem"
-        Me.CerrarSesiónToolStripMenuItem.Size = New System.Drawing.Size(102, 23)
-        Me.CerrarSesiónToolStripMenuItem.Text = "Cerrar Sesión"
+        Me.mnsCerrar_Sesion.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.mnsCerrar_Sesion.Name = "mnsCerrar_Sesion"
+        Me.mnsCerrar_Sesion.Size = New System.Drawing.Size(102, 23)
+        Me.mnsCerrar_Sesion.Text = "Cerrar Sesión"
         '
         'frmCancelar_Reservas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(517, 336)
-        Me.Controls.Add(Me.MaterialRaisedButton1)
-        Me.Controls.Add(Me.MaterialFlatButton1)
-        Me.Controls.Add(Me.MaterialSingleLineTextField2)
-        Me.Controls.Add(Me.MaterialLabel3)
-        Me.Controls.Add(Me.DataGridView2)
-        Me.Controls.Add(Me.MenuStrip1)
-        Me.MainMenuStrip = Me.MenuStrip1
+        Me.Controls.Add(Me.btnRegresar)
+        Me.Controls.Add(Me.btnCancelar_Reservas)
+        Me.Controls.Add(Me.txbCodigo_Reserva)
+        Me.Controls.Add(Me.lblCodigo_Reserva)
+        Me.Controls.Add(Me.dgvCancelar_Reservas)
+        Me.Controls.Add(Me.mnsMenu)
+        Me.MainMenuStrip = Me.mnsMenu
         Me.Name = "frmCancelar_Reservas"
         Me.Text = "Cancelar Reservas                                                                " &
     "   Rent-a-Car"
-        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.MenuStrip1.ResumeLayout(False)
-        Me.MenuStrip1.PerformLayout()
+        CType(Me.dgvCancelar_Reservas, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.mnsMenu.ResumeLayout(False)
+        Me.mnsMenu.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
-    Friend WithEvents MaterialSingleLineTextField2 As MaterialSkin.Controls.MaterialSingleLineTextField
-    Friend WithEvents MaterialLabel3 As MaterialSkin.Controls.MaterialLabel
-    Friend WithEvents DataGridView2 As DataGridView
-    Friend WithEvents MaterialFlatButton1 As MaterialSkin.Controls.MaterialFlatButton
-    Friend WithEvents MaterialRaisedButton1 As MaterialSkin.Controls.MaterialRaisedButton
-    Friend WithEvents MenuStrip1 As MenuStrip
-    Friend WithEvents CerrarSesiónToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents txbCodigo_Reserva As MaterialSkin.Controls.MaterialSingleLineTextField
+    Friend WithEvents lblCodigo_Reserva As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents dgvCancelar_Reservas As DataGridView
+    Friend WithEvents btnCancelar_Reservas As MaterialSkin.Controls.MaterialFlatButton
+    Friend WithEvents btnRegresar As MaterialSkin.Controls.MaterialRaisedButton
+    Friend WithEvents mnsMenu As MenuStrip
+    Friend WithEvents mnsCerrar_Sesion As ToolStripMenuItem
 End Class
