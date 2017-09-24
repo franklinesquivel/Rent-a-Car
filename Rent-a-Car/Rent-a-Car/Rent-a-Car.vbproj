@@ -104,7 +104,6 @@
     <Compile Include="clsMulta.vb" />
     <Compile Include="clsRenta.vb" />
     <Compile Include="clsUsuarios.vb" />
-    <Compile Include="frmBase.vb">
     <Compile Include="frmAgencias.Designer.vb">
       <DependentUpon>frmAgencias.vb</DependentUpon>
     </Compile>
