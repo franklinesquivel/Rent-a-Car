@@ -74,6 +74,7 @@
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -94,11 +95,100 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmBase.vb">
+    <Compile Include="frmAgencias.Designer.vb">
+      <DependentUpon>frmAgencias.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmAgencias.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmBase.Designer.vb">
-      <DependentUpon>frmBase.vb</DependentUpon>
+    <Compile Include="frmCancelar_Reservas.Designer.vb">
+      <DependentUpon>frmCancelar_Reservas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmCancelar_Reservas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCoches.Designer.vb">
+      <DependentUpon>frmCoches.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmCoches.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDevolucion_Auto.Designer.vb">
+      <DependentUpon>frmDevolucion_Auto.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmDevolucion_Auto.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGestionar_Autos.Designer.vb">
+      <DependentUpon>frmGestionar_Autos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmGestionar_Autos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInicio_Sesion.Designer.vb">
+      <DependentUpon>frmInicio_Sesion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmInicio_Sesion.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMenu_Admin.Designer.vb">
+      <DependentUpon>frmMenu_Admin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmMenu_Admin.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMenu_Agentes.Designer.vb">
+      <DependentUpon>frmMenu_Agentes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmMenu_Agentes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMenu_Contador.Designer.vb">
+      <DependentUpon>frmMenu_Contador.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmMenu_Contador.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModificar_Coche.Designer.vb">
+      <DependentUpon>frmModificar_Coche.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmModificar_Coche.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInventario_Autos.Designer.vb">
+      <DependentUpon>frmInventario_Autos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmInventario_Autos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReportes_Coches.Designer.vb">
+      <DependentUpon>frmReportes_Coches.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmReportes_Coches.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReportes_Rentas.Designer.vb">
+      <DependentUpon>frmReportes_Rentas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmReportes_Rentas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReservas.Designer.vb">
+      <DependentUpon>frmReservas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmReservas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmClientes.Designer.vb">
+      <DependentUpon>frmClientes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmClientes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUsuarios.Designer.vb">
+      <DependentUpon>frmUsuarios.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmUsuarios.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -118,8 +208,53 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="frmBase.resx">
-      <DependentUpon>frmBase.vb</DependentUpon>
+    <EmbeddedResource Include="frmAgencias.resx">
+      <DependentUpon>frmAgencias.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCancelar_Reservas.resx">
+      <DependentUpon>frmCancelar_Reservas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCoches.resx">
+      <DependentUpon>frmCoches.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDevolucion_Auto.resx">
+      <DependentUpon>frmDevolucion_Auto.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGestionar_Autos.resx">
+      <DependentUpon>frmGestionar_Autos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInicio_Sesion.resx">
+      <DependentUpon>frmInicio_Sesion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMenu_Admin.resx">
+      <DependentUpon>frmMenu_Admin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMenu_Agentes.resx">
+      <DependentUpon>frmMenu_Agentes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMenu_Contador.resx">
+      <DependentUpon>frmMenu_Contador.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmModificar_Coche.resx">
+      <DependentUpon>frmModificar_Coche.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInventario_Autos.resx">
+      <DependentUpon>frmInventario_Autos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReportes_Coches.resx">
+      <DependentUpon>frmReportes_Coches.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReportes_Rentas.resx">
+      <DependentUpon>frmReportes_Rentas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReservas.resx">
+      <DependentUpon>frmReservas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmClientes.resx">
+      <DependentUpon>frmClientes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUsuarios.resx">
+      <DependentUpon>frmUsuarios.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -155,6 +290,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="rentacar.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
