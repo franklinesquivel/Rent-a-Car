@@ -33,6 +33,13 @@
             _estado = value
         End Set
     End Property
+    'obtener fecha retiro
+    Public ReadOnly Property getFechaRetiro
+        Get
+            Return _fechaRetiro
+        End Get
+    End Property
+
 
     Public Function registrarRenta(ByVal idCliente As Integer, ByVal idAgencia As Integer, ByVal idCoche As Integer, ByVal idUsuario As String, ByVal fechaRetiro As Date, ByVal fechaEntrega As Date) As Boolean
         If _buscarRegistro("clientes", "id_cliente", idCliente) Then
