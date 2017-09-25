@@ -1,5 +1,5 @@
 ﻿
-Public Class clsCliente
+Public Class clsClientes
 
 
 
@@ -89,7 +89,7 @@ Public Class clsCliente
     End Function
 
 
-    Public Sub ralizarReserva(ByVal agenciaDatos As clsAgencia, ByVal nombreAgencia As String, ByVal direccionAgencia As String, ByVal telefonoAgencia As String)
+    Public Sub ralizarReserva(ByVal agenciaDatos As clsAgencias, ByVal nombreAgencia As String, ByVal direccionAgencia As String, ByVal telefonoAgencia As String)
         agenciaDatos.obtenerDatos(nombreAgencia, direccionAgencia, telefonoAgencia)
     End Sub
 

@@ -36,7 +36,6 @@ Partial Class frmMenu_Admin
         Me.lblReservas = New MaterialSkin.Controls.MaterialLabel()
         Me.lblClientes = New MaterialSkin.Controls.MaterialLabel()
         Me.btnDevolver_Autos = New MaterialSkin.Controls.MaterialFlatButton()
-        Me.btnRentar_Autos = New MaterialSkin.Controls.MaterialFlatButton()
         Me.btnInventario_Autos = New MaterialSkin.Controls.MaterialFlatButton()
         Me.btnCancelar_Reservas = New MaterialSkin.Controls.MaterialFlatButton()
         Me.btnGestion_Reservas = New MaterialSkin.Controls.MaterialFlatButton()
@@ -48,6 +47,7 @@ Partial Class frmMenu_Admin
         '
         Me.btnRegistrar_Agencias.AutoSize = True
         Me.btnRegistrar_Agencias.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.btnRegistrar_Agencias.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnRegistrar_Agencias.Depth = 0
         Me.btnRegistrar_Agencias.Location = New System.Drawing.Point(48, 137)
         Me.btnRegistrar_Agencias.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
@@ -63,6 +63,7 @@ Partial Class frmMenu_Admin
         '
         Me.btnRegistrar_Usuarios.AutoSize = True
         Me.btnRegistrar_Usuarios.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.btnRegistrar_Usuarios.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnRegistrar_Usuarios.Depth = 0
         Me.btnRegistrar_Usuarios.Location = New System.Drawing.Point(240, 137)
         Me.btnRegistrar_Usuarios.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
@@ -78,6 +79,7 @@ Partial Class frmMenu_Admin
         '
         Me.btnEstado_Autos.AutoSize = True
         Me.btnEstado_Autos.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.btnEstado_Autos.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnEstado_Autos.Depth = 0
         Me.btnEstado_Autos.Location = New System.Drawing.Point(446, 233)
         Me.btnEstado_Autos.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
@@ -93,6 +95,7 @@ Partial Class frmMenu_Admin
         '
         Me.btnModificar_Auto.AutoSize = True
         Me.btnModificar_Auto.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.btnModificar_Auto.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnModificar_Auto.Depth = 0
         Me.btnModificar_Auto.Location = New System.Drawing.Point(446, 185)
         Me.btnModificar_Auto.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
@@ -121,6 +124,7 @@ Partial Class frmMenu_Admin
         '
         Me.btnReportes_Coches.AutoSize = True
         Me.btnReportes_Coches.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.btnReportes_Coches.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnReportes_Coches.Depth = 0
         Me.btnReportes_Coches.Location = New System.Drawing.Point(446, 382)
         Me.btnReportes_Coches.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
@@ -149,6 +153,7 @@ Partial Class frmMenu_Admin
         '
         Me.btnReportes_Rentas.AutoSize = True
         Me.btnReportes_Rentas.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.btnReportes_Rentas.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnReportes_Rentas.Depth = 0
         Me.btnReportes_Rentas.Location = New System.Drawing.Point(446, 322)
         Me.btnReportes_Rentas.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
@@ -164,6 +169,7 @@ Partial Class frmMenu_Admin
         '
         Me.btnIngresar_Auto.AutoSize = True
         Me.btnIngresar_Auto.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.btnIngresar_Auto.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnIngresar_Auto.Depth = 0
         Me.btnIngresar_Auto.Location = New System.Drawing.Point(446, 137)
         Me.btnIngresar_Auto.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
@@ -231,8 +237,9 @@ Partial Class frmMenu_Admin
         '
         Me.btnDevolver_Autos.AutoSize = True
         Me.btnDevolver_Autos.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.btnDevolver_Autos.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnDevolver_Autos.Depth = 0
-        Me.btnDevolver_Autos.Location = New System.Drawing.Point(234, 371)
+        Me.btnDevolver_Autos.Location = New System.Drawing.Point(234, 322)
         Me.btnDevolver_Autos.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
         Me.btnDevolver_Autos.MouseState = MaterialSkin.MouseState.HOVER
         Me.btnDevolver_Autos.Name = "btnDevolver_Autos"
@@ -242,25 +249,11 @@ Partial Class frmMenu_Admin
         Me.btnDevolver_Autos.Text = "devolver auto"
         Me.btnDevolver_Autos.UseVisualStyleBackColor = True
         '
-        'btnRentar_Autos
-        '
-        Me.btnRentar_Autos.AutoSize = True
-        Me.btnRentar_Autos.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.btnRentar_Autos.Depth = 0
-        Me.btnRentar_Autos.Location = New System.Drawing.Point(234, 313)
-        Me.btnRentar_Autos.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
-        Me.btnRentar_Autos.MouseState = MaterialSkin.MouseState.HOVER
-        Me.btnRentar_Autos.Name = "btnRentar_Autos"
-        Me.btnRentar_Autos.Primary = False
-        Me.btnRentar_Autos.Size = New System.Drawing.Size(103, 36)
-        Me.btnRentar_Autos.TabIndex = 29
-        Me.btnRentar_Autos.Text = "Rentar auto"
-        Me.btnRentar_Autos.UseVisualStyleBackColor = True
-        '
         'btnInventario_Autos
         '
         Me.btnInventario_Autos.AutoSize = True
         Me.btnInventario_Autos.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.btnInventario_Autos.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnInventario_Autos.Depth = 0
         Me.btnInventario_Autos.Location = New System.Drawing.Point(234, 250)
         Me.btnInventario_Autos.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
@@ -276,6 +269,7 @@ Partial Class frmMenu_Admin
         '
         Me.btnCancelar_Reservas.AutoSize = True
         Me.btnCancelar_Reservas.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.btnCancelar_Reservas.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnCancelar_Reservas.Depth = 0
         Me.btnCancelar_Reservas.Location = New System.Drawing.Point(30, 405)
         Me.btnCancelar_Reservas.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
@@ -291,6 +285,7 @@ Partial Class frmMenu_Admin
         '
         Me.btnGestion_Reservas.AutoSize = True
         Me.btnGestion_Reservas.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.btnGestion_Reservas.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnGestion_Reservas.Depth = 0
         Me.btnGestion_Reservas.Location = New System.Drawing.Point(30, 343)
         Me.btnGestion_Reservas.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
@@ -306,6 +301,7 @@ Partial Class frmMenu_Admin
         '
         Me.btnRegistrar_Clientes.AutoSize = True
         Me.btnRegistrar_Clientes.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.btnRegistrar_Clientes.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnRegistrar_Clientes.Depth = 0
         Me.btnRegistrar_Clientes.Location = New System.Drawing.Point(40, 250)
         Me.btnRegistrar_Clientes.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
@@ -319,6 +315,7 @@ Partial Class frmMenu_Admin
         '
         'btnCerrar_Sesion
         '
+        Me.btnCerrar_Sesion.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnCerrar_Sesion.Depth = 0
         Me.btnCerrar_Sesion.Location = New System.Drawing.Point(521, 444)
         Me.btnCerrar_Sesion.MouseState = MaterialSkin.MouseState.HOVER
@@ -339,7 +336,6 @@ Partial Class frmMenu_Admin
         Me.Controls.Add(Me.lblReservas)
         Me.Controls.Add(Me.lblClientes)
         Me.Controls.Add(Me.btnDevolver_Autos)
-        Me.Controls.Add(Me.btnRentar_Autos)
         Me.Controls.Add(Me.btnInventario_Autos)
         Me.Controls.Add(Me.btnCancelar_Reservas)
         Me.Controls.Add(Me.btnGestion_Reservas)
@@ -355,6 +351,7 @@ Partial Class frmMenu_Admin
         Me.Controls.Add(Me.btnRegistrar_Usuarios)
         Me.Controls.Add(Me.btnRegistrar_Agencias)
         Me.Name = "frmMenu_Admin"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Menú Administrador                                                               " &
     "                                          Rent-a-Car"
         Me.ResumeLayout(False)
@@ -376,7 +373,6 @@ Partial Class frmMenu_Admin
     Friend WithEvents lblReservas As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents lblClientes As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents btnDevolver_Autos As MaterialSkin.Controls.MaterialFlatButton
-    Friend WithEvents btnRentar_Autos As MaterialSkin.Controls.MaterialFlatButton
     Friend WithEvents btnInventario_Autos As MaterialSkin.Controls.MaterialFlatButton
     Friend WithEvents btnCancelar_Reservas As MaterialSkin.Controls.MaterialFlatButton
     Friend WithEvents btnGestion_Reservas As MaterialSkin.Controls.MaterialFlatButton

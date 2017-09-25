@@ -75,7 +75,20 @@ Public Class clsUsuarios
 
     Public Function Registrar(ByVal _nombres As String, ByVal _apellidos As String, ByVal _tipoUsuario As String)
         'Tpos de usuarios: Administrador(A00000), Gerente(G0000), Contador(C0000)
-        Return True
+        _nombres = _nombres.Trim
+        _apellidos = _apellidos.Trim
+        If _nombres.Length = 0 Then 'Falta Regex
+            MsgBox("Error: Ingrese el nombre válido")
+            Return False
+        ElseIf _apellidos.Length = 0 Then
+            MsgBox("Error: Ingrese apellido válido")
+            Return False
+        ElseIf _tipoUsuario = Nothing Then
+            MsgBox("Error: Seleccione tipo de usuario")
+            Return False
+        Else
+            Return True
+        End If
     End Function
     Public Sub CrearCodigo(ByVal _tipousuario As String)
 

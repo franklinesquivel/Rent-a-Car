@@ -64,6 +64,7 @@ Partial Class frmInventario_Autos
         '
         'btnRegresar
         '
+        Me.btnRegresar.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnRegresar.Depth = 0
         Me.btnRegresar.Location = New System.Drawing.Point(310, 397)
         Me.btnRegresar.MouseState = MaterialSkin.MouseState.HOVER
@@ -102,6 +103,7 @@ Partial Class frmInventario_Autos
         Me.Controls.Add(Me.mnsMenu)
         Me.MainMenuStrip = Me.mnsMenu
         Me.Name = "frmInventario_Autos"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Inventario de autos                                                       Rent-a-" &
     "Car"
         CType(Me.dgvInventario_Autos, System.ComponentModel.ISupportInitialize).EndInit()

@@ -37,6 +37,7 @@ Partial Class frmInicio_Sesion
         '
         Me.btnIniciar_sesion.AutoSize = True
         Me.btnIniciar_sesion.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.btnIniciar_sesion.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnIniciar_sesion.Depth = 0
         Me.btnIniciar_sesion.Location = New System.Drawing.Point(144, 324)
         Me.btnIniciar_sesion.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
@@ -89,7 +90,7 @@ Partial Class frmInicio_Sesion
         Me.txbContraseña.SelectionStart = 0
         Me.txbContraseña.Size = New System.Drawing.Size(204, 23)
         Me.txbContraseña.TabIndex = 61
-        Me.txbContraseña.UseSystemPasswordChar = False
+        Me.txbContraseña.UseSystemPasswordChar = True
         '
         'lblContraseña
         '
@@ -117,6 +118,7 @@ Partial Class frmInicio_Sesion
         '
         'btnRecuperar_Contraseña
         '
+        Me.btnRecuperar_Contraseña.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnRecuperar_Contraseña.Depth = 0
         Me.btnRecuperar_Contraseña.Location = New System.Drawing.Point(210, 378)
         Me.btnRecuperar_Contraseña.MouseState = MaterialSkin.MouseState.HOVER
@@ -140,6 +142,7 @@ Partial Class frmInicio_Sesion
         Me.Controls.Add(Me.txbNombre_Usuario)
         Me.Controls.Add(Me.lblNombre_Usuario)
         Me.Name = "frmInicio_Sesion"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Inicio Sesión                                                Rent-a-Car"
         CType(Me.pcbIcono, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

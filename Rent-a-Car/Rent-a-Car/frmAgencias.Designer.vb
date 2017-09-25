@@ -66,6 +66,7 @@ Partial Class frmAgencias
         'txbCodigo
         '
         Me.txbCodigo.Depth = 0
+        Me.txbCodigo.Enabled = False
         Me.txbCodigo.Hint = ""
         Me.txbCodigo.Location = New System.Drawing.Point(114, 97)
         Me.txbCodigo.MouseState = MaterialSkin.MouseState.HOVER
@@ -82,6 +83,7 @@ Partial Class frmAgencias
         '
         Me.btnAgregar_Agencia.AutoSize = True
         Me.btnAgregar_Agencia.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.btnAgregar_Agencia.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnAgregar_Agencia.Depth = 0
         Me.btnAgregar_Agencia.Location = New System.Drawing.Point(138, 282)
         Me.btnAgregar_Agencia.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
@@ -166,6 +168,7 @@ Partial Class frmAgencias
         '
         'btnRegresar
         '
+        Me.btnRegresar.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnRegresar.Depth = 0
         Me.btnRegresar.Location = New System.Drawing.Point(307, 318)
         Me.btnRegresar.MouseState = MaterialSkin.MouseState.HOVER
@@ -212,6 +215,7 @@ Partial Class frmAgencias
         Me.Controls.Add(Me.mnsMenu)
         Me.MainMenuStrip = Me.mnsMenu
         Me.Name = "frmAgencias"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Registro de agencia                                         Rent-a-Car"
         Me.mnsMenu.ResumeLayout(False)
         Me.mnsMenu.PerformLayout()

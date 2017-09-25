@@ -1,5 +1,5 @@
 ﻿Imports System.IO
-Public MustInherit Class clsCoche
+Public Class clsCoches
     Private _idCoche As Integer
     Private _matricula As String
     Private _marca As String
@@ -110,12 +110,12 @@ Public MustInherit Class clsCoche
             MsgBox("Seleccione una agencia que exista!", MsgBoxStyle.Critical, "Registro de Coche")
             Return False
         End If
-
+        Return True
         'Insertar el coche en la BDD
-        Dim query As String = "INSERT INTO coches VALUES(NULL, '" & _matricula & "', '" & _marca & "', '" & _modelo & "', '" & _color & "', '" & _kilometraje.ToString & "', '" & _nPasajeros.ToString & "', '" & _alquiler.ToString & "', '" & _fotografia & "', '" & _tipo & "', '" & _idAgencia & "', '" & _estado & "');"
+        'Dim query As String = "INSERT INTO coches VALUES(NULL, '" & _matricula & "', '" & _marca & "', '" & _modelo & "', '" & _color & "', '" & _kilometraje.ToString & "', '" & _nPasajeros.ToString & "', '" & _alquiler.ToString & "', '" & _fotografia & "', '" & _tipo & "', '" & _idAgencia & "', '" & _estado & "');"
 
         'OBTENER ÍNDICE GUARDADO Y GUARDARLO EN _idCoche
-        Return True
+
     End Function
 
     Public Sub obtenerDatos(ByRef matricula As String, ByRef marca As String, ByRef modelo As String, ByRef color As String, ByRef kilometraje As Long, ByRef nPasajeros As Integer, ByRef alquiler As Decimal, ByRef fotografia As String, ByRef tipo As String, ByRef idAgencia As Integer)

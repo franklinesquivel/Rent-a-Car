@@ -78,6 +78,7 @@ Partial Class frmGestionar_Autos
         '
         Me.btnModificar_Datos.AutoSize = True
         Me.btnModificar_Datos.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.btnModificar_Datos.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnModificar_Datos.Depth = 0
         Me.btnModificar_Datos.Location = New System.Drawing.Point(205, 395)
         Me.btnModificar_Datos.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
@@ -133,6 +134,7 @@ Partial Class frmGestionar_Autos
         'rdbReparacion
         '
         Me.rdbReparacion.AutoSize = True
+        Me.rdbReparacion.Cursor = System.Windows.Forms.Cursors.Hand
         Me.rdbReparacion.Depth = 0
         Me.rdbReparacion.Font = New System.Drawing.Font("Roboto", 10.0!)
         Me.rdbReparacion.Location = New System.Drawing.Point(152, 342)
@@ -150,6 +152,7 @@ Partial Class frmGestionar_Autos
         'rdbActivo
         '
         Me.rdbActivo.AutoSize = True
+        Me.rdbActivo.Cursor = System.Windows.Forms.Cursors.Hand
         Me.rdbActivo.Depth = 0
         Me.rdbActivo.Font = New System.Drawing.Font("Roboto", 10.0!)
         Me.rdbActivo.Location = New System.Drawing.Point(367, 342)
@@ -166,6 +169,7 @@ Partial Class frmGestionar_Autos
         '
         'btnRegresar
         '
+        Me.btnRegresar.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnRegresar.Depth = 0
         Me.btnRegresar.Location = New System.Drawing.Point(400, 433)
         Me.btnRegresar.MouseState = MaterialSkin.MouseState.HOVER
@@ -210,6 +214,7 @@ Partial Class frmGestionar_Autos
         Me.Controls.Add(Me.mnsMenu)
         Me.MainMenuStrip = Me.mnsMenu
         Me.Name = "frmGestionar_Autos"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Gestionar Autos                                                                  " &
     "        Rent-a-Car"
         CType(Me.dgvBuscar_Coche, System.ComponentModel.ISupportInitialize).EndInit()

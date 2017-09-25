@@ -26,16 +26,17 @@ Partial Class frmMenu_contador
         Me.btnIngresar_Auto = New MaterialSkin.Controls.MaterialFlatButton()
         Me.lblReportes = New MaterialSkin.Controls.MaterialLabel()
         Me.btnReportes_Coches = New MaterialSkin.Controls.MaterialFlatButton()
-        Me.lblGestionar_Autos = New MaterialSkin.Controls.MaterialLabel()
         Me.btnModificar_Auto = New MaterialSkin.Controls.MaterialFlatButton()
         Me.btnEstado_Autos = New MaterialSkin.Controls.MaterialFlatButton()
         Me.btnCerrar_Sesion = New MaterialSkin.Controls.MaterialRaisedButton()
+        Me.lblGestionar_Autos = New MaterialSkin.Controls.MaterialLabel()
         Me.SuspendLayout()
         '
         'btnReportes_Rentas
         '
         Me.btnReportes_Rentas.AutoSize = True
         Me.btnReportes_Rentas.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.btnReportes_Rentas.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnReportes_Rentas.Depth = 0
         Me.btnReportes_Rentas.Location = New System.Drawing.Point(320, 122)
         Me.btnReportes_Rentas.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
@@ -51,6 +52,7 @@ Partial Class frmMenu_contador
         '
         Me.btnIngresar_Auto.AutoSize = True
         Me.btnIngresar_Auto.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.btnIngresar_Auto.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnIngresar_Auto.Depth = 0
         Me.btnIngresar_Auto.Location = New System.Drawing.Point(50, 179)
         Me.btnIngresar_Auto.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
@@ -79,6 +81,7 @@ Partial Class frmMenu_contador
         '
         Me.btnReportes_Coches.AutoSize = True
         Me.btnReportes_Coches.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.btnReportes_Coches.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnReportes_Coches.Depth = 0
         Me.btnReportes_Coches.Location = New System.Drawing.Point(320, 179)
         Me.btnReportes_Coches.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
@@ -90,23 +93,11 @@ Partial Class frmMenu_contador
         Me.btnReportes_Coches.Text = "Reporte de coches rentados"
         Me.btnReportes_Coches.UseVisualStyleBackColor = True
         '
-        'lblGestionar_Autos
-        '
-        Me.lblGestionar_Autos.AutoSize = True
-        Me.lblGestionar_Autos.Depth = 0
-        Me.lblGestionar_Autos.Font = New System.Drawing.Font("Roboto", 11.0!)
-        Me.lblGestionar_Autos.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblGestionar_Autos.Location = New System.Drawing.Point(25, 83)
-        Me.lblGestionar_Autos.MouseState = MaterialSkin.MouseState.HOVER
-        Me.lblGestionar_Autos.Name = "lblGestionar_Autos"
-        Me.lblGestionar_Autos.Size = New System.Drawing.Size(116, 19)
-        Me.lblGestionar_Autos.TabIndex = 14
-        Me.lblGestionar_Autos.Text = "Gestionar autos"
-        '
         'btnModificar_Auto
         '
         Me.btnModificar_Auto.AutoSize = True
         Me.btnModificar_Auto.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.btnModificar_Auto.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnModificar_Auto.Depth = 0
         Me.btnModificar_Auto.Location = New System.Drawing.Point(50, 236)
         Me.btnModificar_Auto.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
@@ -122,6 +113,7 @@ Partial Class frmMenu_contador
         '
         Me.btnEstado_Autos.AutoSize = True
         Me.btnEstado_Autos.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.btnEstado_Autos.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnEstado_Autos.Depth = 0
         Me.btnEstado_Autos.Location = New System.Drawing.Point(50, 122)
         Me.btnEstado_Autos.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
@@ -135,6 +127,7 @@ Partial Class frmMenu_contador
         '
         'btnCerrar_Sesion
         '
+        Me.btnCerrar_Sesion.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnCerrar_Sesion.Depth = 0
         Me.btnCerrar_Sesion.Location = New System.Drawing.Point(395, 268)
         Me.btnCerrar_Sesion.MouseState = MaterialSkin.MouseState.HOVER
@@ -144,6 +137,19 @@ Partial Class frmMenu_contador
         Me.btnCerrar_Sesion.TabIndex = 74
         Me.btnCerrar_Sesion.Text = "Cerrar sesión"
         Me.btnCerrar_Sesion.UseVisualStyleBackColor = True
+        '
+        'lblGestionar_Autos
+        '
+        Me.lblGestionar_Autos.AutoSize = True
+        Me.lblGestionar_Autos.Depth = 0
+        Me.lblGestionar_Autos.Font = New System.Drawing.Font("Roboto", 11.0!)
+        Me.lblGestionar_Autos.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblGestionar_Autos.Location = New System.Drawing.Point(25, 83)
+        Me.lblGestionar_Autos.MouseState = MaterialSkin.MouseState.HOVER
+        Me.lblGestionar_Autos.Name = "lblGestionar_Autos"
+        Me.lblGestionar_Autos.Size = New System.Drawing.Size(116, 19)
+        Me.lblGestionar_Autos.TabIndex = 14
+        Me.lblGestionar_Autos.Text = "Gestionar autos"
         '
         'frmMenu_contador
         '
@@ -159,6 +165,7 @@ Partial Class frmMenu_contador
         Me.Controls.Add(Me.btnReportes_Rentas)
         Me.Controls.Add(Me.btnIngresar_Auto)
         Me.Name = "frmMenu_contador"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Menú contador                                                                    " &
     "                 Rent-a-Car"
         Me.ResumeLayout(False)
@@ -170,8 +177,8 @@ Partial Class frmMenu_contador
     Friend WithEvents btnIngresar_Auto As MaterialSkin.Controls.MaterialFlatButton
     Friend WithEvents lblReportes As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents btnReportes_Coches As MaterialSkin.Controls.MaterialFlatButton
-    Friend WithEvents lblGestionar_Autos As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents btnModificar_Auto As MaterialSkin.Controls.MaterialFlatButton
     Friend WithEvents btnEstado_Autos As MaterialSkin.Controls.MaterialFlatButton
     Friend WithEvents btnCerrar_Sesion As MaterialSkin.Controls.MaterialRaisedButton
+    Friend WithEvents lblGestionar_Autos As MaterialSkin.Controls.MaterialLabel
 End Class

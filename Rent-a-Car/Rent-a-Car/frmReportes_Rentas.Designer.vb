@@ -85,6 +85,7 @@ Partial Class frmReportes_Rentas
         '
         Me.btnVer_Datos.AutoSize = True
         Me.btnVer_Datos.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.btnVer_Datos.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnVer_Datos.Depth = 0
         Me.btnVer_Datos.Location = New System.Drawing.Point(160, 213)
         Me.btnVer_Datos.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
@@ -145,6 +146,7 @@ Partial Class frmReportes_Rentas
         '
         'btnRegresar
         '
+        Me.btnRegresar.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnRegresar.Depth = 0
         Me.btnRegresar.Location = New System.Drawing.Point(312, 546)
         Me.btnRegresar.MouseState = MaterialSkin.MouseState.HOVER
@@ -188,6 +190,7 @@ Partial Class frmReportes_Rentas
         Me.Controls.Add(Me.mnsMenu)
         Me.MainMenuStrip = Me.mnsMenu
         Me.Name = "frmReportes_Rentas"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Reporte de rentas por mes                                  Rent-a-Car"
         CType(Me.chtGrafica_Renta, System.ComponentModel.ISupportInitialize).EndInit()
         Me.mnsMenu.ResumeLayout(False)

@@ -44,6 +44,8 @@ Partial Class frmClientes
         Me.txbPasaporte = New MaterialSkin.Controls.MaterialSingleLineTextField()
         Me.rbtPasaporte = New MaterialSkin.Controls.MaterialRadioButton()
         Me.rbtDui = New MaterialSkin.Controls.MaterialRadioButton()
+        Me.lblApellido = New MaterialSkin.Controls.MaterialLabel()
+        Me.txbApellido = New MaterialSkin.Controls.MaterialSingleLineTextField()
         Me.mnsMenu.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -51,8 +53,9 @@ Partial Class frmClientes
         '
         Me.btnAgregar_Cliente.AutoSize = True
         Me.btnAgregar_Cliente.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.btnAgregar_Cliente.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnAgregar_Cliente.Depth = 0
-        Me.btnAgregar_Cliente.Location = New System.Drawing.Point(296, 366)
+        Me.btnAgregar_Cliente.Location = New System.Drawing.Point(296, 393)
         Me.btnAgregar_Cliente.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
         Me.btnAgregar_Cliente.MouseState = MaterialSkin.MouseState.HOVER
         Me.btnAgregar_Cliente.Name = "btnAgregar_Cliente"
@@ -68,7 +71,7 @@ Partial Class frmClientes
         Me.lblEmail.Depth = 0
         Me.lblEmail.Font = New System.Drawing.Font("Roboto", 11.0!)
         Me.lblEmail.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblEmail.Location = New System.Drawing.Point(391, 274)
+        Me.lblEmail.Location = New System.Drawing.Point(390, 305)
         Me.lblEmail.MouseState = MaterialSkin.MouseState.HOVER
         Me.lblEmail.Name = "lblEmail"
         Me.lblEmail.Size = New System.Drawing.Size(47, 19)
@@ -81,7 +84,7 @@ Partial Class frmClientes
         Me.lblCiudad.Depth = 0
         Me.lblCiudad.Font = New System.Drawing.Font("Roboto", 11.0!)
         Me.lblCiudad.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblCiudad.Location = New System.Drawing.Point(40, 324)
+        Me.lblCiudad.Location = New System.Drawing.Point(40, 361)
         Me.lblCiudad.MouseState = MaterialSkin.MouseState.HOVER
         Me.lblCiudad.Name = "lblCiudad"
         Me.lblCiudad.Size = New System.Drawing.Size(55, 19)
@@ -92,7 +95,7 @@ Partial Class frmClientes
         '
         Me.txbCiudad.Depth = 0
         Me.txbCiudad.Hint = ""
-        Me.txbCiudad.Location = New System.Drawing.Point(119, 320)
+        Me.txbCiudad.Location = New System.Drawing.Point(119, 361)
         Me.txbCiudad.MouseState = MaterialSkin.MouseState.HOVER
         Me.txbCiudad.Name = "txbCiudad"
         Me.txbCiudad.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -109,7 +112,7 @@ Partial Class frmClientes
         Me.lblDireccion.Depth = 0
         Me.lblDireccion.Font = New System.Drawing.Font("Roboto", 11.0!)
         Me.lblDireccion.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblDireccion.Location = New System.Drawing.Point(31, 231)
+        Me.lblDireccion.Location = New System.Drawing.Point(31, 257)
         Me.lblDireccion.MouseState = MaterialSkin.MouseState.HOVER
         Me.lblDireccion.Name = "lblDireccion"
         Me.lblDireccion.Size = New System.Drawing.Size(73, 19)
@@ -120,7 +123,7 @@ Partial Class frmClientes
         '
         Me.txbDireccion.Depth = 0
         Me.txbDireccion.Hint = ""
-        Me.txbDireccion.Location = New System.Drawing.Point(119, 231)
+        Me.txbDireccion.Location = New System.Drawing.Point(118, 253)
         Me.txbDireccion.MouseState = MaterialSkin.MouseState.HOVER
         Me.txbDireccion.Name = "txbDireccion"
         Me.txbDireccion.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -135,7 +138,7 @@ Partial Class frmClientes
         '
         Me.txbEmail.Depth = 0
         Me.txbEmail.Hint = ""
-        Me.txbEmail.Location = New System.Drawing.Point(462, 274)
+        Me.txbEmail.Location = New System.Drawing.Point(462, 305)
         Me.txbEmail.MouseState = MaterialSkin.MouseState.HOVER
         Me.txbEmail.Name = "txbEmail"
         Me.txbEmail.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -170,7 +173,7 @@ Partial Class frmClientes
         Me.txbNombre.SelectedText = ""
         Me.txbNombre.SelectionLength = 0
         Me.txbNombre.SelectionStart = 0
-        Me.txbNombre.Size = New System.Drawing.Size(588, 23)
+        Me.txbNombre.Size = New System.Drawing.Size(263, 23)
         Me.txbNombre.TabIndex = 23
         Me.txbNombre.UseSystemPasswordChar = False
         '
@@ -180,7 +183,7 @@ Partial Class frmClientes
         Me.lblDUI.Depth = 0
         Me.lblDUI.Font = New System.Drawing.Font("Roboto", 11.0!)
         Me.lblDUI.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblDUI.Location = New System.Drawing.Point(40, 185)
+        Me.lblDUI.Location = New System.Drawing.Point(45, 209)
         Me.lblDUI.MouseState = MaterialSkin.MouseState.HOVER
         Me.lblDUI.Name = "lblDUI"
         Me.lblDUI.Size = New System.Drawing.Size(33, 19)
@@ -191,7 +194,7 @@ Partial Class frmClientes
         '
         Me.txbDui.Depth = 0
         Me.txbDui.Hint = ""
-        Me.txbDui.Location = New System.Drawing.Point(97, 181)
+        Me.txbDui.Location = New System.Drawing.Point(97, 209)
         Me.txbDui.MouseState = MaterialSkin.MouseState.HOVER
         Me.txbDui.Name = "txbDui"
         Me.txbDui.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -208,7 +211,7 @@ Partial Class frmClientes
         Me.lblTelefono.Depth = 0
         Me.lblTelefono.Font = New System.Drawing.Font("Roboto", 11.0!)
         Me.lblTelefono.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblTelefono.Location = New System.Drawing.Point(391, 320)
+        Me.lblTelefono.Location = New System.Drawing.Point(390, 361)
         Me.lblTelefono.MouseState = MaterialSkin.MouseState.HOVER
         Me.lblTelefono.Name = "lblTelefono"
         Me.lblTelefono.Size = New System.Drawing.Size(143, 19)
@@ -221,7 +224,7 @@ Partial Class frmClientes
         Me.lblPais.Depth = 0
         Me.lblPais.Font = New System.Drawing.Font("Roboto", 11.0!)
         Me.lblPais.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblPais.Location = New System.Drawing.Point(40, 278)
+        Me.lblPais.Location = New System.Drawing.Point(40, 305)
         Me.lblPais.MouseState = MaterialSkin.MouseState.HOVER
         Me.lblPais.Name = "lblPais"
         Me.lblPais.Size = New System.Drawing.Size(38, 19)
@@ -232,7 +235,7 @@ Partial Class frmClientes
         '
         Me.txbPais.Depth = 0
         Me.txbPais.Hint = ""
-        Me.txbPais.Location = New System.Drawing.Point(115, 278)
+        Me.txbPais.Location = New System.Drawing.Point(115, 301)
         Me.txbPais.MouseState = MaterialSkin.MouseState.HOVER
         Me.txbPais.Name = "txbPais"
         Me.txbPais.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -247,7 +250,7 @@ Partial Class frmClientes
         '
         Me.txbTelefono.Depth = 0
         Me.txbTelefono.Hint = ""
-        Me.txbTelefono.Location = New System.Drawing.Point(540, 320)
+        Me.txbTelefono.Location = New System.Drawing.Point(539, 357)
         Me.txbTelefono.MouseState = MaterialSkin.MouseState.HOVER
         Me.txbTelefono.Name = "txbTelefono"
         Me.txbTelefono.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -260,8 +263,9 @@ Partial Class frmClientes
         '
         'btnRegresar
         '
+        Me.btnRegresar.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnRegresar.Depth = 0
-        Me.btnRegresar.Location = New System.Drawing.Point(589, 388)
+        Me.btnRegresar.Location = New System.Drawing.Point(592, 418)
         Me.btnRegresar.MouseState = MaterialSkin.MouseState.HOVER
         Me.btnRegresar.Name = "btnRegresar"
         Me.btnRegresar.Primary = True
@@ -292,7 +296,7 @@ Partial Class frmClientes
         Me.lblPasaporte.Depth = 0
         Me.lblPasaporte.Font = New System.Drawing.Font("Roboto", 11.0!)
         Me.lblPasaporte.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblPasaporte.Location = New System.Drawing.Point(390, 185)
+        Me.lblPasaporte.Location = New System.Drawing.Point(386, 209)
         Me.lblPasaporte.MouseState = MaterialSkin.MouseState.HOVER
         Me.lblPasaporte.Name = "lblPasaporte"
         Me.lblPasaporte.Size = New System.Drawing.Size(77, 19)
@@ -303,7 +307,7 @@ Partial Class frmClientes
         '
         Me.txbPasaporte.Depth = 0
         Me.txbPasaporte.Hint = ""
-        Me.txbPasaporte.Location = New System.Drawing.Point(474, 181)
+        Me.txbPasaporte.Location = New System.Drawing.Point(475, 205)
         Me.txbPasaporte.MouseState = MaterialSkin.MouseState.HOVER
         Me.txbPasaporte.Name = "txbPasaporte"
         Me.txbPasaporte.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -317,9 +321,10 @@ Partial Class frmClientes
         'rbtPasaporte
         '
         Me.rbtPasaporte.AutoSize = True
+        Me.rbtPasaporte.Cursor = System.Windows.Forms.Cursors.Hand
         Me.rbtPasaporte.Depth = 0
         Me.rbtPasaporte.Font = New System.Drawing.Font("Roboto", 10.0!)
-        Me.rbtPasaporte.Location = New System.Drawing.Point(390, 135)
+        Me.rbtPasaporte.Location = New System.Drawing.Point(539, 126)
         Me.rbtPasaporte.Margin = New System.Windows.Forms.Padding(0)
         Me.rbtPasaporte.MouseLocation = New System.Drawing.Point(-1, -1)
         Me.rbtPasaporte.MouseState = MaterialSkin.MouseState.HOVER
@@ -334,9 +339,10 @@ Partial Class frmClientes
         'rbtDui
         '
         Me.rbtDui.AutoSize = True
+        Me.rbtDui.Cursor = System.Windows.Forms.Cursors.Hand
         Me.rbtDui.Depth = 0
         Me.rbtDui.Font = New System.Drawing.Font("Roboto", 10.0!)
-        Me.rbtDui.Location = New System.Drawing.Point(307, 135)
+        Me.rbtDui.Location = New System.Drawing.Point(414, 126)
         Me.rbtDui.Margin = New System.Windows.Forms.Padding(0)
         Me.rbtDui.MouseLocation = New System.Drawing.Point(-1, -1)
         Me.rbtDui.MouseState = MaterialSkin.MouseState.HOVER
@@ -348,11 +354,41 @@ Partial Class frmClientes
         Me.rbtDui.Text = "Dui"
         Me.rbtDui.UseVisualStyleBackColor = True
         '
+        'lblApellido
+        '
+        Me.lblApellido.AutoSize = True
+        Me.lblApellido.Depth = 0
+        Me.lblApellido.Font = New System.Drawing.Font("Roboto", 11.0!)
+        Me.lblApellido.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblApellido.Location = New System.Drawing.Point(31, 146)
+        Me.lblApellido.MouseState = MaterialSkin.MouseState.HOVER
+        Me.lblApellido.Name = "lblApellido"
+        Me.lblApellido.Size = New System.Drawing.Size(64, 19)
+        Me.lblApellido.TabIndex = 60
+        Me.lblApellido.Text = "Apellido"
+        '
+        'txbApellido
+        '
+        Me.txbApellido.Depth = 0
+        Me.txbApellido.Hint = ""
+        Me.txbApellido.Location = New System.Drawing.Point(111, 146)
+        Me.txbApellido.MouseState = MaterialSkin.MouseState.HOVER
+        Me.txbApellido.Name = "txbApellido"
+        Me.txbApellido.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.txbApellido.SelectedText = ""
+        Me.txbApellido.SelectionLength = 0
+        Me.txbApellido.SelectionStart = 0
+        Me.txbApellido.Size = New System.Drawing.Size(263, 23)
+        Me.txbApellido.TabIndex = 61
+        Me.txbApellido.UseSystemPasswordChar = False
+        '
         'frmClientes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(733, 436)
+        Me.ClientSize = New System.Drawing.Size(733, 457)
+        Me.Controls.Add(Me.txbApellido)
+        Me.Controls.Add(Me.lblApellido)
         Me.Controls.Add(Me.rbtPasaporte)
         Me.Controls.Add(Me.rbtDui)
         Me.Controls.Add(Me.lblPasaporte)
@@ -376,6 +412,7 @@ Partial Class frmClientes
         Me.Controls.Add(Me.mnsMenu)
         Me.MainMenuStrip = Me.mnsMenu
         Me.Name = "frmClientes"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Registro de usuarios                                                             " &
     "                                                      Rent-a-Car"
         Me.mnsMenu.ResumeLayout(False)
@@ -407,4 +444,6 @@ Partial Class frmClientes
     Friend WithEvents txbPasaporte As MaterialSkin.Controls.MaterialSingleLineTextField
     Friend WithEvents rbtPasaporte As MaterialSkin.Controls.MaterialRadioButton
     Friend WithEvents rbtDui As MaterialSkin.Controls.MaterialRadioButton
+    Friend WithEvents lblApellido As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents txbApellido As MaterialSkin.Controls.MaterialSingleLineTextField
 End Class

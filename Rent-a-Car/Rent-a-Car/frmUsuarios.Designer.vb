@@ -22,11 +22,7 @@ Partial Class frmUsuarios
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.lblContraseña = New MaterialSkin.Controls.MaterialLabel()
-        Me.txbContraseña = New MaterialSkin.Controls.MaterialSingleLineTextField()
         Me.btnAgregar_Usuario = New MaterialSkin.Controls.MaterialFlatButton()
-        Me.lblNombre_Usuario = New MaterialSkin.Controls.MaterialLabel()
-        Me.txbNombre_Usuario = New MaterialSkin.Controls.MaterialSingleLineTextField()
         Me.lblNombre = New MaterialSkin.Controls.MaterialLabel()
         Me.txbNombre = New MaterialSkin.Controls.MaterialSingleLineTextField()
         Me.lblApellido = New MaterialSkin.Controls.MaterialLabel()
@@ -41,40 +37,13 @@ Partial Class frmUsuarios
         Me.mnsMenu.SuspendLayout()
         Me.SuspendLayout()
         '
-        'lblContraseña
-        '
-        Me.lblContraseña.AutoSize = True
-        Me.lblContraseña.Depth = 0
-        Me.lblContraseña.Font = New System.Drawing.Font("Roboto", 11.0!)
-        Me.lblContraseña.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblContraseña.Location = New System.Drawing.Point(29, 239)
-        Me.lblContraseña.MouseState = MaterialSkin.MouseState.HOVER
-        Me.lblContraseña.Name = "lblContraseña"
-        Me.lblContraseña.Size = New System.Drawing.Size(86, 19)
-        Me.lblContraseña.TabIndex = 53
-        Me.lblContraseña.Text = "Contraseña"
-        '
-        'txbContraseña
-        '
-        Me.txbContraseña.Depth = 0
-        Me.txbContraseña.Hint = ""
-        Me.txbContraseña.Location = New System.Drawing.Point(131, 239)
-        Me.txbContraseña.MouseState = MaterialSkin.MouseState.HOVER
-        Me.txbContraseña.Name = "txbContraseña"
-        Me.txbContraseña.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.txbContraseña.SelectedText = ""
-        Me.txbContraseña.SelectionLength = 0
-        Me.txbContraseña.SelectionStart = 0
-        Me.txbContraseña.Size = New System.Drawing.Size(249, 23)
-        Me.txbContraseña.TabIndex = 52
-        Me.txbContraseña.UseSystemPasswordChar = False
-        '
         'btnAgregar_Usuario
         '
         Me.btnAgregar_Usuario.AutoSize = True
         Me.btnAgregar_Usuario.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.btnAgregar_Usuario.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnAgregar_Usuario.Depth = 0
-        Me.btnAgregar_Usuario.Location = New System.Drawing.Point(131, 337)
+        Me.btnAgregar_Usuario.Location = New System.Drawing.Point(131, 283)
         Me.btnAgregar_Usuario.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
         Me.btnAgregar_Usuario.MouseState = MaterialSkin.MouseState.HOVER
         Me.btnAgregar_Usuario.Name = "btnAgregar_Usuario"
@@ -83,34 +52,6 @@ Partial Class frmUsuarios
         Me.btnAgregar_Usuario.TabIndex = 51
         Me.btnAgregar_Usuario.Text = "+ Agregar usuario"
         Me.btnAgregar_Usuario.UseVisualStyleBackColor = True
-        '
-        'lblNombre_Usuario
-        '
-        Me.lblNombre_Usuario.AutoSize = True
-        Me.lblNombre_Usuario.Depth = 0
-        Me.lblNombre_Usuario.Font = New System.Drawing.Font("Roboto", 11.0!)
-        Me.lblNombre_Usuario.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblNombre_Usuario.Location = New System.Drawing.Point(29, 192)
-        Me.lblNombre_Usuario.MouseState = MaterialSkin.MouseState.HOVER
-        Me.lblNombre_Usuario.Name = "lblNombre_Usuario"
-        Me.lblNombre_Usuario.Size = New System.Drawing.Size(137, 19)
-        Me.lblNombre_Usuario.TabIndex = 47
-        Me.lblNombre_Usuario.Text = "Nombre de usuario"
-        '
-        'txbNombre_Usuario
-        '
-        Me.txbNombre_Usuario.Depth = 0
-        Me.txbNombre_Usuario.Hint = ""
-        Me.txbNombre_Usuario.Location = New System.Drawing.Point(184, 192)
-        Me.txbNombre_Usuario.MouseState = MaterialSkin.MouseState.HOVER
-        Me.txbNombre_Usuario.Name = "txbNombre_Usuario"
-        Me.txbNombre_Usuario.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.txbNombre_Usuario.SelectedText = ""
-        Me.txbNombre_Usuario.SelectionLength = 0
-        Me.txbNombre_Usuario.SelectionStart = 0
-        Me.txbNombre_Usuario.Size = New System.Drawing.Size(196, 23)
-        Me.txbNombre_Usuario.TabIndex = 46
-        Me.txbNombre_Usuario.UseSystemPasswordChar = False
         '
         'lblNombre
         '
@@ -174,7 +115,7 @@ Partial Class frmUsuarios
         Me.lblPerfil.Depth = 0
         Me.lblPerfil.Font = New System.Drawing.Font("Roboto", 11.0!)
         Me.lblPerfil.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblPerfil.Location = New System.Drawing.Point(29, 288)
+        Me.lblPerfil.Location = New System.Drawing.Point(33, 232)
         Me.lblPerfil.MouseState = MaterialSkin.MouseState.HOVER
         Me.lblPerfil.Name = "lblPerfil"
         Me.lblPerfil.Size = New System.Drawing.Size(44, 19)
@@ -184,9 +125,10 @@ Partial Class frmUsuarios
         'rdbAdministrador
         '
         Me.rdbAdministrador.AutoSize = True
+        Me.rdbAdministrador.Cursor = System.Windows.Forms.Cursors.Hand
         Me.rdbAdministrador.Depth = 0
         Me.rdbAdministrador.Font = New System.Drawing.Font("Roboto", 10.0!)
-        Me.rdbAdministrador.Location = New System.Drawing.Point(282, 283)
+        Me.rdbAdministrador.Location = New System.Drawing.Point(282, 227)
         Me.rdbAdministrador.Margin = New System.Windows.Forms.Padding(0)
         Me.rdbAdministrador.MouseLocation = New System.Drawing.Point(-1, -1)
         Me.rdbAdministrador.MouseState = MaterialSkin.MouseState.HOVER
@@ -201,9 +143,10 @@ Partial Class frmUsuarios
         'rdbContador
         '
         Me.rdbContador.AutoSize = True
+        Me.rdbContador.Cursor = System.Windows.Forms.Cursors.Hand
         Me.rdbContador.Depth = 0
         Me.rdbContador.Font = New System.Drawing.Font("Roboto", 10.0!)
-        Me.rdbContador.Location = New System.Drawing.Point(90, 283)
+        Me.rdbContador.Location = New System.Drawing.Point(99, 227)
         Me.rdbContador.Margin = New System.Windows.Forms.Padding(0)
         Me.rdbContador.MouseLocation = New System.Drawing.Point(-1, -1)
         Me.rdbContador.MouseState = MaterialSkin.MouseState.HOVER
@@ -218,9 +161,10 @@ Partial Class frmUsuarios
         'rdbAgente
         '
         Me.rdbAgente.AutoSize = True
+        Me.rdbAgente.Cursor = System.Windows.Forms.Cursors.Hand
         Me.rdbAgente.Depth = 0
         Me.rdbAgente.Font = New System.Drawing.Font("Roboto", 10.0!)
-        Me.rdbAgente.Location = New System.Drawing.Point(194, 283)
+        Me.rdbAgente.Location = New System.Drawing.Point(204, 227)
         Me.rdbAgente.Margin = New System.Windows.Forms.Padding(0)
         Me.rdbAgente.MouseLocation = New System.Drawing.Point(-1, -1)
         Me.rdbAgente.MouseState = MaterialSkin.MouseState.HOVER
@@ -234,8 +178,9 @@ Partial Class frmUsuarios
         '
         'btn_Regresar
         '
+        Me.btn_Regresar.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btn_Regresar.Depth = 0
-        Me.btn_Regresar.Location = New System.Drawing.Point(293, 377)
+        Me.btn_Regresar.Location = New System.Drawing.Point(298, 329)
         Me.btn_Regresar.MouseState = MaterialSkin.MouseState.HOVER
         Me.btn_Regresar.Name = "btn_Regresar"
         Me.btn_Regresar.Primary = True
@@ -264,17 +209,13 @@ Partial Class frmUsuarios
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(416, 416)
+        Me.ClientSize = New System.Drawing.Size(416, 388)
         Me.Controls.Add(Me.btn_Regresar)
         Me.Controls.Add(Me.rdbAgente)
         Me.Controls.Add(Me.rdbContador)
         Me.Controls.Add(Me.rdbAdministrador)
         Me.Controls.Add(Me.lblPerfil)
-        Me.Controls.Add(Me.lblContraseña)
-        Me.Controls.Add(Me.txbContraseña)
         Me.Controls.Add(Me.btnAgregar_Usuario)
-        Me.Controls.Add(Me.lblNombre_Usuario)
-        Me.Controls.Add(Me.txbNombre_Usuario)
         Me.Controls.Add(Me.lblNombre)
         Me.Controls.Add(Me.txbNombre)
         Me.Controls.Add(Me.lblApellido)
@@ -282,6 +223,7 @@ Partial Class frmUsuarios
         Me.Controls.Add(Me.mnsMenu)
         Me.MainMenuStrip = Me.mnsMenu
         Me.Name = "frmUsuarios"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Registro de Usuarios                                      Rent-a-Car      "
         Me.mnsMenu.ResumeLayout(False)
         Me.mnsMenu.PerformLayout()
@@ -289,12 +231,7 @@ Partial Class frmUsuarios
         Me.PerformLayout()
 
     End Sub
-
-    Friend WithEvents lblContraseña As MaterialSkin.Controls.MaterialLabel
-    Friend WithEvents txbContraseña As MaterialSkin.Controls.MaterialSingleLineTextField
     Friend WithEvents btnAgregar_Usuario As MaterialSkin.Controls.MaterialFlatButton
-    Friend WithEvents lblNombre_Usuario As MaterialSkin.Controls.MaterialLabel
-    Friend WithEvents txbNombre_Usuario As MaterialSkin.Controls.MaterialSingleLineTextField
     Friend WithEvents lblNombre As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents txbNombre As MaterialSkin.Controls.MaterialSingleLineTextField
     Friend WithEvents lblApellido As MaterialSkin.Controls.MaterialLabel

@@ -42,6 +42,7 @@ Partial Class frmDevolucion_Auto
         '
         Me.btnConfirmar.AutoSize = True
         Me.btnConfirmar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.btnConfirmar.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnConfirmar.Depth = 0
         Me.btnConfirmar.Location = New System.Drawing.Point(237, 432)
         Me.btnConfirmar.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
@@ -56,6 +57,7 @@ Partial Class frmDevolucion_Auto
         'rdbBuen_Estado
         '
         Me.rdbBuen_Estado.AutoSize = True
+        Me.rdbBuen_Estado.Cursor = System.Windows.Forms.Cursors.Hand
         Me.rdbBuen_Estado.Depth = 0
         Me.rdbBuen_Estado.Font = New System.Drawing.Font("Roboto", 10.0!)
         Me.rdbBuen_Estado.Location = New System.Drawing.Point(43, 125)
@@ -73,6 +75,7 @@ Partial Class frmDevolucion_Auto
         'rdbChocado
         '
         Me.rdbChocado.AutoSize = True
+        Me.rdbChocado.Cursor = System.Windows.Forms.Cursors.Hand
         Me.rdbChocado.Depth = 0
         Me.rdbChocado.Font = New System.Drawing.Font("Roboto", 10.0!)
         Me.rdbChocado.Location = New System.Drawing.Point(212, 125)
@@ -176,6 +179,7 @@ Partial Class frmDevolucion_Auto
         '
         'btnRegresar
         '
+        Me.btnRegresar.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnRegresar.Depth = 0
         Me.btnRegresar.Location = New System.Drawing.Point(414, 467)
         Me.btnRegresar.MouseState = MaterialSkin.MouseState.HOVER
@@ -221,6 +225,7 @@ Partial Class frmDevolucion_Auto
         Me.Controls.Add(Me.mnsMenu)
         Me.MainMenuStrip = Me.mnsMenu
         Me.Name = "frmDevolucion_Auto"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Devolución de coches                                                             " &
     "          Rent-a-Car"
         Me.mnsMenu.ResumeLayout(False)

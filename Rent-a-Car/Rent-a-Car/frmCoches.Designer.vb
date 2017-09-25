@@ -181,14 +181,14 @@ Partial Class frmCoches
         '
         Me.txbAgencia_Coche.Depth = 0
         Me.txbAgencia_Coche.Hint = ""
-        Me.txbAgencia_Coche.Location = New System.Drawing.Point(546, 255)
+        Me.txbAgencia_Coche.Location = New System.Drawing.Point(556, 259)
         Me.txbAgencia_Coche.MouseState = MaterialSkin.MouseState.HOVER
         Me.txbAgencia_Coche.Name = "txbAgencia_Coche"
         Me.txbAgencia_Coche.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.txbAgencia_Coche.SelectedText = ""
         Me.txbAgencia_Coche.SelectionLength = 0
         Me.txbAgencia_Coche.SelectionStart = 0
-        Me.txbAgencia_Coche.Size = New System.Drawing.Size(156, 23)
+        Me.txbAgencia_Coche.Size = New System.Drawing.Size(146, 23)
         Me.txbAgencia_Coche.TabIndex = 8
         Me.txbAgencia_Coche.UseSystemPasswordChar = False
         '
@@ -285,9 +285,9 @@ Partial Class frmCoches
         Me.lblAgencia_Coche.Location = New System.Drawing.Point(398, 259)
         Me.lblAgencia_Coche.MouseState = MaterialSkin.MouseState.HOVER
         Me.lblAgencia_Coche.Name = "lblAgencia_Coche"
-        Me.lblAgencia_Coche.Size = New System.Drawing.Size(132, 19)
+        Me.lblAgencia_Coche.Size = New System.Drawing.Size(152, 19)
         Me.lblAgencia_Coche.TabIndex = 18
-        Me.lblAgencia_Coche.Text = "Agencia del coche"
+        Me.lblAgencia_Coche.Text = "Id. Agencia del coche"
         '
         'btnFoto
         '
@@ -321,6 +321,7 @@ Partial Class frmCoches
         '
         Me.btnAgregar_Coche.AutoSize = True
         Me.btnAgregar_Coche.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.btnAgregar_Coche.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnAgregar_Coche.Depth = 0
         Me.btnAgregar_Coche.Location = New System.Drawing.Point(313, 396)
         Me.btnAgregar_Coche.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
@@ -335,6 +336,7 @@ Partial Class frmCoches
         'rdbSedan
         '
         Me.rdbSedan.AutoSize = True
+        Me.rdbSedan.Cursor = System.Windows.Forms.Cursors.Hand
         Me.rdbSedan.Depth = 0
         Me.rdbSedan.Font = New System.Drawing.Font("Roboto", 10.0!)
         Me.rdbSedan.Location = New System.Drawing.Point(271, 344)
@@ -352,6 +354,7 @@ Partial Class frmCoches
         'rdbPickups
         '
         Me.rdbPickups.AutoSize = True
+        Me.rdbPickups.Cursor = System.Windows.Forms.Cursors.Hand
         Me.rdbPickups.Depth = 0
         Me.rdbPickups.Font = New System.Drawing.Font("Roboto", 10.0!)
         Me.rdbPickups.Location = New System.Drawing.Point(379, 344)
@@ -369,6 +372,7 @@ Partial Class frmCoches
         'rdbMicrobuses
         '
         Me.rdbMicrobuses.AutoSize = True
+        Me.rdbMicrobuses.Cursor = System.Windows.Forms.Cursors.Hand
         Me.rdbMicrobuses.Depth = 0
         Me.rdbMicrobuses.Font = New System.Drawing.Font("Roboto", 10.0!)
         Me.rdbMicrobuses.Location = New System.Drawing.Point(510, 344)
@@ -385,6 +389,7 @@ Partial Class frmCoches
         '
         'btnRegresar
         '
+        Me.btnRegresar.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnRegresar.Depth = 0
         Me.btnRegresar.Location = New System.Drawing.Point(596, 401)
         Me.btnRegresar.MouseState = MaterialSkin.MouseState.HOVER
@@ -447,6 +452,7 @@ Partial Class frmCoches
         Me.Controls.Add(Me.mnsMenu)
         Me.MainMenuStrip = Me.mnsMenu
         Me.Name = "frmCoches"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Registro de coches                                                               " &
     "                                                  Rent-a-Car"
         Me.mnsMenu.ResumeLayout(False)

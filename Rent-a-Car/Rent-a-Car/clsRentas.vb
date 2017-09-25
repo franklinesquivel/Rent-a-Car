@@ -1,4 +1,4 @@
-﻿Public Class clsRenta
+﻿Public Class clsRentas
     Private _idRenta As Integer
     Private _idCliente As Integer
     Private _idAgencia As Integer

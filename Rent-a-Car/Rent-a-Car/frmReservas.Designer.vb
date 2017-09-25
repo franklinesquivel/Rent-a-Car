@@ -195,6 +195,7 @@ Partial Class frmReservas
         '
         Me.btnReservar_Coche.AutoSize = True
         Me.btnReservar_Coche.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.btnReservar_Coche.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnReservar_Coche.Depth = 0
         Me.btnReservar_Coche.Location = New System.Drawing.Point(202, 559)
         Me.btnReservar_Coche.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
@@ -208,6 +209,7 @@ Partial Class frmReservas
         '
         'btnRegresar
         '
+        Me.btnRegresar.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnRegresar.Depth = 0
         Me.btnRegresar.Location = New System.Drawing.Point(402, 593)
         Me.btnRegresar.MouseState = MaterialSkin.MouseState.HOVER
@@ -256,6 +258,7 @@ Partial Class frmReservas
         Me.Controls.Add(Me.mnsMenu)
         Me.MainMenuStrip = Me.mnsMenu
         Me.Name = "frmReservas"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Reservas de coches                                                               " &
     "       Rent-a-Car                            "
         CType(Me.dgvBuscar_Usuario, System.ComponentModel.ISupportInitialize).EndInit()

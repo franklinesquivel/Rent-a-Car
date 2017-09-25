@@ -1,5 +1,5 @@
 ﻿Imports System.Text.RegularExpressions
-Public Class clsReserva
+Public Class clsReservas
     'Atributos
     Private FechaInicio As Date
     Private FechaFin As Date

@@ -59,6 +59,7 @@ Partial Class frmModificar_Coche
         'rdbMicrobuses
         '
         Me.rdbMicrobuses.AutoSize = True
+        Me.rdbMicrobuses.Cursor = System.Windows.Forms.Cursors.Hand
         Me.rdbMicrobuses.Depth = 0
         Me.rdbMicrobuses.Font = New System.Drawing.Font("Roboto", 10.0!)
         Me.rdbMicrobuses.Location = New System.Drawing.Point(508, 496)
@@ -76,6 +77,7 @@ Partial Class frmModificar_Coche
         'rdbPickups
         '
         Me.rdbPickups.AutoSize = True
+        Me.rdbPickups.Cursor = System.Windows.Forms.Cursors.Hand
         Me.rdbPickups.Depth = 0
         Me.rdbPickups.Font = New System.Drawing.Font("Roboto", 10.0!)
         Me.rdbPickups.Location = New System.Drawing.Point(377, 496)
@@ -93,6 +95,7 @@ Partial Class frmModificar_Coche
         'rdbSedan
         '
         Me.rdbSedan.AutoSize = True
+        Me.rdbSedan.Cursor = System.Windows.Forms.Cursors.Hand
         Me.rdbSedan.Depth = 0
         Me.rdbSedan.Font = New System.Drawing.Font("Roboto", 10.0!)
         Me.rdbSedan.Location = New System.Drawing.Point(269, 496)
@@ -111,6 +114,7 @@ Partial Class frmModificar_Coche
         '
         Me.btnModificar_Coche.AutoSize = True
         Me.btnModificar_Coche.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.btnModificar_Coche.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnModificar_Coche.Depth = 0
         Me.btnModificar_Coche.Location = New System.Drawing.Point(311, 548)
         Me.btnModificar_Coche.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
@@ -139,6 +143,7 @@ Partial Class frmModificar_Coche
         '
         Me.btnFoto.AutoSize = True
         Me.btnFoto.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.btnFoto.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnFoto.Depth = 0
         Me.btnFoto.Location = New System.Drawing.Point(519, 345)
         Me.btnFoto.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
@@ -307,12 +312,12 @@ Partial Class frmModificar_Coche
         '
         Me.lblModelo.AutoSize = True
         Me.lblModelo.Depth = 0
-        Me.lblModelo.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!)
+        Me.lblModelo.Font = New System.Drawing.Font("Roboto", 11.0!)
         Me.lblModelo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.lblModelo.Location = New System.Drawing.Point(396, 261)
         Me.lblModelo.MouseState = MaterialSkin.MouseState.HOVER
         Me.lblModelo.Name = "lblModelo"
-        Me.lblModelo.Size = New System.Drawing.Size(58, 18)
+        Me.lblModelo.Size = New System.Drawing.Size(60, 19)
         Me.lblModelo.TabIndex = 34
         Me.lblModelo.Text = "Modelo"
         '
@@ -425,6 +430,7 @@ Partial Class frmModificar_Coche
         '
         'btnRegresar
         '
+        Me.btnRegresar.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnRegresar.Depth = 0
         Me.btnRegresar.Location = New System.Drawing.Point(590, 548)
         Me.btnRegresar.MouseState = MaterialSkin.MouseState.HOVER
@@ -490,6 +496,7 @@ Partial Class frmModificar_Coche
         Me.Controls.Add(Me.mnsMenu)
         Me.MainMenuStrip = Me.mnsMenu
         Me.Name = "frmModificar_Coche"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Modificar Coche                                                                  " &
     "                                                          Rent-a-Car"
         CType(Me.dgvBuscar_Coche, System.ComponentModel.ISupportInitialize).EndInit()

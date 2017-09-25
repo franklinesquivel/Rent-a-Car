@@ -1,4 +1,4 @@
-﻿Public Class clsAgencia
+﻿Public Class clsAgencias
     Private _idAgencia As Integer
     Private _nombre As String
     Private _direccion As String
@@ -35,7 +35,7 @@
             _direccion = direccion
         End If
 
-        If _noCoincide("/^(2|7|6)\d{3}-?\d{4}$/", telefono) Then
+        If _noCoincide("^(2|7|6)\d{3}-?\d{4}$", telefono) Then
             MsgBox("Ingrese número telefónico válido!", MsgBoxStyle.Critical, "Registro de Agencia")
             Return False
         Else

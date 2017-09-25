@@ -70,6 +70,7 @@ Partial Class frmReportes_Coches
         '
         'btnRegrear
         '
+        Me.btnRegrear.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnRegrear.Depth = 0
         Me.btnRegrear.Location = New System.Drawing.Point(499, 303)
         Me.btnRegrear.MouseState = MaterialSkin.MouseState.HOVER
@@ -108,6 +109,7 @@ Partial Class frmReportes_Coches
         Me.Controls.Add(Me.mnsMenu)
         Me.MainMenuStrip = Me.mnsMenu
         Me.Name = "frmReportes_Coches"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Reporte de coches rentados                                                       " &
     "                     Rent-a-Car"
         CType(Me.dgvCodigo_Renta, System.ComponentModel.ISupportInitialize).EndInit()

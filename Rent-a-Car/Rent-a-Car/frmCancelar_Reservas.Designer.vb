@@ -73,6 +73,7 @@ Partial Class frmCancelar_Reservas
         '
         Me.btnCancelar_Reservas.AutoSize = True
         Me.btnCancelar_Reservas.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.btnCancelar_Reservas.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnCancelar_Reservas.Depth = 0
         Me.btnCancelar_Reservas.Location = New System.Drawing.Point(195, 263)
         Me.btnCancelar_Reservas.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
@@ -86,6 +87,7 @@ Partial Class frmCancelar_Reservas
         '
         'btnRegresar
         '
+        Me.btnRegresar.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnRegresar.Depth = 0
         Me.btnRegresar.Location = New System.Drawing.Point(389, 297)
         Me.btnRegresar.MouseState = MaterialSkin.MouseState.HOVER
@@ -125,6 +127,7 @@ Partial Class frmCancelar_Reservas
         Me.Controls.Add(Me.mnsMenu)
         Me.MainMenuStrip = Me.mnsMenu
         Me.Name = "frmCancelar_Reservas"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Cancelar Reservas                                                                " &
     "   Rent-a-Car"
         CType(Me.dgvCancelar_Reservas, System.ComponentModel.ISupportInitialize).EndInit()

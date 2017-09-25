@@ -1,9 +1,10 @@
-﻿Public Class clsContador
+﻿Public Class clsAdministradores
     Inherits clsUsuarios
+
     'Constructor
     Public Sub New()
         MyBase.New()
-        tipoUsuario = "Contador"
+        tipoUsuario = "Administrador"
     End Sub
     'Metodos
     Public Overloads Function Registrar(ByVal _nombres As String, ByVal _apellidos As String)

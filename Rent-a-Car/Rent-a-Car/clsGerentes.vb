@@ -1,4 +1,4 @@
-﻿Public Class clsGerente
+﻿Public Class clsGerentes
     Inherits clsUsuarios
     'Constructor
     Public Sub New()
