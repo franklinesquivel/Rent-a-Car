@@ -1,7 +1,7 @@
 ﻿Imports MySql.Data.MySqlClient
 Public Class clsConexion
     Private _cmd As MySqlCommand
-    Private _mysqlAdaoter As MySqlDataAdapter
+    Private _mysqlAdapter As MySqlDataAdapter
     Private _tabla As DataTable
     Private _aceptarConexion As Boolean
     Private _conn As MySqlConnection = New MySqlConnection("server = 127.0.0.1; database = ezic; user = root; port = 3306; Convert Zero Datetime=True")
@@ -24,21 +24,42 @@ Public Class clsConexion
             _conn.Close()
             Return _cmd.ExecuteNonQuery
         End If
+        Return False
     End Function
 
-    Public Sub ObtenerDatos(ByVal consulta As String)
-        'Aqui se realizan operaciones como: SELECT
-        If _aceptarConexion Then
-            _conn.Open()
-            _cmd = New MySqlCommand(consulta, _conn)
-            _mysqlAdaoter = New MySqlDataAdapter(_cmd)
-            _tabla = New DataTable()
-            _mysqlAdaoter.Fill(_tabla)
+    Public Function ObtenerDatos(ByVal consulta As String, Optional ObtenerFilas As Boolean = False)
+        'If ObtenerFilas And _aceptarConexion Then
+        '_conn.Open()
+        '_cmd = New MySqlCommand(consulta, _conn)
+        '
+        'MsgBox(_cmd.ExecuteScalar())
+        'Else
+        _conn.Open()
+        _cmd = New MySqlCommand(consulta, _conn)
+        Dim reader As MySqlDataReader = _cmd.ExecuteReader()
 
-            Dim row As DataRow = _tabla.Rows(0)
-            MsgBox(CStr(row("idStudent")))
-
-            _conn.Close()
+        If reader.HasRows And Not ObtenerFilas Then 'Si existe un dato
+            'While reader.Read() 'Se lee
+            'MsgBox(reader(1))
+            'End While
+            Return reader.Read()
+        Else 'Si no existe
+            MsgBox("Error: No se han encontrado datos")
+            Return 0
         End If
-    End Sub
+
+
+
+        '    _mysqlAdapter = New MySqlDataAdapter(_cmd)
+
+        '   _tabla = New DataTable()
+        '    _mysqlAdapter.Fill(_tabla)
+
+        '   Dim row As DataRow = _tabla.Rows(0)
+        'MsgBox(CStr(row("idStudent")))
+        _conn.Close()
+        'End If
+
+        Return 0
+    End Function
 End Class
