@@ -4,7 +4,7 @@
     Public Clientes As clsClientes 'Variable para el tipo de clase clsClientes
     Public Coches As clsCoches 'Variable para el tipo de clase clsCoches
     Public Encriptar As clsEncriptacion 'Variable para el tipo de clase clsEncriptar
-
+    Public Conexion As clsConexion
     'Estructura creada con el fin de manejo de sesiones
     Public Session As EstructuraSession = New EstructuraSession(Nothing, Nothing)
     Structure EstructuraSession
