@@ -3,25 +3,25 @@
     Private letras = New String(53) {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "ñ", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "Ñ", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"}
     Private espacio = New String(4) {"-", "*", "/", "!", "?"}
 
-    Private Function verificarNumero(ByVal caracter As String)
+    Private Function verificarNumero(ByVal caracter As String) As String
         For i As Long = 0 To (numeros.Length - 1)
             If caracter = CStr(i) Then
                 Return MyClass.numeros(i)
             End If
         Next
-        Return -1
+        Return "-1"
     End Function
 
-    Private Function verificarLetra(ByVal caracter As String)
+    Private Function verificarLetra(ByVal caracter As String) As String
         For i As Long = 0 To (letras.Length - 1)
             If caracter = letras(i) Then
                 Return i
             End If
         Next
-        Return -1
+        Return "-1"
     End Function
 
-    Private Function verificarEspacio(ByVal caracter As String)
+    Private Function verificarEspacio(ByVal caracter As String) As Boolean
         For i As Long = 0 To (espacio.Length - 1)
             If caracter = espacio(i) Then
                 Return True
@@ -30,7 +30,7 @@
         Return False
     End Function
 
-    Public Function Encriptar(ByVal _contrasenna As String)
+    Public Function ArmarEncriptacion(ByVal _contrasenna As String) As String
         Dim _contraEncriptada = ""
 
         For Each i As String In _contrasenna
@@ -41,9 +41,9 @@
             _verificarLetra = MyClass.verificarLetra(i)
             Dim _randomEspacio As New Random()
 
-            If _verificarNumero <> -1 Then
+            If _verificarNumero <> "-1" Then
                 _contraEncriptada += _ascciCaracter & _verificarNumero & _longitudCaracter & MyClass.espacio(_randomEspacio.Next(0, 5))
-            ElseIf _verificarLetra <> -1 Then
+            ElseIf _verificarLetra <> "-1" Then
                 _contraEncriptada += _ascciCaracter & _verificarLetra & _longitudCaracter & MyClass.espacio(_randomEspacio.Next(0, 5))
             Else
                 _contraEncriptada += _ascciCaracter & _longitudCaracter & MyClass.espacio(_randomEspacio.Next(0, 5))
@@ -52,7 +52,7 @@
         Return _contraEncriptada
     End Function
 
-    Public Function Desencriptar(ByVal _contrasenna As String)
+    Public Function DesarmarEncriptacion(ByVal _contrasenna As String) As String
         Dim _contraDesencriptada = "", palabra As String = ""
         For Each i As String In _contrasenna
             If MyClass.verificarEspacio(i) Then

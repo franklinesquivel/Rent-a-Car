@@ -1,12 +1,15 @@
 ﻿Module mdlDeclaracionClases
     Public Usuarios As clsUsuarios 'Variable para el tipo de clase clsUsuarios
+    Public Administradores As clsAdministradores 'Variable para el tipo de clase clsAdministradores
+    Public Gerente As clsGerentes 'Variable para el tipo de clase clsGerente
+    Public Contador As clsContadores 'Variable para el tipo de clase clsContadores
     Public Agencia As clsAgencias 'Variable para el tipo de clase clsAgencia
     Public Clientes As clsClientes 'Variable para el tipo de clase clsClientes
     Public Coches As clsCoches 'Variable para el tipo de clase clsCoches
-    Public Encriptar As clsEncriptacion 'Variable para el tipo de clase clsEncriptar
-    Public Conexion As clsConexion 'Variable para el tipo de clase clsConexion
-    'Estructura creada con el fin de manejo de sesiones
-    Public Session As EstructuraSession = New EstructuraSession(Nothing, Nothing)
+    'Public Encriptar As clsEncriptacion 'Variable para el tipo de clase clsEncriptar
+    'Public Conexion As clsConexion 'Variable para el tipo de clase clsConexion
+
+    Public Session As EstructuraSession = New EstructuraSession(Nothing, Nothing) 'Estructura creada con el fin de manejo de sesiones
     Structure EstructuraSession
         Private _tipoUsuario As String
         Private _idUsuario As String
@@ -17,7 +20,7 @@
             End Get
         End Property
 
-        Public WriteOnly Property EstablecerCodigoUsuario() As String
+        Public WriteOnly Property EstablecerTipoUsuario() As String
             Set(ByVal value As String)
                 _tipoUsuario = value
             End Set
@@ -61,6 +64,20 @@
                     frmMenu_contador.Show()
                 End If
                 formActual.Hide()
+            End If
+        End Sub
+
+        Public Sub IniciarSesion(ByVal idUsuario As String)
+            EstablecerIdUsuario = idUsuario
+            If ObtenerIdUsuario.Substring(0, 1).ToUpper = "A" Then
+                EstablecerTipoUsuario = "A"
+                frmMenu_Admin.Show()
+            ElseIf ObtenerIdUsuario.Substring(0, 1).ToUpper = "G" Then
+                EstablecerTipoUsuario = "G"
+                frmMenu_Agentes.Show()
+            ElseIf ObtenerIdUsuario.Substring(0, 1).ToUpper = "C" Then
+                EstablecerTipoUsuario = "C"
+                frmMenu_contador.Show()
             End If
         End Sub
     End Structure

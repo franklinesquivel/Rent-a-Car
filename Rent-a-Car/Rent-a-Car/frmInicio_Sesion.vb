@@ -11,7 +11,6 @@ Public Class frmInicio_Sesion
         'Inicio de sesión
         Usuarios = New clsUsuarios
         If Usuarios.IniciarSesion(txbNombre_Usuario.Text, txbContraseña.Text) Then
-            MsgBox("Bienvenido")
             Me.Hide()
         End If
         txbNombre_Usuario.Text = ""

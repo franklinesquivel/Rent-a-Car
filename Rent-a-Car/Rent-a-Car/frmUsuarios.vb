@@ -8,22 +8,24 @@ Public Class frmUsuarios
     End Sub
 
     Private Sub btnAgregar_Usuario_Click(sender As Object, e As EventArgs) Handles btnAgregar_Usuario.Click
-        Dim tipo As String
-        Usuarios = New clsUsuarios
+
         If rdbAdministrador.Checked = True Then
-            tipo = rdbAdministrador.Text
-            If Usuarios.Registrar(txbNombre.Text, txbApellido.Text, tipo) Then
-                MsgBox("Registro Exitoso")
+            Administradores = New clsAdministradores
+            'tipo = rdbAdministrador.Text
+            If Administradores.Registrar(txbNombre.Text, txbApellido.Text) Then
+                MsgBox("Registro Exitoso. Usuario:" & Administradores.ObtenerNombreUsuario & "Contraseña: " & Administradores.ObtenerContrasenna)
             End If
         ElseIf rdbAgente.Checked = True Then
-            tipo = rdbAgente.Text
-            If Usuarios.Registrar(txbNombre.Text, txbApellido.Text, tipo) Then
-                MsgBox("Registro Exitoso")
+            'tipo = rdbAgente.Text
+            Gerente = New clsGerentes
+            If Gerente.Registrar(txbNombre.Text, txbApellido.Text) Then
+                MsgBox("Registro Exitoso. Usuario:" & Gerente.ObtenerNombreUsuario & "Contraseña: " & Gerente.ObtenerContrasenna)
             End If
         ElseIf rdbContador.Checked = True Then
-            tipo = rdbContador.Text
-            If Usuarios.Registrar(txbNombre.Text, txbApellido.Text, tipo) Then
-                MsgBox("Registro Exitoso")
+            'tipo = rdbContador.Text
+            Contador = New clsContadores
+            If Contador.Registrar(txbNombre.Text, txbApellido.Text) Then
+                MsgBox("Registro Exitoso. Usuario:" & Contador.ObtenerNombreUsuario & "Contraseña: " & Contador.ObtenerContrasenna)
             End If
         End If
     End Sub

@@ -3,6 +3,7 @@
     Private _nombre As String
     Private _direccion As String
     Private _telefono As String
+    Private Conexion As clsConexion = New clsConexion()
 
     Public Sub New(Optional ByVal id As Integer = Nothing)
         If id <> Nothing Then
@@ -42,12 +43,8 @@
             _telefono = telefono
         End If
 
-
         'Insertar la agencia en la BDD
-        Dim query As String = "INSERT INTO agencias VALUES(NULL, '" & _nombre & "', '" & _direccion & "', '" & _telefono & "');"
-
-        'OBTENER ÍNDICE GUARDADO Y GUARDARLO EN _idAgencia
-        Return True
+        Return Conexion.modificarDatos("INSERT INTO agencias VALUES(NULL, '" & _nombre & "', '" & _direccion & "', '" & _telefono & "')")
     End Function
 
     Public Sub obtenerDatos(ByRef nombre As String, ByRef direccion As String, ByRef telefono As String)
@@ -55,6 +52,4 @@
         direccion = _direccion
         telefono = _telefono
     End Sub
-
-
 End Class
