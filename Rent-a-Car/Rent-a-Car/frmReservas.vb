@@ -32,7 +32,7 @@ Public Class frmReservas
             If indiceCoche > -1 Then
                 If Reservas.Registrar(dtpFecha_Entrega.Value.ToString("yyyy-MM-dd"), dtpFecha_Devolucion.Value.ToString("yyyy-MM-dd"), listaClientes(indiceCliente).ObtenerIdCliente, listaCoches(indiceCoche).ObtenerIdCoche, txbAgencia.Text) Then
                     MsgBox("Reserva exitosa")
-                    email.enviarCorreo(listaClientes(x), listaCoches(y))
+                    email.enviarCorreo(listaClientes(indiceCliente), listaCoches(indiceCoche))
                 End If
             Else
                 MsgBox("Error: Matrícula de coche no ha sido encontrada")
