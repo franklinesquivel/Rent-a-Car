@@ -49,7 +49,9 @@ Partial Class frmCoches
         Me.ofdFoto = New System.Windows.Forms.OpenFileDialog()
         Me.mnsMenu = New System.Windows.Forms.MenuStrip()
         Me.mnsCerrar_Sesion = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.mnsMenu.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'txbMatricula
@@ -420,11 +422,20 @@ Partial Class frmCoches
         Me.mnsCerrar_Sesion.Size = New System.Drawing.Size(102, 23)
         Me.mnsCerrar_Sesion.Text = "Cerrar Sesión"
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.Location = New System.Drawing.Point(402, 291)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(100, 50)
+        Me.PictureBox1.TabIndex = 54
+        Me.PictureBox1.TabStop = False
+        '
         'frmCoches
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(726, 447)
+        Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.btnRegresar)
         Me.Controls.Add(Me.rdbMicrobuses)
         Me.Controls.Add(Me.rdbPickups)
@@ -457,6 +468,7 @@ Partial Class frmCoches
     "                                                  Rent-a-Car"
         Me.mnsMenu.ResumeLayout(False)
         Me.mnsMenu.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -489,4 +501,5 @@ Partial Class frmCoches
     Friend WithEvents ofdFoto As OpenFileDialog
     Friend WithEvents mnsMenu As MenuStrip
     Friend WithEvents mnsCerrar_Sesion As ToolStripMenuItem
+    Friend WithEvents PictureBox1 As PictureBox
 End Class

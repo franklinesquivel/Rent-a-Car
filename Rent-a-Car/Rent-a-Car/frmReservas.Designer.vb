@@ -38,9 +38,11 @@ Partial Class frmReservas
         Me.btnRegresar = New MaterialSkin.Controls.MaterialRaisedButton()
         Me.mnsMenu = New System.Windows.Forms.MenuStrip()
         Me.mnsCerrar_Sesion = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         CType(Me.dgvBuscar_Usuario, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvBuscar_Coche, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.mnsMenu.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'lblFecha_Devolucion
@@ -236,11 +238,21 @@ Partial Class frmReservas
         Me.mnsCerrar_Sesion.Size = New System.Drawing.Size(102, 23)
         Me.mnsCerrar_Sesion.Text = "Cerrar Sesión"
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackgroundImage = Global.Rent_a_Car.My.Resources.Resources.AF
+        Me.PictureBox1.Location = New System.Drawing.Point(26, 547)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(100, 62)
+        Me.PictureBox1.TabIndex = 79
+        Me.PictureBox1.TabStop = False
+        '
         'frmReservas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(541, 632)
+        Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.btnRegresar)
         Me.Controls.Add(Me.btnReservar_Coche)
         Me.Controls.Add(Me.txbBuscar_Coche)
@@ -265,6 +277,7 @@ Partial Class frmReservas
         CType(Me.dgvBuscar_Coche, System.ComponentModel.ISupportInitialize).EndInit()
         Me.mnsMenu.ResumeLayout(False)
         Me.mnsMenu.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -286,4 +299,5 @@ Partial Class frmReservas
     Friend WithEvents btnRegresar As MaterialSkin.Controls.MaterialRaisedButton
     Friend WithEvents mnsMenu As MenuStrip
     Friend WithEvents mnsCerrar_Sesion As ToolStripMenuItem
+    Friend WithEvents PictureBox1 As PictureBox
 End Class

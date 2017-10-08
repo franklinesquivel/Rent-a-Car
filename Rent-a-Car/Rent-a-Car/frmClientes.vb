@@ -5,11 +5,13 @@ Public Class frmClientes
         SkinManager.AddFormToManage(Me)
         SkinManager.Theme = MaterialSkinManager.Themes.LIGHT
         SkinManager.ColorScheme = New ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE)
+        paises = New clsPaises()
+        paises.Listar(cmbPaises)
     End Sub
 
     Private Sub btnAgregar_Cliente_Click(sender As Object, e As EventArgs) Handles btnAgregar_Cliente.Click
         Clientes = New clsClientes
-        If Clientes.registrarDatos(txbDui.Text, txbPasaporte.Text, txbNombre.Text, txbApellido.Text, txbDireccion.Text, txbCiudad.Text, txbEmail.Text, txbEmail.Text) Then
+        If Clientes.registrarDatos(txbDui.Text, txbPasaporte.Text, txbNombre.Text, txbApellido.Text, txbDireccion.Text, txbCiudad.Text, txbEmail.Text, cmbPaises.SelectedIndex + 1, txbTelefono.Text) Then
             MsgBox("Registro Exitoso")
         End If
     End Sub
@@ -17,6 +19,5 @@ Public Class frmClientes
     Private Sub btnRegresar_Click(sender As Object, e As EventArgs) Handles btnRegresar.Click
         frmMenu_Admin.Show()
         Me.Hide()
-
     End Sub
 End Class

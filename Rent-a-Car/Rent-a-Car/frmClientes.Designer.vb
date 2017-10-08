@@ -35,7 +35,6 @@ Partial Class frmClientes
         Me.txbDui = New MaterialSkin.Controls.MaterialSingleLineTextField()
         Me.lblTelefono = New MaterialSkin.Controls.MaterialLabel()
         Me.lblPais = New MaterialSkin.Controls.MaterialLabel()
-        Me.txbPais = New MaterialSkin.Controls.MaterialSingleLineTextField()
         Me.txbTelefono = New MaterialSkin.Controls.MaterialSingleLineTextField()
         Me.btnRegresar = New MaterialSkin.Controls.MaterialRaisedButton()
         Me.mnsMenu = New System.Windows.Forms.MenuStrip()
@@ -46,6 +45,7 @@ Partial Class frmClientes
         Me.rbtDui = New MaterialSkin.Controls.MaterialRadioButton()
         Me.lblApellido = New MaterialSkin.Controls.MaterialLabel()
         Me.txbApellido = New MaterialSkin.Controls.MaterialSingleLineTextField()
+        Me.cmbPaises = New System.Windows.Forms.ComboBox()
         Me.mnsMenu.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -231,21 +231,6 @@ Partial Class frmClientes
         Me.lblPais.TabIndex = 39
         Me.lblPais.Text = "País"
         '
-        'txbPais
-        '
-        Me.txbPais.Depth = 0
-        Me.txbPais.Hint = ""
-        Me.txbPais.Location = New System.Drawing.Point(115, 301)
-        Me.txbPais.MouseState = MaterialSkin.MouseState.HOVER
-        Me.txbPais.Name = "txbPais"
-        Me.txbPais.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.txbPais.SelectedText = ""
-        Me.txbPais.SelectionLength = 0
-        Me.txbPais.SelectionStart = 0
-        Me.txbPais.Size = New System.Drawing.Size(259, 23)
-        Me.txbPais.TabIndex = 38
-        Me.txbPais.UseSystemPasswordChar = False
-        '
         'txbTelefono
         '
         Me.txbTelefono.Depth = 0
@@ -382,11 +367,20 @@ Partial Class frmClientes
         Me.txbApellido.TabIndex = 61
         Me.txbApellido.UseSystemPasswordChar = False
         '
+        'cmbPaises
+        '
+        Me.cmbPaises.FormattingEnabled = True
+        Me.cmbPaises.Location = New System.Drawing.Point(119, 306)
+        Me.cmbPaises.Name = "cmbPaises"
+        Me.cmbPaises.Size = New System.Drawing.Size(255, 21)
+        Me.cmbPaises.TabIndex = 62
+        '
         'frmClientes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(733, 457)
+        Me.Controls.Add(Me.cmbPaises)
         Me.Controls.Add(Me.txbApellido)
         Me.Controls.Add(Me.lblApellido)
         Me.Controls.Add(Me.rbtPasaporte)
@@ -396,7 +390,6 @@ Partial Class frmClientes
         Me.Controls.Add(Me.btnRegresar)
         Me.Controls.Add(Me.lblTelefono)
         Me.Controls.Add(Me.lblPais)
-        Me.Controls.Add(Me.txbPais)
         Me.Controls.Add(Me.txbTelefono)
         Me.Controls.Add(Me.btnAgregar_Cliente)
         Me.Controls.Add(Me.lblEmail)
@@ -435,7 +428,6 @@ Partial Class frmClientes
     Friend WithEvents txbDui As MaterialSkin.Controls.MaterialSingleLineTextField
     Friend WithEvents lblTelefono As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents lblPais As MaterialSkin.Controls.MaterialLabel
-    Friend WithEvents txbPais As MaterialSkin.Controls.MaterialSingleLineTextField
     Friend WithEvents txbTelefono As MaterialSkin.Controls.MaterialSingleLineTextField
     Friend WithEvents btnRegresar As MaterialSkin.Controls.MaterialRaisedButton
     Friend WithEvents mnsMenu As MenuStrip
@@ -446,4 +438,5 @@ Partial Class frmClientes
     Friend WithEvents rbtDui As MaterialSkin.Controls.MaterialRadioButton
     Friend WithEvents lblApellido As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents txbApellido As MaterialSkin.Controls.MaterialSingleLineTextField
+    Friend WithEvents cmbPaises As ComboBox
 End Class

@@ -102,9 +102,11 @@
     <Compile Include="clsCoches.vb" />
     <Compile Include="clsConexion.vb" />
     <Compile Include="clsContadores.vb" />
+    <Compile Include="clsEmail.vb" />
     <Compile Include="clsEncriptacion.vb" />
     <Compile Include="clsGerentes.vb" />
     <Compile Include="clsMultas.vb" />
+    <Compile Include="clsPaises.vb" />
     <Compile Include="clsRentas.vb" />
     <Compile Include="clsUsuarios.vb" />
     <Compile Include="frmAgencias.Designer.vb">
@@ -279,6 +281,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -305,9 +308,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="rentacar.ico" />
+    <None Include="Resources\AF.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\" />
+    <Folder Include="Resources\Coches\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

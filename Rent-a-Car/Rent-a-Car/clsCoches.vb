@@ -1,4 +1,4 @@
-﻿Imports System.IO
+﻿Imports MySql.Data.MySqlClient
 Public Class clsCoches
     Private _idCoche As Integer
     Private _matricula As String
@@ -11,22 +11,145 @@ Public Class clsCoches
     Private _fotografia As String
     Private _tipo As String
     Private _idAgencia As Integer
-    Private _estado As Boolean
+    Private _estado As String
 
+    Private Conexion As clsConexion = New clsConexion()
     Public Sub New(Optional ByVal id As Integer = Nothing)
         If id <> Nothing Then
             'Función para obtener datos guardados en la BDD
         Else
-            _estado = True
+            _estado = "A"
         End If
     End Sub
-
+    'Getters
+    Public ReadOnly Property ObtenerIdCoche() As String
+        Get
+            Return _idCoche
+        End Get
+    End Property
     Public ReadOnly Property id
         Get
             Return _idCoche
         End Get
     End Property
 
+    Public ReadOnly Property ObtenerMatricula() As String
+        Get
+            Return _matricula
+        End Get
+    End Property
+    Public ReadOnly Property ObtenerMarca() As String
+        Get
+            Return _marca
+        End Get
+    End Property
+    Public ReadOnly Property ObtenerModelo() As String
+        Get
+            Return _modelo
+        End Get
+    End Property
+    Public ReadOnly Property ObtenerColor() As String
+        Get
+            Return _color
+        End Get
+    End Property
+    Public ReadOnly Property ObtenerKilometraje() As String
+        Get
+            Return _kilometraje
+        End Get
+    End Property
+    Public ReadOnly Property ObtenerNPasajeros() As String
+        Get
+            Return _nPasajeros
+        End Get
+    End Property
+    Public ReadOnly Property ObtenerPrecioAlquiler() As String
+        Get
+            Return _alquiler
+        End Get
+    End Property
+    Public ReadOnly Property ObtenerFotografia() As String
+        Get
+            Return _fotografia
+        End Get
+    End Property
+    Public ReadOnly Property ObtenerTipo() As String
+        Get
+            Return _tipo
+        End Get
+    End Property
+    Public ReadOnly Property ObtenerEstado() As String
+        Get
+            Return _estado
+        End Get
+    End Property
+    Public ReadOnly Property ObtenerIdAgencia() As String
+        Get
+            Return _idAgencia
+        End Get
+    End Property
+    'Setters
+    Public WriteOnly Property EstablecerMatricula() As String
+        Set(ByVal value As String)
+            _matricula = value
+        End Set
+    End Property
+    Public WriteOnly Property EstablecerMarca() As String
+        Set(ByVal value As String)
+            _marca = value
+        End Set
+    End Property
+    Public WriteOnly Property EstablecerColor() As String
+        Set(ByVal value As String)
+            _color = value
+        End Set
+    End Property
+    Public WriteOnly Property EstablecerModelo() As String
+        Set(ByVal value As String)
+            _modelo = value
+        End Set
+    End Property
+    Public WriteOnly Property EstablecerKilometraje() As String
+        Set(ByVal value As String)
+            _kilometraje = value
+        End Set
+    End Property
+    Public WriteOnly Property EstablecerNPasajeros() As String
+        Set(ByVal value As String)
+            _nPasajeros = value
+        End Set
+    End Property
+    Public WriteOnly Property EstablecerPrecioAlquiler() As String
+        Set(ByVal value As String)
+            _alquiler = value
+        End Set
+    End Property
+    Public WriteOnly Property EstablecerFotografia() As String
+        Set(ByVal value As String)
+            _fotografia = value
+        End Set
+    End Property
+    Public WriteOnly Property EstablecerTipo() As String
+        Set(ByVal value As String)
+            _tipo = value
+        End Set
+    End Property
+    Public WriteOnly Property EstablecerEstado() As String
+        Set(ByVal value As String)
+            _estado = value
+        End Set
+    End Property
+    Public WriteOnly Property EstablecerIdAgencia() As String
+        Set(ByVal value As String)
+            _idAgencia = value
+        End Set
+    End Property
+    Public WriteOnly Property EstablecerIdCoche() As String
+        Set(ByVal value As String)
+            _idCoche = value
+        End Set
+    End Property
+    'Métodos
     Public Function registrarCoche(ByVal matricula As String, ByVal marca As String, ByVal modelo As String, ByVal color As String, ByVal kilometraje As Long, ByVal nPasajeros As Integer, ByVal alquiler As Decimal, ByVal fotografia As String, ByVal tipo As String, ByVal idAgencia As Integer) As Boolean
         matricula = matricula.Trim
         marca = marca.Trim
@@ -130,4 +253,61 @@ Public Class clsCoches
         tipo = _tipo
         idAgencia = _idAgencia
     End Sub
+
+    Public Sub listarCoches(ByRef listaCoches() As clsCoches, ByRef dgv As DataGridView)
+        Dim i As Integer = 0
+        Dim reader As MySqlDataReader
+        Conexion.obtenerDatos("SELECT * FROM coches WHERE estado = 'A'", reader)
+
+        'Se agrega las columnas al dgv
+        dgv.ColumnCount = 5
+        dgv.Columns(0).Name = "Placa"
+        dgv.Columns(1).Name = "Marca y Modelo"
+        dgv.Columns(2).Name = "N° Pasajeros"
+        dgv.Columns(3).Name = "Precio Alquiler ($)"
+        dgv.Columns(4).Name = "Kilometraje"
+        dgv.RowCount = 1
+
+        While reader.Read()
+            ReDim Preserve listaCoches(i)
+            Coches = New clsCoches 'Se crea una instancia de la clase para despues guardarla en  un array
+
+            'Se guardan los atributos
+            Coches.EstablecerIdCoche = reader(0)
+            Coches.EstablecerMatricula = reader(1)
+            Coches.EstablecerMarca = reader(2)
+            Coches.EstablecerModelo = reader(3)
+            Coches.EstablecerColor = reader(4)
+            Coches.EstablecerKilometraje = reader(5)
+            Coches.EstablecerNPasajeros = reader(6)
+            Coches.EstablecerPrecioAlquiler = reader(7)
+            Coches.EstablecerFotografia = reader(8)
+            Coches.EstablecerTipo = reader(9)
+            Coches.EstablecerEstado = reader(10)
+            Coches.EstablecerIdAgencia = reader(11)
+
+            listaCoches(i) = Coches 'Se guarda la instancia de la clase en el array
+
+            With dgv 'Se agregan en el dgv los datos
+                i = .RowCount
+                .Rows.Add()
+                .Rows(i - 1).Cells(0).Value = listaCoches(i - 1).ObtenerMatricula
+                .Rows(i - 1).Cells(1).Value = listaCoches(i - 1).ObtenerMarca & " - " & listaCoches(i - 1).ObtenerModelo
+                .Rows(i - 1).Cells(2).Value = listaCoches(i - 1).ObtenerNPasajeros
+                .Rows(i - 1).Cells(3).Value = listaCoches(i - 1).ObtenerPrecioAlquiler
+                .Rows(i - 1).Cells(4).Value = listaCoches(i - 1).ObtenerKilometraje
+            End With
+            i += 1
+        End While
+        reader.Close()
+    End Sub
+    Public Function BuscarIndice(ByVal matriculaCoche As String, ByRef listaClientes() As clsCoches, ByRef indice As Integer)
+        For i As Integer = 0 To UBound(listaClientes, 1)
+            If listaClientes(i).ObtenerMatricula = matriculaCoche.ToUpper Then
+                indice = i
+                Return listaClientes(i).ObtenerIdCoche
+            End If
+        Next
+        Return -1
+    End Function
 End Class

@@ -115,6 +115,6 @@ Public Class clsUsuarios
 
     End Sub
     Public Function VerificarCodigoUsuario(ByVal _nombreUsuario As String)
-        Return Conexion.seleccionarDatos("SELECT * FROM usuarios WHERE nombre_usuario = '" & _nombreUsuario & "'")
+        Return Conexion.contarFilas("SELECT * FROM usuarios WHERE nombre_usuario = '" & _nombreUsuario & "'")
     End Function
 End Class

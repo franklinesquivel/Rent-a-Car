@@ -1,4 +1,5 @@
 ﻿Imports MaterialSkin
+Imports System.IO
 
 Public Class frmCoches
 
@@ -11,6 +12,8 @@ Public Class frmCoches
 
     Private Sub btnAgregar_Coche_Click(sender As Object, e As EventArgs) Handles btnAgregar_Coche.Click
         Dim tipo As String
+        'FileSystem.FileCopy((Path.GetDirectoryName(ofdFoto.FileName) + "\" + ofdFoto.FileName), Path.GetFullPath(Application.StartupPath & "\..\..\Resources\Coches\"))
+
         Coches = New clsCoches
         If rdbMicrobuses.Checked = True Then
             tipo = rdbMicrobuses.Text
@@ -33,5 +36,9 @@ Public Class frmCoches
     Private Sub btnRegresar_Click(sender As Object, e As EventArgs) Handles btnRegresar.Click
         frmMenu_Admin.Show()
         Me.Close()
+    End Sub
+
+    Private Sub btnFoto_Click(sender As Object, e As EventArgs) Handles btnFoto.Click
+        ofdFoto.ShowDialog()
     End Sub
 End Class
