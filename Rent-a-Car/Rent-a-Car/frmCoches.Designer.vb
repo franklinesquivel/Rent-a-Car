@@ -31,7 +31,6 @@ Partial Class frmCoches
         Me.lblColor = New MaterialSkin.Controls.MaterialLabel()
         Me.txbColor = New MaterialSkin.Controls.MaterialSingleLineTextField()
         Me.lblFotografia = New MaterialSkin.Controls.MaterialLabel()
-        Me.txbAgencia_Coche = New MaterialSkin.Controls.MaterialSingleLineTextField()
         Me.lblKilometraje = New MaterialSkin.Controls.MaterialLabel()
         Me.txbKilometraje = New MaterialSkin.Controls.MaterialSingleLineTextField()
         Me.lblNumero_Pasajeros = New MaterialSkin.Controls.MaterialLabel()
@@ -50,6 +49,7 @@ Partial Class frmCoches
         Me.mnsMenu = New System.Windows.Forms.MenuStrip()
         Me.mnsCerrar_Sesion = New System.Windows.Forms.ToolStripMenuItem()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.cmbAgenciaCoche = New System.Windows.Forms.ComboBox()
         Me.mnsMenu.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -179,21 +179,6 @@ Partial Class frmCoches
         Me.lblFotografia.TabIndex = 9
         Me.lblFotografia.Text = "Fotografía"
         '
-        'txbAgencia_Coche
-        '
-        Me.txbAgencia_Coche.Depth = 0
-        Me.txbAgencia_Coche.Hint = ""
-        Me.txbAgencia_Coche.Location = New System.Drawing.Point(556, 259)
-        Me.txbAgencia_Coche.MouseState = MaterialSkin.MouseState.HOVER
-        Me.txbAgencia_Coche.Name = "txbAgencia_Coche"
-        Me.txbAgencia_Coche.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.txbAgencia_Coche.SelectedText = ""
-        Me.txbAgencia_Coche.SelectionLength = 0
-        Me.txbAgencia_Coche.SelectionStart = 0
-        Me.txbAgencia_Coche.Size = New System.Drawing.Size(146, 23)
-        Me.txbAgencia_Coche.TabIndex = 8
-        Me.txbAgencia_Coche.UseSystemPasswordChar = False
-        '
         'lblKilometraje
         '
         Me.lblKilometraje.AutoSize = True
@@ -287,9 +272,9 @@ Partial Class frmCoches
         Me.lblAgencia_Coche.Location = New System.Drawing.Point(398, 259)
         Me.lblAgencia_Coche.MouseState = MaterialSkin.MouseState.HOVER
         Me.lblAgencia_Coche.Name = "lblAgencia_Coche"
-        Me.lblAgencia_Coche.Size = New System.Drawing.Size(152, 19)
+        Me.lblAgencia_Coche.Size = New System.Drawing.Size(132, 19)
         Me.lblAgencia_Coche.TabIndex = 18
-        Me.lblAgencia_Coche.Text = "Id. Agencia del coche"
+        Me.lblAgencia_Coche.Text = "Agencia del coche"
         '
         'btnFoto
         '
@@ -402,10 +387,6 @@ Partial Class frmCoches
         Me.btnRegresar.Text = "Regresar"
         Me.btnRegresar.UseVisualStyleBackColor = True
         '
-        'ofdFoto
-        '
-        Me.ofdFoto.FileName = "OpenFileDialog1"
-        '
         'mnsMenu
         '
         Me.mnsMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnsCerrar_Sesion})
@@ -430,11 +411,23 @@ Partial Class frmCoches
         Me.PictureBox1.TabIndex = 54
         Me.PictureBox1.TabStop = False
         '
+        'cmbAgenciaCoche
+        '
+        Me.cmbAgenciaCoche.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cmbAgenciaCoche.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
+        Me.cmbAgenciaCoche.FormattingEnabled = True
+        Me.cmbAgenciaCoche.Items.AddRange(New Object() {""})
+        Me.cmbAgenciaCoche.Location = New System.Drawing.Point(536, 260)
+        Me.cmbAgenciaCoche.Name = "cmbAgenciaCoche"
+        Me.cmbAgenciaCoche.Size = New System.Drawing.Size(166, 24)
+        Me.cmbAgenciaCoche.TabIndex = 55
+        '
         'frmCoches
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(726, 447)
+        Me.Controls.Add(Me.cmbAgenciaCoche)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.btnRegresar)
         Me.Controls.Add(Me.rdbMicrobuses)
@@ -451,7 +444,6 @@ Partial Class frmCoches
         Me.Controls.Add(Me.lblKilometraje)
         Me.Controls.Add(Me.txbKilometraje)
         Me.Controls.Add(Me.lblFotografia)
-        Me.Controls.Add(Me.txbAgencia_Coche)
         Me.Controls.Add(Me.lblColor)
         Me.Controls.Add(Me.txbColor)
         Me.Controls.Add(Me.lblModelo)
@@ -483,7 +475,6 @@ Partial Class frmCoches
     Friend WithEvents lblColor As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents txbColor As MaterialSkin.Controls.MaterialSingleLineTextField
     Friend WithEvents lblFotografia As MaterialSkin.Controls.MaterialLabel
-    Friend WithEvents txbAgencia_Coche As MaterialSkin.Controls.MaterialSingleLineTextField
     Friend WithEvents lblKilometraje As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents txbKilometraje As MaterialSkin.Controls.MaterialSingleLineTextField
     Friend WithEvents lblNumero_Pasajeros As MaterialSkin.Controls.MaterialLabel
@@ -502,4 +493,5 @@ Partial Class frmCoches
     Friend WithEvents mnsMenu As MenuStrip
     Friend WithEvents mnsCerrar_Sesion As ToolStripMenuItem
     Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents cmbAgenciaCoche As ComboBox
 End Class

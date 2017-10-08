@@ -58,6 +58,23 @@ Public Class clsConexion
         reader = _cmd.ExecuteReader() 'Se ejecuta la consulta en modo lectura
     End Sub
 
+    Public Sub llenarCombo(ByRef cmb As ComboBox, ByVal consulta As String, ByVal campoLlave As Integer, ByVal campoTexto As Integer)
+        Dim dataReader As MySqlDataReader
+        Dim dataset As New Dictionary(Of String, String)()
+        dataset.Add("", "Selecciona una opción")
+
+        MyClass.obtenerDatos(consulta, dataReader)
+        If dataReader.HasRows Then
+            Do While dataReader.Read()
+                dataset.Add(dataReader.GetInt32(campoLlave), dataReader.GetString(campoTexto))
+            Loop
+        End If
+
+        cmb.DataSource = New BindingSource(dataset, Nothing)
+        cmb.DisplayMember = "Value"
+        cmb.ValueMember = "Key"
+    End Sub
+
     Public Function contarFilas(ByVal consulta As String) As Integer
         _conn.Close()
         _conn.Open()
