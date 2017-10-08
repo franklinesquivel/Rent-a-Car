@@ -301,11 +301,10 @@ Public Class clsCoches
         End While
         reader.Close()
     End Sub
-    Public Function BuscarIndice(ByVal matriculaCoche As String, ByRef listaClientes() As clsCoches, ByRef indice As Integer)
+    Public Function BuscarIndice(ByVal matriculaCoche As String, ByRef listaClientes() As clsCoches)
         For i As Integer = 0 To UBound(listaClientes, 1)
             If listaClientes(i).ObtenerMatricula = matriculaCoche.ToUpper Then
-                indice = i
-                Return listaClientes(i).ObtenerIdCoche
+                Return i
             End If
         Next
         Return -1

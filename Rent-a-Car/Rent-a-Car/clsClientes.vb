@@ -267,11 +267,10 @@ Public Class clsClientes
         reader.Close()
     End Sub
 
-    Public Function BuscarIndice(ByVal _codigoUsuario As String, ByRef listaClientes() As clsClientes, ByRef indice As Integer)
+    Public Function BuscarIndice(ByVal _codigoUsuario As String, ByRef listaClientes() As clsClientes)
         For i As Integer = 0 To UBound(listaClientes, 1)
             If listaClientes(i).ObtenerNombreDeUsuari = _codigoUsuario.ToUpper Then
-                indice = i
-                Return listaClientes(i).ObtenerIdCliente
+                Return i
             End If
         Next
         Return -1

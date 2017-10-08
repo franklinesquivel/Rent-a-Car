@@ -23,14 +23,14 @@ Public Class frmReservas
     Private Sub btnReservar_Coche_Click(sender As Object, e As EventArgs) Handles btnReservar_Coche.Click
         email = New clsEmail() 'Creación de objeto para enviar el email
         Reservas = New clsReservas() 'Creación de objeto para la reserva
-        Dim x = 0, y As Integer = 0
-        Dim indiceCliente As Integer = Clientes.BuscarIndice(txbBuscar_Codigo.Text, listaClientes, x)
-        Dim indiceCoche As Integer = Coches.BuscarIndice(txbBuscar_Coche.Text, listaCoches, y)
+
+        Dim indiceCliente As Integer = Clientes.BuscarIndice(txbBuscar_Codigo.Text, listaClientes)
+        Dim indiceCoche As Integer = Coches.BuscarIndice(txbBuscar_Coche.Text, listaCoches)
         MsgBox(dtpFecha_Entrega.Value.ToString("yyyy-MM-dd"))
 
         If indiceCliente > -1 Then
             If indiceCoche > -1 Then
-                If Reservas.Registrar(dtpFecha_Entrega.Value.ToString("yyyy-MM-dd"), dtpFecha_Devolucion.Value.ToString("yyyy-MM-dd"), indiceCliente, indiceCoche, txbAgencia.Text) Then
+                If Reservas.Registrar(dtpFecha_Entrega.Value.ToString("yyyy-MM-dd"), dtpFecha_Devolucion.Value.ToString("yyyy-MM-dd"), listaClientes(indiceCliente).ObtenerIdCliente, listaCoches(indiceCoche).ObtenerIdCoche, txbAgencia.Text) Then
                     MsgBox("Reserva exitosa")
                     email.enviarCorreo(listaClientes(x), listaCoches(y))
                 End If
