@@ -17,7 +17,8 @@ Public Class clsConexion
         End Try
     End Sub
 
-    Public Function modificarDatos(ByVal consulta As String) As String
+    Public Function modificarDatos(ByVal consulta As String, Optional ByRef idInsertado As Integer = -1) As Boolean
+        Dim result As Boolean
         'Aqui se realizan operaciones como: UPDATE, DELETE, INSERT
 
         _conn.Close() 'Se cierra la conexión previa
@@ -26,7 +27,14 @@ Public Class clsConexion
             _conn.Open() 'Se abre la conexión
             _cmd = New MySqlCommand(consulta, _conn) 'Se ejecuta la consulta
 
-            Return _cmd.ExecuteNonQuery 'Se ejecuta la consulta en modo NonQuery
+            If idInsertado = -1 Then
+                result = _cmd.ExecuteNonQuery 'Se ejecuta la consulta en modo NonQuery
+            Else
+                idInsertado = CInt(_cmd.ExecuteScalar())
+                If Not IsNothing(idInsertado) Then result = True Else result = False
+            End If
+
+            Return result
         End If
 
         Return False
@@ -61,12 +69,12 @@ Public Class clsConexion
     Public Sub llenarCombo(ByRef cmb As ComboBox, ByVal consulta As String, ByVal campoLlave As Integer, ByVal campoTexto As Integer)
         Dim dataReader As MySqlDataReader
         Dim dataset As New Dictionary(Of String, String)()
-        dataset.Add("", "Selecciona una opción")
+        dataset.Add(0, "Selecciona una opción")
 
         MyClass.obtenerDatos(consulta, dataReader)
         If dataReader.HasRows Then
             Do While dataReader.Read()
-                dataset.Add(dataReader.GetInt32(campoLlave), dataReader.GetString(campoTexto))
+                dataset.Add(dataReader.GetString(campoLlave), dataReader.GetString(campoTexto))
             Loop
         End If
 
