@@ -1,5 +1,7 @@
 ﻿Imports System.Text.RegularExpressions
+Imports MySql.Data.MySqlClient
 Module mdlValidaciones
+    Dim Conexion As clsConexion = New clsConexion()
     Function _rutaDeArchivoValida(ByVal ruta As String) As Boolean
         If ruta Is Nothing Then
             Return False
@@ -25,7 +27,10 @@ Module mdlValidaciones
 
     Function _buscarRegistro(ByVal tabla As String, ByVal campo As String, ByVal valor As String) As Boolean
         Dim query As String = "SELECT * FROM " & tabla & " WHERE " & campo & " = '" & valor & "';"
-        Return 1
+        Dim dataReader As MySqlDataReader
+
+        Conexion.obtenerDatos(query, dataReader)
+        Return dataReader.HasRows
     End Function
 
     Function _noCoincide(ByVal pattern As String, ByVal value As String) As Boolean

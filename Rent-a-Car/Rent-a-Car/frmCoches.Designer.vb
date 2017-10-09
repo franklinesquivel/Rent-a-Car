@@ -48,10 +48,10 @@ Partial Class frmCoches
         Me.ofdFoto = New System.Windows.Forms.OpenFileDialog()
         Me.mnsMenu = New System.Windows.Forms.MenuStrip()
         Me.mnsCerrar_Sesion = New System.Windows.Forms.ToolStripMenuItem()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.cmbAgenciaCoche = New System.Windows.Forms.ComboBox()
+        Me.picCoche = New System.Windows.Forms.PictureBox()
         Me.mnsMenu.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picCoche, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'txbMatricula
@@ -79,7 +79,7 @@ Partial Class frmCoches
         Me.lblMatricula.MouseState = MaterialSkin.MouseState.HOVER
         Me.lblMatricula.Name = "lblMatricula"
         Me.lblMatricula.Size = New System.Drawing.Size(72, 19)
-        Me.lblMatricula.TabIndex = 1
+        Me.lblMatricula.TabIndex = 12
         Me.lblMatricula.Text = "Matrícula"
         '
         'lblMarca
@@ -92,7 +92,7 @@ Partial Class frmCoches
         Me.lblMarca.MouseState = MaterialSkin.MouseState.HOVER
         Me.lblMarca.Name = "lblMarca"
         Me.lblMarca.Size = New System.Drawing.Size(51, 19)
-        Me.lblMarca.TabIndex = 3
+        Me.lblMarca.TabIndex = 13
         Me.lblMarca.Text = "Marca"
         '
         'txbMarca
@@ -107,7 +107,7 @@ Partial Class frmCoches
         Me.txbMarca.SelectionLength = 0
         Me.txbMarca.SelectionStart = 0
         Me.txbMarca.Size = New System.Drawing.Size(218, 23)
-        Me.txbMarca.TabIndex = 2
+        Me.txbMarca.TabIndex = 1
         Me.txbMarca.UseSystemPasswordChar = False
         '
         'lblModelo
@@ -120,7 +120,7 @@ Partial Class frmCoches
         Me.lblModelo.MouseState = MaterialSkin.MouseState.HOVER
         Me.lblModelo.Name = "lblModelo"
         Me.lblModelo.Size = New System.Drawing.Size(60, 19)
-        Me.lblModelo.TabIndex = 5
+        Me.lblModelo.TabIndex = 18
         Me.lblModelo.Text = "Modelo"
         '
         'txbModelo
@@ -135,7 +135,7 @@ Partial Class frmCoches
         Me.txbModelo.SelectionLength = 0
         Me.txbModelo.SelectionStart = 0
         Me.txbModelo.Size = New System.Drawing.Size(218, 23)
-        Me.txbModelo.TabIndex = 4
+        Me.txbModelo.TabIndex = 8
         Me.txbModelo.UseSystemPasswordChar = False
         '
         'lblColor
@@ -148,7 +148,7 @@ Partial Class frmCoches
         Me.lblColor.MouseState = MaterialSkin.MouseState.HOVER
         Me.lblColor.Name = "lblColor"
         Me.lblColor.Size = New System.Drawing.Size(46, 19)
-        Me.lblColor.TabIndex = 7
+        Me.lblColor.TabIndex = 19
         Me.lblColor.Text = "Color"
         '
         'txbColor
@@ -163,7 +163,7 @@ Partial Class frmCoches
         Me.txbColor.SelectionLength = 0
         Me.txbColor.SelectionStart = 0
         Me.txbColor.Size = New System.Drawing.Size(218, 23)
-        Me.txbColor.TabIndex = 6
+        Me.txbColor.TabIndex = 9
         Me.txbColor.UseSystemPasswordChar = False
         '
         'lblFotografia
@@ -176,7 +176,7 @@ Partial Class frmCoches
         Me.lblFotografia.MouseState = MaterialSkin.MouseState.HOVER
         Me.lblFotografia.Name = "lblFotografia"
         Me.lblFotografia.Size = New System.Drawing.Size(78, 19)
-        Me.lblFotografia.TabIndex = 9
+        Me.lblFotografia.TabIndex = 20
         Me.lblFotografia.Text = "Fotografía"
         '
         'lblKilometraje
@@ -189,7 +189,7 @@ Partial Class frmCoches
         Me.lblKilometraje.MouseState = MaterialSkin.MouseState.HOVER
         Me.lblKilometraje.Name = "lblKilometraje"
         Me.lblKilometraje.Size = New System.Drawing.Size(86, 19)
-        Me.lblKilometraje.TabIndex = 11
+        Me.lblKilometraje.TabIndex = 14
         Me.lblKilometraje.Text = "Kilometraje"
         '
         'txbKilometraje
@@ -204,7 +204,8 @@ Partial Class frmCoches
         Me.txbKilometraje.SelectionLength = 0
         Me.txbKilometraje.SelectionStart = 0
         Me.txbKilometraje.Size = New System.Drawing.Size(218, 23)
-        Me.txbKilometraje.TabIndex = 10
+        Me.txbKilometraje.TabIndex = 2
+        Me.txbKilometraje.Text = "0"
         Me.txbKilometraje.UseSystemPasswordChar = False
         '
         'lblNumero_Pasajeros
@@ -217,7 +218,7 @@ Partial Class frmCoches
         Me.lblNumero_Pasajeros.MouseState = MaterialSkin.MouseState.HOVER
         Me.lblNumero_Pasajeros.Name = "lblNumero_Pasajeros"
         Me.lblNumero_Pasajeros.Size = New System.Drawing.Size(153, 19)
-        Me.lblNumero_Pasajeros.TabIndex = 13
+        Me.lblNumero_Pasajeros.TabIndex = 15
         Me.lblNumero_Pasajeros.Text = "Número de pasajeros"
         '
         'txbNumero_Pasajeros
@@ -232,7 +233,8 @@ Partial Class frmCoches
         Me.txbNumero_Pasajeros.SelectionLength = 0
         Me.txbNumero_Pasajeros.SelectionStart = 0
         Me.txbNumero_Pasajeros.Size = New System.Drawing.Size(146, 23)
-        Me.txbNumero_Pasajeros.TabIndex = 12
+        Me.txbNumero_Pasajeros.TabIndex = 3
+        Me.txbNumero_Pasajeros.Text = "0"
         Me.txbNumero_Pasajeros.UseSystemPasswordChar = False
         '
         'lblPrecio_Alquiler
@@ -245,7 +247,7 @@ Partial Class frmCoches
         Me.lblPrecio_Alquiler.MouseState = MaterialSkin.MouseState.HOVER
         Me.lblPrecio_Alquiler.Name = "lblPrecio_Alquiler"
         Me.lblPrecio_Alquiler.Size = New System.Drawing.Size(126, 19)
-        Me.lblPrecio_Alquiler.TabIndex = 17
+        Me.lblPrecio_Alquiler.TabIndex = 16
         Me.lblPrecio_Alquiler.Text = "Precio de alquiler"
         '
         'txbPrecio_Alquiler
@@ -260,7 +262,8 @@ Partial Class frmCoches
         Me.txbPrecio_Alquiler.SelectionLength = 0
         Me.txbPrecio_Alquiler.SelectionStart = 0
         Me.txbPrecio_Alquiler.Size = New System.Drawing.Size(183, 23)
-        Me.txbPrecio_Alquiler.TabIndex = 16
+        Me.txbPrecio_Alquiler.TabIndex = 4
+        Me.txbPrecio_Alquiler.Text = "0.00"
         Me.txbPrecio_Alquiler.UseSystemPasswordChar = False
         '
         'lblAgencia_Coche
@@ -269,11 +272,11 @@ Partial Class frmCoches
         Me.lblAgencia_Coche.Depth = 0
         Me.lblAgencia_Coche.Font = New System.Drawing.Font("Roboto", 11.0!)
         Me.lblAgencia_Coche.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblAgencia_Coche.Location = New System.Drawing.Point(398, 259)
+        Me.lblAgencia_Coche.Location = New System.Drawing.Point(398, 399)
         Me.lblAgencia_Coche.MouseState = MaterialSkin.MouseState.HOVER
         Me.lblAgencia_Coche.Name = "lblAgencia_Coche"
         Me.lblAgencia_Coche.Size = New System.Drawing.Size(132, 19)
-        Me.lblAgencia_Coche.TabIndex = 18
+        Me.lblAgencia_Coche.TabIndex = 21
         Me.lblAgencia_Coche.Text = "Agencia del coche"
         '
         'btnFoto
@@ -287,7 +290,7 @@ Partial Class frmCoches
         Me.btnFoto.Name = "btnFoto"
         Me.btnFoto.Primary = False
         Me.btnFoto.Size = New System.Drawing.Size(141, 36)
-        Me.btnFoto.TabIndex = 20
+        Me.btnFoto.TabIndex = 10
         Me.btnFoto.Text = "+Agrege una foto"
         Me.btnFoto.UseVisualStyleBackColor = True
         '
@@ -297,11 +300,11 @@ Partial Class frmCoches
         Me.lblTipo_Coche.Depth = 0
         Me.lblTipo_Coche.Font = New System.Drawing.Font("Roboto", 11.0!)
         Me.lblTipo_Coche.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblTipo_Coche.Location = New System.Drawing.Point(139, 349)
+        Me.lblTipo_Coche.Location = New System.Drawing.Point(31, 358)
         Me.lblTipo_Coche.MouseState = MaterialSkin.MouseState.HOVER
         Me.lblTipo_Coche.Name = "lblTipo_Coche"
         Me.lblTipo_Coche.Size = New System.Drawing.Size(104, 19)
-        Me.lblTipo_Coche.TabIndex = 24
+        Me.lblTipo_Coche.TabIndex = 17
         Me.lblTipo_Coche.Text = "Tipo de coche"
         '
         'btnAgregar_Coche
@@ -310,13 +313,13 @@ Partial Class frmCoches
         Me.btnAgregar_Coche.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.btnAgregar_Coche.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnAgregar_Coche.Depth = 0
-        Me.btnAgregar_Coche.Location = New System.Drawing.Point(313, 396)
+        Me.btnAgregar_Coche.Location = New System.Drawing.Point(313, 481)
         Me.btnAgregar_Coche.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
         Me.btnAgregar_Coche.MouseState = MaterialSkin.MouseState.HOVER
         Me.btnAgregar_Coche.Name = "btnAgregar_Coche"
         Me.btnAgregar_Coche.Primary = False
         Me.btnAgregar_Coche.Size = New System.Drawing.Size(133, 36)
-        Me.btnAgregar_Coche.TabIndex = 25
+        Me.btnAgregar_Coche.TabIndex = 22
         Me.btnAgregar_Coche.Text = " +Agregar Coche"
         Me.btnAgregar_Coche.UseVisualStyleBackColor = True
         '
@@ -326,14 +329,14 @@ Partial Class frmCoches
         Me.rdbSedan.Cursor = System.Windows.Forms.Cursors.Hand
         Me.rdbSedan.Depth = 0
         Me.rdbSedan.Font = New System.Drawing.Font("Roboto", 10.0!)
-        Me.rdbSedan.Location = New System.Drawing.Point(271, 344)
+        Me.rdbSedan.Location = New System.Drawing.Point(61, 388)
         Me.rdbSedan.Margin = New System.Windows.Forms.Padding(0)
         Me.rdbSedan.MouseLocation = New System.Drawing.Point(-1, -1)
         Me.rdbSedan.MouseState = MaterialSkin.MouseState.HOVER
         Me.rdbSedan.Name = "rdbSedan"
         Me.rdbSedan.Ripple = True
         Me.rdbSedan.Size = New System.Drawing.Size(67, 30)
-        Me.rdbSedan.TabIndex = 26
+        Me.rdbSedan.TabIndex = 5
         Me.rdbSedan.TabStop = True
         Me.rdbSedan.Text = "Sedan"
         Me.rdbSedan.UseVisualStyleBackColor = True
@@ -344,14 +347,14 @@ Partial Class frmCoches
         Me.rdbPickups.Cursor = System.Windows.Forms.Cursors.Hand
         Me.rdbPickups.Depth = 0
         Me.rdbPickups.Font = New System.Drawing.Font("Roboto", 10.0!)
-        Me.rdbPickups.Location = New System.Drawing.Point(379, 344)
+        Me.rdbPickups.Location = New System.Drawing.Point(151, 388)
         Me.rdbPickups.Margin = New System.Windows.Forms.Padding(0)
         Me.rdbPickups.MouseLocation = New System.Drawing.Point(-1, -1)
         Me.rdbPickups.MouseState = MaterialSkin.MouseState.HOVER
         Me.rdbPickups.Name = "rdbPickups"
         Me.rdbPickups.Ripple = True
         Me.rdbPickups.Size = New System.Drawing.Size(78, 30)
-        Me.rdbPickups.TabIndex = 27
+        Me.rdbPickups.TabIndex = 6
         Me.rdbPickups.TabStop = True
         Me.rdbPickups.Text = "Pickups"
         Me.rdbPickups.UseVisualStyleBackColor = True
@@ -362,14 +365,14 @@ Partial Class frmCoches
         Me.rdbMicrobuses.Cursor = System.Windows.Forms.Cursors.Hand
         Me.rdbMicrobuses.Depth = 0
         Me.rdbMicrobuses.Font = New System.Drawing.Font("Roboto", 10.0!)
-        Me.rdbMicrobuses.Location = New System.Drawing.Point(510, 344)
+        Me.rdbMicrobuses.Location = New System.Drawing.Point(256, 388)
         Me.rdbMicrobuses.Margin = New System.Windows.Forms.Padding(0)
         Me.rdbMicrobuses.MouseLocation = New System.Drawing.Point(-1, -1)
         Me.rdbMicrobuses.MouseState = MaterialSkin.MouseState.HOVER
         Me.rdbMicrobuses.Name = "rdbMicrobuses"
         Me.rdbMicrobuses.Ripple = True
         Me.rdbMicrobuses.Size = New System.Drawing.Size(101, 30)
-        Me.rdbMicrobuses.TabIndex = 28
+        Me.rdbMicrobuses.TabIndex = 7
         Me.rdbMicrobuses.TabStop = True
         Me.rdbMicrobuses.Text = "Microbuses"
         Me.rdbMicrobuses.UseVisualStyleBackColor = True
@@ -378,12 +381,12 @@ Partial Class frmCoches
         '
         Me.btnRegresar.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnRegresar.Depth = 0
-        Me.btnRegresar.Location = New System.Drawing.Point(596, 401)
+        Me.btnRegresar.Location = New System.Drawing.Point(596, 486)
         Me.btnRegresar.MouseState = MaterialSkin.MouseState.HOVER
         Me.btnRegresar.Name = "btnRegresar"
         Me.btnRegresar.Primary = True
         Me.btnRegresar.Size = New System.Drawing.Size(106, 27)
-        Me.btnRegresar.TabIndex = 52
+        Me.btnRegresar.TabIndex = 23
         Me.btnRegresar.Text = "Regresar"
         Me.btnRegresar.UseVisualStyleBackColor = True
         '
@@ -393,7 +396,7 @@ Partial Class frmCoches
         Me.mnsMenu.Location = New System.Drawing.Point(0, 0)
         Me.mnsMenu.Name = "mnsMenu"
         Me.mnsMenu.Size = New System.Drawing.Size(726, 27)
-        Me.mnsMenu.TabIndex = 53
+        Me.mnsMenu.TabIndex = 24
         Me.mnsMenu.Text = "MenuStrip1"
         '
         'mnsCerrar_Sesion
@@ -403,36 +406,37 @@ Partial Class frmCoches
         Me.mnsCerrar_Sesion.Size = New System.Drawing.Size(102, 23)
         Me.mnsCerrar_Sesion.Text = "Cerrar Sesión"
         '
-        'PictureBox1
-        '
-        Me.PictureBox1.Location = New System.Drawing.Point(402, 291)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(100, 50)
-        Me.PictureBox1.TabIndex = 54
-        Me.PictureBox1.TabStop = False
-        '
         'cmbAgenciaCoche
         '
-        Me.cmbAgenciaCoche.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmbAgenciaCoche.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
         Me.cmbAgenciaCoche.FormattingEnabled = True
         Me.cmbAgenciaCoche.Items.AddRange(New Object() {""})
-        Me.cmbAgenciaCoche.Location = New System.Drawing.Point(536, 260)
+        Me.cmbAgenciaCoche.Location = New System.Drawing.Point(536, 394)
         Me.cmbAgenciaCoche.Name = "cmbAgenciaCoche"
         Me.cmbAgenciaCoche.Size = New System.Drawing.Size(166, 24)
-        Me.cmbAgenciaCoche.TabIndex = 55
+        Me.cmbAgenciaCoche.TabIndex = 11
+        '
+        'picCoche
+        '
+        Me.picCoche.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.picCoche.Location = New System.Drawing.Point(467, 252)
+        Me.picCoche.Name = "picCoche"
+        Me.picCoche.Size = New System.Drawing.Size(195, 124)
+        Me.picCoche.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.picCoche.TabIndex = 56
+        Me.picCoche.TabStop = False
         '
         'frmCoches
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(726, 447)
-        Me.Controls.Add(Me.cmbAgenciaCoche)
-        Me.Controls.Add(Me.PictureBox1)
-        Me.Controls.Add(Me.btnRegresar)
-        Me.Controls.Add(Me.rdbMicrobuses)
+        Me.ClientSize = New System.Drawing.Size(726, 534)
         Me.Controls.Add(Me.rdbPickups)
         Me.Controls.Add(Me.rdbSedan)
+        Me.Controls.Add(Me.picCoche)
+        Me.Controls.Add(Me.rdbMicrobuses)
+        Me.Controls.Add(Me.cmbAgenciaCoche)
+        Me.Controls.Add(Me.btnRegresar)
         Me.Controls.Add(Me.btnAgregar_Coche)
         Me.Controls.Add(Me.lblTipo_Coche)
         Me.Controls.Add(Me.btnFoto)
@@ -460,7 +464,7 @@ Partial Class frmCoches
     "                                                  Rent-a-Car"
         Me.mnsMenu.ResumeLayout(False)
         Me.mnsMenu.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picCoche, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -492,6 +496,6 @@ Partial Class frmCoches
     Friend WithEvents ofdFoto As OpenFileDialog
     Friend WithEvents mnsMenu As MenuStrip
     Friend WithEvents mnsCerrar_Sesion As ToolStripMenuItem
-    Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents cmbAgenciaCoche As ComboBox
+    Friend WithEvents picCoche As PictureBox
 End Class

@@ -1,5 +1,5 @@
 ﻿Imports MySql.Data.MySqlClient
-Imports System.Text.RegularExpressions
+Imports System.IO.Path
 Public Class clsCoches
     Private _idCoche As Integer
     Private _matricula As String
@@ -18,6 +18,23 @@ Public Class clsCoches
     Public Sub New(Optional ByVal id As Integer = Nothing)
         If id <> Nothing Then
             'Función para obtener datos guardados en la BDD
+            Dim dataReader As MySqlDataReader
+            Conexion.obtenerDatos("SELECT * FROM coches WHERE id_coche = " & id & ";", dataReader)
+            If dataReader.HasRows Then
+                dataReader.Read()
+                _idCoche = dataReader.GetInt32(0)
+                _matricula = dataReader.GetString(1)
+                _marca = dataReader.GetString(2)
+                _modelo = dataReader.GetString(3)
+                _color = dataReader.GetString(4)
+                _kilometraje = CLng(dataReader.GetInt32(5))
+                _nPasajeros = dataReader.GetInt32(6)
+                _alquiler = CDbl(dataReader.GetInt32(7))
+                _fotografia = dataReader.GetString(8)
+                _tipo = dataReader.GetString(9)
+                _estado = dataReader.GetString(10)
+                _idAgencia = dataReader.GetInt32(11)
+            End If
         Else
             _estado = "A"
         End If
@@ -152,6 +169,8 @@ Public Class clsCoches
     End Property
     'Métodos
     Public Function registrarCoche(ByVal matricula As String, ByVal marca As String, ByVal modelo As String, ByVal color As String, ByVal kilometraje As Long, ByVal nPasajeros As Integer, ByVal alquiler As Decimal, ByVal fotografia As String, ByVal tipo As String, ByVal idAgencia As Integer) As Boolean
+        Dim resourcesPath = Application.StartupPath & DirectorySeparatorChar & ".." & DirectorySeparatorChar & ".." & DirectorySeparatorChar & "Resources" & DirectorySeparatorChar & "Coches" & DirectorySeparatorChar
+
         matricula = matricula.Trim
         marca = marca.Trim
         modelo = modelo.Trim
@@ -162,8 +181,11 @@ Public Class clsCoches
         If matricula.Length = 0 Then
             MsgBox("Ingrese una matrícula!", MsgBoxStyle.Critical, "Registro de Coche")
             Return False
+        ElseIf _noCoincide("^((O|CD|CC|MI|N|PNC|E|P|A|C|V|PR|T|RE|AB|MB|F|M|D)\d{3})((\s\d{3})|\d{3})$", matricula.ToUpper) Then
+            MsgBox("Ingrese una matrícula válida!", MsgBoxStyle.Critical, "Registro de Coche")
+            Return False
         Else
-            _matricula = matricula
+            _matricula = matricula.ToUpper
         End If
 
         If marca.Length = 0 Then
@@ -171,6 +193,33 @@ Public Class clsCoches
             Return False
         Else
             _marca = marca
+        End If
+
+        If kilometraje < 0 Then
+            MsgBox("Ingrese un kilometraje válido!", MsgBoxStyle.Critical, "Registro de Coche")
+            Return False
+        Else
+            _kilometraje = kilometraje
+        End If
+
+        If nPasajeros <= 0 Then
+            MsgBox("Ingrese una cantidad de pasajeros válida!", MsgBoxStyle.Critical, "Registro de Coche")
+            Return False
+        Else
+            _nPasajeros = nPasajeros
+        End If
+
+        If alquiler <= 0 Then
+            MsgBox("Ingrese un monto de alquiler válido!", MsgBoxStyle.Critical, "Registro de Coche")
+            Return False
+        Else
+            _alquiler = CDbl(Format(alquiler, "0.00"))
+        End If
+        If tipo.Length = 0 Then
+            MsgBox("Ingrese un tipo de de coche!", MsgBoxStyle.Critical, "Registro de Coche")
+            Return False
+        Else
+            _tipo = tipo
         End If
 
         If modelo.Length = 0 Then
@@ -197,35 +246,8 @@ Public Class clsCoches
             MsgBox("Ingrese archivo que sea una fotografía!", MsgBoxStyle.Critical, "Registro de Coche")
             Return False
         Else
-            _fotografia = fotografia
-        End If
-
-        If tipo.Length = 0 Then
-            MsgBox("Ingrese un tipo de de coche!", MsgBoxStyle.Critical, "Registro de Coche")
-            Return False
-        Else
-            _tipo = tipo
-        End If
-
-        If kilometraje < 0 Then
-            MsgBox("Ingrese un kilometraje válido!", MsgBoxStyle.Critical, "Registro de Coche")
-            Return False
-        Else
-            _kilometraje = kilometraje
-        End If
-
-        If alquiler <= 0 Then
-            MsgBox("Ingrese un monto de alquiler válido!", MsgBoxStyle.Critical, "Registro de Coche")
-            Return False
-        Else
-            _alquiler = CDbl(Format(alquiler, "0.00"))
-        End If
-
-        If nPasajeros <= 0 Then
-            MsgBox("Ingrese una cantidad de pasajeros válida!", MsgBoxStyle.Critical, "Registro de Coche")
-            Return False
-        Else
-            _nPasajeros = nPasajeros
+            Dim auxfoto As String = Split(fotografia, DirectorySeparatorChar)(Split(fotografia, DirectorySeparatorChar).Length - 1)
+            _fotografia = auxfoto
         End If
 
         If _buscarRegistro("agencias", "id_agencia", idAgencia.ToString) Then
@@ -234,12 +256,20 @@ Public Class clsCoches
             MsgBox("Seleccione una agencia que exista!", MsgBoxStyle.Critical, "Registro de Coche")
             Return False
         End If
-        Return True
+
         'Insertar el coche en la BDD
-        'Dim query As String = "INSERT INTO coches VALUES(NULL, '" & _matricula & "', '" & _marca & "', '" & _modelo & "', '" & _color & "', '" & _kilometraje.ToString & "', '" & _nPasajeros.ToString & "', '" & _alquiler.ToString & "', '" & _fotografia & "', '" & _tipo & "', '" & _idAgencia & "', '" & _estado & "');"
-
-        'OBTENER ÍNDICE GUARDADO Y GUARDARLO EN _idCoche
-
+        Dim query As String = "INSERT INTO coches VALUES(NULL, '" & _matricula & "', '" & _marca & "', '" & _modelo & "', '" & _color & "', '" & _kilometraje.ToString & "', '" & _nPasajeros.ToString & "', '" & _alquiler.ToString & "', '" & _fotografia & "', '" & _tipo & "', '" & _estado & "', '" & _idAgencia & "'); SELECT LAST_INSERT_ID()"
+        Dim auxId As Integer = 1
+        If Conexion.modificarDatos(query, auxId) Then
+            'OBTENER ÍNDICE GUARDADO Y GUARDARLO EN _idCoche
+            _idCoche = auxId
+            Dim extension As String = Split(_fotografia, ".")(Split(_fotografia, ".").Length - 1)
+            FileSystem.FileCopy(fotografia, Combine(resourcesPath, (_idCoche & "." & extension)))
+            Conexion.modificarDatos("UPDATE coches SET fotografia = '" & (_idCoche & "." & extension) & "' WHERE id_coche = " & _idCoche)
+            Return True
+        Else
+            Return False
+        End If
     End Function
 
     Public Sub obtenerDatos(ByRef matricula As String, ByRef marca As String, ByRef modelo As String, ByRef color As String, ByRef kilometraje As Long, ByRef nPasajeros As Integer, ByRef alquiler As Decimal, ByRef fotografia As String, ByRef tipo As String, ByRef idAgencia As Integer)
@@ -298,55 +328,16 @@ Public Class clsCoches
                 .Rows(i - 1).Cells(3).Value = listaCoches(i - 1).ObtenerPrecioAlquiler
                 .Rows(i - 1).Cells(4).Value = listaCoches(i - 1).ObtenerKilometraje
             End With
-            ' i += 1
+            i += 1
         End While
         reader.Close()
     End Sub
-    Public Function BuscarIndice(ByVal matriculaCoche As String, ByRef listaCoches() As clsCoches)
-        For i As Integer = 0 To UBound(listaCoches, 1)
-            If listaCoches(i).ObtenerMatricula = matriculaCoche.ToUpper Then
+    Public Function BuscarIndice(ByVal matriculaCoche As String, ByRef listaClientes() As clsCoches)
+        For i As Integer = 0 To UBound(listaClientes, 1)
+            If listaClientes(i).ObtenerMatricula = matriculaCoche.ToUpper Then
                 Return i
             End If
         Next
         Return -1
     End Function
-
-    Public Sub BuscarCoche(ByVal matriculaCoche As String, ByVal listaCoches() As clsCoches, ByRef dgv As DataGridView, ByVal Optional teclaBorrar As Boolean = False)
-        Dim rgx_coche = New Regex("^" + matriculaCoche + "+")
-
-        For i As Integer = 0 To UBound(listaCoches, 1)
-            If Not rgx_coche.IsMatch(listaCoches(i).ObtenerMatricula) And Not teclaBorrar Then
-                Dim r As Integer = 0
-                For Each row As DataGridViewRow In dgv.Rows 'Filas
-                    For Each cell As DataGridViewCell In row.Cells 'Columnas
-                        If CStr(cell.Value) = listaCoches(i).ObtenerMatricula Then
-                            dgv.Rows.RemoveAt(dgv.Rows(r).Index) 'Se remueven las filas
-                        End If
-                    Next 'Fin columnas
-                    r += 1
-                Next 'Fin filas
-            Else
-                dgv.ColumnCount = 5 'Se agrega las columnas al dgv
-                dgv.Columns(0).Name = "Placa"
-                dgv.Columns(1).Name = "Marca y Modelo"
-                dgv.Columns(2).Name = "N° Pasajeros"
-                dgv.Columns(3).Name = "Precio Alquiler ($)"
-                dgv.Columns(4).Name = "Kilometraje"
-                dgv.RowCount = 1
-                For x As Integer = 0 To UBound(listaCoches, 1)
-                    If rgx_coche.IsMatch(listaCoches(x).ObtenerMatricula) Then
-                        With dgv 'Se agregan en el dgv los datos
-                            Dim j As Integer = .RowCount
-                            .Rows.Add()
-                            .Rows(j - 1).Cells(0).Value = listaCoches(x).ObtenerMatricula
-                            .Rows(j - 1).Cells(1).Value = listaCoches(x).ObtenerMarca & " - " & listaCoches(j - 1).ObtenerModelo
-                            .Rows(j - 1).Cells(2).Value = listaCoches(x).ObtenerNPasajeros
-                            .Rows(j - 1).Cells(3).Value = listaCoches(x).ObtenerPrecioAlquiler
-                            .Rows(j - 1).Cells(4).Value = listaCoches(x).ObtenerKilometraje
-                        End With
-                    End If
-                Next
-            End If
-        Next
-    End Sub
 End Class

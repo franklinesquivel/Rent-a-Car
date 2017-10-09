@@ -62,9 +62,9 @@ Module mdlDeclaracionClases
             Dim formTitles As New Collection
             frmInicio_Sesion.Show()
 
-            For Each f As Form In My.Application.OpenForms 'Se cierran los forms abiertos
-                f.Hide()
-            Next
+            'For Each f As Form In My.Application.OpenForms 'Se cierran los forms abiertos
+            'f.Hide()
+            'Next
         End Sub
 
         Public Sub Enrutador(ByRef formActual As Form)
