@@ -52,4 +52,13 @@
         direccion = _direccion
         telefono = _telefono
     End Sub
+
+    Public Function listarAgencias(ByRef cmb As ComboBox) As Boolean
+        If Conexion.contarFilas("SELECT * FROM agencias") = 0 Then
+            Return 0
+        Else
+            Conexion.llenarCombo(cmb, "SELECT * FROM agencias", 0, 1)
+            Return 1
+        End If
+    End Function
 End Class

@@ -220,53 +220,57 @@ Public Class clsClientes
         Return 0
     End Function
 
-    Public Sub listarDatos(ByRef listaClientes() As clsClientes, ByRef dgv As DataGridView)
+    Public Function listarDatos(ByRef listaClientes() As clsClientes, ByRef dgv As DataGridView) As Boolean
+        If Conexion.contarFilas("SELECT * FROM clientes ") = 0 Then
+            Return False
+        Else
+            Dim i As Integer = 0
+            Dim reader As MySqlDataReader
+            Conexion.obtenerDatos("SELECT * FROM clientes", reader)
 
-        Dim i As Integer = 0
-        Dim reader As MySqlDataReader
-        Conexion.obtenerDatos("SELECT * FROM clientes", reader)
+            'Se agrega las columnas al dgv
+            dgv.ColumnCount = 5
+            dgv.Columns(0).Name = "Nombre"
+            dgv.Columns(1).Name = "Dui"
+            dgv.Columns(2).Name = "Pasaporte"
+            dgv.Columns(3).Name = "Nombre Usuario"
+            dgv.Columns(4).Name = "Correo Electrónico"
+            dgv.RowCount = 1
 
-        'Se agrega las columnas al dgv
-        dgv.ColumnCount = 5
-        dgv.Columns(0).Name = "Nombre"
-        dgv.Columns(1).Name = "Dui"
-        dgv.Columns(2).Name = "Pasaporte"
-        dgv.Columns(3).Name = "Nombre Usuario"
-        dgv.Columns(4).Name = "Correo Electrónico"
-        dgv.RowCount = 1
+            While reader.Read()
+                ReDim Preserve listaClientes(i)
+                Clientes = New clsClientes 'Se crea una instancia de la clase para despues guardarla en  un array
 
-        While reader.Read()
-            ReDim Preserve listaClientes(i)
-            Clientes = New clsClientes 'Se crea una instancia de la clase para despues guardarla en  un array
+                'Se guardan los atributos
+                Clientes.EstablecerIdCliente = reader(0)
+                Clientes.EstablecerNombre = reader(1)
+                Clientes.EstablecerApellido = reader(2)
+                Clientes.EstablecerDui = reader(3)
+                Clientes.EstablecerNombreUsuario = reader(4)
+                Clientes.EstablecerPasaporte = reader(5)
+                Clientes.EstablecerDireccion = reader(6)
+                Clientes.EstablecerPais = reader(7)
+                Clientes.EstablecerCorreoElectronico = reader(8)
+                Clientes.EstablecerTelefono = reader(9)
+                Clientes.EstablecerCiudad = reader(10)
 
-            'Se guardan los atributos
-            Clientes.EstablecerIdCliente = reader(0)
-            Clientes.EstablecerNombre = reader(1)
-            Clientes.EstablecerApellido = reader(2)
-            Clientes.EstablecerDui = reader(3)
-            Clientes.EstablecerNombreUsuario = reader(4)
-            Clientes.EstablecerPasaporte = reader(5)
-            Clientes.EstablecerDireccion = reader(6)
-            Clientes.EstablecerPais = reader(7)
-            Clientes.EstablecerCorreoElectronico = reader(8)
-            Clientes.EstablecerTelefono = reader(9)
-            Clientes.EstablecerCiudad = reader(10)
+                listaClientes(i) = Clientes 'Se guarda la instancia de la clase en el array
 
-            listaClientes(i) = Clientes 'Se guarda la instancia de la clase en el array
-
-            With dgv 'Se agregan en el dgv los datos
-                i = .RowCount
-                .Rows.Add()
-                .Rows(i - 1).Cells(0).Value = listaClientes(i - 1).ObtenerNombreCompleto
-                .Rows(i - 1).Cells(1).Value = listaClientes(i - 1).ObtenerDui
-                .Rows(i - 1).Cells(2).Value = listaClientes(i - 1).ObtenerPasaporte
-                .Rows(i - 1).Cells(3).Value = listaClientes(i - 1).ObtenerNombreDeUsuari
-                .Rows(i - 1).Cells(4).Value = listaClientes(i - 1).ObetenerCorreoElectronico
-            End With
-            'i += 1
-        End While
-        reader.Close()
-    End Sub
+                With dgv 'Se agregan en el dgv los datos
+                    i = .RowCount
+                    .Rows.Add()
+                    .Rows(i - 1).Cells(0).Value = listaClientes(i - 1).ObtenerNombreCompleto
+                    .Rows(i - 1).Cells(1).Value = listaClientes(i - 1).ObtenerDui
+                    .Rows(i - 1).Cells(2).Value = listaClientes(i - 1).ObtenerPasaporte
+                    .Rows(i - 1).Cells(3).Value = listaClientes(i - 1).ObtenerNombreDeUsuari
+                    .Rows(i - 1).Cells(4).Value = listaClientes(i - 1).ObetenerCorreoElectronico
+                End With
+                'i += 1
+            End While
+            reader.Close()
+            Return True
+        End If
+    End Function
 
     Public Function BuscarIndice(ByVal _codigoUsuario As String, ByRef listaClientes() As clsClientes)
         For i As Integer = 0 To UBound(listaClientes, 1)

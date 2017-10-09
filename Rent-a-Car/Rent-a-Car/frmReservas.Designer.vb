@@ -26,7 +26,6 @@ Partial Class frmReservas
         Me.lblFecha_Entrega = New MaterialSkin.Controls.MaterialLabel()
         Me.dtpFecha_Entrega = New System.Windows.Forms.DateTimePicker()
         Me.dtpFecha_Devolucion = New System.Windows.Forms.DateTimePicker()
-        Me.txbAgencia = New MaterialSkin.Controls.MaterialSingleLineTextField()
         Me.lblAgencia = New MaterialSkin.Controls.MaterialLabel()
         Me.txbBuscar_Codigo = New MaterialSkin.Controls.MaterialSingleLineTextField()
         Me.lblBuscar_Codigo = New MaterialSkin.Controls.MaterialLabel()
@@ -38,10 +37,9 @@ Partial Class frmReservas
         Me.btnRegresar = New MaterialSkin.Controls.MaterialRaisedButton()
         Me.mnsMenu = New System.Windows.Forms.MenuStrip()
         Me.mnsCerrar_Sesion = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.cmbAgencias = New System.Windows.Forms.ComboBox()
         CType(Me.dgvBuscar_Usuario, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvBuscar_Coche, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.mnsMenu.SuspendLayout()
         Me.SuspendLayout()
         '
         'lblFecha_Devolucion
@@ -92,21 +90,6 @@ Partial Class frmReservas
         Me.dtpFecha_Devolucion.Size = New System.Drawing.Size(245, 23)
         Me.dtpFecha_Devolucion.TabIndex = 53
         '
-        'txbAgencia
-        '
-        Me.txbAgencia.Depth = 0
-        Me.txbAgencia.Hint = ""
-        Me.txbAgencia.Location = New System.Drawing.Point(120, 190)
-        Me.txbAgencia.MouseState = MaterialSkin.MouseState.HOVER
-        Me.txbAgencia.Name = "txbAgencia"
-        Me.txbAgencia.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.txbAgencia.SelectedText = ""
-        Me.txbAgencia.SelectionLength = 0
-        Me.txbAgencia.SelectionStart = 0
-        Me.txbAgencia.Size = New System.Drawing.Size(388, 23)
-        Me.txbAgencia.TabIndex = 55
-        Me.txbAgencia.UseSystemPasswordChar = False
-        '
         'lblAgencia
         '
         Me.lblAgencia.AutoSize = True
@@ -153,6 +136,7 @@ Partial Class frmReservas
         Me.dgvBuscar_Usuario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvBuscar_Usuario.Location = New System.Drawing.Point(32, 270)
         Me.dgvBuscar_Usuario.Name = "dgvBuscar_Usuario"
+        Me.dgvBuscar_Usuario.ReadOnly = True
         Me.dgvBuscar_Usuario.Size = New System.Drawing.Size(476, 135)
         Me.dgvBuscar_Usuario.TabIndex = 60
         '
@@ -189,6 +173,7 @@ Partial Class frmReservas
         Me.dgvBuscar_Coche.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvBuscar_Coche.Location = New System.Drawing.Point(32, 440)
         Me.dgvBuscar_Coche.Name = "dgvBuscar_Coche"
+        Me.dgvBuscar_Coche.ReadOnly = True
         Me.dgvBuscar_Coche.Size = New System.Drawing.Size(476, 132)
         Me.dgvBuscar_Coche.TabIndex = 63
         '
@@ -223,10 +208,9 @@ Partial Class frmReservas
         '
         'mnsMenu
         '
-        Me.mnsMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnsCerrar_Sesion})
         Me.mnsMenu.Location = New System.Drawing.Point(0, 0)
         Me.mnsMenu.Name = "mnsMenu"
-        Me.mnsMenu.Size = New System.Drawing.Size(541, 27)
+        Me.mnsMenu.Size = New System.Drawing.Size(541, 24)
         Me.mnsMenu.TabIndex = 78
         Me.mnsMenu.Text = "MenuStrip1"
         '
@@ -237,20 +221,20 @@ Partial Class frmReservas
         Me.mnsCerrar_Sesion.Size = New System.Drawing.Size(102, 23)
         Me.mnsCerrar_Sesion.Text = "Cerrar Sesión"
         '
-        'ComboBox1
+        'cmbAgencias
         '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(120, 219)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(388, 21)
-        Me.ComboBox1.TabIndex = 79
+        Me.cmbAgencias.FormattingEnabled = True
+        Me.cmbAgencias.Location = New System.Drawing.Point(97, 191)
+        Me.cmbAgencias.Name = "cmbAgencias"
+        Me.cmbAgencias.Size = New System.Drawing.Size(411, 21)
+        Me.cmbAgencias.TabIndex = 79
         '
         'frmReservas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(541, 632)
-        Me.Controls.Add(Me.ComboBox1)
+        Me.Controls.Add(Me.cmbAgencias)
         Me.Controls.Add(Me.btnRegresar)
         Me.Controls.Add(Me.btnReservar_Coche)
         Me.Controls.Add(Me.txbBuscar_Coche)
@@ -259,7 +243,6 @@ Partial Class frmReservas
         Me.Controls.Add(Me.txbBuscar_Codigo)
         Me.Controls.Add(Me.lblBuscar_Codigo)
         Me.Controls.Add(Me.dgvBuscar_Usuario)
-        Me.Controls.Add(Me.txbAgencia)
         Me.Controls.Add(Me.lblAgencia)
         Me.Controls.Add(Me.dtpFecha_Devolucion)
         Me.Controls.Add(Me.dtpFecha_Entrega)
@@ -273,8 +256,6 @@ Partial Class frmReservas
     "       Rent-a-Car                            "
         CType(Me.dgvBuscar_Usuario, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgvBuscar_Coche, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.mnsMenu.ResumeLayout(False)
-        Me.mnsMenu.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -284,7 +265,6 @@ Partial Class frmReservas
     Friend WithEvents lblFecha_Entrega As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents dtpFecha_Entrega As DateTimePicker
     Friend WithEvents dtpFecha_Devolucion As DateTimePicker
-    Friend WithEvents txbAgencia As MaterialSkin.Controls.MaterialSingleLineTextField
     Friend WithEvents lblAgencia As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents txbBuscar_Codigo As MaterialSkin.Controls.MaterialSingleLineTextField
     Friend WithEvents lblBuscar_Codigo As MaterialSkin.Controls.MaterialLabel
@@ -296,5 +276,5 @@ Partial Class frmReservas
     Friend WithEvents btnRegresar As MaterialSkin.Controls.MaterialRaisedButton
     Friend WithEvents mnsMenu As MenuStrip
     Friend WithEvents mnsCerrar_Sesion As ToolStripMenuItem
-    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents cmbAgencias As ComboBox
 End Class

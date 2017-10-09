@@ -13,6 +13,16 @@ Public Class clsReservas
     Private Conexion As clsConexion = New clsConexion()
     Private clsCorreo As clsEmail = New clsEmail() 'Tipo de atributo para poder enviar el correo
     'Propiedades
+    Public WriteOnly Property EstablecerFechaInicio() As Date
+        Set(ByVal value As Date)
+            FechaInicio = value
+        End Set
+    End Property
+    Public WriteOnly Property EstablecerFechaFin() As Date
+        Set(ByVal value As Date)
+            FechaFin = value
+        End Set
+    End Property
     Public ReadOnly Property ObtenerFechaInicio() As Date
         Get
             Return FechaInicio
@@ -48,6 +58,27 @@ Public Class clsReservas
             Estado = value
         End Set
     End Property
+    Public WriteOnly Property EstablecerIdAgencia() As String
+        Set(ByVal value As String)
+            idAgencia = value
+        End Set
+    End Property
+    Public WriteOnly Property EstablecerIdCoche() As Integer
+        Set(ByVal value As Integer)
+            idCoche = value
+        End Set
+    End Property
+    Public WriteOnly Property EstablecerIdCliente() As Integer
+        Set(ByVal value As Integer)
+            idCliente = value
+        End Set
+    End Property
+    Public WriteOnly Property EstablecerPrecioReserva() As Decimal
+        Set(ByVal value As Decimal)
+            PrecioReserva = value
+        End Set
+    End Property
+
     'Constructor
     Public Sub New()
         CodigoReserva = ""
@@ -58,10 +89,10 @@ Public Class clsReservas
         idCoche = 0
     End Sub
     'Metodos
-    Private Sub CrearCodigoReserva(ByVal idAgencia As String)
+    Private Sub CrearCodigoReserva(ByVal _idAgencia As String)
         Dim fecha As Date = Now
         Dim numFilas As Integer = Conexion.contarFilas("SELECT * FROM reservas WHERE id_reserva LIKE '" & fecha.Year & "%'")
-        CodigoReserva = fecha.Year & idAgencia & Format(numFilas + 1, "#000000")
+        CodigoReserva = fecha.Year & _idAgencia & Format(numFilas + 1, "#000000")
     End Sub
     Public Function ChequearReserva(ByVal Optional _cliente As String = Nothing) As Boolean
         If Conexion.contarFilas("SELECT * FROM reservas WHERE id_cliente = '" & _cliente & "' AND estado = 'Activa'") > 0 Then
@@ -70,27 +101,38 @@ Public Class clsReservas
             Return True
         End If
     End Function
-    Public Function Registrar(ByVal _fechaInicio As String, ByVal _fechaFin As String, ByVal _cliente As String, ByVal _idCoche As String, ByVal _idAgencia As String)
-        'Dim rgx_fecha = New Regex("^\d{2}\d{2}\d{4}$")
+    Public Function Registrar(ByVal _fechaInicio As String, ByVal _fechaFin As String, ByVal cliente As clsClientes, ByVal coche As clsCoches, ByVal _idAgencia As String)
+        Dim rgx_fecha = New Regex("^\d{2}\d{2}\d{4}$")
+
         'Dim rgx_usuario = New Regex("^C{1}\L{1}\d{5}")
 
-        'If rgx_fecha.IsMatch(_fechaInicio) Or rgx_fecha.IsMatch(_fechaFin) Then
-        '  MsgBox("Error: Ingrese un fecha válida")
-        '   Return False
-        'End If
+        If rgx_fecha.IsMatch(_fechaInicio) Or rgx_fecha.IsMatch(_fechaFin) Then
+            MsgBox("Error: Ingrese un fecha válida")
+            Return False
+        End If
 
-        ' If _fechaInicio >= _fechaFin Then
-        '  MsgBox("Error: La fecha de incio no puede ser mayor a la fecha final")
-        '   Return False
-        'End If
+        If CDate(_fechaInicio) >= CDate(_fechaFin) Then
+            MsgBox("Error: La fecha de incio no puede ser mayor a la fecha final")
+            Return False
+        End If
 
-        ' If _fechaFin < Now Then
-        '  MsgBox("Error: No puede ingresar una fecha de inicio menor a la actual")
-        '   Return False
-        'End If
-        MyClass.CrearCodigoReserva(_cliente)
-        If MyClass.ChequearReserva(_cliente) Then
-            If Conexion.modificarDatos("INSERT INTO reservas VALUES('" & CodigoReserva & "', " & _cliente & ", " & _idAgencia & ", " & _idCoche & ", " & Session.ObtenerIdUsuario & ", '" & _fechaInicio & "', '" & _fechaFin & "', 'Activa')") Then
+        If CDate(_fechaFin) < Date.Now Or CDate(_fechaInicio) < Date.Now Then
+            MsgBox("Error: No puede ingresar una fecha de inicio menor a la actual")
+            Return False
+        End If
+
+        MyClass.CrearCodigoReserva(_idAgencia)
+        If MyClass.ChequearReserva(cliente.ObtenerIdCliente) Then
+            MyClass.EstablecerFechaInicio = CDate(_fechaInicio)
+            MyClass.EstablecerFechaFin = CDate(_fechaFin)
+            MyClass.EstablecerIdAgencia = _idAgencia
+            MyClass.EstablecerIdCoche = coche.ObtenerIdCoche
+            MyClass.EstablecerIdCliente = cliente.ObtenerIdCliente
+            MyClass.EstablecerPrecioReserva = coche.ObtenerPrecioAlquiler * DateDiff(DateInterval.Day, MyClass.ObtenerFechaInicio, MyClass.ObtenerFechaFin)
+            Estado = "Activo"
+
+            If Conexion.modificarDatos("INSERT INTO reservas VALUES('" & CodigoReserva & "', " & idCliente & ", " & idAgencia & ", " & idCoche & ", " & Session.ObtenerIdUsuario & ", '" & _fechaInicio & "', '" & _fechaFin & "', " & PrecioReserva & " ,'Activa')") Then
+                clsCorreo.enviarCorreo(cliente, coche, PrecioReserva)
                 Return True
             Else
                 Return False
@@ -116,8 +158,6 @@ Public Class clsReservas
             MsgBox("Error: Ingrese un código de reserva válido")
             Return False
         End If
-
-        'MyClass.EnviarCorreo()
         Return True
     End Function
     Public Sub verRegistros(ByRef dgv As DataGridView, ByVal _cliente As String)

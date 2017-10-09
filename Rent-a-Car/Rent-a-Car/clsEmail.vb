@@ -4,7 +4,7 @@ Imports System.Drawing.Imaging
 Public Class clsEmail
     Private smtpServer As New SmtpClient()
     Private mensaje As New MailMessage()
-    Public Sub enviarCorreo(ByVal cliente As clsClientes, ByVal coche As clsCoches)
+    Public Sub enviarCorreo(ByVal cliente As clsClientes, ByVal coche As clsCoches, ByVal totalPagar As Decimal)
 
         'Dim objBmp As New Bitmap(My.Resources.AF)
         'Dim img As Image = Image.FromFile(Path.Combine(Application.StartupPath, "\Resources\AF.jpg"))
@@ -30,7 +30,7 @@ Public Class clsEmail
 
         Try
             smtpServer.UseDefaultCredentials = False
-            smtpServer.Credentials = New Net.NetworkCredential("ezic2017@gmail.com", "")
+            smtpServer.Credentials = New Net.NetworkCredential("ezic2017@gmail.com", "niu126/17/9.pjc.IEY")
             smtpServer.Port = 587
             smtpServer.Host = "smtp.gmail.com"
             smtpServer.EnableSsl = True
@@ -56,11 +56,12 @@ Public Class clsEmail
             mensaje.Body += "<li><b>Modelo: </b> " & coche.ObtenerModelo & "</li>"
             mensaje.Body += "<li><b>Color: </b>" & coche.ObtenerColor & "</li>"
             mensaje.Body += "<li><b>Num pasajeros: </b>" & coche.ObtenerNPasajeros & "</li>"
-            mensaje.Body += "<li><b>Precio de alquiler: </b>" & coche.ObtenerPrecioAlquiler & "</li>"
+            mensaje.Body += "<li><b>Precio de alquiler: </b>$" & coche.ObtenerPrecioAlquiler & "</li>"
+            mensaje.Body += "<li><b>Total a pagar: </b>$" & totalPagar & "</li>"
             mensaje.Body += "</ul>"
 
             Dim attachement As Attachment
-            attachement = New System.Net.Mail.Attachment(filepath + "\Resources\" & coche.ObtenerFotografia & "")
+            attachement = New System.Net.Mail.Attachment(filepath + "\Resources\Coches\" & coche.ObtenerFotografia & "")
             mensaje.Attachments.Add(attachement)
             smtpServer.Send(mensaje)
         Catch ex As Exception

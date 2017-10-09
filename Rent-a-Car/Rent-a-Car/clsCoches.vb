@@ -1,5 +1,6 @@
 ﻿Imports MySql.Data.MySqlClient
 Imports System.IO.Path
+Imports System.Text.RegularExpressions
 Public Class clsCoches
     Private _idCoche As Integer
     Private _matricula As String
@@ -285,53 +286,58 @@ Public Class clsCoches
         idAgencia = _idAgencia
     End Sub
 
-    Public Sub listarCoches(ByRef listaCoches() As clsCoches, ByRef dgv As DataGridView)
-        Dim i As Integer = 0
-        Dim reader As MySqlDataReader
-        Conexion.obtenerDatos("SELECT * FROM coches WHERE estado = 'A'", reader)
+    Public Function listarCoches(ByRef listaCoches() As clsCoches, ByRef dgv As DataGridView) As Boolean
+        If Conexion.contarFilas("SELECT * FROM coches WHERE estado = 'A'") = 0 Then
+            Return 0
+        Else
+            Dim i As Integer = 0
+            Dim reader As MySqlDataReader
+            Conexion.obtenerDatos("SELECT * FROM coches WHERE estado = 'A'", reader)
 
-        'Se agrega las columnas al dgv
-        dgv.ColumnCount = 5
-        dgv.Columns(0).Name = "Placa"
-        dgv.Columns(1).Name = "Marca y Modelo"
-        dgv.Columns(2).Name = "N° Pasajeros"
-        dgv.Columns(3).Name = "Precio Alquiler ($)"
-        dgv.Columns(4).Name = "Kilometraje"
-        dgv.RowCount = 1
+            'Se agrega las columnas al dgv
+            dgv.ColumnCount = 5
+            dgv.Columns(0).Name = "Placa"
+            dgv.Columns(1).Name = "Marca y Modelo"
+            dgv.Columns(2).Name = "N° Pasajeros"
+            dgv.Columns(3).Name = "Precio Alquiler ($)"
+            dgv.Columns(4).Name = "Kilometraje"
+            dgv.RowCount = 1
 
-        While reader.Read()
-            ReDim Preserve listaCoches(i)
-            Coches = New clsCoches 'Se crea una instancia de la clase para despues guardarla en  un array
+            While reader.Read()
+                ReDim Preserve listaCoches(i)
+                Coches = New clsCoches 'Se crea una instancia de la clase para despues guardarla en  un array
 
-            'Se guardan los atributos
-            Coches.EstablecerIdCoche = reader(0)
-            Coches.EstablecerMatricula = reader(1)
-            Coches.EstablecerMarca = reader(2)
-            Coches.EstablecerModelo = reader(3)
-            Coches.EstablecerColor = reader(4)
-            Coches.EstablecerKilometraje = reader(5)
-            Coches.EstablecerNPasajeros = reader(6)
-            Coches.EstablecerPrecioAlquiler = reader(7)
-            Coches.EstablecerFotografia = reader(8)
-            Coches.EstablecerTipo = reader(9)
-            Coches.EstablecerEstado = reader(10)
-            Coches.EstablecerIdAgencia = reader(11)
+                'Se guardan los atributos
+                Coches.EstablecerIdCoche = reader(0)
+                Coches.EstablecerMatricula = reader(1)
+                Coches.EstablecerMarca = reader(2)
+                Coches.EstablecerModelo = reader(3)
+                Coches.EstablecerColor = reader(4)
+                Coches.EstablecerKilometraje = reader(5)
+                Coches.EstablecerNPasajeros = reader(6)
+                Coches.EstablecerPrecioAlquiler = reader(7)
+                Coches.EstablecerFotografia = reader(8)
+                Coches.EstablecerTipo = reader(9)
+                Coches.EstablecerEstado = reader(10)
+                Coches.EstablecerIdAgencia = reader(11)
 
-            listaCoches(i) = Coches 'Se guarda la instancia de la clase en el array
+                listaCoches(i) = Coches 'Se guarda la instancia de la clase en el array
 
-            With dgv 'Se agregan en el dgv los datos
-                i = .RowCount
-                .Rows.Add()
-                .Rows(i - 1).Cells(0).Value = listaCoches(i - 1).ObtenerMatricula
-                .Rows(i - 1).Cells(1).Value = listaCoches(i - 1).ObtenerMarca & " - " & listaCoches(i - 1).ObtenerModelo
-                .Rows(i - 1).Cells(2).Value = listaCoches(i - 1).ObtenerNPasajeros
-                .Rows(i - 1).Cells(3).Value = listaCoches(i - 1).ObtenerPrecioAlquiler
-                .Rows(i - 1).Cells(4).Value = listaCoches(i - 1).ObtenerKilometraje
-            End With
-            i += 1
-        End While
-        reader.Close()
-    End Sub
+                With dgv 'Se agregan en el dgv los datos
+                    i = .RowCount
+                    .Rows.Add()
+                    .Rows(i - 1).Cells(0).Value = listaCoches(i - 1).ObtenerMatricula
+                    .Rows(i - 1).Cells(1).Value = listaCoches(i - 1).ObtenerMarca & " - " & listaCoches(i - 1).ObtenerModelo
+                    .Rows(i - 1).Cells(2).Value = listaCoches(i - 1).ObtenerNPasajeros
+                    .Rows(i - 1).Cells(3).Value = listaCoches(i - 1).ObtenerPrecioAlquiler
+                    .Rows(i - 1).Cells(4).Value = listaCoches(i - 1).ObtenerKilometraje
+                End With
+                'i += 1
+            End While
+            reader.Close()
+            Return 1
+        End If
+    End Function
     Public Function BuscarIndice(ByVal matriculaCoche As String, ByRef listaClientes() As clsCoches)
         For i As Integer = 0 To UBound(listaClientes, 1)
             If listaClientes(i).ObtenerMatricula = matriculaCoche.ToUpper Then
@@ -340,4 +346,42 @@ Public Class clsCoches
         Next
         Return -1
     End Function
+    Public Sub BuscarCoche(ByVal matriculaCoche As String, ByVal listaCoches() As clsCoches, ByRef dgv As DataGridView, ByVal Optional teclaBorrar As Boolean = False)
+        Dim rgx_coche = New Regex("^" + matriculaCoche + "+")
+
+        For i As Integer = 0 To UBound(listaCoches, 1)
+            If Not rgx_coche.IsMatch(listaCoches(i).ObtenerMatricula) And Not teclaBorrar Then
+                Dim r As Integer = 0
+                For Each row As DataGridViewRow In dgv.Rows 'Filas
+                    For Each cell As DataGridViewCell In row.Cells 'Columnas
+                        If CStr(cell.Value) = listaCoches(i).ObtenerMatricula Then
+                            dgv.Rows.RemoveAt(dgv.Rows(r).Index) 'Se remueven las filas
+                        End If
+                    Next 'Fin columnas
+                    r += 1
+                Next 'Fin filas
+            Else
+                dgv.ColumnCount = 5 'Se agrega las columnas al dgv
+                dgv.Columns(0).Name = "Placa"
+                dgv.Columns(1).Name = "Marca y Modelo"
+                dgv.Columns(2).Name = "N° Pasajeros"
+                dgv.Columns(3).Name = "Precio Alquiler ($)"
+                dgv.Columns(4).Name = "Kilometraje"
+                dgv.RowCount = 1
+                For x As Integer = 0 To UBound(listaCoches, 1)
+                    If rgx_coche.IsMatch(listaCoches(x).ObtenerMatricula) Then
+                        With dgv 'Se agregan en el dgv los datos
+                            Dim j As Integer = .RowCount
+                            .Rows.Add()
+                            .Rows(j - 1).Cells(0).Value = listaCoches(x).ObtenerMatricula
+                            .Rows(j - 1).Cells(1).Value = listaCoches(x).ObtenerMarca & " - " & listaCoches(j - 1).ObtenerModelo
+                            .Rows(j - 1).Cells(2).Value = listaCoches(x).ObtenerNPasajeros
+                            .Rows(j - 1).Cells(3).Value = listaCoches(x).ObtenerPrecioAlquiler
+                            .Rows(j - 1).Cells(4).Value = listaCoches(x).ObtenerKilometraje
+                        End With
+                    End If
+                Next
+            End If
+        Next
+    End Sub
 End Class
