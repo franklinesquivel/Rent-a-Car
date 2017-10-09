@@ -258,6 +258,13 @@ Public Class clsCoches
             Return False
         End If
 
+
+        Dim consultaMatricula As String = "SELECT * FROM coches WHERE placa = '" & _matricula & "';"
+        If Conexion.contarFilas(consultaMatricula) > 0 Then
+            MsgBox("La matrícula del coche que deseas registrar ya existe!", MsgBoxStyle.Critical, "Registro de Coche")
+            Return False
+        End If
+
         'Insertar el coche en la BDD
         Dim query As String = "INSERT INTO coches VALUES(NULL, '" & _matricula & "', '" & _marca & "', '" & _modelo & "', '" & _color & "', '" & _kilometraje.ToString & "', '" & _nPasajeros.ToString & "', '" & _alquiler.ToString & "', '" & _fotografia & "', '" & _tipo & "', '" & _estado & "', '" & _idAgencia & "'); SELECT LAST_INSERT_ID()"
         Dim auxId As Integer = 1
