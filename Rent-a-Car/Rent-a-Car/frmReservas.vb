@@ -41,4 +41,21 @@ Public Class frmReservas
             MsgBox("Error: El nombre de usuario no se ha encontrado en la BDD")
         End If
     End Sub
+    Private Sub txbBuscar_Codigo_KeyUp(sender As Object, e As KeyEventArgs) Handles txbBuscar_Codigo.KeyUp
+        Dim t As String = txbBuscar_Codigo.Text.Trim
+        If Not e.KeyCode = 8 And t.Length > 0 Then
+            Clientes.BuscarCliente(txbBuscar_Codigo.Text.ToUpper, listaClientes, dgvBuscar_Usuario)
+        ElseIf e.KeyCode = 8 Then
+            Clientes.BuscarCliente(txbBuscar_Codigo.Text.ToUpper, listaClientes, dgvBuscar_Usuario, True)
+        End If
+    End Sub
+
+    Private Sub txbBuscar_Coche_KeyUp(sender As Object, e As KeyEventArgs) Handles txbBuscar_Coche.KeyUp
+        Dim t As String = txbBuscar_Coche.Text.Trim
+        If Not e.KeyCode = 8 And t.Length > 0 Then
+            Coches.BuscarCoche(txbBuscar_Coche.Text.ToUpper, listaCoches, dgvBuscar_Coche)
+        ElseIf e.KeyCode = 8 Then
+            Coches.BuscarCoche(txbBuscar_Coche.Text.ToUpper, listaCoches, dgvBuscar_Coche, True)
+        End If
+    End Sub
 End Class

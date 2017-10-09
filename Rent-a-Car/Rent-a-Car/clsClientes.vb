@@ -1,4 +1,5 @@
 ﻿Imports MySql.Data.MySqlClient
+Imports System.Text.RegularExpressions
 Public Class clsClientes
     'Atributos
     Private _IdCliente As String
@@ -262,7 +263,7 @@ Public Class clsClientes
                 .Rows(i - 1).Cells(3).Value = listaClientes(i - 1).ObtenerNombreDeUsuari
                 .Rows(i - 1).Cells(4).Value = listaClientes(i - 1).ObetenerCorreoElectronico
             End With
-            i += 1
+            'i += 1
         End While
         reader.Close()
     End Sub
@@ -275,4 +276,44 @@ Public Class clsClientes
         Next
         Return -1
     End Function
+
+    Public Sub BuscarCliente(ByVal codigoCliente As String, ByVal listaClientes() As clsClientes, ByRef dgv As DataGridView, Optional ByVal teclaBorrar As Boolean = False)
+        Dim rgx_cliente = New Regex("^" + codigoCliente + "+")
+
+        For i As Integer = 0 To UBound(listaClientes, 1)
+            If Not rgx_cliente.IsMatch(listaClientes(i).ObtenerNombreDeUsuari) And Not teclaBorrar Then
+                Dim r As Integer = 0
+                For Each row As DataGridViewRow In dgv.Rows 'Filas
+                    For Each cell As DataGridViewCell In row.Cells 'Columnas
+                        If CStr(cell.Value) = listaClientes(i).ObtenerNombreDeUsuari Then
+                            dgv.Rows.RemoveAt(dgv.Rows(r).Index) 'Se remueven las filas
+                        End If
+                    Next 'Fin columnas
+                    r += 1
+                Next 'Fin filas
+            Else
+                dgv.ColumnCount = 5 'Se agrega las columnas al dgv
+                dgv.Columns(0).Name = "Nombre"
+                dgv.Columns(1).Name = "Dui"
+                dgv.Columns(2).Name = "Pasaporte"
+                dgv.Columns(3).Name = "Nombre Usuario"
+                dgv.Columns(4).Name = "Correo Electrónico"
+                dgv.RowCount = 1
+
+                For x As Integer = 0 To UBound(listaClientes, 1)
+                    If rgx_cliente.IsMatch(listaClientes(x).ObtenerNombreDeUsuari) Then
+                        With dgv 'Se agregan en el dgv los datos
+                            Dim j As Integer = .RowCount
+                            .Rows.Add()
+                            .Rows(j - 1).Cells(0).Value = listaClientes(x).ObtenerNombreCompleto
+                            .Rows(j - 1).Cells(1).Value = listaClientes(x).ObtenerDui
+                            .Rows(j - 1).Cells(2).Value = listaClientes(x).ObtenerPasaporte
+                            .Rows(j - 1).Cells(3).Value = listaClientes(x).ObtenerNombreDeUsuari
+                            .Rows(j - 1).Cells(4).Value = listaClientes(x).ObetenerCorreoElectronico
+                        End With
+                    End If
+                Next
+            End If
+        Next
+    End Sub
 End Class

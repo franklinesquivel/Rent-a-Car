@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmReservas
     Inherits MaterialSkin.Controls.MaterialForm
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class frmReservas
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.lblFecha_Devolucion = New MaterialSkin.Controls.MaterialLabel()
         Me.lblFecha_Entrega = New MaterialSkin.Controls.MaterialLabel()
@@ -38,11 +38,10 @@ Partial Class frmReservas
         Me.btnRegresar = New MaterialSkin.Controls.MaterialRaisedButton()
         Me.mnsMenu = New System.Windows.Forms.MenuStrip()
         Me.mnsCerrar_Sesion = New System.Windows.Forms.ToolStripMenuItem()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         CType(Me.dgvBuscar_Usuario, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvBuscar_Coche, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.mnsMenu.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'lblFecha_Devolucion
@@ -154,14 +153,14 @@ Partial Class frmReservas
         Me.dgvBuscar_Usuario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvBuscar_Usuario.Location = New System.Drawing.Point(32, 270)
         Me.dgvBuscar_Usuario.Name = "dgvBuscar_Usuario"
-        Me.dgvBuscar_Usuario.Size = New System.Drawing.Size(476, 93)
+        Me.dgvBuscar_Usuario.Size = New System.Drawing.Size(476, 135)
         Me.dgvBuscar_Usuario.TabIndex = 60
         '
         'txbBuscar_Coche
         '
         Me.txbBuscar_Coche.Depth = 0
         Me.txbBuscar_Coche.Hint = ""
-        Me.txbBuscar_Coche.Location = New System.Drawing.Point(164, 376)
+        Me.txbBuscar_Coche.Location = New System.Drawing.Point(164, 411)
         Me.txbBuscar_Coche.MouseState = MaterialSkin.MouseState.HOVER
         Me.txbBuscar_Coche.Name = "txbBuscar_Coche"
         Me.txbBuscar_Coche.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -178,7 +177,7 @@ Partial Class frmReservas
         Me.lblBuscar_Coche.Depth = 0
         Me.lblBuscar_Coche.Font = New System.Drawing.Font("Roboto", 11.0!)
         Me.lblBuscar_Coche.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblBuscar_Coche.Location = New System.Drawing.Point(28, 376)
+        Me.lblBuscar_Coche.Location = New System.Drawing.Point(28, 411)
         Me.lblBuscar_Coche.MouseState = MaterialSkin.MouseState.HOVER
         Me.lblBuscar_Coche.Name = "lblBuscar_Coche"
         Me.lblBuscar_Coche.Size = New System.Drawing.Size(100, 19)
@@ -188,7 +187,7 @@ Partial Class frmReservas
         'dgvBuscar_Coche
         '
         Me.dgvBuscar_Coche.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvBuscar_Coche.Location = New System.Drawing.Point(32, 409)
+        Me.dgvBuscar_Coche.Location = New System.Drawing.Point(32, 440)
         Me.dgvBuscar_Coche.Name = "dgvBuscar_Coche"
         Me.dgvBuscar_Coche.Size = New System.Drawing.Size(476, 132)
         Me.dgvBuscar_Coche.TabIndex = 63
@@ -199,7 +198,7 @@ Partial Class frmReservas
         Me.btnReservar_Coche.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.btnReservar_Coche.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnReservar_Coche.Depth = 0
-        Me.btnReservar_Coche.Location = New System.Drawing.Point(202, 559)
+        Me.btnReservar_Coche.Location = New System.Drawing.Point(219, 581)
         Me.btnReservar_Coche.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
         Me.btnReservar_Coche.MouseState = MaterialSkin.MouseState.HOVER
         Me.btnReservar_Coche.Name = "btnReservar_Coche"
@@ -238,21 +237,20 @@ Partial Class frmReservas
         Me.mnsCerrar_Sesion.Size = New System.Drawing.Size(102, 23)
         Me.mnsCerrar_Sesion.Text = "Cerrar Sesión"
         '
-        'PictureBox1
+        'ComboBox1
         '
-        Me.PictureBox1.BackgroundImage = Global.Rent_a_Car.My.Resources.Resources.AF
-        Me.PictureBox1.Location = New System.Drawing.Point(26, 547)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(100, 62)
-        Me.PictureBox1.TabIndex = 79
-        Me.PictureBox1.TabStop = False
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Location = New System.Drawing.Point(120, 219)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(388, 21)
+        Me.ComboBox1.TabIndex = 79
         '
         'frmReservas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(541, 632)
-        Me.Controls.Add(Me.PictureBox1)
+        Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.btnRegresar)
         Me.Controls.Add(Me.btnReservar_Coche)
         Me.Controls.Add(Me.txbBuscar_Coche)
@@ -277,7 +275,6 @@ Partial Class frmReservas
         CType(Me.dgvBuscar_Coche, System.ComponentModel.ISupportInitialize).EndInit()
         Me.mnsMenu.ResumeLayout(False)
         Me.mnsMenu.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -299,5 +296,5 @@ Partial Class frmReservas
     Friend WithEvents btnRegresar As MaterialSkin.Controls.MaterialRaisedButton
     Friend WithEvents mnsMenu As MenuStrip
     Friend WithEvents mnsCerrar_Sesion As ToolStripMenuItem
-    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents ComboBox1 As ComboBox
 End Class
