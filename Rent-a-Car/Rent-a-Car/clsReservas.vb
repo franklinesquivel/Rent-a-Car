@@ -1,4 +1,5 @@
 ﻿Imports System.Text.RegularExpressions
+Imports MySql.Data.MySqlClient
 Public Class clsReservas
     'Atributos
     Private FechaInicio As Date
@@ -9,6 +10,7 @@ Public Class clsReservas
     Private idAgencia As Integer
     Private idCliente As Integer
     Private idCoche As Integer
+    Private idUsuario As Integer
 
     Private Conexion As clsConexion = New clsConexion()
     Private clsCorreo As clsEmail = New clsEmail() 'Tipo de atributo para poder enviar el correo
@@ -38,10 +40,20 @@ Public Class clsReservas
             Return CodigoReserva
         End Get
     End Property
+    Public ReadOnly Property ObtenerIdUsuario() As Integer
+        Get
+            Return idUsuario
+        End Get
+    End Property
     Public ReadOnly Property ObtenerPrecioReserva() As Decimal
         Get
             Return PrecioReserva
         End Get
+    End Property
+    Public WriteOnly Property EstablecerIdUsuario() As Integer
+        Set(ByVal value As Integer)
+            idUsuario = value
+        End Set
     End Property
     Private WriteOnly Property EstablecerCodigoReserva() As String
         Set(ByVal value As String)
@@ -128,6 +140,7 @@ Public Class clsReservas
             MyClass.EstablecerIdAgencia = _idAgencia
             MyClass.EstablecerIdCoche = coche.ObtenerIdCoche
             MyClass.EstablecerIdCliente = cliente.ObtenerIdCliente
+            MyClass.EstablecerIdUsuario = Session.ObtenerIdUsuario
             MyClass.EstablecerPrecioReserva = coche.ObtenerPrecioAlquiler * DateDiff(DateInterval.Day, MyClass.ObtenerFechaInicio, MyClass.ObtenerFechaFin)
             Estado = "Activo"
 
@@ -168,5 +181,117 @@ Public Class clsReservas
             MsgBox("Error: Ingrese un código de cliente válido")
             Exit Sub
         End If
+    End Sub
+    Public Function listarReservas(ByRef listaReservas() As clsReservas, ByRef dgv As DataGridView) As Boolean
+        If Conexion.contarFilas("SELECT * FROM reservas WHERE estado = 'Activa'") = 0 Then
+            Return 0
+        Else
+            Dim i As Integer = 0
+            Dim reader As MySqlDataReader
+            Conexion.obtenerDatos("SELECT r.id_reserva, r.id_cliente, r.id_agencia, r.id_coche, r.id_usuario, r.fecha_retiro, r.fecha_devolucion, r.precio_pagar, r.estado, cl.nombre, cl.apellido, cl.nombre_usuario , c.placa FROM reservas r INNER JOIN clientes cl ON r.id_cliente = cl.id_cliente INNER JOIN coches c ON r.id_coche = c.id_coche WHERE r.estado = 'Activa'", reader)
+
+            dgv.ColumnCount = 7
+            dgv.Columns(0).Name = "Id"
+            dgv.Columns(1).Name = "Cliente"
+            dgv.Columns(2).Name = "Código Cliente"
+            dgv.Columns(3).Name = "Matrícula Coche"
+            dgv.Columns(4).Name = "Fecha Retiro"
+            dgv.Columns(5).Name = "Fecha Devolución"
+            dgv.Columns(6).Name = "Precio ($)"
+            dgv.RowCount = 1
+
+            While reader.Read()
+                ReDim Preserve listaReservas(i) 'Se ridemenciona el array de clase
+                Reservas = New clsReservas 'Nuevo objeto de la clase
+
+                'Se guardan los campos en los atributos
+                Reservas.EstablecerCodigoReserva = reader(0)
+                Reservas.EstablecerIdCliente = reader(1)
+                Reservas.EstablecerIdAgencia = reader(2)
+                Reservas.EstablecerIdCoche = reader(3)
+                Reservas.EstablecerIdUsuario = reader(4)
+                Reservas.EstablecerFechaInicio = reader(5)
+                Reservas.EstablecerFechaFin = reader(6)
+                Reservas.EstablecerPrecioReserva = reader(7)
+                Reservas.EstablecerEstado = reader(8)
+
+                listaReservas(i) = Reservas 'Se guarda el objeto en el array
+
+                With dgv
+                    i = .RowCount
+                    .Rows.Add()
+                    .Rows(i - 1).Cells(0).Value = listaReservas(i - 1).ObtenerCodigoReserva
+                    .Rows(i - 1).Cells(1).Value = reader(10) & ", " & reader(9)
+                    .Rows(i - 1).Cells(2).Value = reader(11)
+                    .Rows(i - 1).Cells(3).Value = reader(12)
+                    .Rows(i - 1).Cells(4).Value = listaReservas(i - 1).ObtenerFechaInicio.ToString("yyyy-MM-dd")
+                    .Rows(i - 1).Cells(5).Value = listaReservas(i - 1).ObtenerFechaFin.ToString("yyyy-MM-dd")
+                    .Rows(i - 1).Cells(6).Value = listaReservas(i - 1).ObtenerPrecioReserva
+                End With
+            End While
+            reader.Close()
+            Return 1
+        End If
+    End Function
+    Public Function CancelarReserva(ByVal reserva As clsReservas) As Boolean
+        If Conexion.modificarDatos("UPDATE reservas SET estado = 'Cancelada' WHERE id_reserva = '" & reserva.ObtenerCodigoReserva & "'") Then
+            Return 1
+        Else
+            Return 0
+        End If
+    End Function
+    Public Function BuscarIndice(ByVal idReserva As String, ByVal listaReservas() As clsReservas) As Integer
+        For i As Integer = 0 To UBound(listaReservas, 1)
+            If listaReservas(i).ObtenerCodigoReserva = idReserva.ToUpper Then
+                Return i
+            End If
+        Next
+        Return -1
+    End Function
+    Public Sub BuscarReserva(ByVal idReserva As String, ByVal listaReservas() As clsReservas, ByRef dgv As DataGridView, ByVal Optional teclaBorrar As Boolean = False)
+        Dim rgx_reserva = New Regex("^" + idReserva + "+")
+        Dim reader As MySqlDataReader
+
+        For i As Integer = 0 To UBound(listaReservas, 1)
+            If Not rgx_reserva.IsMatch(listaReservas(i).ObtenerCodigoReserva) And Not teclaBorrar Then
+                Dim r As Integer = 0
+                For Each row As DataGridViewRow In dgv.Rows 'Filas
+                    For Each cell As DataGridViewCell In row.Cells 'Columnas
+                        If CStr(cell.Value) = listaReservas(i).ObtenerCodigoReserva Then
+                            dgv.Rows.RemoveAt(dgv.Rows(r).Index) 'Se remueven las filas
+                        End If
+                    Next 'Fin columnas
+                    r += 1
+                Next 'Fin filas
+            Else
+                dgv.ColumnCount = 7
+                dgv.Columns(0).Name = "Id"
+                dgv.Columns(1).Name = "Cliente"
+                dgv.Columns(2).Name = "Código Cliente"
+                dgv.Columns(3).Name = "Matrícula Coche"
+                dgv.Columns(4).Name = "Fecha Retiro"
+                dgv.Columns(5).Name = "Fecha Devolución"
+                dgv.Columns(6).Name = "Precio ($)"
+                dgv.RowCount = 1
+                For x As Integer = 0 To UBound(listaReservas, 1)
+                    If rgx_reserva.IsMatch(listaReservas(x).ObtenerCodigoReserva) Then
+                        Conexion.obtenerDatos("SELECT r.id_reserva, r.id_cliente, r.id_agencia, r.id_coche, r.id_usuario, r.fecha_retiro, r.fecha_devolucion, r.precio_pagar, r.estado, cl.nombre, cl.apellido, cl.nombre_usuario , c.placa FROM reservas r INNER JOIN clientes cl ON r.id_cliente = cl.id_cliente INNER JOIN coches c ON r.id_coche = c.id_coche WHERE r.id_reserva = '" & listaReservas(x).ObtenerCodigoReserva & "'", reader)
+                        reader.Read()
+                        With dgv 'Se agregan en el dgv los datos
+                            Dim j As Integer = .RowCount
+                            .Rows.Add()
+                            .Rows(j - 1).Cells(0).Value = listaReservas(x).ObtenerCodigoReserva
+                            .Rows(j - 1).Cells(1).Value = reader(10) & ", " & reader(9)
+                            .Rows(j - 1).Cells(2).Value = reader(11)
+                            .Rows(j - 1).Cells(3).Value = reader(12)
+                            .Rows(j - 1).Cells(4).Value = listaReservas(x).ObtenerFechaInicio.ToString("yyyy-MM-dd")
+                            .Rows(j - 1).Cells(5).Value = listaReservas(x).ObtenerFechaFin.ToString("yyyy-MM-dd")
+                            .Rows(j - 1).Cells(6).Value = listaReservas(x).ObtenerPrecioReserva
+                        End With
+                        reader.Close()
+                    End If
+                Next
+            End If
+        Next
     End Sub
 End Class

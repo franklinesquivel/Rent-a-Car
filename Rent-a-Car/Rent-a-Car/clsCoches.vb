@@ -345,9 +345,9 @@ Public Class clsCoches
             Return 1
         End If
     End Function
-    Public Function BuscarIndice(ByVal matriculaCoche As String, ByRef listaClientes() As clsCoches)
-        For i As Integer = 0 To UBound(listaClientes, 1)
-            If listaClientes(i).ObtenerMatricula = matriculaCoche.ToUpper Then
+    Public Function BuscarIndice(ByVal matriculaCoche As String, ByRef listaCoches() As clsCoches) As Integer
+        For i As Integer = 0 To UBound(listaCoches, 1)
+            If listaCoches(i).ObtenerMatricula = matriculaCoche.ToUpper Then
                 Return i
             End If
         Next

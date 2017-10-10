@@ -66,6 +66,7 @@ Partial Class frmCancelar_Reservas
         Me.dgvCancelar_Reservas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvCancelar_Reservas.Location = New System.Drawing.Point(19, 141)
         Me.dgvCancelar_Reservas.Name = "dgvCancelar_Reservas"
+        Me.dgvCancelar_Reservas.ReadOnly = True
         Me.dgvCancelar_Reservas.Size = New System.Drawing.Size(476, 93)
         Me.dgvCancelar_Reservas.TabIndex = 63
         '
