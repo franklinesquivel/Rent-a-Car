@@ -28,6 +28,7 @@ Partial Class frmInventario_Autos
         Me.btnRegresar = New MaterialSkin.Controls.MaterialRaisedButton()
         Me.mnsMenu = New System.Windows.Forms.MenuStrip()
         Me.mnsCerrar_Sesion = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         CType(Me.dgvInventario_Autos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.mnsMenu.SuspendLayout()
         Me.SuspendLayout()
@@ -48,7 +49,7 @@ Partial Class frmInventario_Autos
         'dgvInventario_Autos
         '
         Me.dgvInventario_Autos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvInventario_Autos.Location = New System.Drawing.Point(18, 141)
+        Me.dgvInventario_Autos.Location = New System.Drawing.Point(28, 192)
         Me.dgvInventario_Autos.Name = "dgvInventario_Autos"
         Me.dgvInventario_Autos.Size = New System.Drawing.Size(439, 236)
         Me.dgvInventario_Autos.TabIndex = 67
@@ -56,7 +57,7 @@ Partial Class frmInventario_Autos
         'cmbBuscar_Autos
         '
         Me.cmbBuscar_Autos.FormattingEnabled = True
-        Me.cmbBuscar_Autos.Items.AddRange(New Object() {"Marca", "Modelo", "Número de pasajeros", "Costo de alquiler", "Tipo de auto"})
+        Me.cmbBuscar_Autos.Items.AddRange(New Object() {"Marca", "Modelo", "Num de pasajeros", "Costo de alquiler", "Tipo de auto"})
         Me.cmbBuscar_Autos.Location = New System.Drawing.Point(198, 103)
         Me.cmbBuscar_Autos.Name = "cmbBuscar_Autos"
         Me.cmbBuscar_Autos.Size = New System.Drawing.Size(236, 21)
@@ -66,7 +67,7 @@ Partial Class frmInventario_Autos
         '
         Me.btnRegresar.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnRegresar.Depth = 0
-        Me.btnRegresar.Location = New System.Drawing.Point(310, 397)
+        Me.btnRegresar.Location = New System.Drawing.Point(320, 448)
         Me.btnRegresar.MouseState = MaterialSkin.MouseState.HOVER
         Me.btnRegresar.Name = "btnRegresar"
         Me.btnRegresar.Primary = True
@@ -91,11 +92,20 @@ Partial Class frmInventario_Autos
         Me.mnsCerrar_Sesion.Size = New System.Drawing.Size(102, 23)
         Me.mnsCerrar_Sesion.Text = "Cerrar Sesión"
         '
+        'ComboBox1
+        '
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Location = New System.Drawing.Point(198, 141)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(236, 21)
+        Me.ComboBox1.TabIndex = 74
+        '
         'frmInventario_Autos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(479, 445)
+        Me.ClientSize = New System.Drawing.Size(479, 521)
+        Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.btnRegresar)
         Me.Controls.Add(Me.cmbBuscar_Autos)
         Me.Controls.Add(Me.lblBuscar_Autos)
@@ -119,4 +129,5 @@ Partial Class frmInventario_Autos
     Friend WithEvents btnRegresar As MaterialSkin.Controls.MaterialRaisedButton
     Friend WithEvents mnsMenu As MenuStrip
     Friend WithEvents mnsCerrar_Sesion As ToolStripMenuItem
+    Friend WithEvents ComboBox1 As ComboBox
 End Class
