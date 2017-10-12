@@ -430,24 +430,265 @@ Public Class clsCoches
 
     End Sub
 
-    Public Sub mostrarDisponibles(ByVal dgv As DataGridView, ByVal cmb As ComboBox)
+    Public Sub mostrarDisponibles(ByRef dgv As DataGridView, ByVal cmb As ComboBox, ByVal cmb2 As ComboBox, ByRef listabusqueda() As clsCoches)
+        Dim i As Integer = 0
+        Dim reader As MySqlDataReader
+
+        If cmb2.SelectedItem.ToString = "Marca" Then
+
+            Conexion.obtenerDatos("SELECT * FROM coches WHERE estado = 'A' AND marca = '" & cortar(cmb.SelectedItem.ToString) & "'", reader)
+
+            'Se agrega las columnas al dgv
+            dgv.ColumnCount = 5
+            dgv.Columns(0).Name = "Placa"
+            dgv.Columns(1).Name = "Marca"
+            dgv.Columns(2).Name = "Modelo"
+            dgv.Columns(3).Name = "N° Pasajeros"
+            dgv.Columns(4).Name = "Precio Alquiler ($)"
+            dgv.RowCount = 1
+
+            While reader.Read()
+
+                ReDim Preserve listabusqueda(i)
+                Coches = New clsCoches 'Se crea una instancia de la clase para despues guardarla en  un array
+
+                'Se guardan los atributos
+                Coches.EstablecerIdCoche = reader(0)
+                Coches.EstablecerMatricula = reader(1)
+                Coches.EstablecerMarca = reader(2)
+                Coches.EstablecerModelo = reader(3)
+                Coches.EstablecerColor = reader(4)
+                Coches.EstablecerKilometraje = reader(5)
+                Coches.EstablecerNPasajeros = reader(6)
+                Coches.EstablecerPrecioAlquiler = reader(7)
+                Coches.EstablecerFotografia = reader(8)
+                Coches.EstablecerTipo = reader(9)
+                Coches.EstablecerEstado = reader(10)
+                Coches.EstablecerIdAgencia = reader(11)
+
+                listabusqueda(i) = Coches 'Se guarda la instancia de la clase en el array
+
+                With dgv 'Se agregan en el dgv los datos
+                    i = .RowCount
+                    .Rows.Add()
+                    .Rows(i - 1).Cells(0).Value = listabusqueda(i - 1).ObtenerMatricula
+                    .Rows(i - 1).Cells(1).Value = listabusqueda(i - 1).ObtenerMarca & " - " & listabusqueda(i - 1).ObtenerModelo
+                    .Rows(i - 1).Cells(2).Value = listabusqueda(i - 1).ObtenerNPasajeros
+                    .Rows(i - 1).Cells(3).Value = listabusqueda(i - 1).ObtenerPrecioAlquiler
+                    .Rows(i - 1).Cells(4).Value = listabusqueda(i - 1).ObtenerKilometraje
+                End With
+                'i += 1
+            End While
+            reader.Close()
+
+        ElseIf cmb2.SelectedItem.ToString = "Modelo" Then
+
+            Conexion.obtenerDatos("SELECT * FROM coches WHERE estado = 'A' AND modelo = '" & cortar(cmb.SelectedItem.ToString) & "'", reader)
+
+            'Se agrega las columnas al dgv
+            dgv.ColumnCount = 5
+            dgv.Columns(0).Name = "Placa"
+            dgv.Columns(1).Name = "Marca"
+            dgv.Columns(2).Name = "Modelo"
+            dgv.Columns(3).Name = "N° Pasajeros"
+            dgv.Columns(4).Name = "Precio Alquiler ($)"
+            dgv.RowCount = 1
+
+            While reader.Read()
+
+                ReDim Preserve listabusqueda(i)
+                Coches = New clsCoches 'Se crea una instancia de la clase para despues guardarla en  un array
+
+                'Se guardan los atributos
+                Coches.EstablecerIdCoche = reader(0)
+                Coches.EstablecerMatricula = reader(1)
+                Coches.EstablecerMarca = reader(2)
+                Coches.EstablecerModelo = reader(3)
+                Coches.EstablecerColor = reader(4)
+                Coches.EstablecerKilometraje = reader(5)
+                Coches.EstablecerNPasajeros = reader(6)
+                Coches.EstablecerPrecioAlquiler = reader(7)
+                Coches.EstablecerFotografia = reader(8)
+                Coches.EstablecerTipo = reader(9)
+                Coches.EstablecerEstado = reader(10)
+                Coches.EstablecerIdAgencia = reader(11)
+
+                listabusqueda(i) = Coches 'Se guarda la instancia de la clase en el array
+
+                With dgv 'Se agregan en el dgv los datos
+                    i = .RowCount
+                    .Rows.Add()
+                    .Rows(i - 1).Cells(0).Value = listabusqueda(i - 1).ObtenerMatricula
+                    .Rows(i - 1).Cells(1).Value = listabusqueda(i - 1).ObtenerMarca & " - " & listabusqueda(i - 1).ObtenerModelo
+                    .Rows(i - 1).Cells(2).Value = listabusqueda(i - 1).ObtenerNPasajeros
+                    .Rows(i - 1).Cells(3).Value = listabusqueda(i - 1).ObtenerPrecioAlquiler
+                    .Rows(i - 1).Cells(4).Value = listabusqueda(i - 1).ObtenerKilometraje
+                End With
+                'i += 1
+            End While
+            reader.Close()
+
+        ElseIf cmb2.SelectedItem.ToString = "Num de pasajeros" Then
+
+            Conexion.obtenerDatos("SELECT * FROM coches WHERE estado = 'A' AND num_pasajeros = '" & cortar(cmb.SelectedItem.ToString) & "'", reader)
+
+            'Se agrega las columnas al dgv
+            dgv.ColumnCount = 5
+            dgv.Columns(0).Name = "Placa"
+            dgv.Columns(1).Name = "Marca"
+            dgv.Columns(2).Name = "Modelo"
+            dgv.Columns(3).Name = "N° Pasajeros"
+            dgv.Columns(4).Name = "Precio Alquiler ($)"
+            dgv.RowCount = 1
+
+            While reader.Read()
+
+                ReDim Preserve listabusqueda(i)
+                Coches = New clsCoches 'Se crea una instancia de la clase para despues guardarla en  un array
+
+                'Se guardan los atributos
+                Coches.EstablecerIdCoche = reader(0)
+                Coches.EstablecerMatricula = reader(1)
+                Coches.EstablecerMarca = reader(2)
+                Coches.EstablecerModelo = reader(3)
+                Coches.EstablecerColor = reader(4)
+                Coches.EstablecerKilometraje = reader(5)
+                Coches.EstablecerNPasajeros = reader(6)
+                Coches.EstablecerPrecioAlquiler = reader(7)
+                Coches.EstablecerFotografia = reader(8)
+                Coches.EstablecerTipo = reader(9)
+                Coches.EstablecerEstado = reader(10)
+                Coches.EstablecerIdAgencia = reader(11)
+
+                listabusqueda(i) = Coches 'Se guarda la instancia de la clase en el array
+
+                With dgv 'Se agregan en el dgv los datos
+                    i = .RowCount
+                    .Rows.Add()
+                    .Rows(i - 1).Cells(0).Value = listabusqueda(i - 1).ObtenerMatricula
+                    .Rows(i - 1).Cells(1).Value = listabusqueda(i - 1).ObtenerMarca & " - " & listabusqueda(i - 1).ObtenerModelo
+                    .Rows(i - 1).Cells(2).Value = listabusqueda(i - 1).ObtenerNPasajeros
+                    .Rows(i - 1).Cells(3).Value = listabusqueda(i - 1).ObtenerPrecioAlquiler
+                    .Rows(i - 1).Cells(4).Value = listabusqueda(i - 1).ObtenerKilometraje
+                End With
+                'i += 1
+            End While
+            reader.Close()
+
+        ElseIf cmb2.SelectedItem.ToString = "Costo de alquiler" Then
+            Conexion.obtenerDatos("SELECT * FROM coches WHERE estado = 'A' AND precio_alquiler = '" & cortar(cmb.SelectedItem.ToString) & "'", reader)
+
+            'Se agrega las columnas al dgv
+            dgv.ColumnCount = 5
+            dgv.Columns(0).Name = "Placa"
+            dgv.Columns(1).Name = "Marca"
+            dgv.Columns(2).Name = "Modelo"
+            dgv.Columns(3).Name = "N° Pasajeros"
+            dgv.Columns(4).Name = "Precio Alquiler ($)"
+            dgv.RowCount = 1
+
+            While reader.Read()
+
+                ReDim Preserve listabusqueda(i)
+                Coches = New clsCoches 'Se crea una instancia de la clase para despues guardarla en  un array
+
+                'Se guardan los atributos
+                Coches.EstablecerIdCoche = reader(0)
+                Coches.EstablecerMatricula = reader(1)
+                Coches.EstablecerMarca = reader(2)
+                Coches.EstablecerModelo = reader(3)
+                Coches.EstablecerColor = reader(4)
+                Coches.EstablecerKilometraje = reader(5)
+                Coches.EstablecerNPasajeros = reader(6)
+                Coches.EstablecerPrecioAlquiler = reader(7)
+                Coches.EstablecerFotografia = reader(8)
+                Coches.EstablecerTipo = reader(9)
+                Coches.EstablecerEstado = reader(10)
+                Coches.EstablecerIdAgencia = reader(11)
+
+                listabusqueda(i) = Coches 'Se guarda la instancia de la clase en el array
+
+                With dgv 'Se agregan en el dgv los datos
+                    i = .RowCount
+                    .Rows.Add()
+                    .Rows(i - 1).Cells(0).Value = listabusqueda(i - 1).ObtenerMatricula
+                    .Rows(i - 1).Cells(1).Value = listabusqueda(i - 1).ObtenerMarca & " - " & listabusqueda(i - 1).ObtenerModelo
+                    .Rows(i - 1).Cells(2).Value = listabusqueda(i - 1).ObtenerNPasajeros
+                    .Rows(i - 1).Cells(3).Value = listabusqueda(i - 1).ObtenerPrecioAlquiler
+                    .Rows(i - 1).Cells(4).Value = listabusqueda(i - 1).ObtenerKilometraje
+                End With
+                'i += 1
+            End While
+            reader.Close()
+
+
+        ElseIf cmb2.SelectedItem.ToString = "Tipo de auto" Then
+
+            Conexion.obtenerDatos("SELECT * FROM coches WHERE estado = 'A' AND tipo = '" & cortar(cmb.SelectedItem.ToString) & "'", reader)
+
+            'Se agrega las columnas al dgv
+            dgv.ColumnCount = 5
+            dgv.Columns(0).Name = "Placa"
+            dgv.Columns(1).Name = "Marca"
+            dgv.Columns(2).Name = "Modelo"
+            dgv.Columns(3).Name = "N° Pasajeros"
+            dgv.Columns(4).Name = "Precio Alquiler ($)"
+            dgv.RowCount = 1
+
+            While reader.Read()
+
+                ReDim Preserve listabusqueda(i)
+                Coches = New clsCoches 'Se crea una instancia de la clase para despues guardarla en  un array
+
+                'Se guardan los atributos
+                Coches.EstablecerIdCoche = reader(0)
+                Coches.EstablecerMatricula = reader(1)
+                Coches.EstablecerMarca = reader(2)
+                Coches.EstablecerModelo = reader(3)
+                Coches.EstablecerColor = reader(4)
+                Coches.EstablecerKilometraje = reader(5)
+                Coches.EstablecerNPasajeros = reader(6)
+                Coches.EstablecerPrecioAlquiler = reader(7)
+                Coches.EstablecerFotografia = reader(8)
+                Coches.EstablecerTipo = reader(9)
+                Coches.EstablecerEstado = reader(10)
+                Coches.EstablecerIdAgencia = reader(11)
+
+                listabusqueda(i) = Coches 'Se guarda la instancia de la clase en el array
+
+                With dgv 'Se agregan en el dgv los datos
+                    i = .RowCount
+                    .Rows.Add()
+                    .Rows(i - 1).Cells(0).Value = listabusqueda(i - 1).ObtenerMatricula
+                    .Rows(i - 1).Cells(1).Value = listabusqueda(i - 1).ObtenerMarca & " - " & listabusqueda(i - 1).ObtenerModelo
+                    .Rows(i - 1).Cells(2).Value = listabusqueda(i - 1).ObtenerNPasajeros
+                    .Rows(i - 1).Cells(3).Value = listabusqueda(i - 1).ObtenerPrecioAlquiler
+                    .Rows(i - 1).Cells(4).Value = listabusqueda(i - 1).ObtenerKilometraje
+                End With
+                'i += 1
+            End While
+            reader.Close()
+
+        End If
 
 
 
-        'Se agrega las columnas al dgv
-        dgv.ColumnCount = 6
-        dgv.Columns(0).Name = "Placa"
-        dgv.Columns(1).Name = "Marca"
-        dgv.Columns(2).Name = "Modelo"
-        dgv.Columns(3).Name = "N° Pasajeros"
-        dgv.Columns(4).Name = "Precio Alquiler ($)"
-        dgv.Columns(5).Name = "Kilometraje"
-        dgv.RowCount = Conexion.contarFilas("SELECT id_coche FROM coches WHERE estado = 'A'")
+
+
 
 
     End Sub
 
-
+    Public Function cortar(ByVal con As String)
+        Dim i As Integer = 0
+        For Each x As String In con
+            i += 1
+            If (x = ",") Then
+                con = con.Substring(i + 1, con.Length - i - 2)
+            End If
+        Next
+        Return con
+    End Function
 
 
 End Class
