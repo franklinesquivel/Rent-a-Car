@@ -46,7 +46,20 @@ Public Class frmModificar_Coche
         End Try
         Coches = New clsCoches
         If Coches.ModificarCoches(txbMatricula.Text, txbMarca.Text, txbModelo.Text, txbColor.Text, txbKilometraje.Text, txbNumero_Pasajeros.Text, txbPrecio_Alquiler.Text, ofdFoto.FileName, tipo, cmbAgenciaCoche.SelectedValue) Then
-            MsgBox("Auto modificado con exito")
+            MsgBox("Auto modificado con exito", MsgBoxStyle.Information)
+            txbMatricula.Text = ""
+            txbMarca.Text = ""
+            txbModelo.Text = ""
+            txbColor.Text = ""
+            txbKilometraje.Text = ""
+            txbNumero_Pasajeros.Text = ""
+            txbPrecio_Alquiler.Text = ""
+            ofdFoto.FileName = ""
+            tipo = ""
+            cmbAgenciaCoche.SelectedValue = 0
+            btnFoto.Text = "+ Agregue una foto"
+            picCoche.ImageLocation = Nothing
+            obtenerRadio().Checked = False
         End If
 
     End Sub
