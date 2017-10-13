@@ -21,11 +21,7 @@ Public Class frmInventario_Autos
 
 
     End Sub
-
-
-
     Private Sub ComboBox1_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles ComboBox1.SelectionChangeCommitted
-
         Coches.mostrarDisponibles(dgvInventario_Autos, ComboBox1, cmbBuscar_Autos, busquedaLista)
     End Sub
 End Class

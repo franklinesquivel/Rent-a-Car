@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmModificar_Coche
     Inherits MaterialSkin.Controls.MaterialForm
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class frmModificar_Coche
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.rdbMicrobuses = New MaterialSkin.Controls.MaterialRadioButton()
         Me.rdbPickups = New MaterialSkin.Controls.MaterialRadioButton()
@@ -36,7 +36,6 @@ Partial Class frmModificar_Coche
         Me.lblKilometraje = New MaterialSkin.Controls.MaterialLabel()
         Me.txbKilometraje = New MaterialSkin.Controls.MaterialSingleLineTextField()
         Me.lblFoto = New MaterialSkin.Controls.MaterialLabel()
-        Me.txbAgencia_Coche = New MaterialSkin.Controls.MaterialSingleLineTextField()
         Me.lblColor = New MaterialSkin.Controls.MaterialLabel()
         Me.txbColor = New MaterialSkin.Controls.MaterialSingleLineTextField()
         Me.lblModelo = New MaterialSkin.Controls.MaterialLabel()
@@ -45,15 +44,19 @@ Partial Class frmModificar_Coche
         Me.txbMarca = New MaterialSkin.Controls.MaterialSingleLineTextField()
         Me.lblMatricula = New MaterialSkin.Controls.MaterialLabel()
         Me.txbMatricula = New MaterialSkin.Controls.MaterialSingleLineTextField()
-        Me.txbBuscar_Coche = New MaterialSkin.Controls.MaterialSingleLineTextField()
         Me.lblBuscar_Coche = New MaterialSkin.Controls.MaterialLabel()
         Me.dgvBuscar_Coche = New System.Windows.Forms.DataGridView()
         Me.btnRegresar = New MaterialSkin.Controls.MaterialRaisedButton()
         Me.ofdFoto = New System.Windows.Forms.OpenFileDialog()
         Me.mnsMenu = New System.Windows.Forms.MenuStrip()
         Me.mnsCerrar_Sesion = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.cmbBuscar_Autos = New System.Windows.Forms.ComboBox()
+        Me.cmbAgenciaCoche = New System.Windows.Forms.ComboBox()
+        Me.picCoche = New System.Windows.Forms.PictureBox()
         CType(Me.dgvBuscar_Coche, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.mnsMenu.SuspendLayout()
+        CType(Me.picCoche, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'rdbMicrobuses
@@ -62,7 +65,7 @@ Partial Class frmModificar_Coche
         Me.rdbMicrobuses.Cursor = System.Windows.Forms.Cursors.Hand
         Me.rdbMicrobuses.Depth = 0
         Me.rdbMicrobuses.Font = New System.Drawing.Font("Roboto", 10.0!)
-        Me.rdbMicrobuses.Location = New System.Drawing.Point(508, 496)
+        Me.rdbMicrobuses.Location = New System.Drawing.Point(539, 548)
         Me.rdbMicrobuses.Margin = New System.Windows.Forms.Padding(0)
         Me.rdbMicrobuses.MouseLocation = New System.Drawing.Point(-1, -1)
         Me.rdbMicrobuses.MouseState = MaterialSkin.MouseState.HOVER
@@ -80,7 +83,7 @@ Partial Class frmModificar_Coche
         Me.rdbPickups.Cursor = System.Windows.Forms.Cursors.Hand
         Me.rdbPickups.Depth = 0
         Me.rdbPickups.Font = New System.Drawing.Font("Roboto", 10.0!)
-        Me.rdbPickups.Location = New System.Drawing.Point(377, 496)
+        Me.rdbPickups.Location = New System.Drawing.Point(408, 548)
         Me.rdbPickups.Margin = New System.Windows.Forms.Padding(0)
         Me.rdbPickups.MouseLocation = New System.Drawing.Point(-1, -1)
         Me.rdbPickups.MouseState = MaterialSkin.MouseState.HOVER
@@ -98,7 +101,7 @@ Partial Class frmModificar_Coche
         Me.rdbSedan.Cursor = System.Windows.Forms.Cursors.Hand
         Me.rdbSedan.Depth = 0
         Me.rdbSedan.Font = New System.Drawing.Font("Roboto", 10.0!)
-        Me.rdbSedan.Location = New System.Drawing.Point(269, 496)
+        Me.rdbSedan.Location = New System.Drawing.Point(300, 548)
         Me.rdbSedan.Margin = New System.Windows.Forms.Padding(0)
         Me.rdbSedan.MouseLocation = New System.Drawing.Point(-1, -1)
         Me.rdbSedan.MouseState = MaterialSkin.MouseState.HOVER
@@ -116,7 +119,7 @@ Partial Class frmModificar_Coche
         Me.btnModificar_Coche.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.btnModificar_Coche.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnModificar_Coche.Depth = 0
-        Me.btnModificar_Coche.Location = New System.Drawing.Point(311, 548)
+        Me.btnModificar_Coche.Location = New System.Drawing.Point(323, 603)
         Me.btnModificar_Coche.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
         Me.btnModificar_Coche.MouseState = MaterialSkin.MouseState.HOVER
         Me.btnModificar_Coche.Name = "btnModificar_Coche"
@@ -132,7 +135,7 @@ Partial Class frmModificar_Coche
         Me.lblTipo_Coche.Depth = 0
         Me.lblTipo_Coche.Font = New System.Drawing.Font("Roboto", 11.0!)
         Me.lblTipo_Coche.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblTipo_Coche.Location = New System.Drawing.Point(137, 501)
+        Me.lblTipo_Coche.Location = New System.Drawing.Point(168, 553)
         Me.lblTipo_Coche.MouseState = MaterialSkin.MouseState.HOVER
         Me.lblTipo_Coche.Name = "lblTipo_Coche"
         Me.lblTipo_Coche.Size = New System.Drawing.Size(104, 19)
@@ -161,7 +164,7 @@ Partial Class frmModificar_Coche
         Me.lblAgencia_Coche.Depth = 0
         Me.lblAgencia_Coche.Font = New System.Drawing.Font("Roboto", 11.0!)
         Me.lblAgencia_Coche.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblAgencia_Coche.Location = New System.Drawing.Point(396, 411)
+        Me.lblAgencia_Coche.Location = New System.Drawing.Point(23, 496)
         Me.lblAgencia_Coche.MouseState = MaterialSkin.MouseState.HOVER
         Me.lblAgencia_Coche.Name = "lblAgencia_Coche"
         Me.lblAgencia_Coche.Size = New System.Drawing.Size(132, 19)
@@ -264,21 +267,6 @@ Partial Class frmModificar_Coche
         Me.lblFoto.Size = New System.Drawing.Size(78, 19)
         Me.lblFoto.TabIndex = 38
         Me.lblFoto.Text = "Fotografía"
-        '
-        'txbAgencia_Coche
-        '
-        Me.txbAgencia_Coche.Depth = 0
-        Me.txbAgencia_Coche.Hint = ""
-        Me.txbAgencia_Coche.Location = New System.Drawing.Point(534, 407)
-        Me.txbAgencia_Coche.MouseState = MaterialSkin.MouseState.HOVER
-        Me.txbAgencia_Coche.Name = "txbAgencia_Coche"
-        Me.txbAgencia_Coche.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.txbAgencia_Coche.SelectedText = ""
-        Me.txbAgencia_Coche.SelectionLength = 0
-        Me.txbAgencia_Coche.SelectionStart = 0
-        Me.txbAgencia_Coche.Size = New System.Drawing.Size(171, 23)
-        Me.txbAgencia_Coche.TabIndex = 37
-        Me.txbAgencia_Coche.UseSystemPasswordChar = False
         '
         'lblColor
         '
@@ -392,47 +380,32 @@ Partial Class frmModificar_Coche
         Me.txbMatricula.TabIndex = 29
         Me.txbMatricula.UseSystemPasswordChar = False
         '
-        'txbBuscar_Coche
-        '
-        Me.txbBuscar_Coche.Depth = 0
-        Me.txbBuscar_Coche.Hint = ""
-        Me.txbBuscar_Coche.Location = New System.Drawing.Point(265, 81)
-        Me.txbBuscar_Coche.MouseState = MaterialSkin.MouseState.HOVER
-        Me.txbBuscar_Coche.Name = "txbBuscar_Coche"
-        Me.txbBuscar_Coche.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.txbBuscar_Coche.SelectedText = ""
-        Me.txbBuscar_Coche.SelectionLength = 0
-        Me.txbBuscar_Coche.SelectionStart = 0
-        Me.txbBuscar_Coche.Size = New System.Drawing.Size(344, 23)
-        Me.txbBuscar_Coche.TabIndex = 74
-        Me.txbBuscar_Coche.UseSystemPasswordChar = False
-        '
         'lblBuscar_Coche
         '
         Me.lblBuscar_Coche.AutoSize = True
         Me.lblBuscar_Coche.Depth = 0
         Me.lblBuscar_Coche.Font = New System.Drawing.Font("Roboto", 11.0!)
         Me.lblBuscar_Coche.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblBuscar_Coche.Location = New System.Drawing.Point(129, 81)
+        Me.lblBuscar_Coche.Location = New System.Drawing.Point(12, 81)
         Me.lblBuscar_Coche.MouseState = MaterialSkin.MouseState.HOVER
         Me.lblBuscar_Coche.Name = "lblBuscar_Coche"
-        Me.lblBuscar_Coche.Size = New System.Drawing.Size(100, 19)
+        Me.lblBuscar_Coche.Size = New System.Drawing.Size(126, 19)
         Me.lblBuscar_Coche.TabIndex = 73
-        Me.lblBuscar_Coche.Text = "Buscar coche"
+        Me.lblBuscar_Coche.Text = "Buscar coche por"
         '
         'dgvBuscar_Coche
         '
         Me.dgvBuscar_Coche.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvBuscar_Coche.Location = New System.Drawing.Point(133, 114)
+        Me.dgvBuscar_Coche.Location = New System.Drawing.Point(218, 81)
         Me.dgvBuscar_Coche.Name = "dgvBuscar_Coche"
-        Me.dgvBuscar_Coche.Size = New System.Drawing.Size(476, 132)
+        Me.dgvBuscar_Coche.Size = New System.Drawing.Size(498, 146)
         Me.dgvBuscar_Coche.TabIndex = 72
         '
         'btnRegresar
         '
         Me.btnRegresar.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnRegresar.Depth = 0
-        Me.btnRegresar.Location = New System.Drawing.Point(590, 548)
+        Me.btnRegresar.Location = New System.Drawing.Point(601, 619)
         Me.btnRegresar.MouseState = MaterialSkin.MouseState.HOVER
         Me.btnRegresar.Name = "btnRegresar"
         Me.btnRegresar.Primary = True
@@ -461,13 +434,53 @@ Partial Class frmModificar_Coche
         Me.mnsCerrar_Sesion.Size = New System.Drawing.Size(102, 23)
         Me.mnsCerrar_Sesion.Text = "Cerrar Sesión"
         '
+        'ComboBox1
+        '
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Location = New System.Drawing.Point(16, 170)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(180, 21)
+        Me.ComboBox1.TabIndex = 78
+        '
+        'cmbBuscar_Autos
+        '
+        Me.cmbBuscar_Autos.FormattingEnabled = True
+        Me.cmbBuscar_Autos.Items.AddRange(New Object() {"Marca", "Modelo", "Num de pasajeros", "Costo de alquiler", "Tipo de auto"})
+        Me.cmbBuscar_Autos.Location = New System.Drawing.Point(16, 133)
+        Me.cmbBuscar_Autos.Name = "cmbBuscar_Autos"
+        Me.cmbBuscar_Autos.Size = New System.Drawing.Size(180, 21)
+        Me.cmbBuscar_Autos.TabIndex = 77
+        '
+        'cmbAgenciaCoche
+        '
+        Me.cmbAgenciaCoche.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
+        Me.cmbAgenciaCoche.FormattingEnabled = True
+        Me.cmbAgenciaCoche.Items.AddRange(New Object() {""})
+        Me.cmbAgenciaCoche.Location = New System.Drawing.Point(172, 491)
+        Me.cmbAgenciaCoche.Name = "cmbAgenciaCoche"
+        Me.cmbAgenciaCoche.Size = New System.Drawing.Size(183, 24)
+        Me.cmbAgenciaCoche.TabIndex = 81
+        '
+        'picCoche
+        '
+        Me.picCoche.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.picCoche.Location = New System.Drawing.Point(482, 390)
+        Me.picCoche.Name = "picCoche"
+        Me.picCoche.Size = New System.Drawing.Size(218, 134)
+        Me.picCoche.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.picCoche.TabIndex = 82
+        Me.picCoche.TabStop = False
+        '
         'frmModificar_Coche
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(740, 598)
+        Me.ClientSize = New System.Drawing.Size(740, 676)
+        Me.Controls.Add(Me.picCoche)
+        Me.Controls.Add(Me.cmbAgenciaCoche)
+        Me.Controls.Add(Me.ComboBox1)
+        Me.Controls.Add(Me.cmbBuscar_Autos)
         Me.Controls.Add(Me.btnRegresar)
-        Me.Controls.Add(Me.txbBuscar_Coche)
         Me.Controls.Add(Me.lblBuscar_Coche)
         Me.Controls.Add(Me.dgvBuscar_Coche)
         Me.Controls.Add(Me.rdbMicrobuses)
@@ -484,7 +497,6 @@ Partial Class frmModificar_Coche
         Me.Controls.Add(Me.lblKilometraje)
         Me.Controls.Add(Me.txbKilometraje)
         Me.Controls.Add(Me.lblFoto)
-        Me.Controls.Add(Me.txbAgencia_Coche)
         Me.Controls.Add(Me.lblColor)
         Me.Controls.Add(Me.txbColor)
         Me.Controls.Add(Me.lblModelo)
@@ -502,6 +514,7 @@ Partial Class frmModificar_Coche
         CType(Me.dgvBuscar_Coche, System.ComponentModel.ISupportInitialize).EndInit()
         Me.mnsMenu.ResumeLayout(False)
         Me.mnsMenu.PerformLayout()
+        CType(Me.picCoche, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -521,7 +534,6 @@ Partial Class frmModificar_Coche
     Friend WithEvents lblKilometraje As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents txbKilometraje As MaterialSkin.Controls.MaterialSingleLineTextField
     Friend WithEvents lblFoto As MaterialSkin.Controls.MaterialLabel
-    Friend WithEvents txbAgencia_Coche As MaterialSkin.Controls.MaterialSingleLineTextField
     Friend WithEvents lblColor As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents txbColor As MaterialSkin.Controls.MaterialSingleLineTextField
     Friend WithEvents lblModelo As MaterialSkin.Controls.MaterialLabel
@@ -530,11 +542,14 @@ Partial Class frmModificar_Coche
     Friend WithEvents txbMarca As MaterialSkin.Controls.MaterialSingleLineTextField
     Friend WithEvents lblMatricula As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents txbMatricula As MaterialSkin.Controls.MaterialSingleLineTextField
-    Friend WithEvents txbBuscar_Coche As MaterialSkin.Controls.MaterialSingleLineTextField
     Friend WithEvents lblBuscar_Coche As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents dgvBuscar_Coche As DataGridView
     Friend WithEvents btnRegresar As MaterialSkin.Controls.MaterialRaisedButton
     Friend WithEvents ofdFoto As OpenFileDialog
     Friend WithEvents mnsMenu As MenuStrip
     Friend WithEvents mnsCerrar_Sesion As ToolStripMenuItem
+    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents cmbBuscar_Autos As ComboBox
+    Friend WithEvents cmbAgenciaCoche As ComboBox
+    Friend WithEvents picCoche As PictureBox
 End Class
