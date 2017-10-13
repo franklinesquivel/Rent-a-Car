@@ -274,7 +274,7 @@ Public Class clsCoches
             coch = reader(0)
         End While
         reader.Close()
-        Dim queryU As String = "UPDATE coches SET placa = '" & _matricula & "', marca = '" & _marca & "', modelo = '" & _modelo & "', color = '" & _color & "', kilometraje = '" & _kilometraje.ToString & "', num_pasajeros = '" & _nPasajeros.ToString & "', precio_alquiler = '" & _alquiler.ToString & "', fotografia = '" & _fotografia & "', tipo = '" & _tipo & "', estado = A, id_agencia = '" & _idAgencia & "' WHERE id_coche = '" & coch & "';"
+        Dim queryU As String = "UPDATE coches SET placa = '" & _matricula & "', marca = '" & _marca & "', modelo = '" & _modelo & "', color = '" & _color & "', kilometraje = '" & _kilometraje.ToString & "', num_pasajeros = '" & _nPasajeros.ToString & "', precio_alquiler = '" & _alquiler.ToString & "', fotografia = '" & _fotografia & "', tipo = '" & _tipo & "', estado = 'A', id_agencia = '" & _idAgencia & "' WHERE id_coche = '" & coch & "';"
         If Conexion.modificarDatos(queryU, auxId) Then
             'OBTENER ÍNDICE GUARDADO Y GUARDARLO EN _idCoche
             _idCoche = auxId
