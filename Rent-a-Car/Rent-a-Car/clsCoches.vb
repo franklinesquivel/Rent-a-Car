@@ -169,82 +169,101 @@ Public Class clsCoches
         End Set
     End Property
     'Métodos
-    Public Function ModificarCoches(ByVal matricula As String, ByVal marca As String, ByVal modelo As String, ByVal color As String, ByVal kilometraje As Long, ByVal nPasajeros As Integer, ByVal alquiler As Decimal, ByVal fotografia As String, ByVal tipo As String, ByVal idAgencia As Integer) As Boolean
+    Public Function LlenarDatosModificar(ByRef placa As String, ByRef marca As String, ByRef modelo As String, ByRef color As String, ByRef kilometraje As String, ByRef nPasajeros As String, ByRef alquiler As String, ByVal fotografia As Button, ByVal tipo As String, ByRef idAgencia As String) As Boolean
+        Dim reader As MySqlDataReader
+        Dim auxId As Integer = 1
+        placa = placa.Trim
+        Conexion.obtenerDatos("SELECT marca,modelo,color,kilometraje,num_pasajeros,precio_alquiler,fotografia,tipo,id_agencia FROM coches WHERE placa = '" & placa & "'", reader)
+        While reader.Read()
+            marca = reader(0)
+            modelo = reader(1)
+            color = reader(2)
+            kilometraje = reader(3)
+            nPasajeros = reader(4)
+            alquiler = reader(5)
+            fotografia.Text = reader(6)
+            tipo = reader(7)
+            idAgencia = reader(8)
+        End While
+        reader.Close()
+        Return True
+    End Function
+    Public Function ModificarCoches(ByVal marca As String, ByVal modelo As String, ByVal color As String, ByVal kilometraje As Long, ByVal nPasajeros As Integer, ByVal alquiler As Decimal, ByVal fotografia As String, ByVal tipo As String, ByVal idAgencia As Integer) As Boolean
         Dim resourcesPath = Application.StartupPath & DirectorySeparatorChar & ".." & DirectorySeparatorChar & ".." & DirectorySeparatorChar & "Resources" & DirectorySeparatorChar & "Coches" & DirectorySeparatorChar
 
-        matricula = matricula.Trim
+        'matricula = matricula.Trim
         marca = marca.Trim
         modelo = modelo.Trim
         color = color.Trim
         fotografia = fotografia.Trim
         tipo = tipo.Trim
 
-        If matricula.Length = 0 Then
-            MsgBox("Ingrese una matrícula!", MsgBoxStyle.Critical, "Registro de Coche")
-            Return False
-        ElseIf _noCoincide("^((O|CD|CC|MI|N|PNC|E|P|A|C|V|PR|T|RE|AB|MB|F|M|D)\d{3})((\s\d{3})|\d{3})$", matricula.ToUpper) Then
-            MsgBox("Ingrese una matrícula válida!", MsgBoxStyle.Critical, "Registro de Coche")
-            Return False
-        Else
-            _matricula = matricula.ToUpper
-        End If
+        'If matricula.Length = 0 Then
+        '    MsgBox("Ingrese una matrícula!", MsgBoxStyle.Critical, "Modificar Coche")
+        '    Return False
+        'ElseIf _noCoincide("^((O|CD|CC|MI|N|PNC|E|P|A|C|V|PR|T|RE|AB|MB|F|M|D)\d{3})((\s\d{3})|\d{3})$", matricula.ToUpper) Then
+        '    MsgBox("Ingrese una matrícula válida!", MsgBoxStyle.Critical, "Modificar Coche")
+        '    Return False
+        'Else
+        '    _matricula = matricula.ToUpper
+        'End If
 
         If marca.Length = 0 Then
-            MsgBox("Ingrese una marca de coche!", MsgBoxStyle.Critical, "Registro de Coche")
+            MsgBox("Ingrese una marca de coche!", MsgBoxStyle.Critical, "Modificar Coche")
             Return False
         Else
             _marca = marca
         End If
 
         If kilometraje < 0 Then
-            MsgBox("Ingrese un kilometraje válido!", MsgBoxStyle.Critical, "Registro de Coche")
+            MsgBox("Ingrese un kilometraje válido!", MsgBoxStyle.Critical, "Modificar Coche")
             Return False
         Else
             _kilometraje = kilometraje
         End If
 
         If nPasajeros <= 0 Then
-            MsgBox("Ingrese una cantidad de pasajeros válida!", MsgBoxStyle.Critical, "Registro de Coche")
+            MsgBox("Ingrese una cantidad de pasajeros válida!", MsgBoxStyle.Critical, "Modificar Coche")
             Return False
         Else
             _nPasajeros = nPasajeros
         End If
 
         If alquiler <= 0 Then
-            MsgBox("Ingrese un monto de alquiler válido!", MsgBoxStyle.Critical, "Registro de Coche")
+            MsgBox("Ingrese un monto de alquiler válido!", MsgBoxStyle.Critical, "Modificar Coche")
             Return False
         Else
             _alquiler = CDbl(Format(alquiler, "0.00"))
         End If
         If tipo.Length = 0 Then
-            MsgBox("Ingrese un tipo de de coche!", MsgBoxStyle.Critical, "Registro de Coche")
+            MsgBox("Ingrese un tipo de de coche!", MsgBoxStyle.Critical, "Modificar Coche")
             Return False
         Else
             _tipo = tipo
         End If
 
         If modelo.Length = 0 Then
-            MsgBox("Ingrese un modelo de coche!", MsgBoxStyle.Critical, "Registro de Coche")
+            MsgBox("Ingrese un modelo de coche!", MsgBoxStyle.Critical, "Modificar Coche")
             Return False
         Else
             _modelo = modelo
         End If
 
         If color.Length = 0 Then
-            MsgBox("Ingrese un color de de coche!", MsgBoxStyle.Critical, "Registro de Coche")
+            MsgBox("Ingrese un color de de coche!", MsgBoxStyle.Critical, "Modificar Coche")
             Return False
         Else
             _color = color
         End If
 
         If fotografia.Length = 0 Then
-            MsgBox("Ingrese una fotografía!", MsgBoxStyle.Critical, "Registro de Coche")
+            MsgBox("Ingrese una fotografía!", MsgBoxStyle.Critical, "Modificar Coche")
             Return False
         ElseIf Not _rutaDeArchivoValida(fotografia) Then
-            MsgBox("Ingrese una fotografía válida!", MsgBoxStyle.Critical, "Registro de Coche")
+            MsgBox("Ingrese una fotografía válida!", MsgBoxStyle.Critical, "Modificar Coche")
             Return False
         ElseIf Not _esImagen(fotografia) Then
-            MsgBox("Ingrese archivo que sea una fotografía!", MsgBoxStyle.Critical, "Registro de Coche")
+            MsgBox("Ingrese archivo que sea una fotografía!", MsgBoxStyle.Critical, "Modificar Coche")
             Return False
         Else
             Dim auxfoto As String = Split(fotografia, DirectorySeparatorChar)(Split(fotografia, DirectorySeparatorChar).Length - 1)
@@ -254,16 +273,16 @@ Public Class clsCoches
         If _buscarRegistro("agencias", "id_agencia", idAgencia.ToString) Then
             _idAgencia = idAgencia
         Else
-            MsgBox("Seleccione una agencia que exista!", MsgBoxStyle.Critical, "Registro de Coche")
+            MsgBox("Seleccione una agencia que exista!", MsgBoxStyle.Critical, "Modificar Coche")
             Return False
         End If
 
 
-        Dim consultaMatricula As String = "SELECT * FROM coches WHERE placa = '" & _matricula & "';"
-        If Conexion.contarFilas(consultaMatricula) > 0 Then
-            MsgBox("La matrícula del coche que deseas registrar ya existe!", MsgBoxStyle.Critical, "Registro de Coche")
-            Return False
-        End If
+        'Dim consultaMatricula As String = "SELECT * FROM coches WHERE placa = '" & _matricula & "';"
+        'If Conexion.contarFilas(consultaMatricula) = 0 Then
+        '    MsgBox("La matrícula del coche que deseas modificar no existe!", MsgBoxStyle.Critical, "Modificar Coche")
+        '    Return False
+        'End If
 
         'Se modifica el coche al pasar las validaciones
         Dim reader As MySqlDataReader
@@ -274,7 +293,7 @@ Public Class clsCoches
             coch = reader(0)
         End While
         reader.Close()
-        Dim queryU As String = "UPDATE coches SET placa = '" & _matricula & "', marca = '" & _marca & "', modelo = '" & _modelo & "', color = '" & _color & "', kilometraje = '" & _kilometraje.ToString & "', num_pasajeros = '" & _nPasajeros.ToString & "', precio_alquiler = '" & _alquiler.ToString & "', fotografia = '" & _fotografia & "', tipo = '" & _tipo & "', estado = 'A', id_agencia = '" & _idAgencia & "' WHERE id_coche = '" & coch & "';"
+        Dim queryU As String = "UPDATE coches SET marca = '" & _marca & "', modelo = '" & _modelo & "', color = '" & _color & "', kilometraje = '" & _kilometraje.ToString & "', num_pasajeros = '" & _nPasajeros.ToString & "', precio_alquiler = '" & _alquiler.ToString & "', fotografia = '" & _fotografia & "', tipo = '" & _tipo & "', estado = 'A', id_agencia = '" & _idAgencia & "' WHERE id_coche = '" & coch & "';"
         If Conexion.modificarDatos(queryU, auxId) Then
             'OBTENER ÍNDICE GUARDADO Y GUARDARLO EN _idCoche
             _idCoche = auxId
@@ -510,8 +529,6 @@ Public Class clsCoches
     End Sub
 
     Public Sub opcionesBusquedaAutos(ByVal combo1 As ComboBox, ByVal combo2 As ComboBox)
-
-
         If combo1.SelectedItem.ToString = "Marca" Then
             If Conexion.contarFilas("SELECT marca FROM coches WHERE estado = 'A'") = 0 Then
                 MsgBox("Error: No hay marcas registradas.")
@@ -523,12 +540,14 @@ Public Class clsCoches
                 MsgBox("Error: No hay marcas registradas.")
             Else
                 Conexion.llenarCombo(combo2, "SELECT id_coche, modelo FROM coches WHERE estado = 'A'", 0, 1)
+
             End If
         ElseIf combo1.SelectedItem.ToString = "Num de pasajeros" Then
             If Conexion.contarFilas("SELECT num_pasajeros FROM coches WHERE estado = 'A'") = 0 Then
                 MsgBox("Error: No hay marcas registradas.")
             Else
                 Conexion.llenarCombo(combo2, "SELECT id_coche, num_pasajeros FROM coches WHERE estado = 'A'", 0, 1)
+
             End If
         ElseIf combo1.SelectedItem.ToString = "Costo de alquiler" Then
             If Conexion.contarFilas("SELECT precio_alquiler FROM coches WHERE estado = 'A'") = 0 Then
@@ -541,10 +560,9 @@ Public Class clsCoches
                 MsgBox("Error: No hay marcas registradas.")
             Else
                 Conexion.llenarCombo(combo2, "SELECT id_coche, tipo FROM coches WHERE estado = 'A'", 0, 1)
+
             End If
         End If
-
-
     End Sub
 
     Public Sub modificarCochesDisponibles(ByRef dgv As DataGridView, ByVal cmb As ComboBox, ByVal cmb2 As ComboBox, ByRef listabusqueda() As clsCoches)

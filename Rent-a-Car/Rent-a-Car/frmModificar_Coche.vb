@@ -13,7 +13,8 @@ Public Class frmModificar_Coche
         SkinManager.Theme = MaterialSkinManager.Themes.LIGHT
         SkinManager.ColorScheme = New ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE)
         Coches = New clsCoches
-
+        Conexion.llenarCombo(ComboBox2, "SELECT placa FROM coches WHERE estado = 'A'", 0, 0)
+        btnModificar_Coche.Enabled = False
         If Conexion.contarFilas("SELECT * FROM agencias;") > 0 Then
             Conexion.llenarCombo(cmbAgenciaCoche, "SELECT * FROM agencias;", 0, 1)
         Else
@@ -30,7 +31,6 @@ Public Class frmModificar_Coche
     Private Sub cmbBuscar_Autos_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbBuscar_Autos.SelectedIndexChanged
         Coches.opcionesBusquedaAutos(cmbBuscar_Autos, ComboBox1)
     End Sub
-
     Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
         Coches.modificarCochesDisponibles(dgvBuscar_Coche, ComboBox1, cmbBuscar_Autos, busquedaLista)
     End Sub
@@ -45,9 +45,8 @@ Public Class frmModificar_Coche
             tipo = ""
         End Try
         Coches = New clsCoches
-        If Coches.ModificarCoches(txbMatricula.Text, txbMarca.Text, txbModelo.Text, txbColor.Text, txbKilometraje.Text, txbNumero_Pasajeros.Text, txbPrecio_Alquiler.Text, ofdFoto.FileName, tipo, cmbAgenciaCoche.SelectedValue) Then
+        If Coches.ModificarCoches(txbMarca.Text, txbModelo.Text, txbColor.Text, txbKilometraje.Text, txbNumero_Pasajeros.Text, txbPrecio_Alquiler.Text, ofdFoto.FileName, tipo, cmbAgenciaCoche.SelectedValue) Then
             MsgBox("Auto modificado con exito", MsgBoxStyle.Information)
-            txbMatricula.Text = ""
             txbMarca.Text = ""
             txbModelo.Text = ""
             txbColor.Text = ""
@@ -55,8 +54,12 @@ Public Class frmModificar_Coche
             txbNumero_Pasajeros.Text = ""
             txbPrecio_Alquiler.Text = ""
             ofdFoto.FileName = ""
+            btnModificar_Coche.Enabled = False
+            btnVerDatos.Enabled = True
+            ComboBox1.SelectedValue = ""
             tipo = ""
             cmbAgenciaCoche.SelectedValue = 0
+
             btnFoto.Text = "+ Agregue una foto"
             picCoche.ImageLocation = Nothing
             obtenerRadio().Checked = False
@@ -75,6 +78,31 @@ Public Class frmModificar_Coche
         If ofdFoto.ShowDialog() = DialogResult.OK Then
             btnFoto.Text = Path.GetFileName(ofdFoto.FileName)
             picCoche.ImageLocation = ofdFoto.FileName
+        End If
+    End Sub
+
+    Private Sub btnVerDatos_Click(sender As Object, e As EventArgs) Handles btnVerDatos.Click
+        Dim placa As String
+        Dim marca As String
+        Dim modelo As String
+        Dim color As String
+        Dim kilometraje As String
+        Dim N_pasa As String
+        Dim alquiler As String
+        Dim agencia As String
+        Dim tipo As String = ""
+
+        placa = ComboBox2.SelectedValue
+        If Coches.LlenarDatosModificar(placa, marca, modelo, color, kilometraje, N_pasa, alquiler, btnFoto, tipo, agencia) Then
+            btnModificar_Coche.Enabled = True
+            txbMarca.Text = marca
+            txbModelo.Text = modelo
+            txbColor.Text = color
+            txbKilometraje.Text = kilometraje
+            txbNumero_Pasajeros.Text = N_pasa
+            txbPrecio_Alquiler.Text = alquiler
+            cmbAgenciaCoche.SelectedIndex = agencia
+            btnVerDatos.Enabled = True
         End If
     End Sub
 End Class

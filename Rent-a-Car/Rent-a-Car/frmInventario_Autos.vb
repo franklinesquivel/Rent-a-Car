@@ -16,10 +16,7 @@ Public Class frmInventario_Autos
     End Sub
 
     Private Sub cmbBuscar_Autos_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbBuscar_Autos.SelectedIndexChanged
-
         Coches.opcionesBusquedaAutos(cmbBuscar_Autos, ComboBox1)
-
-
     End Sub
     Private Sub ComboBox1_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles ComboBox1.SelectionChangeCommitted
         Coches.mostrarDisponibles(dgvInventario_Autos, ComboBox1, cmbBuscar_Autos, busquedaLista)

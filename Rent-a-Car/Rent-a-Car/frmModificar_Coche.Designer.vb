@@ -43,7 +43,6 @@ Partial Class frmModificar_Coche
         Me.lblMarca = New MaterialSkin.Controls.MaterialLabel()
         Me.txbMarca = New MaterialSkin.Controls.MaterialSingleLineTextField()
         Me.lblMatricula = New MaterialSkin.Controls.MaterialLabel()
-        Me.txbMatricula = New MaterialSkin.Controls.MaterialSingleLineTextField()
         Me.lblBuscar_Coche = New MaterialSkin.Controls.MaterialLabel()
         Me.dgvBuscar_Coche = New System.Windows.Forms.DataGridView()
         Me.btnRegresar = New MaterialSkin.Controls.MaterialRaisedButton()
@@ -54,6 +53,8 @@ Partial Class frmModificar_Coche
         Me.cmbBuscar_Autos = New System.Windows.Forms.ComboBox()
         Me.cmbAgenciaCoche = New System.Windows.Forms.ComboBox()
         Me.picCoche = New System.Windows.Forms.PictureBox()
+        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
+        Me.btnVerDatos = New MaterialSkin.Controls.MaterialFlatButton()
         CType(Me.dgvBuscar_Coche, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.mnsMenu.SuspendLayout()
         CType(Me.picCoche, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -274,7 +275,7 @@ Partial Class frmModificar_Coche
         Me.lblColor.Depth = 0
         Me.lblColor.Font = New System.Drawing.Font("Roboto", 11.0!)
         Me.lblColor.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblColor.Location = New System.Drawing.Point(396, 303)
+        Me.lblColor.Location = New System.Drawing.Point(396, 317)
         Me.lblColor.MouseState = MaterialSkin.MouseState.HOVER
         Me.lblColor.Name = "lblColor"
         Me.lblColor.Size = New System.Drawing.Size(46, 19)
@@ -285,7 +286,7 @@ Partial Class frmModificar_Coche
         '
         Me.txbColor.Depth = 0
         Me.txbColor.Hint = ""
-        Me.txbColor.Location = New System.Drawing.Point(482, 299)
+        Me.txbColor.Location = New System.Drawing.Point(482, 313)
         Me.txbColor.MouseState = MaterialSkin.MouseState.HOVER
         Me.txbColor.Name = "txbColor"
         Me.txbColor.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -302,7 +303,7 @@ Partial Class frmModificar_Coche
         Me.lblModelo.Depth = 0
         Me.lblModelo.Font = New System.Drawing.Font("Roboto", 11.0!)
         Me.lblModelo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblModelo.Location = New System.Drawing.Point(396, 261)
+        Me.lblModelo.Location = New System.Drawing.Point(396, 277)
         Me.lblModelo.MouseState = MaterialSkin.MouseState.HOVER
         Me.lblModelo.Name = "lblModelo"
         Me.lblModelo.Size = New System.Drawing.Size(60, 19)
@@ -313,7 +314,7 @@ Partial Class frmModificar_Coche
         '
         Me.txbModelo.Depth = 0
         Me.txbModelo.Hint = ""
-        Me.txbModelo.Location = New System.Drawing.Point(482, 261)
+        Me.txbModelo.Location = New System.Drawing.Point(482, 277)
         Me.txbModelo.MouseState = MaterialSkin.MouseState.HOVER
         Me.txbModelo.Name = "txbModelo"
         Me.txbModelo.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -330,7 +331,7 @@ Partial Class frmModificar_Coche
         Me.lblMarca.Depth = 0
         Me.lblMarca.Font = New System.Drawing.Font("Roboto", 11.0!)
         Me.lblMarca.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblMarca.Location = New System.Drawing.Point(29, 303)
+        Me.lblMarca.Location = New System.Drawing.Point(29, 317)
         Me.lblMarca.MouseState = MaterialSkin.MouseState.HOVER
         Me.lblMarca.Name = "lblMarca"
         Me.lblMarca.Size = New System.Drawing.Size(51, 19)
@@ -341,7 +342,7 @@ Partial Class frmModificar_Coche
         '
         Me.txbMarca.Depth = 0
         Me.txbMarca.Hint = ""
-        Me.txbMarca.Location = New System.Drawing.Point(137, 299)
+        Me.txbMarca.Location = New System.Drawing.Point(137, 313)
         Me.txbMarca.MouseState = MaterialSkin.MouseState.HOVER
         Me.txbMarca.Name = "txbMarca"
         Me.txbMarca.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -358,27 +359,12 @@ Partial Class frmModificar_Coche
         Me.lblMatricula.Depth = 0
         Me.lblMatricula.Font = New System.Drawing.Font("Roboto", 11.0!)
         Me.lblMatricula.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblMatricula.Location = New System.Drawing.Point(29, 261)
+        Me.lblMatricula.Location = New System.Drawing.Point(23, 222)
         Me.lblMatricula.MouseState = MaterialSkin.MouseState.HOVER
         Me.lblMatricula.Name = "lblMatricula"
-        Me.lblMatricula.Size = New System.Drawing.Size(72, 19)
+        Me.lblMatricula.Size = New System.Drawing.Size(151, 19)
         Me.lblMatricula.TabIndex = 30
-        Me.lblMatricula.Text = "Matrícula"
-        '
-        'txbMatricula
-        '
-        Me.txbMatricula.Depth = 0
-        Me.txbMatricula.Hint = ""
-        Me.txbMatricula.Location = New System.Drawing.Point(137, 261)
-        Me.txbMatricula.MouseState = MaterialSkin.MouseState.HOVER
-        Me.txbMatricula.Name = "txbMatricula"
-        Me.txbMatricula.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.txbMatricula.SelectedText = ""
-        Me.txbMatricula.SelectionLength = 0
-        Me.txbMatricula.SelectionStart = 0
-        Me.txbMatricula.Size = New System.Drawing.Size(218, 23)
-        Me.txbMatricula.TabIndex = 29
-        Me.txbMatricula.UseSystemPasswordChar = False
+        Me.lblMatricula.Text = "Seleccione una placa"
         '
         'lblBuscar_Coche
         '
@@ -398,7 +384,7 @@ Partial Class frmModificar_Coche
         Me.dgvBuscar_Coche.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvBuscar_Coche.Location = New System.Drawing.Point(218, 81)
         Me.dgvBuscar_Coche.Name = "dgvBuscar_Coche"
-        Me.dgvBuscar_Coche.Size = New System.Drawing.Size(498, 146)
+        Me.dgvBuscar_Coche.Size = New System.Drawing.Size(498, 128)
         Me.dgvBuscar_Coche.TabIndex = 72
         '
         'btnRegresar
@@ -471,11 +457,37 @@ Partial Class frmModificar_Coche
         Me.picCoche.TabIndex = 82
         Me.picCoche.TabStop = False
         '
+        'ComboBox2
+        '
+        Me.ComboBox2.FormattingEnabled = True
+        Me.ComboBox2.Location = New System.Drawing.Point(27, 258)
+        Me.ComboBox2.Name = "ComboBox2"
+        Me.ComboBox2.Size = New System.Drawing.Size(187, 21)
+        Me.ComboBox2.TabIndex = 83
+        '
+        'btnVerDatos
+        '
+        Me.btnVerDatos.AutoSize = True
+        Me.btnVerDatos.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.btnVerDatos.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnVerDatos.Depth = 0
+        Me.btnVerDatos.Location = New System.Drawing.Point(234, 249)
+        Me.btnVerDatos.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
+        Me.btnVerDatos.MouseState = MaterialSkin.MouseState.HOVER
+        Me.btnVerDatos.Name = "btnVerDatos"
+        Me.btnVerDatos.Primary = False
+        Me.btnVerDatos.Size = New System.Drawing.Size(85, 36)
+        Me.btnVerDatos.TabIndex = 84
+        Me.btnVerDatos.Text = "Ver datos"
+        Me.btnVerDatos.UseVisualStyleBackColor = True
+        '
         'frmModificar_Coche
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(740, 676)
+        Me.Controls.Add(Me.btnVerDatos)
+        Me.Controls.Add(Me.ComboBox2)
         Me.Controls.Add(Me.picCoche)
         Me.Controls.Add(Me.cmbAgenciaCoche)
         Me.Controls.Add(Me.ComboBox1)
@@ -504,7 +516,6 @@ Partial Class frmModificar_Coche
         Me.Controls.Add(Me.lblMarca)
         Me.Controls.Add(Me.txbMarca)
         Me.Controls.Add(Me.lblMatricula)
-        Me.Controls.Add(Me.txbMatricula)
         Me.Controls.Add(Me.mnsMenu)
         Me.MainMenuStrip = Me.mnsMenu
         Me.Name = "frmModificar_Coche"
@@ -541,7 +552,6 @@ Partial Class frmModificar_Coche
     Friend WithEvents lblMarca As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents txbMarca As MaterialSkin.Controls.MaterialSingleLineTextField
     Friend WithEvents lblMatricula As MaterialSkin.Controls.MaterialLabel
-    Friend WithEvents txbMatricula As MaterialSkin.Controls.MaterialSingleLineTextField
     Friend WithEvents lblBuscar_Coche As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents dgvBuscar_Coche As DataGridView
     Friend WithEvents btnRegresar As MaterialSkin.Controls.MaterialRaisedButton
@@ -552,4 +562,6 @@ Partial Class frmModificar_Coche
     Friend WithEvents cmbBuscar_Autos As ComboBox
     Friend WithEvents cmbAgenciaCoche As ComboBox
     Friend WithEvents picCoche As PictureBox
+    Friend WithEvents ComboBox2 As ComboBox
+    Friend WithEvents btnVerDatos As MaterialSkin.Controls.MaterialFlatButton
 End Class
