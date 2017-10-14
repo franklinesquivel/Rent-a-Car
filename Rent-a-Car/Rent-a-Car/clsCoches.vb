@@ -188,25 +188,61 @@ Public Class clsCoches
         reader.Close()
         Return True
     End Function
+    Public Function ModificarRenta(ByVal matricula As String, ByVal alquiler As Decimal, ByVal tipo As String) As Boolean
+        matricula = matricula.Trim
+        tipo = tipo.Trim
+
+        If matricula.Length = 0 Then
+            MsgBox("Ingrese una matrícula!", MsgBoxStyle.Critical, "Modificar Renta Coche")
+            Return False
+        ElseIf _noCoincide("^((O|CD|CC|MI|N|PNC|E|P|A|C|V|PR|T|RE|AB|MB|F|M|D)\d{3})((\s\d{3})|\d{3})$", matricula.ToUpper) Then
+            MsgBox("Ingrese una matrícula válida!", MsgBoxStyle.Critical, "Modificar Renta Coche")
+            Return False
+        Else
+            _matricula = matricula.ToUpper
+        End If
+
+        If alquiler <= 0 Then
+            MsgBox("Ingrese un monto de alquiler válido!", MsgBoxStyle.Critical, "Modificar Renta Coche")
+            Return False
+        Else
+            _alquiler = CDbl(Format(alquiler, "0.00"))
+        End If
+        If tipo.Length = 0 Then
+            MsgBox("Ingrese un tipo de de coche!", MsgBoxStyle.Critical, "Modificar Renta Coche")
+            Return False
+        Else
+            If tipo = "Activo" Then
+                tipo = "A"
+            ElseIf tipo = "Reparación" Then
+                tipo = "R"
+            End If
+            _tipo = tipo
+        End If
+        'Se modifica el coche al pasar las validaciones
+        Dim reader As MySqlDataReader
+        Dim auxId As Integer = 1
+        Dim coch As String
+        Conexion.obtenerDatos("SELECT id_coche FROM coches WHERE placa = '" & _matricula & "'", reader)
+        While reader.Read()
+            coch = reader(0)
+        End While
+        reader.Close()
+        Dim queryU As String = "UPDATE coches SET precio_alquiler = '" & _alquiler.ToString & "', estado = '" & _tipo & "' WHERE id_coche = '" & coch & "';"
+        If Conexion.modificarDatos(queryU, auxId) Then
+            Return True
+        Else
+            Return False
+        End If
+    End Function
     Public Function ModificarCoches(ByVal marca As String, ByVal modelo As String, ByVal color As String, ByVal kilometraje As Long, ByVal nPasajeros As Integer, ByVal alquiler As Decimal, ByVal fotografia As String, ByVal tipo As String, ByVal idAgencia As Integer) As Boolean
         Dim resourcesPath = Application.StartupPath & DirectorySeparatorChar & ".." & DirectorySeparatorChar & ".." & DirectorySeparatorChar & "Resources" & DirectorySeparatorChar & "Coches" & DirectorySeparatorChar
 
-        'matricula = matricula.Trim
         marca = marca.Trim
         modelo = modelo.Trim
         color = color.Trim
         fotografia = fotografia.Trim
         tipo = tipo.Trim
-
-        'If matricula.Length = 0 Then
-        '    MsgBox("Ingrese una matrícula!", MsgBoxStyle.Critical, "Modificar Coche")
-        '    Return False
-        'ElseIf _noCoincide("^((O|CD|CC|MI|N|PNC|E|P|A|C|V|PR|T|RE|AB|MB|F|M|D)\d{3})((\s\d{3})|\d{3})$", matricula.ToUpper) Then
-        '    MsgBox("Ingrese una matrícula válida!", MsgBoxStyle.Critical, "Modificar Coche")
-        '    Return False
-        'Else
-        '    _matricula = matricula.ToUpper
-        'End If
 
         If marca.Length = 0 Then
             MsgBox("Ingrese una marca de coche!", MsgBoxStyle.Critical, "Modificar Coche")
@@ -276,13 +312,6 @@ Public Class clsCoches
             MsgBox("Seleccione una agencia que exista!", MsgBoxStyle.Critical, "Modificar Coche")
             Return False
         End If
-
-
-        'Dim consultaMatricula As String = "SELECT * FROM coches WHERE placa = '" & _matricula & "';"
-        'If Conexion.contarFilas(consultaMatricula) = 0 Then
-        '    MsgBox("La matrícula del coche que deseas modificar no existe!", MsgBoxStyle.Critical, "Modificar Coche")
-        '    Return False
-        'End If
 
         'Se modifica el coche al pasar las validaciones
         Dim reader As MySqlDataReader

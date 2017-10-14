@@ -22,9 +22,6 @@ Partial Class frmGestionar_Autos
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.txbBuscar_Coche = New MaterialSkin.Controls.MaterialSingleLineTextField()
-        Me.lblBuscar_Coche = New MaterialSkin.Controls.MaterialLabel()
-        Me.dgvBuscar_Coche = New System.Windows.Forms.DataGridView()
         Me.btnModificar_Datos = New MaterialSkin.Controls.MaterialFlatButton()
         Me.txtCosto_Renta = New MaterialSkin.Controls.MaterialSingleLineTextField()
         Me.lblCosto_Renta = New MaterialSkin.Controls.MaterialLabel()
@@ -34,45 +31,15 @@ Partial Class frmGestionar_Autos
         Me.btnRegresar = New MaterialSkin.Controls.MaterialRaisedButton()
         Me.mnsMenu = New System.Windows.Forms.MenuStrip()
         Me.mnsCerrar_Sesion = New System.Windows.Forms.ToolStripMenuItem()
-        CType(Me.dgvBuscar_Coche, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.cmbBuscar_Autos = New System.Windows.Forms.ComboBox()
+        Me.MaterialLabel1 = New MaterialSkin.Controls.MaterialLabel()
+        Me.dgvBuscarCoche = New System.Windows.Forms.DataGridView()
+        Me.lblMatricula = New MaterialSkin.Controls.MaterialLabel()
         Me.mnsMenu.SuspendLayout()
+        CType(Me.dgvBuscarCoche, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'txbBuscar_Coche
-        '
-        Me.txbBuscar_Coche.Depth = 0
-        Me.txbBuscar_Coche.Hint = ""
-        Me.txbBuscar_Coche.Location = New System.Drawing.Point(161, 95)
-        Me.txbBuscar_Coche.MouseState = MaterialSkin.MouseState.HOVER
-        Me.txbBuscar_Coche.Name = "txbBuscar_Coche"
-        Me.txbBuscar_Coche.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.txbBuscar_Coche.SelectedText = ""
-        Me.txbBuscar_Coche.SelectionLength = 0
-        Me.txbBuscar_Coche.SelectionStart = 0
-        Me.txbBuscar_Coche.Size = New System.Drawing.Size(344, 23)
-        Me.txbBuscar_Coche.TabIndex = 68
-        Me.txbBuscar_Coche.UseSystemPasswordChar = False
-        '
-        'lblBuscar_Coche
-        '
-        Me.lblBuscar_Coche.AutoSize = True
-        Me.lblBuscar_Coche.Depth = 0
-        Me.lblBuscar_Coche.Font = New System.Drawing.Font("Roboto", 11.0!)
-        Me.lblBuscar_Coche.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblBuscar_Coche.Location = New System.Drawing.Point(25, 95)
-        Me.lblBuscar_Coche.MouseState = MaterialSkin.MouseState.HOVER
-        Me.lblBuscar_Coche.Name = "lblBuscar_Coche"
-        Me.lblBuscar_Coche.Size = New System.Drawing.Size(100, 19)
-        Me.lblBuscar_Coche.TabIndex = 67
-        Me.lblBuscar_Coche.Text = "Buscar coche"
-        '
-        'dgvBuscar_Coche
-        '
-        Me.dgvBuscar_Coche.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvBuscar_Coche.Location = New System.Drawing.Point(29, 128)
-        Me.dgvBuscar_Coche.Name = "dgvBuscar_Coche"
-        Me.dgvBuscar_Coche.Size = New System.Drawing.Size(476, 132)
-        Me.dgvBuscar_Coche.TabIndex = 66
         '
         'btnModificar_Datos
         '
@@ -196,11 +163,76 @@ Partial Class frmGestionar_Autos
         Me.mnsCerrar_Sesion.Size = New System.Drawing.Size(102, 23)
         Me.mnsCerrar_Sesion.Text = "Cerrar Sesión"
         '
+        'ComboBox2
+        '
+        Me.ComboBox2.FormattingEnabled = True
+        Me.ComboBox2.Location = New System.Drawing.Point(12, 238)
+        Me.ComboBox2.Name = "ComboBox2"
+        Me.ComboBox2.Size = New System.Drawing.Size(157, 21)
+        Me.ComboBox2.TabIndex = 95
+        '
+        'ComboBox1
+        '
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Location = New System.Drawing.Point(12, 154)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(157, 21)
+        Me.ComboBox1.TabIndex = 94
+        '
+        'cmbBuscar_Autos
+        '
+        Me.cmbBuscar_Autos.FormattingEnabled = True
+        Me.cmbBuscar_Autos.Items.AddRange(New Object() {"Marca", "Modelo", "Num de pasajeros", "Costo de alquiler", "Tipo de auto"})
+        Me.cmbBuscar_Autos.Location = New System.Drawing.Point(12, 116)
+        Me.cmbBuscar_Autos.Name = "cmbBuscar_Autos"
+        Me.cmbBuscar_Autos.Size = New System.Drawing.Size(157, 21)
+        Me.cmbBuscar_Autos.TabIndex = 93
+        '
+        'MaterialLabel1
+        '
+        Me.MaterialLabel1.AutoSize = True
+        Me.MaterialLabel1.Depth = 0
+        Me.MaterialLabel1.Font = New System.Drawing.Font("Roboto", 11.0!)
+        Me.MaterialLabel1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.MaterialLabel1.Location = New System.Drawing.Point(12, 81)
+        Me.MaterialLabel1.MouseState = MaterialSkin.MouseState.HOVER
+        Me.MaterialLabel1.Name = "MaterialLabel1"
+        Me.MaterialLabel1.Size = New System.Drawing.Size(126, 19)
+        Me.MaterialLabel1.TabIndex = 92
+        Me.MaterialLabel1.Text = "Buscar coche por"
+        '
+        'dgvBuscarCoche
+        '
+        Me.dgvBuscarCoche.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvBuscarCoche.Location = New System.Drawing.Point(187, 90)
+        Me.dgvBuscarCoche.Name = "dgvBuscarCoche"
+        Me.dgvBuscarCoche.Size = New System.Drawing.Size(334, 159)
+        Me.dgvBuscarCoche.TabIndex = 91
+        '
+        'lblMatricula
+        '
+        Me.lblMatricula.AutoSize = True
+        Me.lblMatricula.Depth = 0
+        Me.lblMatricula.Font = New System.Drawing.Font("Roboto", 11.0!)
+        Me.lblMatricula.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblMatricula.Location = New System.Drawing.Point(12, 199)
+        Me.lblMatricula.MouseState = MaterialSkin.MouseState.HOVER
+        Me.lblMatricula.Name = "lblMatricula"
+        Me.lblMatricula.Size = New System.Drawing.Size(151, 19)
+        Me.lblMatricula.TabIndex = 90
+        Me.lblMatricula.Text = "Seleccione una placa"
+        '
         'frmGestionar_Autos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(533, 472)
+        Me.Controls.Add(Me.ComboBox2)
+        Me.Controls.Add(Me.ComboBox1)
+        Me.Controls.Add(Me.cmbBuscar_Autos)
+        Me.Controls.Add(Me.MaterialLabel1)
+        Me.Controls.Add(Me.dgvBuscarCoche)
+        Me.Controls.Add(Me.lblMatricula)
         Me.Controls.Add(Me.btnRegresar)
         Me.Controls.Add(Me.rdbActivo)
         Me.Controls.Add(Me.rdbReparacion)
@@ -208,26 +240,19 @@ Partial Class frmGestionar_Autos
         Me.Controls.Add(Me.txtCosto_Renta)
         Me.Controls.Add(Me.lblCosto_Renta)
         Me.Controls.Add(Me.btnModificar_Datos)
-        Me.Controls.Add(Me.txbBuscar_Coche)
-        Me.Controls.Add(Me.lblBuscar_Coche)
-        Me.Controls.Add(Me.dgvBuscar_Coche)
         Me.Controls.Add(Me.mnsMenu)
         Me.MainMenuStrip = Me.mnsMenu
         Me.Name = "frmGestionar_Autos"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Gestionar Autos                                                                  " &
     "        Rent-a-Car"
-        CType(Me.dgvBuscar_Coche, System.ComponentModel.ISupportInitialize).EndInit()
         Me.mnsMenu.ResumeLayout(False)
         Me.mnsMenu.PerformLayout()
+        CType(Me.dgvBuscarCoche, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-
-    Friend WithEvents txbBuscar_Coche As MaterialSkin.Controls.MaterialSingleLineTextField
-    Friend WithEvents lblBuscar_Coche As MaterialSkin.Controls.MaterialLabel
-    Friend WithEvents dgvBuscar_Coche As DataGridView
     Friend WithEvents btnModificar_Datos As MaterialSkin.Controls.MaterialFlatButton
     Friend WithEvents txtCosto_Renta As MaterialSkin.Controls.MaterialSingleLineTextField
     Friend WithEvents lblCosto_Renta As MaterialSkin.Controls.MaterialLabel
@@ -237,4 +262,10 @@ Partial Class frmGestionar_Autos
     Friend WithEvents btnRegresar As MaterialSkin.Controls.MaterialRaisedButton
     Friend WithEvents mnsMenu As MenuStrip
     Friend WithEvents mnsCerrar_Sesion As ToolStripMenuItem
+    Friend WithEvents ComboBox2 As ComboBox
+    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents cmbBuscar_Autos As ComboBox
+    Friend WithEvents MaterialLabel1 As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents dgvBuscarCoche As DataGridView
+    Friend WithEvents lblMatricula As MaterialSkin.Controls.MaterialLabel
 End Class
