@@ -95,6 +95,7 @@ Module mdlDeclaracionClases
                 frmMenu_Admin.Show()
             ElseIf ObtenerNombreUsuario.Substring(0, 1).ToUpper = "G" Then
                 EstablecerTipoUsuario = "G"
+                Conexion.obtenerDatos("SELECT * FROM usuarios WHERE nombre_usuario = '" & ObtenerNombreUsuario & "'", reader)
                 reader.Read()
                 EstablecerIdUsuario = reader(0)
                 reader.Close()

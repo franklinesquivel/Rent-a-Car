@@ -36,4 +36,9 @@ Public Class frmMenu_Agentes
         frmInicio_Sesion.Show()
         Me.Close()
     End Sub
+
+    Private Sub btnRentar_Auto_Click(sender As Object, e As EventArgs) Handles btnRentar_Auto.Click
+        frmRentar_Autos.Show()
+        Me.Hide()
+    End Sub
 End Class

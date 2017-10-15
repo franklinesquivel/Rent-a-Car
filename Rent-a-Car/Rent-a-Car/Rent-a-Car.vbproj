@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{52361AE1-4342-4995-9879-8B4FE2C65F98}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>Rent_a_Car.frmGestionar_Autos</StartupObject>
+    <StartupObject>Rent_a_Car.frmMenu_Agentes</StartupObject>
     <RootNamespace>Rent_a_Car</RootNamespace>
     <AssemblyName>Rent-a-Car</AssemblyName>
     <FileAlignment>512</FileAlignment>
@@ -175,6 +175,12 @@
     <Compile Include="frmInventario_Autos.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmRentar_Autos.Designer.vb">
+      <DependentUpon>frmRentar_Autos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmRentar_Autos.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmReportes_Coches.Designer.vb">
       <DependentUpon>frmReportes_Coches.vb</DependentUpon>
     </Compile>
@@ -257,6 +263,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmInventario_Autos.resx">
       <DependentUpon>frmInventario_Autos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRentar_Autos.resx">
+      <DependentUpon>frmRentar_Autos.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmReportes_Coches.resx">
       <DependentUpon>frmReportes_Coches.vb</DependentUpon>

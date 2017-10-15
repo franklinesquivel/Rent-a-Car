@@ -1,9 +1,15 @@
-﻿Public Class clsAgencias
+﻿Imports MySql.Data.MySqlClient
+Public Class clsAgencias
     Private _idAgencia As Integer
     Private _nombre As String
     Private _direccion As String
     Private _telefono As String
     Private Conexion As clsConexion = New clsConexion()
+    Public ReadOnly Property ObtenerNombre() As String
+        Get
+            Return _nombre
+        End Get
+    End Property
 
     Public Sub New(Optional ByVal id As Integer = Nothing)
         If id <> Nothing Then
