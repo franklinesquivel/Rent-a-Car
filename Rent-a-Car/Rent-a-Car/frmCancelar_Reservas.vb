@@ -15,7 +15,7 @@ Public Class frmCancelar_Reservas
     End Sub
 
     Private Sub btnRegresar_Click(sender As Object, e As EventArgs) Handles btnRegresar.Click
-        frmMenu_Admin.Show()
+        frmMenu_Agentes.Show()
         Me.Close()
     End Sub
     Private Sub dgvCancelar_Reservas_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvCancelar_Reservas.CellClick
@@ -37,12 +37,16 @@ Public Class frmCancelar_Reservas
         Dim indice = Reservas.BuscarIndice(txbCodigo_Reserva.Text, listaReservas)
         If indice > -1 Then
             If Reservas.CancelarReserva(listaReservas(indice)) Then
-                MsgBox("Reserva cancelad cone exito")
+                MsgBox("Reserva cancelada con exito")
             Else
                 MsgBox("Error: Problemas de ejecución")
             End If
         Else
             MsgBox("Error: El código de reserva no esta registrado")
         End If
+    End Sub
+
+    Private Sub dgvCancelar_Reservas_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvCancelar_Reservas.CellContentClick
+
     End Sub
 End Class

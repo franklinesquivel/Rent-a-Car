@@ -35,7 +35,10 @@ Partial Class frmDevolucion_Auto
         Me.btnRegresar = New MaterialSkin.Controls.MaterialRaisedButton()
         Me.mnsMenu = New System.Windows.Forms.MenuStrip()
         Me.mnsCerrar_Sesion = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MaterialLabel1 = New MaterialSkin.Controls.MaterialLabel()
+        Me.dgvDevolucion = New System.Windows.Forms.DataGridView()
         Me.mnsMenu.SuspendLayout()
+        CType(Me.dgvDevolucion, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btnConfirmar
@@ -44,7 +47,7 @@ Partial Class frmDevolucion_Auto
         Me.btnConfirmar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.btnConfirmar.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnConfirmar.Depth = 0
-        Me.btnConfirmar.Location = New System.Drawing.Point(237, 432)
+        Me.btnConfirmar.Location = New System.Drawing.Point(233, 468)
         Me.btnConfirmar.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
         Me.btnConfirmar.MouseState = MaterialSkin.MouseState.HOVER
         Me.btnConfirmar.Name = "btnConfirmar"
@@ -60,7 +63,7 @@ Partial Class frmDevolucion_Auto
         Me.rdbBuen_Estado.Cursor = System.Windows.Forms.Cursors.Hand
         Me.rdbBuen_Estado.Depth = 0
         Me.rdbBuen_Estado.Font = New System.Drawing.Font("Roboto", 10.0!)
-        Me.rdbBuen_Estado.Location = New System.Drawing.Point(43, 125)
+        Me.rdbBuen_Estado.Location = New System.Drawing.Point(46, 166)
         Me.rdbBuen_Estado.Margin = New System.Windows.Forms.Padding(0)
         Me.rdbBuen_Estado.MouseLocation = New System.Drawing.Point(-1, -1)
         Me.rdbBuen_Estado.MouseState = MaterialSkin.MouseState.HOVER
@@ -78,7 +81,7 @@ Partial Class frmDevolucion_Auto
         Me.rdbChocado.Cursor = System.Windows.Forms.Cursors.Hand
         Me.rdbChocado.Depth = 0
         Me.rdbChocado.Font = New System.Drawing.Font("Roboto", 10.0!)
-        Me.rdbChocado.Location = New System.Drawing.Point(212, 125)
+        Me.rdbChocado.Location = New System.Drawing.Point(205, 166)
         Me.rdbChocado.Margin = New System.Windows.Forms.Padding(0)
         Me.rdbChocado.MouseLocation = New System.Drawing.Point(-1, -1)
         Me.rdbChocado.MouseState = MaterialSkin.MouseState.HOVER
@@ -96,7 +99,7 @@ Partial Class frmDevolucion_Auto
         Me.lblEstado_Coche.Depth = 0
         Me.lblEstado_Coche.Font = New System.Drawing.Font("Roboto", 11.0!)
         Me.lblEstado_Coche.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblEstado_Coche.Location = New System.Drawing.Point(39, 87)
+        Me.lblEstado_Coche.Location = New System.Drawing.Point(45, 132)
         Me.lblEstado_Coche.MouseState = MaterialSkin.MouseState.HOVER
         Me.lblEstado_Coche.Name = "lblEstado_Coche"
         Me.lblEstado_Coche.Size = New System.Drawing.Size(125, 19)
@@ -107,7 +110,7 @@ Partial Class frmDevolucion_Auto
         '
         Me.dtpFecha_Devolucion.CalendarFont = New System.Drawing.Font("Segoe UI Semilight", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtpFecha_Devolucion.Font = New System.Drawing.Font("Segoe UI Semilight", 9.0!)
-        Me.dtpFecha_Devolucion.Location = New System.Drawing.Point(275, 177)
+        Me.dtpFecha_Devolucion.Location = New System.Drawing.Point(275, 211)
         Me.dtpFecha_Devolucion.MaxDate = New Date(2100, 12, 31, 0, 0, 0, 0)
         Me.dtpFecha_Devolucion.MinDate = New Date(2017, 9, 23, 0, 0, 0, 0)
         Me.dtpFecha_Devolucion.Name = "dtpFecha_Devolucion"
@@ -120,7 +123,7 @@ Partial Class frmDevolucion_Auto
         Me.lblFecha_Devolucion.Depth = 0
         Me.lblFecha_Devolucion.Font = New System.Drawing.Font("Roboto", 11.0!)
         Me.lblFecha_Devolucion.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblFecha_Devolucion.Location = New System.Drawing.Point(39, 181)
+        Me.lblFecha_Devolucion.Location = New System.Drawing.Point(39, 214)
         Me.lblFecha_Devolucion.MouseState = MaterialSkin.MouseState.HOVER
         Me.lblFecha_Devolucion.Name = "lblFecha_Devolucion"
         Me.lblFecha_Devolucion.Size = New System.Drawing.Size(215, 19)
@@ -130,7 +133,7 @@ Partial Class frmDevolucion_Auto
         'txbDescripcion_Problema
         '
         Me.txbDescripcion_Problema.BackColor = System.Drawing.SystemColors.Control
-        Me.txbDescripcion_Problema.Location = New System.Drawing.Point(43, 245)
+        Me.txbDescripcion_Problema.Location = New System.Drawing.Point(43, 298)
         Me.txbDescripcion_Problema.Multiline = True
         Me.txbDescripcion_Problema.Name = "txbDescripcion_Problema"
         Me.txbDescripcion_Problema.Size = New System.Drawing.Size(477, 99)
@@ -142,7 +145,7 @@ Partial Class frmDevolucion_Auto
         Me.lblDescripcion_Problema.Depth = 0
         Me.lblDescripcion_Problema.Font = New System.Drawing.Font("Roboto", 11.0!)
         Me.lblDescripcion_Problema.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblDescripcion_Problema.Location = New System.Drawing.Point(39, 214)
+        Me.lblDescripcion_Problema.Location = New System.Drawing.Point(39, 262)
         Me.lblDescripcion_Problema.MouseState = MaterialSkin.MouseState.HOVER
         Me.lblDescripcion_Problema.Name = "lblDescripcion_Problema"
         Me.lblDescripcion_Problema.Size = New System.Drawing.Size(180, 19)
@@ -155,7 +158,7 @@ Partial Class frmDevolucion_Auto
         Me.lblMonto_Cancelar.Depth = 0
         Me.lblMonto_Cancelar.Font = New System.Drawing.Font("Roboto", 11.0!)
         Me.lblMonto_Cancelar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblMonto_Cancelar.Location = New System.Drawing.Point(42, 361)
+        Me.lblMonto_Cancelar.Location = New System.Drawing.Point(42, 400)
         Me.lblMonto_Cancelar.MouseState = MaterialSkin.MouseState.HOVER
         Me.lblMonto_Cancelar.Name = "lblMonto_Cancelar"
         Me.lblMonto_Cancelar.Size = New System.Drawing.Size(217, 19)
@@ -166,7 +169,7 @@ Partial Class frmDevolucion_Auto
         '
         Me.txbMonto_Cancelar.Depth = 0
         Me.txbMonto_Cancelar.Hint = ""
-        Me.txbMonto_Cancelar.Location = New System.Drawing.Point(46, 394)
+        Me.txbMonto_Cancelar.Location = New System.Drawing.Point(46, 436)
         Me.txbMonto_Cancelar.MouseState = MaterialSkin.MouseState.HOVER
         Me.txbMonto_Cancelar.Name = "txbMonto_Cancelar"
         Me.txbMonto_Cancelar.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -181,7 +184,7 @@ Partial Class frmDevolucion_Auto
         '
         Me.btnRegresar.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnRegresar.Depth = 0
-        Me.btnRegresar.Location = New System.Drawing.Point(414, 467)
+        Me.btnRegresar.Location = New System.Drawing.Point(414, 499)
         Me.btnRegresar.MouseState = MaterialSkin.MouseState.HOVER
         Me.btnRegresar.Name = "btnRegresar"
         Me.btnRegresar.Primary = True
@@ -195,7 +198,7 @@ Partial Class frmDevolucion_Auto
         Me.mnsMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnsCerrar_Sesion})
         Me.mnsMenu.Location = New System.Drawing.Point(0, 0)
         Me.mnsMenu.Name = "mnsMenu"
-        Me.mnsMenu.Size = New System.Drawing.Size(562, 27)
+        Me.mnsMenu.Size = New System.Drawing.Size(573, 27)
         Me.mnsMenu.TabIndex = 60
         Me.mnsMenu.Text = "MenuStrip1"
         '
@@ -206,11 +209,35 @@ Partial Class frmDevolucion_Auto
         Me.mnsCerrar_Sesion.Size = New System.Drawing.Size(102, 23)
         Me.mnsCerrar_Sesion.Text = "Cerrar Sesión"
         '
+        'MaterialLabel1
+        '
+        Me.MaterialLabel1.AutoSize = True
+        Me.MaterialLabel1.Depth = 0
+        Me.MaterialLabel1.Font = New System.Drawing.Font("Roboto", 11.0!)
+        Me.MaterialLabel1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.MaterialLabel1.Location = New System.Drawing.Point(42, 87)
+        Me.MaterialLabel1.MouseState = MaterialSkin.MouseState.HOVER
+        Me.MaterialLabel1.Name = "MaterialLabel1"
+        Me.MaterialLabel1.Size = New System.Drawing.Size(191, 19)
+        Me.MaterialLabel1.TabIndex = 61
+        Me.MaterialLabel1.Text = "Placa de Coche a Devolver:"
+        '
+        'dgvDevolucion
+        '
+        Me.dgvDevolucion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvDevolucion.Location = New System.Drawing.Point(252, 83)
+        Me.dgvDevolucion.Name = "dgvDevolucion"
+        Me.dgvDevolucion.ReadOnly = True
+        Me.dgvDevolucion.Size = New System.Drawing.Size(294, 80)
+        Me.dgvDevolucion.TabIndex = 62
+        '
         'frmDevolucion_Auto
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(562, 506)
+        Me.ClientSize = New System.Drawing.Size(573, 547)
+        Me.Controls.Add(Me.dgvDevolucion)
+        Me.Controls.Add(Me.MaterialLabel1)
         Me.Controls.Add(Me.btnRegresar)
         Me.Controls.Add(Me.txbMonto_Cancelar)
         Me.Controls.Add(Me.lblMonto_Cancelar)
@@ -230,6 +257,7 @@ Partial Class frmDevolucion_Auto
     "          Rent-a-Car"
         Me.mnsMenu.ResumeLayout(False)
         Me.mnsMenu.PerformLayout()
+        CType(Me.dgvDevolucion, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -248,4 +276,6 @@ Partial Class frmDevolucion_Auto
     Friend WithEvents btnRegresar As MaterialSkin.Controls.MaterialRaisedButton
     Friend WithEvents mnsMenu As MenuStrip
     Friend WithEvents mnsCerrar_Sesion As ToolStripMenuItem
+    Friend WithEvents MaterialLabel1 As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents dgvDevolucion As DataGridView
 End Class

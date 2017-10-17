@@ -25,23 +25,29 @@ Public Class frmRentar_Autos
     Private Sub btnRentar_Autos_Click(sender As Object, e As EventArgs) Handles btnRentar_Autos.Click
         Dim Rentas As clsRentas
         Rentas = New clsRentas
-        Dim indice = Reservas.BuscarIndice(txbCodigo_Reserva.Text, listaReservas)
-        Dim indiceCliente As Integer = Clientes.BuscarIndice(dgvRentar_Autos.CurrentRow.Cells(1).Value, listaClientes)
-        Dim indiceAgencia As Integer
-        Dim indiceCoche As Integer = Coches.BuscarIndice(dgvRentar_Autos.CurrentRow.Cells(3).Value, listaCoches)
+        Dim indice As Integer = Reservas.BuscarIndice(txbCodigo_Reserva.Text, listaReservas)
+        Dim user As Integer = Rentas.ChequearReserva(indice)
+        Dim indiceCliente As Integer = Rentas.idCliente
+        Dim indiceAgencia As Integer = Rentas.idAgencia
+        Dim indiceCoche As Integer = Rentas.idCoche
         Dim indiceUsuario As Integer = Session.ObtenerIdUsuario
-        Dim fechaR As Date = dgvRentar_Autos.CurrentRow.Cells(5).Value
-        Dim fechaD As Date = dgvRentar_Autos.CurrentRow.Cells(6).Value
-        If indiceCliente > -1 Then
-            If indiceAgencia Then
-                If Rentas.registrarRenta(indiceCliente, indiceAgencia, indiceCoche, indiceUsuario, fechaR, fechaD) Then
-                    MsgBox("Renta Agregada con exito")
-                Else
-                    MsgBox("Error: Problemas de ejecución")
-                End If
-            End If
+        Dim fechaR As Date = Rentas.getFechaRetiro
+        Dim fechaD As Date = Rentas.getFechadevo
+        If Rentas.registrarRenta(indiceCliente, indiceAgencia, indiceCoche, indiceUsuario, fechaR.ToString("yyyy-MM-dd"), fechaD.ToString("yyyy-MM-dd")) Then
+            Rentas.ReservaRealizada(listaReservas(indice))
+            MsgBox("Renta Agregada con exito")
         Else
-            MsgBox("Error: El código de reserva no esta registrado")
-        End If
+            MsgBox("Error: Problemas de ejecución")
+            End If
+    End Sub
+
+    Private Sub btnRegresar_Click(sender As Object, e As EventArgs) Handles btnRegresar.Click
+        frmMenu_Agentes.Show()
+        Me.Close()
+    End Sub
+
+    Private Sub btnNoExiste_Click(sender As Object, e As EventArgs) Handles btnNoExiste.Click
+        frmRenta_Directa.Show()
+        Me.Hide()
     End Sub
 End Class

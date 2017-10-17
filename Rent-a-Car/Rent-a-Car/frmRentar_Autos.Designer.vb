@@ -27,6 +27,7 @@ Partial Class frmRentar_Autos
         Me.txbCodigo_Reserva = New MaterialSkin.Controls.MaterialSingleLineTextField()
         Me.lblCodigo_Reserva = New MaterialSkin.Controls.MaterialLabel()
         Me.dgvRentar_Autos = New System.Windows.Forms.DataGridView()
+        Me.btnNoExiste = New MaterialSkin.Controls.MaterialFlatButton()
         CType(Me.dgvRentar_Autos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -34,7 +35,7 @@ Partial Class frmRentar_Autos
         '
         Me.btnRegresar.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnRegresar.Depth = 0
-        Me.btnRegresar.Location = New System.Drawing.Point(443, 215)
+        Me.btnRegresar.Location = New System.Drawing.Point(501, 230)
         Me.btnRegresar.MouseState = MaterialSkin.MouseState.HOVER
         Me.btnRegresar.Name = "btnRegresar"
         Me.btnRegresar.Primary = True
@@ -49,7 +50,7 @@ Partial Class frmRentar_Autos
         Me.btnRentar_Autos.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.btnRentar_Autos.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnRentar_Autos.Depth = 0
-        Me.btnRentar_Autos.Location = New System.Drawing.Point(249, 181)
+        Me.btnRentar_Autos.Location = New System.Drawing.Point(418, 174)
         Me.btnRentar_Autos.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
         Me.btnRentar_Autos.MouseState = MaterialSkin.MouseState.HOVER
         Me.btnRentar_Autos.Name = "btnRentar_Autos"
@@ -96,11 +97,28 @@ Partial Class frmRentar_Autos
         Me.dgvRentar_Autos.Size = New System.Drawing.Size(476, 93)
         Me.dgvRentar_Autos.TabIndex = 68
         '
+        'btnNoExiste
+        '
+        Me.btnNoExiste.AutoSize = True
+        Me.btnNoExiste.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.btnNoExiste.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnNoExiste.Depth = 0
+        Me.btnNoExiste.Location = New System.Drawing.Point(73, 221)
+        Me.btnNoExiste.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
+        Me.btnNoExiste.MouseState = MaterialSkin.MouseState.HOVER
+        Me.btnNoExiste.Name = "btnNoExiste"
+        Me.btnNoExiste.Primary = False
+        Me.btnNoExiste.Size = New System.Drawing.Size(143, 36)
+        Me.btnNoExiste.TabIndex = 73
+        Me.btnNoExiste.Text = "renta sin reserva"
+        Me.btnNoExiste.UseVisualStyleBackColor = True
+        '
         'frmRentar_Autos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(619, 262)
+        Me.ClientSize = New System.Drawing.Size(619, 277)
+        Me.Controls.Add(Me.btnNoExiste)
         Me.Controls.Add(Me.btnRegresar)
         Me.Controls.Add(Me.btnRentar_Autos)
         Me.Controls.Add(Me.txbCodigo_Reserva)
@@ -120,4 +138,5 @@ Partial Class frmRentar_Autos
     Friend WithEvents txbCodigo_Reserva As MaterialSkin.Controls.MaterialSingleLineTextField
     Friend WithEvents lblCodigo_Reserva As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents dgvRentar_Autos As DataGridView
+    Friend WithEvents btnNoExiste As MaterialSkin.Controls.MaterialFlatButton
 End Class

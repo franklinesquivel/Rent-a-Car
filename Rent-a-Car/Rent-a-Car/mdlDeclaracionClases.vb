@@ -8,6 +8,7 @@ Module mdlDeclaracionClases
     Public Clientes As clsClientes 'Variable para el tipo de clase clsClientes
     Public Coches As clsCoches 'Variable para el tipo de clase clsCoches
     Public Reservas As clsReservas 'Varuable para el tipo de clase clsReservas
+    Public Rentas As clsRentas
     'Public Encriptar As clsEncriptacion 'Variable para el tipo de clase clsEncriptar
     'Public Conexion As clsConexion 'Variable para el tipo de clase clsConexion
     Public paises As clsPaises
