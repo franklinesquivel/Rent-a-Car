@@ -8,7 +8,7 @@ Public Class clsRentas
     Private _idUsuario As Integer
     Private _fechaRetiro As Date
     Private _fechaEntrega As Date
-    Private _estado As Boolean
+    Private _estado As String
     Private _precio As Decimal
     Private Conexion As clsConexion = New clsConexion()
     Private clsArchivo As clsFactura = New clsFactura()
@@ -49,12 +49,12 @@ Public Class clsRentas
         End Set
     End Property
     'obtener fecha retiro
-    Public ReadOnly Property getFechaRetiro
+    Public ReadOnly Property getFechaRetiro() As Date
         Get
             Return _fechaRetiro
         End Get
     End Property
-    Public ReadOnly Property getFechadevo
+    Public ReadOnly Property getFechadevo() As Date
         Get
             Return _fechaEntrega
         End Get
@@ -205,12 +205,12 @@ Public Class clsRentas
                 Rentas.EstablecerIdAgencia = reader(2)
                 Rentas.EstablecerIdCoche = reader(3)
                 Rentas.EstablecerIdUsuario = reader(4)
-                Rentas.EstablecerFechaInicio = reader(5)
-                Rentas.EstablecerFechaFin = reader(6)
+                Rentas.EstablecerFechaInicio = CDate(reader(5))
+                Rentas.EstablecerFechaFin = CDate(reader(6))
+
                 Rentas.EstablecerEstado = reader(7)
 
                 listaRentas(i) = Rentas 'Se guarda el objeto en el array
-                MsgBox(i)
                 With dgv
                     i = .RowCount
                     .Rows.Add()
