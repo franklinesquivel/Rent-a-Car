@@ -93,7 +93,7 @@ Public Class frmModificar_Coche
         Dim tipo As String = ""
 
         placa = ComboBox2.SelectedValue
-        If Coches.LlenarDatosModificar(placa, marca, modelo, color, kilometraje, N_pasa, alquiler, btnFoto, tipo, agencia) Then
+        If Coches.LlenarDatosModificar(placa, marca, modelo, color, kilometraje, N_pasa, alquiler, btnFoto, tipo, agencia, picCoche) Then
             btnModificar_Coche.Enabled = True
             txbMarca.Text = marca
             txbModelo.Text = modelo
@@ -103,6 +103,14 @@ Public Class frmModificar_Coche
             txbPrecio_Alquiler.Text = alquiler
             cmbAgenciaCoche.SelectedIndex = agencia
             btnVerDatos.Enabled = True
+            MsgBox(tipo)
+            If tipo = "Sedan" Then
+                rdbSedan.Checked = True
+            ElseIf tipo = "Pickups" Then
+                rdbPickups.Checked = True
+            ElseIf tipo = "Microbuses" Then
+                rdbMicrobuses.Checked = True
+            End If
         End If
     End Sub
 

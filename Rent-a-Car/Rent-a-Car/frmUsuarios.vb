@@ -12,19 +12,19 @@ Public Class frmUsuarios
         If rdbAdministrador.Checked = True Then
             Administradores = New clsAdministradores
             'tipo = rdbAdministrador.Text
-            If Administradores.Registrar(txbNombre.Text, txbApellido.Text) Then
+            If Administradores.Registrar(txbNombre.Text, txbApellido.Text, txbCorreo.Text) Then
                 MsgBox("Registro Exitoso. Usuario:" & Administradores.ObtenerNombreUsuario & "Contraseña: " & Administradores.ObtenerContrasenna)
             End If
         ElseIf rdbAgente.Checked = True Then
             'tipo = rdbAgente.Text
             Gerente = New clsGerentes
-            If Gerente.Registrar(txbNombre.Text, txbApellido.Text) Then
+            If Gerente.Registrar(txbNombre.Text, txbApellido.Text, txbCorreo.Text) Then
                 MsgBox("Registro Exitoso. Usuario:" & Gerente.ObtenerNombreUsuario & "Contraseña: " & Gerente.ObtenerContrasenna)
             End If
         ElseIf rdbContador.Checked = True Then
             'tipo = rdbContador.Text
             Contador = New clsContadores
-            If Contador.Registrar(txbNombre.Text, txbApellido.Text) Then
+            If Contador.Registrar(txbNombre.Text, txbApellido.Text, txbCorreo.Text) Then
                 MsgBox("Registro Exitoso. Usuario:" & Contador.ObtenerNombreUsuario & "Contraseña: " & Contador.ObtenerContrasenna)
             End If
         End If

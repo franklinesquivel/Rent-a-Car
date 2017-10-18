@@ -18,4 +18,8 @@ Public Class frmAgencias
         frmMenu_Admin.Show()
         Me.Close()
     End Sub
+
+    Private Sub mnsCerrar_Sesion_Click(sender As Object, e As EventArgs) Handles mnsCerrar_Sesion.Click
+        Session.CerrarSession()
+    End Sub
 End Class

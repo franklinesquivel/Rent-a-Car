@@ -6,7 +6,7 @@
         tipoUsuario = "Contador"
     End Sub
     'Metodos
-    Public Overloads Function Registrar(ByVal _nombres As String, ByVal _apellidos As String)
+    Public Overloads Function Registrar(ByVal _nombres As String, ByVal _apellidos As String, ByVal _correo As String)
         _nombres = _nombres.Trim
         _apellidos = _apellidos.Trim
 
@@ -20,6 +20,6 @@
             Return False
         End If
 
-        Return MyBase.Registrar(_nombres, _apellidos, tipoUsuario)
+        Return MyBase.Registrar(_nombres, _apellidos, tipoUsuario, _correo)
     End Function
 End Class

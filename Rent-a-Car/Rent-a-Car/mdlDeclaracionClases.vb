@@ -63,21 +63,18 @@ Module mdlDeclaracionClases
             Dim formTitles As New Collection
             frmInicio_Sesion.Show()
 
-            'For Each f As Form In My.Application.OpenForms 'Se cierran los forms abiertos
-            'f.Hide()
-            'Next
+            For Each f As Form In Application.OpenForms 'Se cierran los forms abiertos
+                f.Hide()
+            Next
+            frmInicio_Sesion.Show()
         End Sub
 
-        Public Sub Enrutador(ByRef formActual As Form)
-            If _tipoUsuario <> Nothing And _idUsuario <> Nothing Then
-                If _tipoUsuario = "A" Then 'Administrador
-                    frmMenu_Admin.Show()
-                ElseIf _tipoUsuario = "G" Then 'Gerente
-                    frmMenu_Agentes.Show()
-                ElseIf _tipoUsuario = "C" Then 'Contador
-                    frmMenu_contador.Show()
-                End If
-                formActual.Hide()
+        Public Sub ControlarSession(ByRef formActual As Form)
+            If _tipoUsuario = Nothing And _idUsuario = Nothing Then
+                For Each f As Form In Application.OpenForms 'Se cierran los forms abiertos
+                    f.Hide()
+                Next
+                frmInicio_Sesion.Show()
             End If
         End Sub
 
@@ -85,7 +82,6 @@ Module mdlDeclaracionClases
             EstablecerNombreUsuario = idUsuario.ToUpper
             Dim reader As MySqlDataReader
             Dim Conexion As New clsConexion()
-
 
             If ObtenerNombreUsuario.Substring(0, 1).ToUpper = "A" Then
                 EstablecerTipoUsuario = "A"

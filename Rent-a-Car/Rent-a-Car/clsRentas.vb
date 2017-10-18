@@ -12,7 +12,7 @@ Public Class clsRentas
     Private _precio As Decimal
     Private _dias As Integer
     Private _tasaMulta As Integer = 3
-    Private _total As Decimal
+    Private _total As Decimal = 0
     Private Conexion As clsConexion = New clsConexion()
     Private clsArchivo As clsFactura = New clsFactura()
 
@@ -132,6 +132,11 @@ Public Class clsRentas
             Return _dias
         End Get
     End Property
+    Public ReadOnly Property ObtenerPrecio() As Decimal
+        Get
+            Return _precio
+        End Get
+    End Property
     Public Function Registrar(ByVal _fechaInicio As String, ByVal _fechaFin As String, ByVal cliente As clsClientes, ByVal coche As clsCoches, ByVal _idAgencia As String)
         Dim rgx_fecha = New Regex("^\d{2}\d{2}\d{4}$")
 
@@ -159,8 +164,8 @@ Public Class clsRentas
             MyClass.EstablecerIdCoche = coche.ObtenerIdCoche
             MyClass.EstablecerIdCliente = cliente.ObtenerIdCliente
             MyClass.EstablecerIdUsuario = Session.ObtenerIdUsuario
-
-            If Conexion.modificarDatos("INSERT INTO rentas VALUES(" & "NULL" & ", " & idCliente & ", " & idAgencia & ", " & idCoche & ", " & Session.ObtenerIdUsuario & ", '" & _fechaInicio & "', '" & _fechaFin & "' ,'Activa')") Then
+            MyClass.EstablecerPrecio = coche.ObtenerPrecioAlquiler * DateDiff(DateInterval.Day, CDate(_fechaInicio), CDate(_fechaFin))
+            If Conexion.modificarDatos("INSERT INTO rentas VALUES(" & "NULL" & ", " & idCliente & ", " & idAgencia & ", " & idCoche & ", " & Session.ObtenerIdUsuario & ", '" & _fechaInicio & "', '" & _fechaFin & "' ,'Activa',  " & _precio & ") ") Then
                 clsArchivo.GenerarPDF(cliente, coche, _precio)
                 Return True
             Else
@@ -172,12 +177,20 @@ Public Class clsRentas
         End If
     End Function
 
-    Public Function registrarRenta(ByVal idCliente As Integer, ByVal idAgencia As Integer, ByVal idCoche As Integer, ByVal idUsuario As Integer, ByVal fechaR As String, ByVal fechaD As String) As Boolean
-        If Conexion.modificarDatos("INSERT INTO rentas VALUES(" & "NULL" & ", " & idCliente & ", " & idAgencia & ", " & idCoche & ", " & idUsuario & ", '" & fechaR & "', '" & fechaD & "' ,'Activa')") Then
-            'clsArchivo.GenerarPDF()
-            Return True
-        Else
+    Public Function registrarRenta(ByVal idCliente As Integer, ByVal idAgencia As Integer, ByVal idCoche As Integer, ByVal idUsuario As Integer, ByVal fechaR As String, ByVal fechaD As String, ByVal codigoReserva As String) As Boolean
+        If Conexion.contarFilas("SELECT * FROM reserva WHERE id_reserva = '" & codigoReserva & "'") = 0 Then
+            MsgBox("Error: El código de reserva no existe")
             Return False
+        Else
+            Dim reader As MySqlDataReader
+            Conexion.obtenerDatos("SELECT precio_pagar FROM reserva WHERE id_reserva = '" & codigoReserva & "'", reader)
+            If Conexion.modificarDatos("INSERT INTO rentas VALUES(" & "NULL" & ", " & idCliente & ", " & idAgencia & ", " & idCoche & ", " & idUsuario & ", '" & fechaR & "', '" & fechaD & "' ,'Activa')") Then
+                'clsArchivo.GenerarPDF(cliente, coche, reader(0))
+                reader.Close()
+                Return True
+            Else
+                Return False
+            End If
         End If
     End Function
     Public Function ReservaRealizada(ByVal reserva As clsReservas) As Boolean
@@ -251,43 +264,22 @@ Public Class clsRentas
             Return 1
         End If
     End Function
-    Public Function Devolucion(ByVal id As Integer) As Boolean
-        If Conexion.modificarDatos("UPDATE rentas SET estado = 'Devuelto' WHERE id_renta = '" & id & "'") Then
-            Return 1
-        Else
-            Return 0
-        End If
-    End Function
-    Public Function DevolucionDespues(ByVal id As Integer, ByVal descripcion As String) As Boolean
-        If Conexion.modificarDatos("INSERT INTO multas VALUES(" & "NULL" & ", " & id & ", '" & descripcion & "', " & Total & ")") Then
+
+    Public Function DevolverCoche(ByVal id As Integer, ByVal tipoDevolucion As Integer, ByVal Fecha1 As String, ByVal Fecha2 As String, Optional ByVal descripcion As String = Nothing) As Boolean
+        If tipoDevolucion = 1 Then 'Condicional cuando todo va bien
+
+            If MyClass.Calcular(Fecha1, Fecha2) Then 'Registra la multa
+                Conexion.modificarDatos("INSERT INTO multas VALUES(" & "NULL" & ", " & id & ", '" & descripcion & "', " & Total & ")")
+                MsgBox("Total a pagar de multas por tardía $" & Total)
+            End If
+
+            'Registro cuando todo va bien
             If Conexion.modificarDatos("UPDATE rentas SET estado = 'Devuelto' WHERE id_renta = '" & id & "'") Then
                 Return 1
             Else
                 Return 0
             End If
-        End If
-    End Function
-    Public Function CocheChocado(ByVal id As Integer, ByVal descripcion As String, ByVal multa As Decimal) As Boolean
-        If Conexion.modificarDatos("INSERT INTO multas VALUES(" & "NULL" & ", " & id & ", '" & descripcion & "', " & multa & ")") Then
-            If Conexion.modificarDatos("UPDATE rentas SET estado = 'Devuelto' WHERE id_renta = '" & id & "'") Then
-                Return 1
-            Else
-                Return 0
-            End If
-        End If
-    End Function
 
-    Public Function DevolverCoche(ByVal id As Integer, ByVal tipoDevolucion As Integer, Optional ByVal descripcion As String = Nothing) As Boolean
-        If tipoDevolucion = 1 Then 'Devolución tardía
-
-            'Registro de la multa
-            If Conexion.modificarDatos("INSERT INTO multas VALUES(" & "NULL" & ", " & id & ", '" & descripcion & "', " & Total & ")") Then
-                If Conexion.modificarDatos("UPDATE rentas SET estado = 'Devuelto' WHERE id_renta = '" & id & "'") Then
-                    Return 1
-                Else
-                    Return 0
-                End If
-            End If
 
         ElseIf tipoDevolucion = 2 Then 'Daños al auto
             Dim multa As Decimal = 0
@@ -295,20 +287,41 @@ Public Class clsRentas
                 multa = InputBox("Ingrese la Multa por el coche chocado")
             End While
 
-            'Registro
-            If Conexion.modificarDatos("INSERT INTO multas VALUES(" & "NULL" & ", " & id & ", '" & descripcion & "', " & multa & ")") Then
+            If MyClass.Calcular(Fecha1, Fecha2) Then 'Registra la multa por tardía
+                MsgBox("Total a pagar de multas por tardía $" & Total)
+            End If
+
+            'Registro multa por choque
+            If Conexion.modificarDatos("INSERT INTO multas VALUES(" & "NULL" & ", " & id & ", '" & descripcion & "', " & (multa + Total) & ")") Then
                 If Conexion.modificarDatos("UPDATE rentas SET estado = 'Devuelto' WHERE id_renta = '" & id & "'") Then
-                    Return 1
+
+                    Dim reader As MySqlDataReader 'Se obtiene el id del coche
+                    Conexion.obtenerDatos("SELECT c.id_coche FROM rentas r INNER JOIN coches c ON c.id_coche = r.id_coche WHERE r.id_renta = '" & id & "'", reader)
+
+                    'Modifica el estado del coche
+                    reader.Read()
+                    If Conexion.modificarDatos("UPDATE coches SET estado = 'R' WHERE id_coche = '" & reader(0) & "'") Then
+                        reader.Close()
+                        Return 1
+                    End If
                 Else
                     Return 0
                 End If
             End If
         End If
     End Function
-    Public Function Calcular(ByVal fecha1 As Date, fecha2 As Date)
-        _dias = (fecha1 - fecha2).TotalDays
-        _total = _dias * _tasaMulta
-        Return MsgBox("Total a Pagar de Multa: $" & _total.ToString)
+    Public Function Calcular(ByVal fecha1 As Date, fecha2 As Date) As Boolean
+        _dias = (fecha2 - fecha1).TotalDays
+        If _dias > 0 Then
+            _total = _dias * _tasaMulta
+            If Total > 0 Then
+                Return 1
+            Else
+                Return 0
+            End If
+        Else
+            Return 0
+        End If
     End Function
 
     Public Function Reportes(ByVal tipo As String, ByRef dgv As DataGridView, Optional ByVal Fecha As Date = Nothing)

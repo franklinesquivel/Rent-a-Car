@@ -67,6 +67,26 @@ Public Class clsEmail
         Catch ex As Exception
             MsgBox("Error: El correo electrónico no se ha enviado correctamente")
         End Try
-
     End Sub
+
+    Public Function RecuperarContrasenna(ByVal emailUsuario As String, ByVal contrasenna As String) As Boolean
+        Try
+            smtpServer.UseDefaultCredentials = False
+            smtpServer.Credentials = New Net.NetworkCredential("ezic2017@gmail.com", "niu126/17/9.pjc.IEY")
+            smtpServer.Port = 587
+            smtpServer.Host = "smtp.gmail.com"
+            smtpServer.EnableSsl = True
+
+            mensaje.From = New MailAddress("ezic2017@gmail.com")
+            mensaje.To.Add(emailUsuario)
+            mensaje.Subject = "Rent a car: Recuperación de contraseña"
+            mensaje.IsBodyHtml = True
+            mensaje.Body = "<b>Contraseña: </b>" & contrasenna
+            smtpServer.Send(mensaje)
+            Return 1
+        Catch ex As Exception
+            MsgBox("Error: El correo electrónico no se ha enviado correctamente")
+            Return 0
+        End Try
+    End Function
 End Class

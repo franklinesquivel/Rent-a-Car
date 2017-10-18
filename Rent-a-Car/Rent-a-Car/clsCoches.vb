@@ -169,8 +169,9 @@ Public Class clsCoches
         End Set
     End Property
     'Métodos
-    Public Function LlenarDatosModificar(ByRef placa As String, ByRef marca As String, ByRef modelo As String, ByRef color As String, ByRef kilometraje As String, ByRef nPasajeros As String, ByRef alquiler As String, ByVal fotografia As Button, ByVal tipo As String, ByRef idAgencia As String) As Boolean
+    Public Function LlenarDatosModificar(ByRef placa As String, ByRef marca As String, ByRef modelo As String, ByRef color As String, ByRef kilometraje As String, ByRef nPasajeros As String, ByRef alquiler As String, ByVal fotografia As Button, ByRef tipo As String, ByRef idAgencia As String, ByRef picFoto As PictureBox) As Boolean
         Dim reader As MySqlDataReader
+        Dim resourcesPath = Application.StartupPath & DirectorySeparatorChar & ".." & DirectorySeparatorChar & ".." & DirectorySeparatorChar & "Resources" & DirectorySeparatorChar & "Coches" & DirectorySeparatorChar
         Dim auxId As Integer = 1
         placa = placa.Trim
         Conexion.obtenerDatos("SELECT marca,modelo,color,kilometraje,num_pasajeros,precio_alquiler,fotografia,tipo,id_agencia FROM coches WHERE placa = '" & placa & "'", reader)
@@ -184,6 +185,7 @@ Public Class clsCoches
             fotografia.Text = reader(6)
             tipo = reader(7)
             idAgencia = reader(8)
+            picFoto.ImageLocation = resourcesPath + reader(6)
         End While
         reader.Close()
         Return True

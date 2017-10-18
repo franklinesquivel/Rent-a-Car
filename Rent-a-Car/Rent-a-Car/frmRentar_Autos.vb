@@ -33,12 +33,10 @@ Public Class frmRentar_Autos
         Dim indiceUsuario As Integer = Session.ObtenerIdUsuario
         Dim fechaR As Date = Rentas.getFechaRetiro
         Dim fechaD As Date = Rentas.getFechadevo
-        If Rentas.registrarRenta(indiceCliente, indiceAgencia, indiceCoche, indiceUsuario, fechaR.ToString("yyyy-MM-dd"), fechaD.ToString("yyyy-MM-dd")) Then
+        If Rentas.registrarRenta(indiceCliente, indiceAgencia, indiceCoche, indiceUsuario, fechaR.ToString("yyyy-MM-dd"), fechaD.ToString("yyyy-MM-dd"), txbCodigo_Reserva.Text) Then
             Rentas.ReservaRealizada(listaReservas(indice))
             MsgBox("Renta Agregada con exito")
-        Else
-            MsgBox("Error: Problemas de ejecución")
-            End If
+        End If
     End Sub
 
     Private Sub btnRegresar_Click(sender As Object, e As EventArgs) Handles btnRegresar.Click

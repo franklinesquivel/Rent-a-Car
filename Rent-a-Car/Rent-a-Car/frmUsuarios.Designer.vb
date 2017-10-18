@@ -34,6 +34,8 @@ Partial Class frmUsuarios
         Me.btn_Regresar = New MaterialSkin.Controls.MaterialRaisedButton()
         Me.mnsMenu = New System.Windows.Forms.MenuStrip()
         Me.mnsCerrar_Sesion = New System.Windows.Forms.ToolStripMenuItem()
+        Me.lblCorreo = New MaterialSkin.Controls.MaterialLabel()
+        Me.txbCorreo = New MaterialSkin.Controls.MaterialSingleLineTextField()
         Me.mnsMenu.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -87,7 +89,7 @@ Partial Class frmUsuarios
         Me.lblApellido.Depth = 0
         Me.lblApellido.Font = New System.Drawing.Font("Roboto", 11.0!)
         Me.lblApellido.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblApellido.Location = New System.Drawing.Point(29, 150)
+        Me.lblApellido.Location = New System.Drawing.Point(33, 139)
         Me.lblApellido.MouseState = MaterialSkin.MouseState.HOVER
         Me.lblApellido.Name = "lblApellido"
         Me.lblApellido.Size = New System.Drawing.Size(64, 19)
@@ -98,7 +100,7 @@ Partial Class frmUsuarios
         '
         Me.txbApellido.Depth = 0
         Me.txbApellido.Hint = ""
-        Me.txbApellido.Location = New System.Drawing.Point(113, 150)
+        Me.txbApellido.Location = New System.Drawing.Point(113, 135)
         Me.txbApellido.MouseState = MaterialSkin.MouseState.HOVER
         Me.txbApellido.Name = "txbApellido"
         Me.txbApellido.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -146,7 +148,7 @@ Partial Class frmUsuarios
         Me.rdbContador.Cursor = System.Windows.Forms.Cursors.Hand
         Me.rdbContador.Depth = 0
         Me.rdbContador.Font = New System.Drawing.Font("Roboto", 10.0!)
-        Me.rdbContador.Location = New System.Drawing.Point(99, 227)
+        Me.rdbContador.Location = New System.Drawing.Point(87, 227)
         Me.rdbContador.Margin = New System.Windows.Forms.Padding(0)
         Me.rdbContador.MouseLocation = New System.Drawing.Point(-1, -1)
         Me.rdbContador.MouseState = MaterialSkin.MouseState.HOVER
@@ -164,7 +166,7 @@ Partial Class frmUsuarios
         Me.rdbAgente.Cursor = System.Windows.Forms.Cursors.Hand
         Me.rdbAgente.Depth = 0
         Me.rdbAgente.Font = New System.Drawing.Font("Roboto", 10.0!)
-        Me.rdbAgente.Location = New System.Drawing.Point(204, 227)
+        Me.rdbAgente.Location = New System.Drawing.Point(188, 227)
         Me.rdbAgente.Margin = New System.Windows.Forms.Padding(0)
         Me.rdbAgente.MouseLocation = New System.Drawing.Point(-1, -1)
         Me.rdbAgente.MouseState = MaterialSkin.MouseState.HOVER
@@ -205,11 +207,41 @@ Partial Class frmUsuarios
         Me.mnsCerrar_Sesion.Size = New System.Drawing.Size(104, 23)
         Me.mnsCerrar_Sesion.Text = "Cerrar_Sesion"
         '
+        'lblCorreo
+        '
+        Me.lblCorreo.AutoSize = True
+        Me.lblCorreo.Depth = 0
+        Me.lblCorreo.Font = New System.Drawing.Font("Roboto", 11.0!)
+        Me.lblCorreo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblCorreo.Location = New System.Drawing.Point(33, 177)
+        Me.lblCorreo.MouseState = MaterialSkin.MouseState.HOVER
+        Me.lblCorreo.Name = "lblCorreo"
+        Me.lblCorreo.Size = New System.Drawing.Size(140, 19)
+        Me.lblCorreo.TabIndex = 79
+        Me.lblCorreo.Text = "Correo Electrónico:"
+        '
+        'txbCorreo
+        '
+        Me.txbCorreo.Depth = 0
+        Me.txbCorreo.Hint = ""
+        Me.txbCorreo.Location = New System.Drawing.Point(179, 177)
+        Me.txbCorreo.MouseState = MaterialSkin.MouseState.HOVER
+        Me.txbCorreo.Name = "txbCorreo"
+        Me.txbCorreo.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.txbCorreo.SelectedText = ""
+        Me.txbCorreo.SelectionLength = 0
+        Me.txbCorreo.SelectionStart = 0
+        Me.txbCorreo.Size = New System.Drawing.Size(201, 23)
+        Me.txbCorreo.TabIndex = 80
+        Me.txbCorreo.UseSystemPasswordChar = False
+        '
         'frmUsuarios
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(416, 388)
+        Me.Controls.Add(Me.txbCorreo)
+        Me.Controls.Add(Me.lblCorreo)
         Me.Controls.Add(Me.btn_Regresar)
         Me.Controls.Add(Me.rdbAgente)
         Me.Controls.Add(Me.rdbContador)
@@ -243,4 +275,6 @@ Partial Class frmUsuarios
     Friend WithEvents btn_Regresar As MaterialSkin.Controls.MaterialRaisedButton
     Friend WithEvents mnsMenu As MenuStrip
     Friend WithEvents mnsCerrar_Sesion As ToolStripMenuItem
+    Friend WithEvents lblCorreo As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents txbCorreo As MaterialSkin.Controls.MaterialSingleLineTextField
 End Class

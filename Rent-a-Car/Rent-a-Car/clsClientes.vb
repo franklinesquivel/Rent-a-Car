@@ -190,16 +190,23 @@ Public Class clsClientes
         Else
             _Pais = pais
         End If
-
-        If MyClass.CrearCodigo() Then
-            Return Conexion.modificarDatos("INSERT INTO clientes(nombre, apellido, dui, nombre_usuario, pasaporte, direccion, id_pais, correo_electronico, telefono, ciudad) VALUES('" & _Nombre & "', '" & _Apellido & "', '" & _Dui & "', '" & _NombreUsuario & "', '" & _Pasaporte & "', '" & _Direccion & "', '" & _Pais & "', '" & _Email & "', '" & _Telefono & "', '" & _Ciudad & "')")
-        Else
+        If VerificarCorreoUsuario() = 0 Then
+            MsgBox("Error: El correo electrónico ya esta registrado")
             Return False
+        Else
+            If MyClass.CrearCodigo() Then
+                Return Conexion.modificarDatos("INSERT INTO clientes(nombre, apellido, dui, nombre_usuario, pasaporte, direccion, id_pais, correo_electronico, telefono, ciudad) VALUES('" & _Nombre & "', '" & _Apellido & "', '" & _Dui & "', '" & _NombreUsuario & "', '" & _Pasaporte & "', '" & _Direccion & "', '" & _Pais & "', '" & _Email & "', '" & _Telefono & "', '" & _Ciudad & "')")
+            Else
+                Return False
+            End If
         End If
     End Function
 
     Private Function VerificarCodigoUsuario(ByVal _codigoUsuario As String) As Boolean
         Return Conexion.contarFilas("SELECT * FROM clientes WHERE nombre_usuario = '" & _codigoUsuario & "'")
+    End Function
+    Private Function VerificarCorreoUsuario() As Integer
+        Return Conexion.contarFilas("SELECT * FROM clientes WHERE correo_electronico = '" & _Email & "'")
     End Function
     Private Function CrearCodigo()
         Dim nombreUsuario As String = "CL"

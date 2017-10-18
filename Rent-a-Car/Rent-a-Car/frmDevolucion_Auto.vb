@@ -29,8 +29,8 @@ Public Class frmDevolucion_Auto
     Private Sub rdbChocado_CheckedChanged(sender As Object, e As EventArgs) Handles rdbChocado.CheckedChanged
         txbDescripcion_Problema.Enabled = True
         txbMonto_Cancelar.Enabled = True
-        btnConfirmar.Enabled = False
-        btnCalcular.Enabled = True
+        btnConfirmar.Enabled = True
+        'btnCalcular.Enabled = True
     End Sub
 
     Private Sub rdbBuen_Estado_CheckedChanged(sender As Object, e As EventArgs) Handles rdbBuen_Estado.CheckedChanged
@@ -48,12 +48,12 @@ Public Class frmDevolucion_Auto
         Dim registro As Boolean = False
         Dim tipoDevolucion As Integer = 0
 
-        If rdbBuen_Estado.Checked = True And (dtpFecha_Devolucion.Value <= fechaE) Then
+        If rdbBuen_Estado.Checked = True And (dtpFecha_Devolucion.Value.ToString("yyyy-MM-dd") <= fechaE) Then
             txbMonto_Cancelar.Enabled = False
             btnCalcular.Enabled = False
             registro = True
             tipoDevolucion = 1
-        ElseIf rdbChocado.Checked = True And (dtpFecha_Devolucion.Value <= fechaE) Then
+        ElseIf rdbChocado.Checked = True And (dtpFecha_Devolucion.Value.ToString("yyyy-MM-dd") <= fechaE) Then
             registro = True
             tipoDevolucion = 2
         Else
@@ -63,9 +63,9 @@ Public Class frmDevolucion_Auto
         If registro Then
             If indice > -1 Then
                 If tipoDevolucion = 1 Then
-                    Rentas.DevolverCoche(indice, tipoDevolucion)
+                    Rentas.DevolverCoche(indice, tipoDevolucion, fechaE, dtpFecha_Devolucion.Value.ToString("yyyy-MM-dd"))
                 ElseIf tipoDevolucion = 2 Then
-                    Rentas.DevolverCoche(indice, tipoDevolucion, txbDescripcion_Problema.Text)
+                    Rentas.DevolverCoche(indice, tipoDevolucion, fechaE, dtpFecha_Devolucion.Value.ToString("yyyy-MM-dd"), txbDescripcion_Problema.Text)
                 End If
             Else
                 MsgBox("Error: Favor seleccionar una renta")
@@ -93,14 +93,14 @@ Public Class frmDevolucion_Auto
     End Sub
 
     Public Sub btnCalcular_Click(sender As Object, e As EventArgs) Handles btnCalcular.Click
-        If rdbBuen_Estado.Checked Then
-            Dim fechaE As Date = dgvDevolucion.CurrentRow.Cells(5).Value
-            Rentas.Calcular(dtpFecha_Devolucion.Value, fechaE)
-            btnConfirmar.Enabled = True
-        Else
-            multa = InputBox("Ingrese la Multa por el coche chocado")
-            btnConfirmar.Enabled = True
-        End If
+        'If rdbBuen_Estado.Checked Then
+        'Dim fechaE As Date = dgvDevolucion.CurrentRow.Cells(5).Value
+        'Rentas.Calcular(dtpFecha_Devolucion.Value, fechaE)
+        'btnConfirmar.Enabled = True
+        'Else
+        'multa = InputBox("Ingrese la Multa por el coche chocado")
+        'btnConfirmar.Enabled = True
+        'End If
     End Sub
 
     Private Sub dtpFecha_Devolucion_ValueChanged(sender As Object, e As EventArgs) Handles dtpFecha_Devolucion.ValueChanged

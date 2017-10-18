@@ -1,4 +1,5 @@
-﻿Imports System.Text.RegularExpressions
+﻿Imports MySql.Data.MySqlClient
+Imports System.Text.RegularExpressions
 Public Class clsUsuarios
     'Atributos
     Friend Nombres As String
@@ -8,6 +9,7 @@ Public Class clsUsuarios
     Friend NombreUsuario As String
     Private Conexion As clsConexion = New clsConexion() 'Tipo de atributo para la conexión a la BDD
     Private Encriptacion As clsEncriptacion = New clsEncriptacion() 'Tipo de atributo para encriptar
+    Private Email As clsEmail = New clsEmail
     Private alfabeto = New String(63) {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "ñ", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "Ñ", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"}
 
     'Propiedades Generales
@@ -65,11 +67,16 @@ Public Class clsUsuarios
         End If
     End Function
 
-    Friend Function Registrar(ByVal _nombres As String, ByVal _apellidos As String, ByVal _tipoUsuario As String)
+    Friend Function Registrar(ByVal _nombres As String, ByVal _apellidos As String, ByVal _tipoUsuario As String, ByVal _correo As String)
         'Tipos de usuarios: Administrador(A00000), Gerente(G0000), Contador(C0000)
         MyClass.CrearCodigo(_tipoUsuario)
         MyClass.CrearContrasenna()
-        Return Conexion.modificarDatos("INSERT INTO usuarios(nombre, apellido, nombre_usuario, contraseña, perfil) VALUES('" & _nombres & "', '" & _apellidos & "', '" & NombreUsuario & "', '" & Contrasenna & "' , '" & _tipoUsuario & "')")
+        If verificarCorreoElectronico(_correo) = 0 Then
+            Return Conexion.modificarDatos("INSERT INTO usuarios(nombre, apellido, nombre_usuario, contraseña, perfil, correo_electronico) VALUES('" & _nombres & "', '" & _apellidos & "', '" & NombreUsuario & "', '" & Contrasenna & "' , '" & _tipoUsuario & "', '" & _correo & "')")
+        Else
+            MsgBox("Error: El email ingresado ya existe como usuario")
+            Return 0
+        End If
     End Function
     Public Sub CrearCodigo(ByVal _tipousuario As String)
         Dim _nombreUsuario As String
@@ -116,5 +123,23 @@ Public Class clsUsuarios
     End Sub
     Public Function VerificarCodigoUsuario(ByVal _nombreUsuario As String)
         Return Conexion.contarFilas("SELECT * FROM usuarios WHERE nombre_usuario = '" & _nombreUsuario & "'")
+    End Function
+    Public Function verificarCorreoElectronico(ByVal _correo As String) As Integer
+        Return Conexion.contarFilas("SELECT * FROM usuarios WHERE correo_electronico = '" & _correo & "'")
+    End Function
+    Public Function recuperarContrasenna(ByVal NUsuario As String)
+        If Conexion.contarFilas("SELECT * FROM usuarios WHERE nombre_usuario = '" & NUsuario & "'") Then
+            Dim reader As MySqlDataReader
+            Conexion.obtenerDatos("SELECT correo_electronico ,contraseña FROM usuarios WHERE nombre_usuario = '" & NUsuario & "'", reader)
+            reader.Read()
+            If Email.RecuperarContrasenna(reader(0), Encriptacion.DesarmarEncriptacion(reader(1))) Then
+                reader.Close()
+                Return 1
+            End If
+            Return 0
+        Else
+            MsgBox("Error: Usuario no encontrado")
+            Return 0
+        End If
     End Function
 End Class
