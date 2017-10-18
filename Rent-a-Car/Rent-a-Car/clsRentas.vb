@@ -10,6 +10,9 @@ Public Class clsRentas
     Private _fechaEntrega As Date
     Private _estado As String
     Private _precio As Decimal
+    Private _dias As Integer
+    Private _tasaMulta As Integer = 3
+    Private _total As Decimal
     Private Conexion As clsConexion = New clsConexion()
     Private clsArchivo As clsFactura = New clsFactura()
 
@@ -24,6 +27,11 @@ Public Class clsRentas
     Public ReadOnly Property idCliente
         Get
             Return _idCliente
+        End Get
+    End Property
+    Public ReadOnly Property Total
+        Get
+            Return _total
         End Get
     End Property
     Public ReadOnly Property idAgencia
@@ -58,6 +66,16 @@ Public Class clsRentas
         Get
             Return _fechaEntrega
         End Get
+    End Property
+    Public ReadOnly Property ObtenerCodigoRenta() As String
+        Get
+            Return _idRenta
+        End Get
+    End Property
+    Private WriteOnly Property EstablecerCodigoRenta() As String
+        Set(ByVal value As String)
+            _idRenta = value
+        End Set
     End Property
     Public WriteOnly Property EstablecerIdAgencia() As String
         Set(ByVal value As String)
@@ -107,6 +125,11 @@ Public Class clsRentas
     Public ReadOnly Property ObtenerIdUsuario() As Integer
         Get
             Return _idUsuario
+        End Get
+    End Property
+    Public ReadOnly Property ObtenerDias() As Integer
+        Get
+            Return _dias
         End Get
     End Property
     Public Function Registrar(ByVal _fechaInicio As String, ByVal _fechaFin As String, ByVal cliente As clsClientes, ByVal coche As clsCoches, ByVal _idAgencia As String)
@@ -188,12 +211,13 @@ Public Class clsRentas
             Dim reader As MySqlDataReader
             Conexion.obtenerDatos("SELECT r.id_renta, r.id_cliente, r.id_agencia, r.id_coche, r.id_usuario, r.fecha_retiro, r.fecha_devolucion, r.estado, cl.nombre, cl.apellido, cl.nombre_usuario , c.placa FROM rentas r INNER JOIN clientes cl ON r.id_cliente = cl.id_cliente INNER JOIN coches c ON r.id_coche = c.id_coche WHERE r.estado = 'Activa'", reader)
 
-            dgv.ColumnCount = 5
-            dgv.Columns(0).Name = "Cliente"
-            dgv.Columns(1).Name = "Código Cliente"
-            dgv.Columns(2).Name = "Matrícula Coche"
-            dgv.Columns(3).Name = "Fecha Retiro"
-            dgv.Columns(4).Name = "Fecha Devolución"
+            dgv.ColumnCount = 6
+            dgv.Columns(0).Name = "ID"
+            dgv.Columns(1).Name = "Cliente"
+            dgv.Columns(2).Name = "Código Cliente"
+            dgv.Columns(3).Name = "Matrícula Coche"
+            dgv.Columns(4).Name = "Fecha Retiro"
+            dgv.Columns(5).Name = "Fecha Devolución"
             dgv.RowCount = 1
 
             While reader.Read()
@@ -201,6 +225,7 @@ Public Class clsRentas
                 Rentas = New clsRentas 'Nuevo objeto de la clase
 
                 'Se guardan los campos en los atributos
+                Rentas.EstablecerCodigoRenta = reader(0)
                 Rentas.EstablecerIdCliente = reader(1)
                 Rentas.EstablecerIdAgencia = reader(2)
                 Rentas.EstablecerIdCoche = reader(3)
@@ -214,16 +239,47 @@ Public Class clsRentas
                 With dgv
                     i = .RowCount
                     .Rows.Add()
-                    .Rows(i - 1).Cells(0).Value = reader(9) & ", " & reader(8)
-                    .Rows(i - 1).Cells(1).Value = reader(10)
-                    .Rows(i - 1).Cells(2).Value = reader(11)
-                    .Rows(i - 1).Cells(3).Value = listaRentas(i - 1).getFechaRetiro.ToString("yyyy-MM-dd")
-                    .Rows(i - 1).Cells(4).Value = listaRentas(i - 1).getFechadevo.ToString("yyyy-MM-dd")
+                    .Rows(i - 1).Cells(0).Value = reader(0).ToString
+                    .Rows(i - 1).Cells(1).Value = reader(9) & ", " & reader(8)
+                    .Rows(i - 1).Cells(2).Value = reader(10)
+                    .Rows(i - 1).Cells(3).Value = reader(11)
+                    .Rows(i - 1).Cells(4).Value = listaRentas(i - 1).getFechaRetiro.ToString("yyyy-MM-dd")
+                    .Rows(i - 1).Cells(5).Value = listaRentas(i - 1).getFechadevo.ToString("yyyy-MM-dd")
                 End With
             End While
             reader.Close()
             Return 1
         End If
+    End Function
+    Public Function Devolucion(ByVal id As Integer) As Boolean
+        If Conexion.modificarDatos("UPDATE rentas SET estado = 'Devuelto' WHERE id_renta = '" & id & "'") Then
+            Return 1
+        Else
+            Return 0
+        End If
+    End Function
+    Public Function DevolucionDespues(ByVal id As Integer, ByVal descripcion As String) As Boolean
+        If Conexion.modificarDatos("INSERT INTO multas VALUES(" & "NULL" & ", " & id & ", '" & descripcion & "', " & Total & ")") Then
+            If Conexion.modificarDatos("UPDATE rentas SET estado = 'Devuelto' WHERE id_renta = '" & id & "'") Then
+                Return 1
+            Else
+                Return 0
+            End If
+        End If
+    End Function
+    Public Function CocheChocado(ByVal id As Integer, ByVal descripcion As String, ByVal multa As Decimal) As Boolean
+        If Conexion.modificarDatos("INSERT INTO multas VALUES(" & "NULL" & ", " & id & ", '" & descripcion & "', " & multa & ")") Then
+            If Conexion.modificarDatos("UPDATE rentas SET estado = 'Devuelto' WHERE id_renta = '" & id & "'") Then
+                Return 1
+            Else
+                Return 0
+            End If
+        End If
+    End Function
+    Public Function Calcular(ByVal fecha1 As Date, fecha2 As Date)
+        _dias = (fecha1 - fecha2).TotalDays
+        _total = _dias * _tasaMulta
+        Return MsgBox("Total a Pagar de Multa: $" & _total.ToString)
     End Function
 
     Public Function Reportes(ByVal tipo As String, ByRef dgv As DataGridView, Optional ByVal Fecha As Date = Nothing)
