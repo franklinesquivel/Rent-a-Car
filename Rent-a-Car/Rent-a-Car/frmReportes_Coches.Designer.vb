@@ -36,14 +36,14 @@ Partial Class frmReportes_Coches
         '
         Me.txbCodigo_Renta.Depth = 0
         Me.txbCodigo_Renta.Hint = ""
-        Me.txbCodigo_Renta.Location = New System.Drawing.Point(206, 87)
+        Me.txbCodigo_Renta.Location = New System.Drawing.Point(173, 91)
         Me.txbCodigo_Renta.MouseState = MaterialSkin.MouseState.HOVER
         Me.txbCodigo_Renta.Name = "txbCodigo_Renta"
         Me.txbCodigo_Renta.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.txbCodigo_Renta.SelectedText = ""
         Me.txbCodigo_Renta.SelectionLength = 0
         Me.txbCodigo_Renta.SelectionStart = 0
-        Me.txbCodigo_Renta.Size = New System.Drawing.Size(400, 23)
+        Me.txbCodigo_Renta.Size = New System.Drawing.Size(433, 23)
         Me.txbCodigo_Renta.TabIndex = 71
         Me.txbCodigo_Renta.UseSystemPasswordChar = False
         '
@@ -56,16 +56,16 @@ Partial Class frmReportes_Coches
         Me.lblCodigo_Renta.Location = New System.Drawing.Point(28, 91)
         Me.lblCodigo_Renta.MouseState = MaterialSkin.MouseState.HOVER
         Me.lblCodigo_Renta.Name = "lblCodigo_Renta"
-        Me.lblCodigo_Renta.Size = New System.Drawing.Size(163, 19)
+        Me.lblCodigo_Renta.Size = New System.Drawing.Size(139, 19)
         Me.lblCodigo_Renta.TabIndex = 70
-        Me.lblCodigo_Renta.Text = "Buscar código de renta"
+        Me.lblCodigo_Renta.Text = "Matrícula de Coche"
         '
         'dgvCodigo_Renta
         '
         Me.dgvCodigo_Renta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvCodigo_Renta.Location = New System.Drawing.Point(32, 135)
         Me.dgvCodigo_Renta.Name = "dgvCodigo_Renta"
-        Me.dgvCodigo_Renta.Size = New System.Drawing.Size(574, 145)
+        Me.dgvCodigo_Renta.Size = New System.Drawing.Size(574, 162)
         Me.dgvCodigo_Renta.TabIndex = 69
         '
         'btnRegrear

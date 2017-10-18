@@ -21,13 +21,13 @@ Public Class frmReportes_Rentas
         ElseIf rdbAgente.Checked = True Then
             tipo = "Agente"
 
-        ElseIf rdbAgente.Checked = True Then
+        ElseIf rdbTipoAuto.Checked = True Then
             tipo = "Auto"
         Else
             MsgBox("Error: Debe elegir porque tipo desea desglosar")
             Exit Sub
         End If
-        If Not Rentas.Reportes(tipo, dgvReportes, CDate(dtpFecha_Limite.Value)) Then
+        If Not Rentas.Reportes(tipo, dgvReportes, dtpFecha_Limite.Value.ToString("yyyy-MM-dd")) Then
             MsgBox("Error: No hay datos por mostrar")
         End If
     End Sub

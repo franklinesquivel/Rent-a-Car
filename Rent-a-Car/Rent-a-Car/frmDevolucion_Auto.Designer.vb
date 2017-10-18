@@ -171,7 +171,7 @@ Partial Class frmDevolucion_Auto
         '
         Me.txbMonto_Cancelar.Depth = 0
         Me.txbMonto_Cancelar.Hint = ""
-        Me.txbMonto_Cancelar.Location = New System.Drawing.Point(46, 543)
+        Me.txbMonto_Cancelar.Location = New System.Drawing.Point(46, 533)
         Me.txbMonto_Cancelar.MouseState = MaterialSkin.MouseState.HOVER
         Me.txbMonto_Cancelar.Name = "txbMonto_Cancelar"
         Me.txbMonto_Cancelar.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)

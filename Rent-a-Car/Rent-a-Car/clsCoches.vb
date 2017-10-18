@@ -1117,5 +1117,32 @@ Public Class clsCoches
         Return con
     End Function
 
-
+    Public Function Reporte(ByVal matriculaCoche As String, ByRef dgv As DataGridView) As Boolean
+        If Conexion.contarFilas("SELECT * FROM rentas") = 0 Then
+            Return 0
+        Else
+            Dim reader As MySqlDataReader
+            Dim i As Integer = 0
+            Conexion.obtenerDatos("SELECT GROUP_CONCAT(r.id_renta SEPARATOR ', '), CONCAT_WS(', ', cl.apellido, cl.nombre), c.placa, c.marca, c.modelo FROM `rentas` r INNER JOIN clientes cl ON cl.id_cliente = r.id_cliente INNER JOIN coches c ON c.id_coche = r.id_coche WHERE c.placa LIKE '" & matriculaCoche & "%' GROUP BY c.placa ORDER BY c.placa", reader)
+            dgv.ColumnCount = 5
+            dgv.Columns(0).Name = "id´s renta"
+            dgv.Columns(1).Name = "Nombre Cliente"
+            dgv.Columns(2).Name = "Matricula de Coche"
+            dgv.Columns(3).Name = "Marca"
+            dgv.Columns(4).Name = "Modelo"
+            dgv.RowCount = 1
+            While reader.Read()
+                With dgv
+                    i = .RowCount
+                    .Rows.Add()
+                    .Rows(i - 1).Cells(0).Value = reader(0)
+                    .Rows(i - 1).Cells(1).Value = reader(1)
+                    .Rows(i - 1).Cells(2).Value = reader(2)
+                    .Rows(i - 1).Cells(3).Value = reader(3)
+                    .Rows(i - 1).Cells(4).Value = reader(4)
+                End With
+            End While
+            Return 1
+        End If
+    End Function
 End Class

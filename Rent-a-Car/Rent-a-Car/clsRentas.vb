@@ -276,6 +276,35 @@ Public Class clsRentas
             End If
         End If
     End Function
+
+    Public Function DevolverCoche(ByVal id As Integer, ByVal tipoDevolucion As Integer, Optional ByVal descripcion As String = Nothing) As Boolean
+        If tipoDevolucion = 1 Then 'Devolución tardía
+
+            'Registro de la multa
+            If Conexion.modificarDatos("INSERT INTO multas VALUES(" & "NULL" & ", " & id & ", '" & descripcion & "', " & Total & ")") Then
+                If Conexion.modificarDatos("UPDATE rentas SET estado = 'Devuelto' WHERE id_renta = '" & id & "'") Then
+                    Return 1
+                Else
+                    Return 0
+                End If
+            End If
+
+        ElseIf tipoDevolucion = 2 Then 'Daños al auto
+            Dim multa As Decimal = 0
+            While multa <= 0 'Se registra la multa
+                multa = InputBox("Ingrese la Multa por el coche chocado")
+            End While
+
+            'Registro
+            If Conexion.modificarDatos("INSERT INTO multas VALUES(" & "NULL" & ", " & id & ", '" & descripcion & "', " & multa & ")") Then
+                If Conexion.modificarDatos("UPDATE rentas SET estado = 'Devuelto' WHERE id_renta = '" & id & "'") Then
+                    Return 1
+                Else
+                    Return 0
+                End If
+            End If
+        End If
+    End Function
     Public Function Calcular(ByVal fecha1 As Date, fecha2 As Date)
         _dias = (fecha1 - fecha2).TotalDays
         _total = _dias * _tasaMulta
@@ -290,14 +319,13 @@ Public Class clsRentas
         Dim consulta As String
         Dim reader As MySqlDataReader
         Dim j As Integer = 0
-
         Dim columnas() As String
         'Condicionales para elegir la consulta a realizar
         If tipo = "Agencia" Then
             If Fecha <> Nothing Then
-                consulta = "SELECT a.nombre, a.direccion, a.telefono, COUNT(DISTINCT r.id_agencia) AS num_rent FROM `rentas` r INNER JOIN agencias a ON r.id_agencia = a.id_agencia WHERE date_format(r.fecha_retiro, '%m-%Y') = '" & Fecha.ToString("MM - yyyy") & "' AND a.nombre != NULL"
+                consulta = "SELECT a.nombre, a.direccion, a.telefono, COUNT(DISTINCT r.id_renta) AS num_rent FROM `rentas` r INNER JOIN agencias a ON r.id_agencia = a.id_agencia WHERE date_format(r.fecha_retiro, '%m-%Y') = '" & Fecha.ToString("MM-yyyy") & "'"
             Else
-                consulta = "SELECT a.nombre, a.direccion, a.telefono, COUNT(DISTINCT r.id_agencia) AS num_rent FROM `rentas` r INNER JOIN agencias a ON r.id_agencia = a.id_agencia WHERE a.nombre != NULL"
+                consulta = "SELECT a.nombre, a.direccion, a.telefono, COUNT(DISTINCT r.id_renta) AS num_rent FROM `rentas` r INNER JOIN agencias a ON r.id_agencia = a.id_agencia"
             End If
             ReDim columnas(3)
             columnas(0) = "Nombre"
@@ -306,9 +334,9 @@ Public Class clsRentas
             columnas(3) = "N° Rentas"
         ElseIf tipo = "Agente" Then
             If Fecha <> Nothing Then
-                consulta = "SELECT u.nombre, u.apellido, u.nombre_usuario, COUNT(DISTINCT r.id_agencia) AS num_rent FROM rentas r INNER JOIN usuarios u ON r.id_usuario = u.id_usuario WHERE u.perfil = 'Gerente' AND date_format(r.fecha_retiro, '%m-%Y') = '" & Fecha.ToString("MM - yyyy") & "' AND u.nombre != NULL"
+                consulta = "SELECT CONCAT_WS(', ', u.apellido, u.nombre), u.nombre_usuario, COUNT(DISTINCT r.id_renta) AS num_rent FROM rentas r INNER JOIN usuarios u ON r.id_usuario = u.id_usuario WHERE u.perfil = 'Gerente' AND date_format(r.fecha_retiro, '%m-%Y') = '" & Fecha.ToString("MM-yyyy") & "'"
             Else
-                consulta = "SELECT u.nombre, u.apellido, u.nombre_usuario, COUNT(DISTINCT r.id_agencia) AS num_rent FROM rentas r INNER JOIN usuarios u ON r.id_usuario = u.id_usuario WHERE u.perfil = 'Gerente' WHERE u.nombre != NULL"
+                consulta = "SELECT CONCAT_WS(', ', u.apellido, u.nombre), u.nombre_usuario, COUNT(DISTINCT r.id_renta) AS num_rent FROM rentas r INNER JOIN usuarios u ON r.id_usuario = u.id_usuario WHERE u.perfil = 'Gerente'"
             End If
             ReDim columnas(2)
             columnas(0) = "Nombre"
@@ -316,31 +344,33 @@ Public Class clsRentas
             columnas(2) = "N° Rentas"
         ElseIf tipo = "Auto" Then
             If Fecha <> Nothing Then
-                consulta = "SELECT c.placa, c.tipo, COUNT(DISTINCT r.id_agencia) AS num_rent FROM rentas r INNER JOIN coches c ON r.id_coches = c.id_coche WHERE date_format(r.fecha_retiro, '%m-%Y') = '" & Fecha.ToString("MM - yyyy") & "' AND c.placa != NULL"
+                consulta = "SELECT c.placa, c.tipo, COUNT(DISTINCT r.id_renta) AS num_rent FROM rentas r INNER JOIN coches c ON r.id_coche = c.id_coche WHERE date_format(r.fecha_retiro, '%m-%Y') = '" & Fecha.ToString("MM-yyyy") & "'"
             Else
-                consulta = "SELECT c.placa, c.tipo, COUNT(DISTINCT r.id_agencia) AS num_rent FROM rentas r INNER JOIN coches c ON r.id_coches = c.id_coche WHERE c.placa != NULL"
+                consulta = "SELECT c.placa, c.tipo, COUNT(DISTINCT r.id_renta) AS num_rent FROM rentas r INNER JOIN coches c ON r.id_coche = c.id_coche"
             End If
             ReDim columnas(2)
             columnas(0) = "Matrícula"
             columnas(1) = "Tipo"
-            columnas(3) = "N° Rentas"
+            columnas(2) = "N° Rentas"
         End If
 
         If Conexion.contarFilas(consulta) > 0 Then 'Contamos la fila para ver si existen registros con los datos seleccionados
             Conexion.obtenerDatos(consulta, reader) 'Se extraen los datos
-            dgv.ColumnCount = UBound(columnas, 1)
+            dgv.ColumnCount = UBound(columnas, 1) + 1
 
-            For i As Integer = 0 To (UBound(columnas, 1) - 1) 'Se agregan las columnas
+            For i As Integer = 0 To (UBound(columnas, 1)) 'Se agregan las columnas
                 dgv.Columns(i).Name = columnas(i)
             Next i
             dgv.RowCount = 1
 
             While reader.Read() 'Se recorren los resultados obtenidos
-                j = dgv.RowCount
-                For i As Integer = 0 To (UBound(columnas, 1) - 1)
-                    dgv.Rows(j).Cells(i).Value = reader(i)
-                Next i
-                dgv.Rows.Add()
+                With dgv
+                    j = .RowCount
+                    .Rows.Add()
+                    For i As Integer = 0 To (UBound(columnas, 1))
+                        .Rows(j - 1).Cells(i).Value = reader(i)
+                    Next i
+                End With
             End While
             reader.Close()
             Return True

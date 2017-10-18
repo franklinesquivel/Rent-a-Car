@@ -44,24 +44,52 @@ Public Class frmDevolucion_Auto
         Dim indice As Integer = dgvDevolucion.CurrentRow.Cells(0).Value
         Dim fechaE As Date = dgvDevolucion.CurrentRow.Cells(5).Value
         Dim descripcion = txbDescripcion_Problema.Text
-        If rdbBuen_Estado.Checked And (dtpFecha_Devolucion.Value <= fechaE) Then
+
+        Dim registro As Boolean = False
+        Dim tipoDevolucion As Integer = 0
+
+        If rdbBuen_Estado.Checked = True And (dtpFecha_Devolucion.Value <= fechaE) Then
             txbMonto_Cancelar.Enabled = False
             btnCalcular.Enabled = False
-            If indice > -1 Then
-                If Rentas.Devolucion(indice) Then
-                    MsgBox("Auto Devuelto con exito")
-                Else
-                    MsgBox("Error: Problemas de ejecución")
-                End If
-            End If
-        ElseIf rdbBuen_Estado.Checked And (dtpFecha_Devolucion.Value > fechaE) And Val(txbMonto_Cancelar.Text) = Rentas.Total Then
-            Rentas.DevolucionDespues(indice, descripcion)
-            MsgBox("Auto Devuelto Con Exito")
-        ElseIf rdbChocado.Checked And (dtpFecha_Devolucion.Value <= fechaE) Then
-            Rentas.CocheChocado(indice, descripcion, multa)
+            registro = True
+            tipoDevolucion = 1
+        ElseIf rdbChocado.Checked = True And (dtpFecha_Devolucion.Value <= fechaE) Then
+            registro = True
+            tipoDevolucion = 2
         Else
-            MsgBox("Selecciona el estado del Coche y Fecha de Devolucion")
+            MsgBox("Error: Seleccione estado del coche")
         End If
+
+        If registro Then
+            If indice > -1 Then
+                If tipoDevolucion = 1 Then
+                    Rentas.DevolverCoche(indice, tipoDevolucion)
+                ElseIf tipoDevolucion = 2 Then
+                    Rentas.DevolverCoche(indice, tipoDevolucion, txbDescripcion_Problema.Text)
+                End If
+            Else
+                MsgBox("Error: Favor seleccionar una renta")
+            End If
+        End If
+
+        'If rdbBuen_Estado.Checked And (dtpFecha_Devolucion.Value <= fechaE) Then
+        'txbMonto_Cancelar.Enabled = False
+        'btnCalcular.Enabled = False
+        'If indice > -1 Then
+        'If Rentas.Devolucion(indice) Then
+        'MsgBox("Auto Devuelto con exito")
+        'Else
+        'MsgBox("Error: Problemas de ejecución")
+        'End If
+        'End If
+        'ElseIf rdbBuen_Estado.Checked And (dtpFecha_Devolucion.Value > fechaE) And Val(txbMonto_Cancelar.Text) = Rentas.Total Then
+        '   Rentas.DevolucionDespues(indice, descripcion)
+        '  MsgBox("Auto Devuelto Con Exito")
+        'ElseIf rdbChocado.Checked And (dtpFecha_Devolucion.Value <= fechaE) Then
+        '   Rentas.CocheChocado(indice, descripcion, multa)
+        'Else
+        '   MsgBox("Selecciona el estado del Coche y Fecha de Devolucion")
+        'End If
     End Sub
 
     Public Sub btnCalcular_Click(sender As Object, e As EventArgs) Handles btnCalcular.Click
