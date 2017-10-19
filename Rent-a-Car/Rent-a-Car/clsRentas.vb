@@ -323,12 +323,19 @@ Public Class clsRentas
             Return 0
         End If
     End Function
-
+    Public Function ChequearRenta(ByVal idCoche As Integer)
+        If Conexion.contarFilas("SELECT * FROM rentas WHERE id_coche = '" & idCoche & "'AND estado = 'Activa'") = 0 Then
+            MsgBox("Renta Correcta")
+            Return False
+        Else
+            MsgBox("Ya existe Renta Activa de este coche")
+            Return True
+        End If
+    End Function
     Public Function Reportes(ByVal tipo As String, ByRef dgv As DataGridView, Optional ByVal Fecha As Date = Nothing)
         If Conexion.contarFilas("SELECT * FROM rentas") = 0 Then
             Return False
         End If
-
         Dim consulta As String
         Dim reader As MySqlDataReader
         Dim j As Integer = 0
