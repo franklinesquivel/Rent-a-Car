@@ -2,6 +2,9 @@
 Imports System.IO.Path
 Imports System.Text.RegularExpressions
 Public Class clsCoches
+    '____________________________
+    '|   Atributos de la clase   |
+    '|___________________________|
     Private _idCoche As Integer
     Private _matricula As String
     Private _marca As String
@@ -16,6 +19,9 @@ Public Class clsCoches
     Private _estado As String
 
     Private Conexion As clsConexion = New clsConexion()
+    '______________________________
+    '|   Constructor de la clase   |
+    '|_____________________________|
     Public Sub New(Optional ByVal id As Integer = Nothing)
         If id <> Nothing Then
             'Función para obtener datos guardados en la BDD
@@ -40,7 +46,9 @@ Public Class clsCoches
             _estado = "A"
         End If
     End Sub
-    'Getters
+    '_________________________________________
+    '|   Propiedades de lectura de la clase   |
+    '|________________________________________|
     Public ReadOnly Property ObtenerIdCoche() As String
         Get
             Return _idCoche
@@ -107,7 +115,9 @@ Public Class clsCoches
             Return _idAgencia
         End Get
     End Property
-    'Setters
+    '___________________________________________
+    '|   Propiedades de escritura de la clase   |
+    '|__________________________________________|
     Public WriteOnly Property EstablecerMatricula() As String
         Set(ByVal value As String)
             _matricula = value
@@ -168,14 +178,17 @@ Public Class clsCoches
             _idCoche = value
         End Set
     End Property
-    'Métodos
-    Public Function LlenarDatosModificar(ByRef placa As String, ByRef marca As String, ByRef modelo As String, ByRef color As String, ByRef kilometraje As String, ByRef nPasajeros As String, ByRef alquiler As String, ByVal fotografia As Button, ByRef tipo As String, ByRef idAgencia As String, ByRef picFoto As PictureBox) As Boolean
+    '___________________________________
+    '|   Metodos generales de la clase  |
+    '|__________________________________|
+    Public Sub LlenarDatosModificar(ByRef placa As String, ByRef marca As String, ByRef modelo As String, ByRef color As String, ByRef kilometraje As String, ByRef nPasajeros As String, ByRef alquiler As String, ByVal fotografia As Button, ByRef tipo As String, ByRef idAgencia As String, ByRef picFoto As PictureBox)
+        'Función que nos sirve para obtener los datos del coche, con la finalidad de mostrarlo
         Dim reader As MySqlDataReader
         Dim resourcesPath = Application.StartupPath & DirectorySeparatorChar & ".." & DirectorySeparatorChar & ".." & DirectorySeparatorChar & "Resources" & DirectorySeparatorChar & "Coches" & DirectorySeparatorChar
         Dim auxId As Integer = 1
         placa = placa.Trim
         Conexion.obtenerDatos("SELECT marca,modelo,color,kilometraje,num_pasajeros,precio_alquiler,fotografia,tipo,id_agencia FROM coches WHERE placa = '" & placa & "'", reader)
-        While reader.Read()
+        While reader.Read() 'Se abre la lectura
             marca = reader(0)
             modelo = reader(1)
             color = reader(2)
@@ -187,9 +200,8 @@ Public Class clsCoches
             idAgencia = reader(8)
             picFoto.ImageLocation = resourcesPath + reader(6)
         End While
-        reader.Close()
-        Return True
-    End Function
+        reader.Close() 'Se cierra la lectura
+    End Sub
     Public Function ModificarRenta(ByVal matricula As String, ByVal alquiler As Decimal, ByVal tipo As String) As Boolean
         matricula = matricula.Trim
         tipo = tipo.Trim
@@ -512,13 +524,16 @@ Public Class clsCoches
             Return 1
         End If
     End Function
-    Public Function BuscarIndice(ByVal matriculaCoche As String, ByRef listaCoches() As clsCoches) As Integer
-        For i As Integer = 0 To UBound(listaCoches, 1)
-            If listaCoches(i).ObtenerMatricula = matriculaCoche.ToUpper Then
-                Return i
-            End If
-        Next
-        Return -1
+    Public Function BuscarIndice(ByVal matriculaCoche As String, ByRef listaCoches() As clsCoches) As Integer 'Busca el indice de un array de tipo clsCoches
+        'Verificamos el patrón
+        If Not _noCoincide("^((O|CD|CC|MI|N|PNC|E|P|A|C|V|PR|T|RE|AB|MB|F|M|D)\d{3})((\s\d{3})|\d{3})$", matriculaCoche.ToUpper) Then
+            For i As Integer = 0 To UBound(listaCoches, 1)
+                If listaCoches(i).ObtenerMatricula = matriculaCoche.ToUpper Then
+                    Return i
+                End If
+            Next
+        End If
+        Return -1 'No cumple la condición
     End Function
     Public Sub BuscarCoche(ByVal matriculaCoche As String, ByVal listaCoches() As clsCoches, ByRef dgv As DataGridView, ByVal Optional teclaBorrar As Boolean = False)
         Dim rgx_coche = New Regex("^" + matriculaCoche + "+")
@@ -1119,7 +1134,7 @@ Public Class clsCoches
         Return con
     End Function
 
-    Public Function Reporte(ByVal matriculaCoche As String, ByRef dgv As DataGridView) As Boolean
+    Public Function Reporte(ByVal matriculaCoche As String, ByRef dgv As DataGridView) As Boolean 'Reporte de coches rentados
         If Conexion.contarFilas("SELECT * FROM rentas") = 0 Then
             Return 0
         Else

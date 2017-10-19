@@ -1,7 +1,9 @@
 ﻿Imports MySql.Data.MySqlClient
 Imports System.Text.RegularExpressions
 Public Class clsClientes
-    'Atributos
+    '____________________________
+    '|   Atributos de la clase   |
+    '|___________________________|
     Private _IdCliente As String
     Private _Dui As String
     Private _Pasaporte As String
@@ -18,6 +20,9 @@ Public Class clsClientes
 
     'Bandera
     Private _ReservaEstado As Boolean
+    '_________________________________________
+    '|   Propiedades de lectura de la clase   |
+    '|________________________________________|
     Public ReadOnly Property ObtenerIdCliente() As String
         Get
             Return _IdCliente
@@ -69,6 +74,9 @@ Public Class clsClientes
             Return _Ciudad
         End Get
     End Property
+    '___________________________________________
+    '|   Propiedades de escritura de la clase   |
+    '|__________________________________________|
     Public WriteOnly Property EstablecerNombre() As String
         Set(ByVal value As String)
             _Nombre = value
@@ -124,6 +132,9 @@ Public Class clsClientes
             _IdCliente = value
         End Set
     End Property
+    '___________________________________
+    '|   Metodos generales de la clase  |
+    '|__________________________________|
     Public Function registrarDatos(ByVal dui As String, ByVal pasaporte As String, ByVal nombre As String, ByVal apellido As String, ByVal direccion As String, ByVal ciudad As String, ByVal email As String, ByVal pais As String, ByVal telefono As String) As Boolean
         _Telefono = telefono
         dui = dui.Trim
@@ -202,13 +213,17 @@ Public Class clsClientes
         End If
     End Function
 
-    Private Function VerificarCodigoUsuario(ByVal _codigoUsuario As String) As Boolean
-        Return Conexion.contarFilas("SELECT * FROM clientes WHERE nombre_usuario = '" & _codigoUsuario & "'")
+    Private Function VerificarCodigoUsuario(ByVal _codigoUsuario As String) As Boolean 'Se verifica que el codigo de usuario creado solo este una vez en la BDD
+        If Conexion.contarFilas("SELECT * FROM clientes WHERE nombre_usuario = '" & _codigoUsuario & "'") = 0 Then
+            Return False
+        Else
+            Return True
+        End If
     End Function
-    Private Function VerificarCorreoUsuario() As Integer
+    Private Function VerificarCorreoUsuario() As Integer 'Verifica que el correo solo este una vez en la BDD
         Return Conexion.contarFilas("SELECT * FROM clientes WHERE correo_electronico = '" & _Email & "'")
     End Function
-    Private Function CrearCodigo()
+    Private Function CrearCodigo() As Boolean 'Se crea el código de cliente
         Dim nombreUsuario As String = "CL"
         Dim rnd As New Random()
         Dim repetir As Boolean = True
@@ -272,20 +287,21 @@ Public Class clsClientes
                     .Rows(i - 1).Cells(3).Value = listaClientes(i - 1).ObtenerNombreDeUsuari
                     .Rows(i - 1).Cells(4).Value = listaClientes(i - 1).ObetenerCorreoElectronico
                 End With
-                'i += 1
             End While
-            reader.Close()
+            reader.Close() ' Se cierra la lectura
             Return True
         End If
     End Function
 
-    Public Function BuscarIndice(ByVal _codigoUsuario As String, ByRef listaClientes() As clsClientes)
-        For i As Integer = 0 To UBound(listaClientes, 1)
-            If listaClientes(i).ObtenerNombreDeUsuari = _codigoUsuario.ToUpper Then
-                Return i
-            End If
-        Next
-        Return -1
+    Public Function BuscarIndice(ByVal _codigoUsuario As String, ByRef listaClientes() As clsClientes) 'Busca el indice de una array de objetos tipo clsCliente
+        If Not _noCoincide("^C{1}\L{1}\d{5}$", _codigoUsuario.ToUpper) Then 'Se verifica el patrón
+            For i As Integer = 0 To UBound(listaClientes, 1) 'Se recorre array de clientes
+                If listaClientes(i).ObtenerNombreDeUsuari = _codigoUsuario.ToUpper Then 'Se verifica si son iguales
+                    Return i
+                End If
+            Next
+        End If
+        Return -1 'No cumple con la condición
     End Function
 
     Public Sub BuscarCliente(ByVal codigoCliente As String, ByVal listaClientes() As clsClientes, ByRef dgv As DataGridView, Optional ByVal teclaBorrar As Boolean = False)

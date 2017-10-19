@@ -1,11 +1,17 @@
 ﻿Imports MySql.Data.MySqlClient
 Public Class clsConexion
+    '____________________________
+    '|   Atributos de la clase   |
+    '|___________________________|
     Private _cmd As MySqlCommand
     Private _mysqlAdapter As MySqlDataAdapter
     Private _tabla As DataTable
     Private _aceptarConexion As Boolean
     Private Encriptacion As clsEncriptacion = New clsEncriptacion()
     Private _conn As MySqlConnection = New MySqlConnection("server = 127.0.0.1; database = rent_a_car; user = root; port = 3306; Convert Zero Datetime=True")
+    '_____________________________
+    '|   Constructor de la clase  |
+    '|____________________________|
     Public Sub New()
         Try
             _conn.Open()
@@ -16,7 +22,9 @@ Public Class clsConexion
             _aceptarConexion = False
         End Try
     End Sub
-
+    '___________________________________
+    '|   Metodos generales de la clase  |
+    '|__________________________________|
     Public Function modificarDatos(ByVal consulta As String, Optional ByRef idInsertado As Integer = -1) As Boolean
         Dim result As Boolean
         'Aqui se realizan operaciones como: UPDATE, DELETE, INSERT
