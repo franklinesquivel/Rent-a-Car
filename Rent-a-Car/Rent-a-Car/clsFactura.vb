@@ -3,6 +3,7 @@ Imports System.Text 'Working With Text
 Imports iTextSharp.text 'Core PDF Text Functionalities
 Imports iTextSharp.text.pdf 'PDF Content
 Imports iTextSharp.text.pdf.parser 'Content Parser
+Imports MySql.Data.MySqlClient
 
 Public Class clsFactura
     Public Sub GenerarPDF(ByVal cliente As clsClientes, ByVal coche As clsCoches, ByVal totalPagar As Decimal)
@@ -64,6 +65,15 @@ Public Class clsFactura
             oDoc = Nothing
         End Try
         EjecutarArchivos(NombreArchivo)
+    End Sub
+
+    Public Sub GenerarPDFDatosReserva(ByVal idReserva As String, ByVal TotalPagar As Decimal)
+        Dim reader As MySqlDataReader
+        Dim Conexion As New clsConexion
+        Conexion.obtenerDatos("SELECT * FROM reserva r INNER JOIN coches c ON c.id_coche = r.id_coche INNER JOIN clientes cl ON cl.id_cliente = r.id_cliente WHERE r.id_reserva = '" & idReserva & "'", reader)
+        reader.Read() 'Listo para lectura
+
+        reader.Close() 'Se cierra la lectura
     End Sub
     Public Sub EjecutarArchivos(ruta As String)
         Dim ejecutarShell As Object

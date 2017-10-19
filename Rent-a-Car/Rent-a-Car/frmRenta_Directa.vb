@@ -40,7 +40,7 @@ Public Class frmRenta_Directa
         Dim indiceCliente As Integer = Clientes.BuscarIndice(txbBuscar_Codigo.Text, listaClientes)
         Dim indiceCoche As Integer = Coches.BuscarIndice(txbBuscar_Coche.Text, listaCoches)
         MsgBox(cmbAgencias.SelectedValue)
-        If Rentas.ChequearRenta(indiceCoche) = True Then
+        If Rentas.ChequearRenta(listaCoches(indiceCoche)) = True Then
             If indiceCliente > -1 Then
                 If indiceCoche > -1 Then
                     If Rentas.Registrar(dtpFecha_Entrega.Value.ToString("yyyy-MM-dd"), dtpFecha_Devolucion.Value.ToString("yyyy-MM-dd"), listaClientes(indiceCliente), listaCoches(indiceCoche), cmbAgencias.SelectedValue) Then
@@ -53,7 +53,6 @@ Public Class frmRenta_Directa
                 MsgBox("Error: El nombre de usuario no se ha encontrado en la BDD")
             End If
         End If
-
     End Sub
     Private Sub txbBuscar_Codigo_KeyUp(sender As Object, e As KeyEventArgs) Handles txbBuscar_Codigo.KeyUp
         Dim t As String = txbBuscar_Codigo.Text.Trim

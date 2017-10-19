@@ -184,6 +184,7 @@ Public Class clsRentas
         Else
             Dim reader As MySqlDataReader
             Conexion.obtenerDatos("SELECT precio_pagar FROM reserva WHERE id_reserva = '" & codigoReserva & "'", reader)
+
             If Conexion.modificarDatos("INSERT INTO rentas VALUES(" & "NULL" & ", " & idCliente & ", " & idAgencia & ", " & idCoche & ", " & idUsuario & ", '" & fechaR & "', '" & fechaD & "' ,'Activa')") Then
                 'clsArchivo.GenerarPDF(cliente, coche, reader(0))
                 reader.Close()
@@ -323,12 +324,19 @@ Public Class clsRentas
             Return 0
         End If
     End Function
-    Public Function ChequearRenta(ByVal idCoche As Integer)
-        If Conexion.contarFilas("SELECT * FROM rentas WHERE id_coche = '" & idCoche & "'AND estado = 'Activa'") = 0 Then
-            MsgBox("Renta Correcta")
+    Public Function ChequearRenta(ByVal coche As clsCoches) As Boolean
+        If Conexion.contarFilas("SELECT * FROM rentas WHERE id_coche = '" & coche.ObtenerIdCoche & "' AND estado = 'Activa'") > 0 Then
+            MsgBox("Error: Existe una Renta Activa de este coche")
             Return False
         Else
-            MsgBox("Ya existe Renta Activa de este coche")
+            Return True
+        End If
+    End Function
+    Public Function ChequearReserva(ByVal _fechaInicio As Date, ByVal _fechaFin As Date, ByVal _idCoche As Integer) As Boolean
+        If Conexion.contarFilas("") = 0 Then
+            MsgBox("Error: Existe una reserva en dicho período de tiempo")
+            Return False
+        Else
             Return True
         End If
     End Function

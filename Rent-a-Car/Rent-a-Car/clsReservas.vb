@@ -113,8 +113,16 @@ Public Class clsReservas
             Return True
         End If
     End Function
-    Public Function ChequearReservaFecha(ByVal _fechaIncio As Date, ByVal _fechaFin As Date, ByVal _idCoche As Integer)
+    Public Function ChequearReservaFecha(ByVal _fechaIncio As Date, ByVal _fechaFin As Date, ByVal _idCoche As Integer) As Boolean
         If Conexion.contarFilas("SELECT * FROM `reservas` WHERE id_coche = " & _idCoche & " AND (" & _fechaIncio & " BETWEEN fecha_retiro AND fecha_devolucion) or (" & _fechaFin & " BETWEEN fecha_retiro AND fecha_devolucion) AND estado = 'Activa'") > 0 Then
+            Return False
+        Else
+            Return True
+        End If
+    End Function
+
+    Public Function ChequearRenta(ByVal _idCoche As Integer) As Boolean
+        If Conexion.contarFilas("SELECT * FROM rentas WHERE id_coche = " & _idCoche & " AND estado = 'Activa'") > 0 Then
             Return False
         Else
             Return True
@@ -143,20 +151,22 @@ Public Class clsReservas
         MyClass.CrearCodigoReserva(_idAgencia)
         If MyClass.ChequearReserva(cliente.ObtenerIdCliente) Then
             If MyClass.ChequearReservaFecha(CDate(_fechaInicio), CDate(_fechaFin), coche.ObtenerIdCoche) Then
-                MyClass.EstablecerFechaInicio = CDate(_fechaInicio)
-                MyClass.EstablecerFechaFin = CDate(_fechaFin)
-                MyClass.EstablecerIdAgencia = _idAgencia
-                MyClass.EstablecerIdCoche = coche.ObtenerIdCoche
-                MyClass.EstablecerIdCliente = cliente.ObtenerIdCliente
-                MyClass.EstablecerIdUsuario = Session.ObtenerIdUsuario
-                MyClass.EstablecerPrecioReserva = coche.ObtenerPrecioAlquiler * DateDiff(DateInterval.Day, MyClass.ObtenerFechaInicio, MyClass.ObtenerFechaFin)
-                Estado = "Activo"
+                If MyClass.ChequearRenta(coche.ObtenerIdCoche) Then
+                    MyClass.EstablecerFechaInicio = CDate(_fechaInicio)
+                    MyClass.EstablecerFechaFin = CDate(_fechaFin)
+                    MyClass.EstablecerIdAgencia = _idAgencia
+                    MyClass.EstablecerIdCoche = coche.ObtenerIdCoche
+                    MyClass.EstablecerIdCliente = cliente.ObtenerIdCliente
+                    MyClass.EstablecerIdUsuario = Session.ObtenerIdUsuario
+                    MyClass.EstablecerPrecioReserva = coche.ObtenerPrecioAlquiler * DateDiff(DateInterval.Day, MyClass.ObtenerFechaInicio, MyClass.ObtenerFechaFin)
+                    Estado = "Activo"
 
-                If Conexion.modificarDatos("INSERT INTO reservas VALUES('" & CodigoReserva & "', " & idCliente & ", " & idAgencia & ", " & idCoche & ", " & Session.ObtenerIdUsuario & ", '" & _fechaInicio & "', '" & _fechaFin & "', " & PrecioReserva & " ,'Activa')") Then
-                    clsCorreo.enviarCorreo(cliente, coche, PrecioReserva)
-                    Return True
-                Else
-                    Return False
+                    If Conexion.modificarDatos("INSERT INTO reservas VALUES('" & CodigoReserva & "', " & idCliente & ", " & idAgencia & ", " & idCoche & ", " & Session.ObtenerIdUsuario & ", '" & _fechaInicio & "', '" & _fechaFin & "', " & PrecioReserva & " ,'Activa')") Then
+                        clsCorreo.enviarCorreo(cliente, coche, PrecioReserva)
+                        Return True
+                    Else
+                        Return False
+                    End If
                 End If
             Else
                 MsgBox("Error: Se ha encontrado una reserva en las fechas limitadas")
