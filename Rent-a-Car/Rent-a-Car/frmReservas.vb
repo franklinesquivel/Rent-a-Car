@@ -7,7 +7,7 @@ Public Class frmReservas
         SkinManager.AddFormToManage(Me)
         SkinManager.Theme = MaterialSkinManager.Themes.LIGHT
         SkinManager.ColorScheme = New ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE)
-
+        Session.ControlarSession()
         'Se verifica el estado de los objetos participantes en el formulario
         Clientes = New clsClientes() 'Creación del objeto
         If Clientes.listarDatos(listaClientes, dgvBuscar_Usuario) = 0 Then 'Se agregan los usuarios al dgv

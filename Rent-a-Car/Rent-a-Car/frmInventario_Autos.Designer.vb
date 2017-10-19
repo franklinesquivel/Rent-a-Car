@@ -32,16 +32,16 @@ Partial Class frmInventario_Autos
         Me.tbcInventarios = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
-        Me.lblMatricula = New System.Windows.Forms.Label()
-        Me.lblMarca = New System.Windows.Forms.Label()
-        Me.lblModelo = New System.Windows.Forms.Label()
-        Me.lblColor = New System.Windows.Forms.Label()
-        Me.lblKm = New System.Windows.Forms.Label()
-        Me.lblNumPasajeros = New System.Windows.Forms.Label()
-        Me.lblPrecio = New System.Windows.Forms.Label()
-        Me.lblEstado = New System.Windows.Forms.Label()
-        Me.lblTipo = New System.Windows.Forms.Label()
         Me.pcbFoto = New System.Windows.Forms.PictureBox()
+        Me.lblTipo = New System.Windows.Forms.Label()
+        Me.lblEstado = New System.Windows.Forms.Label()
+        Me.lblPrecio = New System.Windows.Forms.Label()
+        Me.lblNumPasajeros = New System.Windows.Forms.Label()
+        Me.lblKm = New System.Windows.Forms.Label()
+        Me.lblColor = New System.Windows.Forms.Label()
+        Me.lblModelo = New System.Windows.Forms.Label()
+        Me.lblMarca = New System.Windows.Forms.Label()
+        Me.lblMatricula = New System.Windows.Forms.Label()
         CType(Me.dgvInventario_Autos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.mnsMenu.SuspendLayout()
         Me.tbcInventarios.SuspendLayout()
@@ -161,77 +161,15 @@ Partial Class frmInventario_Autos
         Me.TabPage2.Text = "Resultados"
         Me.TabPage2.UseVisualStyleBackColor = True
         '
-        'lblMatricula
+        'pcbFoto
         '
-        Me.lblMatricula.AutoSize = True
-        Me.lblMatricula.Location = New System.Drawing.Point(48, 25)
-        Me.lblMatricula.Name = "lblMatricula"
-        Me.lblMatricula.Size = New System.Drawing.Size(39, 13)
-        Me.lblMatricula.TabIndex = 0
-        Me.lblMatricula.Text = "Label1"
-        '
-        'lblMarca
-        '
-        Me.lblMarca.AutoSize = True
-        Me.lblMarca.Location = New System.Drawing.Point(48, 59)
-        Me.lblMarca.Name = "lblMarca"
-        Me.lblMarca.Size = New System.Drawing.Size(39, 13)
-        Me.lblMarca.TabIndex = 1
-        Me.lblMarca.Text = "Label1"
-        '
-        'lblModelo
-        '
-        Me.lblModelo.AutoSize = True
-        Me.lblModelo.Location = New System.Drawing.Point(48, 94)
-        Me.lblModelo.Name = "lblModelo"
-        Me.lblModelo.Size = New System.Drawing.Size(39, 13)
-        Me.lblModelo.TabIndex = 2
-        Me.lblModelo.Text = "Label1"
-        '
-        'lblColor
-        '
-        Me.lblColor.AutoSize = True
-        Me.lblColor.Location = New System.Drawing.Point(48, 132)
-        Me.lblColor.Name = "lblColor"
-        Me.lblColor.Size = New System.Drawing.Size(39, 13)
-        Me.lblColor.TabIndex = 3
-        Me.lblColor.Text = "Label1"
-        '
-        'lblKm
-        '
-        Me.lblKm.AutoSize = True
-        Me.lblKm.Location = New System.Drawing.Point(48, 165)
-        Me.lblKm.Name = "lblKm"
-        Me.lblKm.Size = New System.Drawing.Size(39, 13)
-        Me.lblKm.TabIndex = 4
-        Me.lblKm.Text = "Label1"
-        '
-        'lblNumPasajeros
-        '
-        Me.lblNumPasajeros.AutoSize = True
-        Me.lblNumPasajeros.Location = New System.Drawing.Point(48, 203)
-        Me.lblNumPasajeros.Name = "lblNumPasajeros"
-        Me.lblNumPasajeros.Size = New System.Drawing.Size(39, 13)
-        Me.lblNumPasajeros.TabIndex = 5
-        Me.lblNumPasajeros.Text = "Label1"
-        '
-        'lblPrecio
-        '
-        Me.lblPrecio.AutoSize = True
-        Me.lblPrecio.Location = New System.Drawing.Point(48, 242)
-        Me.lblPrecio.Name = "lblPrecio"
-        Me.lblPrecio.Size = New System.Drawing.Size(39, 13)
-        Me.lblPrecio.TabIndex = 6
-        Me.lblPrecio.Text = "Label1"
-        '
-        'lblEstado
-        '
-        Me.lblEstado.AutoSize = True
-        Me.lblEstado.Location = New System.Drawing.Point(48, 310)
-        Me.lblEstado.Name = "lblEstado"
-        Me.lblEstado.Size = New System.Drawing.Size(39, 13)
-        Me.lblEstado.TabIndex = 7
-        Me.lblEstado.Text = "Label1"
+        Me.pcbFoto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.pcbFoto.Location = New System.Drawing.Point(425, 84)
+        Me.pcbFoto.Name = "pcbFoto"
+        Me.pcbFoto.Size = New System.Drawing.Size(271, 171)
+        Me.pcbFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.pcbFoto.TabIndex = 9
+        Me.pcbFoto.TabStop = False
         '
         'lblTipo
         '
@@ -242,15 +180,77 @@ Partial Class frmInventario_Autos
         Me.lblTipo.TabIndex = 8
         Me.lblTipo.Text = "Label1"
         '
-        'pcbFoto
+        'lblEstado
         '
-        Me.pcbFoto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.pcbFoto.Location = New System.Drawing.Point(425, 84)
-        Me.pcbFoto.Name = "pcbFoto"
-        Me.pcbFoto.Size = New System.Drawing.Size(271, 171)
-        Me.pcbFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.pcbFoto.TabIndex = 9
-        Me.pcbFoto.TabStop = False
+        Me.lblEstado.AutoSize = True
+        Me.lblEstado.Location = New System.Drawing.Point(48, 310)
+        Me.lblEstado.Name = "lblEstado"
+        Me.lblEstado.Size = New System.Drawing.Size(39, 13)
+        Me.lblEstado.TabIndex = 7
+        Me.lblEstado.Text = "Label1"
+        '
+        'lblPrecio
+        '
+        Me.lblPrecio.AutoSize = True
+        Me.lblPrecio.Location = New System.Drawing.Point(48, 242)
+        Me.lblPrecio.Name = "lblPrecio"
+        Me.lblPrecio.Size = New System.Drawing.Size(39, 13)
+        Me.lblPrecio.TabIndex = 6
+        Me.lblPrecio.Text = "Label1"
+        '
+        'lblNumPasajeros
+        '
+        Me.lblNumPasajeros.AutoSize = True
+        Me.lblNumPasajeros.Location = New System.Drawing.Point(48, 203)
+        Me.lblNumPasajeros.Name = "lblNumPasajeros"
+        Me.lblNumPasajeros.Size = New System.Drawing.Size(39, 13)
+        Me.lblNumPasajeros.TabIndex = 5
+        Me.lblNumPasajeros.Text = "Label1"
+        '
+        'lblKm
+        '
+        Me.lblKm.AutoSize = True
+        Me.lblKm.Location = New System.Drawing.Point(48, 165)
+        Me.lblKm.Name = "lblKm"
+        Me.lblKm.Size = New System.Drawing.Size(39, 13)
+        Me.lblKm.TabIndex = 4
+        Me.lblKm.Text = "Label1"
+        '
+        'lblColor
+        '
+        Me.lblColor.AutoSize = True
+        Me.lblColor.Location = New System.Drawing.Point(48, 132)
+        Me.lblColor.Name = "lblColor"
+        Me.lblColor.Size = New System.Drawing.Size(39, 13)
+        Me.lblColor.TabIndex = 3
+        Me.lblColor.Text = "Label1"
+        '
+        'lblModelo
+        '
+        Me.lblModelo.AutoSize = True
+        Me.lblModelo.Location = New System.Drawing.Point(48, 94)
+        Me.lblModelo.Name = "lblModelo"
+        Me.lblModelo.Size = New System.Drawing.Size(39, 13)
+        Me.lblModelo.TabIndex = 2
+        Me.lblModelo.Text = "Label1"
+        '
+        'lblMarca
+        '
+        Me.lblMarca.AutoSize = True
+        Me.lblMarca.Location = New System.Drawing.Point(48, 59)
+        Me.lblMarca.Name = "lblMarca"
+        Me.lblMarca.Size = New System.Drawing.Size(39, 13)
+        Me.lblMarca.TabIndex = 1
+        Me.lblMarca.Text = "Label1"
+        '
+        'lblMatricula
+        '
+        Me.lblMatricula.AutoSize = True
+        Me.lblMatricula.Location = New System.Drawing.Point(48, 25)
+        Me.lblMatricula.Name = "lblMatricula"
+        Me.lblMatricula.Size = New System.Drawing.Size(39, 13)
+        Me.lblMatricula.TabIndex = 0
+        Me.lblMatricula.Text = "Label1"
         '
         'frmInventario_Autos
         '

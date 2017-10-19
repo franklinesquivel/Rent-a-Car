@@ -6,7 +6,7 @@ Public Class frmReportes_Coches
         SkinManager.AddFormToManage(Me)
         SkinManager.Theme = MaterialSkinManager.Themes.LIGHT
         SkinManager.ColorScheme = New ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE)
-
+        Session.ControlarSession()
         Coches = New clsCoches
         If Not Coches.Reporte("", dgvCodigo_Renta) Then
             MsgBox("Error: No hay datos por mostrar")
@@ -21,5 +21,9 @@ Public Class frmReportes_Coches
 
     Private Sub txbCodigo_Renta_KeyUp(sender As Object, e As KeyEventArgs) Handles txbCodigo_Renta.KeyUp
         Coches.Reporte(txbCodigo_Renta.Text.Trim, dgvCodigo_Renta)
+    End Sub
+
+    Private Sub mnsCerrar_Sesion_Click(sender As Object, e As EventArgs) Handles mnsCerrar_Sesion.Click
+        Session.CerrarSession()
     End Sub
 End Class

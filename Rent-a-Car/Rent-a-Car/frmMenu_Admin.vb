@@ -5,6 +5,7 @@ Public Class frmMenu_Admin
         SkinManager.AddFormToManage(Me)
         SkinManager.Theme = MaterialSkinManager.Themes.LIGHT
         SkinManager.ColorScheme = New ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE)
+        Session.ControlarSession()
     End Sub
 
     Private Sub btnRegistrar_Agencias_Click(sender As Object, e As EventArgs) Handles btnRegistrar_Agencias.Click
@@ -68,7 +69,6 @@ Public Class frmMenu_Admin
     End Sub
 
     Private Sub btnCerrar_Sesion_Click(sender As Object, e As EventArgs) Handles btnCerrar_Sesion.Click
-        frmInicio_Sesion.Show()
-        Me.Close()
+        Session.CerrarSession()
     End Sub
 End Class

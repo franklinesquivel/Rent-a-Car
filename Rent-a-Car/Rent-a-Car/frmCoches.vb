@@ -17,7 +17,7 @@ Public Class frmCoches
         SkinManager.AddFormToManage(Me)
         SkinManager.Theme = MaterialSkinManager.Themes.LIGHT
         SkinManager.ColorScheme = New ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE)
-
+        Session.ControlarSession()
         If Conexion.contarFilas("SELECT * FROM agencias;") > 0 Then
             Conexion.llenarCombo(cmbAgenciaCoche, "SELECT * FROM agencias;", 0, 1)
         Else
@@ -71,5 +71,9 @@ Public Class frmCoches
             btnFoto.Text = Path.GetFileName(ofdFoto.FileName)
             picCoche.ImageLocation = ofdFoto.FileName
         End If
+    End Sub
+
+    Private Sub mnsCerrar_Sesion_Click(sender As Object, e As EventArgs) Handles mnsCerrar_Sesion.Click
+        Session.CerrarSession()
     End Sub
 End Class

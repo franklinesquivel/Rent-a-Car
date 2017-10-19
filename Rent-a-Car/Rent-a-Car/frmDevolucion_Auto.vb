@@ -7,6 +7,7 @@ Public Class frmDevolucion_Auto
         SkinManager.AddFormToManage(Me)
         SkinManager.Theme = MaterialSkinManager.Themes.LIGHT
         SkinManager.ColorScheme = New ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE)
+        Session.ControlarSession()
         Rentas = New clsRentas
         If Rentas.listarRentas(listaRentas, dgvDevolucion) = 0 Then
             MsgBox("Error: No hay rentas por devolver")
@@ -109,5 +110,9 @@ Public Class frmDevolucion_Auto
             btnCalcular.Enabled = True
             btnConfirmar.Enabled = False
         End If
+    End Sub
+
+    Private Sub mnsCerrar_Sesion_Click(sender As Object, e As EventArgs) Handles mnsCerrar_Sesion.Click
+        Session.CerrarSession()
     End Sub
 End Class

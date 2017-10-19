@@ -7,6 +7,7 @@ Public Class frmClientes
         SkinManager.ColorScheme = New ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE)
         paises = New clsPaises()
         paises.Listar(cmbPaises)
+        Session.ControlarSession()
     End Sub
 
     Private Sub btnAgregar_Cliente_Click(sender As Object, e As EventArgs) Handles btnAgregar_Cliente.Click
@@ -19,5 +20,9 @@ Public Class frmClientes
     Private Sub btnRegresar_Click(sender As Object, e As EventArgs) Handles btnRegresar.Click
         frmMenu_Admin.Show()
         Me.Hide()
+    End Sub
+
+    Private Sub mnsCerrar_Sesion_Click(sender As Object, e As EventArgs) Handles mnsCerrar_Sesion.Click
+        Session.CerrarSession()
     End Sub
 End Class

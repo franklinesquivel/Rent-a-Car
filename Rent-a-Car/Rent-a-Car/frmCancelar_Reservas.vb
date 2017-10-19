@@ -6,7 +6,7 @@ Public Class frmCancelar_Reservas
         SkinManager.AddFormToManage(Me)
         SkinManager.Theme = MaterialSkinManager.Themes.LIGHT
         SkinManager.ColorScheme = New ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE)
-
+        Session.ControlarSession()
         Reservas = New clsReservas
         If Reservas.listarReservas(listaReservas, dgvCancelar_Reservas) = 0 Then
             MsgBox("Error: No hay reservas por cancelar")
@@ -48,5 +48,9 @@ Public Class frmCancelar_Reservas
 
     Private Sub dgvCancelar_Reservas_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvCancelar_Reservas.CellContentClick
 
+    End Sub
+
+    Private Sub mnsCerrar_Sesion_Click(sender As Object, e As EventArgs) Handles mnsCerrar_Sesion.Click
+        Session.CerrarSession()
     End Sub
 End Class

@@ -12,6 +12,7 @@ Public Class frmModificar_Coche
         SkinManager.AddFormToManage(Me)
         SkinManager.Theme = MaterialSkinManager.Themes.LIGHT
         SkinManager.ColorScheme = New ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE)
+        Session.ControlarSession()
         Coches = New clsCoches
         Conexion.llenarCombo(ComboBox2, "SELECT placa FROM coches WHERE estado = 'A'", 0, 0)
         btnModificar_Coche.Enabled = False
@@ -114,4 +115,7 @@ Public Class frmModificar_Coche
         End If
     End Sub
 
+    Private Sub mnsCerrar_Sesion_Click(sender As Object, e As EventArgs) Handles mnsCerrar_Sesion.Click
+        Session.CerrarSession()
+    End Sub
 End Class

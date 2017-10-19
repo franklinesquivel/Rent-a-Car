@@ -181,7 +181,7 @@ Public Class clsCoches
     '___________________________________
     '|   Metodos generales de la clase  |
     '|__________________________________|
-    Public Sub LlenarDatosModificar(ByRef placa As String, ByRef marca As String, ByRef modelo As String, ByRef color As String, ByRef kilometraje As String, ByRef nPasajeros As String, ByRef alquiler As String, ByVal fotografia As Button, ByRef tipo As String, ByRef idAgencia As String, ByRef picFoto As PictureBox)
+    Public Function LlenarDatosModificar(ByRef placa As String, ByRef marca As String, ByRef modelo As String, ByRef color As String, ByRef kilometraje As String, ByRef nPasajeros As String, ByRef alquiler As String, ByVal fotografia As Button, ByRef tipo As String, ByRef idAgencia As String, ByRef picFoto As PictureBox) As Boolean
         'Función que nos sirve para obtener los datos del coche, con la finalidad de mostrarlo
         Dim reader As MySqlDataReader
         Dim resourcesPath = Application.StartupPath & DirectorySeparatorChar & ".." & DirectorySeparatorChar & ".." & DirectorySeparatorChar & "Resources" & DirectorySeparatorChar & "Coches" & DirectorySeparatorChar
@@ -201,7 +201,8 @@ Public Class clsCoches
             picFoto.ImageLocation = resourcesPath + reader(6)
         End While
         reader.Close() 'Se cierra la lectura
-    End Sub
+        Return True
+    End Function
     Public Function ModificarRenta(ByVal matricula As String, ByVal alquiler As Decimal, ByVal tipo As String) As Boolean
         matricula = matricula.Trim
         tipo = tipo.Trim

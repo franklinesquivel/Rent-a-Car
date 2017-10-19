@@ -1,11 +1,12 @@
 ﻿Imports MaterialSkin
 Public Class frmReportes_Rentas
-    Dim Rentas As clsRentas
+    'Dim Rentas As clsRentas
     Private Sub frmRenta_Auto_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim SkinManager As MaterialSkinManager = MaterialSkinManager.Instance
         SkinManager.AddFormToManage(Me)
         SkinManager.Theme = MaterialSkinManager.Themes.LIGHT
         SkinManager.ColorScheme = New ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE)
+        Session.ControlarSession()
         Rentas = New clsRentas
     End Sub
 
@@ -54,5 +55,9 @@ Public Class frmReportes_Rentas
                 MsgBox("Error: No hay datos por mostrar")
             End If
         End If
+    End Sub
+
+    Private Sub mnsCerrar_Sesion_Click(sender As Object, e As EventArgs) Handles mnsCerrar_Sesion.Click
+        Session.CerrarSession()
     End Sub
 End Class

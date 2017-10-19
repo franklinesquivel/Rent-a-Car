@@ -390,9 +390,6 @@ Partial Class frmCoches
         Me.btnRegresar.Text = "Regresar"
         Me.btnRegresar.UseVisualStyleBackColor = True
         '
-        'ofdFoto
-        '
-        '
         'mnsMenu
         '
         Me.mnsMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnsCerrar_Sesion})

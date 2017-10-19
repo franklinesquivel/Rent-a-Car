@@ -30,9 +30,9 @@ Partial Class frmReportes_Rentas
         Me.dgvReportes = New System.Windows.Forms.DataGridView()
         Me.lblNumRentas = New MaterialSkin.Controls.MaterialLabel()
         Me.GroupRadio = New System.Windows.Forms.GroupBox()
+        Me.rdbTipoAuto = New System.Windows.Forms.RadioButton()
         Me.rdbAgencia = New System.Windows.Forms.RadioButton()
         Me.rdbAgente = New System.Windows.Forms.RadioButton()
-        Me.rdbTipoAuto = New System.Windows.Forms.RadioButton()
         Me.mnsMenu.SuspendLayout()
         CType(Me.dgvReportes, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupRadio.SuspendLayout()
@@ -124,6 +124,17 @@ Partial Class frmReportes_Rentas
         Me.GroupRadio.TabStop = False
         Me.GroupRadio.Text = "Desglosar Por"
         '
+        'rdbTipoAuto
+        '
+        Me.rdbTipoAuto.AutoSize = True
+        Me.rdbTipoAuto.Location = New System.Drawing.Point(271, 25)
+        Me.rdbTipoAuto.Name = "rdbTipoAuto"
+        Me.rdbTipoAuto.Size = New System.Drawing.Size(71, 17)
+        Me.rdbTipoAuto.TabIndex = 85
+        Me.rdbTipoAuto.TabStop = True
+        Me.rdbTipoAuto.Text = "Tipo Auto"
+        Me.rdbTipoAuto.UseVisualStyleBackColor = True
+        '
         'rdbAgencia
         '
         Me.rdbAgencia.AutoSize = True
@@ -145,17 +156,6 @@ Partial Class frmReportes_Rentas
         Me.rdbAgente.TabStop = True
         Me.rdbAgente.Text = "Agente"
         Me.rdbAgente.UseVisualStyleBackColor = True
-        '
-        'rdbTipoAuto
-        '
-        Me.rdbTipoAuto.AutoSize = True
-        Me.rdbTipoAuto.Location = New System.Drawing.Point(271, 25)
-        Me.rdbTipoAuto.Name = "rdbTipoAuto"
-        Me.rdbTipoAuto.Size = New System.Drawing.Size(71, 17)
-        Me.rdbTipoAuto.TabIndex = 85
-        Me.rdbTipoAuto.TabStop = True
-        Me.rdbTipoAuto.Text = "Tipo Auto"
-        Me.rdbTipoAuto.UseVisualStyleBackColor = True
         '
         'frmReportes_Rentas
         '

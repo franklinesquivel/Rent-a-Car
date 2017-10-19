@@ -66,13 +66,13 @@ Module mdlDeclaracionClases
         '|               Metodos de la estructura            |
         '|___________________________________________________|
         Public Sub CerrarSession() 'Funcion que estara en todo los eventos click de 'Cerrar Sesión'
-            _tipoUsuario = Nothing
-            _idUsuario = Nothing
-            Dim formTitles As New Collection
+
             For Each f As Form In Application.OpenForms 'Se cierran los forms abiertos
-                f.Close()
+                f.Hide()
             Next
             frmInicio_Sesion.Show()
+            _tipoUsuario = Nothing
+            _idUsuario = Nothing
         End Sub
 
         Public Sub ControlarSession() 'Función que estará en todo evento load de cada form

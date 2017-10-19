@@ -8,6 +8,7 @@ Public Class frmInventario_Autos
         SkinManager.AddFormToManage(Me)
         SkinManager.Theme = MaterialSkinManager.Themes.LIGHT
         SkinManager.ColorScheme = New ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE)
+        Session.CerrarSession()
         Coches = New clsCoches() 'Creación de objeto
         InicializarVista(False)
     End Sub
@@ -58,5 +59,9 @@ Public Class frmInventario_Autos
         lblPrecio.Visible = valor
         lblTipo.Visible = valor
         lblEstado.Visible = valor
+    End Sub
+
+    Private Sub mnsCerrar_Sesion_Click(sender As Object, e As EventArgs) Handles mnsCerrar_Sesion.Click
+        Session.CerrarSession()
     End Sub
 End Class

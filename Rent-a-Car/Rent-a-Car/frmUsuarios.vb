@@ -5,6 +5,7 @@ Public Class frmUsuarios
         SkinManager.AddFormToManage(Me)
         SkinManager.Theme = MaterialSkinManager.Themes.LIGHT
         SkinManager.ColorScheme = New ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE)
+        Session.ControlarSession()
     End Sub
 
     Private Sub btnAgregar_Usuario_Click(sender As Object, e As EventArgs) Handles btnAgregar_Usuario.Click
@@ -33,5 +34,9 @@ Public Class frmUsuarios
     Private Sub btn_Regresar_Click(sender As Object, e As EventArgs) Handles btn_Regresar.Click
         frmMenu_Admin.Show()
         Me.Close()
+    End Sub
+
+    Private Sub mnsCerrar_Sesion_Click(sender As Object, e As EventArgs) Handles mnsCerrar_Sesion.Click
+        Session.CerrarSession()
     End Sub
 End Class
