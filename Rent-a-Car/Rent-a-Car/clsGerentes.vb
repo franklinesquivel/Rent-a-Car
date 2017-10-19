@@ -20,6 +20,6 @@
             Return False
         End If
 
-        Return MyBase.Registrar(_nombres, _apellidos, tipoUsuario _correo)
+        Return MyBase.Registrar(_nombres, _apellidos, tipoUsuario, _correo)
     End Function
 End Class
