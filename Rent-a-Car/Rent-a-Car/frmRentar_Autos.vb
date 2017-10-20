@@ -25,18 +25,20 @@ Public Class frmRentar_Autos
     Private Sub btnRentar_Autos_Click(sender As Object, e As EventArgs) Handles btnRentar_Autos.Click
         Dim Rentas As clsRentas
         Rentas = New clsRentas
+
         Dim indice As Integer = Reservas.BuscarIndice(txbCodigo_Reserva.Text, listaReservas)
-        Dim user As Integer = Rentas.ChequearReserva(indice)
-        Dim indiceCliente As Integer = Rentas.idCliente
-        Dim indiceAgencia As Integer = Rentas.idAgencia
-        Dim indiceCoche As Integer = Rentas.idCoche
+        Dim user As Integer = Rentas.ChequearReserva(listaReservas(indice).ObtenerCodigoReserva)
         Dim indiceUsuario As Integer = Session.ObtenerIdUsuario
-        Dim fechaR As Date = Rentas.getFechaRetiro
-        Dim fechaD As Date = Rentas.getFechadevo
-        If Rentas.registrarRenta(indiceCliente, indiceAgencia, indiceCoche, indiceUsuario, fechaR.ToString("yyyy-MM-dd"), fechaD.ToString("yyyy-MM-dd"), txbCodigo_Reserva.Text) Then
-            Rentas.ReservaRealizada(listaReservas(indice))
-            MsgBox("Renta Agregada con exito")
+
+        If indice > -1 Then
+            If Rentas.registrarRenta(listaReservas(indice).ObtenerIdCliente, listaReservas(indice).ObtenerIdAgencia, listaReservas(indice).ObtenerIdCoche, indiceUsuario, listaReservas(indice).ObtenerFechaInicio.ToString("yyyy-MM-dd"), listaReservas(indice).ObtenerFechaFin.ToString("yyyy-MM-dd"), txbCodigo_Reserva.Text) Then
+                Rentas.ReservaRealizada(listaReservas(indice))
+                MsgBox("Renta Agregada con exito")
+            End If
+        Else
+            MsgBox("Error: Código de renta no encontrado")
         End If
+
     End Sub
 
     Private Sub btnRegresar_Click(sender As Object, e As EventArgs) Handles btnRegresar.Click

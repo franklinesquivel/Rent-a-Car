@@ -12,7 +12,7 @@ Public Class clsFactura
         Dim cb As PdfContentByte
         Dim fuente As iTextSharp.text.pdf.BaseFont
         Dim nombre = cliente.ObtenerNombreDeUsuari
-        Dim NombreArchivo As String = Environment.SpecialFolder.Desktop & nombre & ".pdf"
+        Dim NombreArchivo As String = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) & "/" & nombre & ".pdf"
         Try
             pdfw = PdfWriter.GetInstance(oDoc, New FileStream(NombreArchivo,
             FileMode.Create, FileAccess.Write, FileShare.None))
@@ -67,12 +67,69 @@ Public Class clsFactura
         EjecutarArchivos(NombreArchivo)
     End Sub
 
-    Public Sub GenerarPDFDatosReserva(ByVal idReserva As String, ByVal TotalPagar As Decimal)
+    Public Sub GenerarPDFDatosReserva(ByVal idReserva As String, ByVal TotalPagar As String)
         Dim reader As MySqlDataReader
         Dim Conexion As New clsConexion
-        Conexion.obtenerDatos("SELECT * FROM reserva r INNER JOIN coches c ON c.id_coche = r.id_coche INNER JOIN clientes cl ON cl.id_cliente = r.id_cliente WHERE r.id_reserva = '" & idReserva & "'", reader)
+        Conexion.obtenerDatos("SELECT cl.nombre, cl.nombre_usuario , cl.apellido, cl.ciudad, c.marca, c.modelo, c.color, c.num_pasajeros, c.precio_alquiler FROM reservas r INNER JOIN coches c ON c.id_coche = r.id_coche INNER JOIN clientes cl ON cl.id_cliente = r.id_cliente WHERE r.id_reserva = '" & idReserva & "'", reader)
         reader.Read() 'Listo para lectura
-
+        Dim oDoc As New iTextSharp.text.Document(PageSize.A4, 0, 0, 0, 0)
+        Dim pdfw As iTextSharp.text.pdf.PdfWriter
+        Dim cb As PdfContentByte
+        Dim fuente As iTextSharp.text.pdf.BaseFont
+        Dim nombre = reader(1)
+        Dim NombreArchivo As String = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) & "/" & nombre & ".pdf"
+        Try
+            pdfw = PdfWriter.GetInstance(oDoc, New FileStream(NombreArchivo,
+            FileMode.Create, FileAccess.Write, FileShare.None))
+            'Apertura del documento.
+            oDoc.Open()
+            cb = pdfw.DirectContent
+            'Agregamos una pagina.
+            oDoc.NewPage()
+            'Iniciamos el flujo de bytes.
+            cb.BeginText()
+            'Instanciamos el objeto para la tipo de letra.
+            fuente = FontFactory.GetFont(FontFactory.HELVETICA, iTextSharp.text.Font.DEFAULTSIZE, iTextSharp.text.Font.NORMAL).BaseFont
+            'Seteamos el tipo de letra y el tamaño.
+            cb.SetFontAndSize(fuente, 12)
+            'Seteamos el color del texto a escribir.
+            cb.SetColorFill(iTextSharp.text.BaseColor.BLACK)
+            'Aqui es donde se escribe el texto.
+            'Aclaracion: Por alguna razon la coordenada vertical siempre es tomada desde el borde inferior (de ahi que se calcule como "PageSize.A4.Height - 50")
+            cb.ShowTextAligned(PdfContentByte.ALIGN_LEFT, "Rent-a-Car", 200, PageSize.A4.Height - 50, 0)
+            cb.ShowTextAligned(PdfContentByte.ALIGN_LEFT, "Factura de Renta", 200, PageSize.A4.Height - 70, 0)
+            cb.ShowTextAligned(PdfContentByte.ALIGN_LEFT, "Datos del Cliente", 200, PageSize.A4.Height - 90, 0)
+            cb.ShowTextAligned(PdfContentByte.ALIGN_LEFT, "Usuario: " & reader(0) & " " & reader(2), 200, PageSize.A4.Height - 110, 0)
+            cb.ShowTextAligned(PdfContentByte.ALIGN_LEFT, "Ciudad: " & reader(3), 200, PageSize.A4.Height - 130, 0)
+            cb.ShowTextAligned(PdfContentByte.ALIGN_LEFT, "Datos del Coche:", 200, PageSize.A4.Height - 150, 0)
+            cb.ShowTextAligned(PdfContentByte.ALIGN_LEFT, "Marca: " & reader(4), 200, PageSize.A4.Height - 170, 0)
+            cb.ShowTextAligned(PdfContentByte.ALIGN_LEFT, "Modelo: " & reader(5), 200, PageSize.A4.Height - 190, 0)
+            cb.ShowTextAligned(PdfContentByte.ALIGN_LEFT, "Color: " & reader(6), 200, PageSize.A4.Height - 210, 0)
+            cb.ShowTextAligned(PdfContentByte.ALIGN_LEFT, "Num pasajeros " & reader(7), 200, PageSize.A4.Height - 230, 0)
+            cb.ShowTextAligned(PdfContentByte.ALIGN_LEFT, "Precio de alquiler: $" & reader(8), 200, PageSize.A4.Height - 250, 0)
+            cb.ShowTextAligned(PdfContentByte.ALIGN_LEFT, "Total a pagar: $" & TotalPagar, 200, PageSize.A4.Height - 270, 0)
+            'Fin del flujo de bytes.
+            cb.EndText()
+            'Forzamos vaciamiento del buffer.
+            pdfw.Flush()
+            'Cerramos el documento.
+            oDoc.Close()
+        Catch ex As Exception
+            'Si hubo una excepcion y el archivo existe ...
+            If File.Exists(NombreArchivo) Then
+                'Cerramos el documento si esta abierto.
+                'Y asi desbloqueamos el archivo para su eliminacion.
+                If oDoc.IsOpen Then oDoc.Close()
+                '... lo eliminamos de disco.
+                File.Delete(NombreArchivo)
+            End If
+            Throw New Exception("Error al generar archivo PDF")
+        Finally
+            cb = Nothing
+            pdfw = Nothing
+            oDoc = Nothing
+        End Try
+        EjecutarArchivos(NombreArchivo)
         reader.Close() 'Se cierra la lectura
     End Sub
     Public Sub EjecutarArchivos(ruta As String)

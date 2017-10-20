@@ -48,6 +48,22 @@ Public Class clsReservas
             Return Estado
         End Get
     End Property
+    Public ReadOnly Property ObtenerIdCliente() As Integer
+        Get
+            Return idCliente
+        End Get
+    End Property
+    Public ReadOnly Property ObtenerIdCoche() As Integer
+        Get
+            Return idCoche
+        End Get
+    End Property
+    Public ReadOnly Property ObtenerIdAgencia() As Integer
+        Get
+            Return idAgencia
+        End Get
+    End Property
+
     '_____________________________________________________
     '|      Propiedades de escritura de la clase         |
     '|___________________________________________________|

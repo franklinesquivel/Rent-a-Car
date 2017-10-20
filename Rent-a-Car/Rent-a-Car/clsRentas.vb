@@ -196,13 +196,16 @@ Public Class clsRentas
 
     Public Function registrarRenta(ByVal idCliente As Integer, ByVal idAgencia As Integer, ByVal idCoche As Integer, ByVal idUsuario As Integer, ByVal fechaR As String, ByVal fechaD As String, ByVal codigoReserva As String) As Boolean
         'Metodo que registra una renta basandose en una reserva
-        If Conexion.contarFilas("SELECT * FROM reserva WHERE id_reserva = '" & codigoReserva & "'") = 0 Then 'Se verifica si el codigo de reserva existe en la BDD
+        If Conexion.contarFilas("SELECT * FROM reservas WHERE id_reserva = '" & codigoReserva & "'") = 0 Then 'Se verifica si el codigo de reserva existe en la BDD
             MsgBox("Error: El código de reserva no existe")
         Else
             Dim reader As MySqlDataReader 'Variable de lectura
-            Conexion.obtenerDatos("SELECT precio_pagar FROM reserva WHERE id_reserva = '" & codigoReserva & "'", reader) 'Obtnemos los datos de la reserva
-            If Conexion.modificarDatos("INSERT INTO rentas VALUES(" & "NULL" & ", " & idCliente & ", " & idAgencia & ", " & idCoche & ", " & idUsuario & ", '" & fechaR & "', '" & fechaD & "' ,'Activa')") Then
-                'clsArchivo.GenerarPDF(cliente, coche, reader(0)) 'Mandamos información al pdf
+            MsgBox(codigoReserva)
+            Conexion.obtenerDatos("SELECT precio_pagar FROM reservas WHERE id_reserva = '" & codigoReserva & "'", reader) 'Obtnemos los datos de la reserva
+            reader.Read()
+            Dim totalPagar = reader(0)
+            If Conexion.modificarDatos("INSERT INTO rentas VALUES(" & "NULL" & ", " & idCliente & ", " & idAgencia & ", " & idCoche & ", " & idUsuario & ", '" & fechaR & "', '" & fechaD & "' ,'Activa', " & totalPagar & ")") Then
+                clsArchivo.GenerarPDFDatosReserva(codigoReserva, totalPagar) 'Mandamos información al pdf
                 reader.Close() 'Se cierra la lectira
                 Return True
             End If
