@@ -8,7 +8,7 @@ Public Class frmInventario_Autos
         SkinManager.AddFormToManage(Me)
         SkinManager.Theme = MaterialSkinManager.Themes.LIGHT
         SkinManager.ColorScheme = New ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE)
-        Session.CerrarSession()
+        Session.ControlarSession()
         Coches = New clsCoches() 'Creación de objeto
         InicializarVista(False)
     End Sub

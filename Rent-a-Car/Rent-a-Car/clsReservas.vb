@@ -1,5 +1,6 @@
 ﻿Imports System.Text.RegularExpressions
 Imports MySql.Data.MySqlClient
+Imports System.IO.Path
 Public Class clsReservas
     'Atributos de la clase
     Private FechaInicio As Date
@@ -335,5 +336,19 @@ Public Class clsReservas
                 Next
             End If
         Next
+    End Sub
+
+    Public Sub VerDatos(ByVal id_reserva As String, ByRef _matricula As String, ByRef _especificaciones As String, ByRef _pic As PictureBox, ByRef _nombreCliente As String, ByRef _nombreUsuario As String, ByRef _correo As String) 'metodo para ver los datos de una reserva en especifico
+        Dim reader As MySqlDataReader
+        Dim resourcesPath = Application.StartupPath & DirectorySeparatorChar & ".." & DirectorySeparatorChar & ".." & DirectorySeparatorChar & "Resources" & DirectorySeparatorChar & "Coches" & DirectorySeparatorChar 'Obtener Carpeta donde estan guardadas las imagenes
+        Conexion.obtenerDatos("SELECT c.placa, CONCAT_WS(' - ', c.modelo, c.marca), c.fotografia,  CONCAT_WS(', ', CL.apellido, cl.nombre), cl.nombre_usuario, cl.correo_electronico FROM `reservas` r INNER JOIN coches c ON c.id_coche = r.id_coche INNER JOIN clientes cl ON cl.id_cliente = r.id_cliente WHERE r.id_reserva = '" & id_reserva & "'", reader)
+        reader.Read() 'Se abre la lectura
+        _matricula = reader(0)
+        _especificaciones = reader(1)
+        _pic.ImageLocation = resourcesPath + reader(2)
+        _nombreCliente = reader(3)
+        _nombreUsuario = reader(4)
+        _correo = reader(5)
+        reader.Close() 'Se cierra la lectura
     End Sub
 End Class

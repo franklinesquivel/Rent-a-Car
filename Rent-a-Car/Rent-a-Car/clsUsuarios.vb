@@ -77,9 +77,12 @@ Public Class clsUsuarios
         MyClass.CrearCodigo(_tipoUsuario) 'Se crea el código de usuario
         MyClass.CrearContrasenna() 'Se crea la contraseña de usuario
         If verificarCorreoElectronico(_correo) = 0 Then 'Se verifica que no haya un correo electrónico igual en la BDD
-            Return Conexion.modificarDatos("INSERT INTO usuarios(nombre, apellido, nombre_usuario, contraseña, perfil, correo_electronico) VALUES('" & _nombres & "', '" & _apellidos & "', '" & NombreUsuario & "', '" & Contrasenna & "' , '" & _tipoUsuario & "', '" & _correo & "')")
+            If Conexion.modificarDatos("INSERT INTO usuarios(nombre, apellido, nombre_usuario, contraseña, perfil, correo_electronico) VALUES('" & _nombres & "', '" & _apellidos & "', '" & NombreUsuario & "', '" & Contrasenna & "' , '" & _tipoUsuario & "', '" & _correo & "')") Then
+                Email.Registro(_correo, NombreUsuario, Encriptacion.DesarmarEncriptacion(Contrasenna))
+                Return 1
+            End If
         Else
-            MsgBox("Error: El email ingresado ya existe como usuario")
+                MsgBox("Error: El email ingresado ya existe como usuario")
             Return 0
         End If
     End Function

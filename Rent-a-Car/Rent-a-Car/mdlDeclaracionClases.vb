@@ -66,7 +66,6 @@ Module mdlDeclaracionClases
         '|               Metodos de la estructura            |
         '|___________________________________________________|
         Public Sub CerrarSession() 'Funcion que estara en todo los eventos click de 'Cerrar Sesión'
-
             For Each f As Form In Application.OpenForms 'Se cierran los forms abiertos
                 f.Hide()
             Next

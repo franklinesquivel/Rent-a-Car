@@ -89,4 +89,26 @@ Public Class clsEmail
             Return 0
         End Try
     End Function
+
+    Public Function Registro(ByVal _correo As String, ByVal _nombreUsuario As String, ByVal _contrasenna As String) As Boolean 'Se envía el correo al usuario cuando se registra
+        Try
+            smtpServer.UseDefaultCredentials = False 'Desactivamos credenciales por defecto
+            smtpServer.Credentials = New Net.NetworkCredential("ezic2017@gmail.com", "niu126/17/9.pjc.IEY") 'Agregamos el correo de donde enviaremos datos
+            smtpServer.Port = 587 'Activamos puerto SMPT
+            smtpServer.Host = "smtp.gmail.com" 'El host de donde se enviará (En este caso el de Gmail)
+            smtpServer.EnableSsl = True 'Activamos la seguridad Ssl
+            mensaje.From = New MailAddress("ezic2017@gmail.com") 'Correo donde se enviará
+
+            mensaje.To.Add(_correo) 'Destinatario
+            mensaje.Subject = "Rent a car: Bienvenido!" 'Titulo del mensaje
+            mensaje.IsBodyHtml = True 'Activamos el cuerpo del mensaje como html
+            mensaje.Body = "<b>Nombre de Usuario: </b>" & _nombreUsuario & "<br>" 'Mensaje
+            mensaje.Body = "<b>Contraseña: </b>" & _contrasenna 'Mensaje
+            smtpServer.Send(mensaje) 'Mandamos el mensaje
+            Return 1
+        Catch ex As Exception
+            MsgBox("Error: El correo electrónico no se ha enviado correctamente")
+            Return 0
+        End Try
+    End Function
 End Class

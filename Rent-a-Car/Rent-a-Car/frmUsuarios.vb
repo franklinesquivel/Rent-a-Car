@@ -14,19 +14,19 @@ Public Class frmUsuarios
             Administradores = New clsAdministradores
             'tipo = rdbAdministrador.Text
             If Administradores.Registrar(txbNombre.Text, txbApellido.Text, txbCorreo.Text) Then
-                MsgBox("Registro Exitoso. Usuario:" & Administradores.ObtenerNombreUsuario & "Contraseña: " & Administradores.ObtenerContrasenna)
+                MsgBox("Registro Exitoso: Se ha enviado los datos al correo")
             End If
         ElseIf rdbAgente.Checked = True Then
             'tipo = rdbAgente.Text
             Gerente = New clsGerentes
             If Gerente.Registrar(txbNombre.Text, txbApellido.Text, txbCorreo.Text) Then
-                MsgBox("Registro Exitoso. Usuario:" & Gerente.ObtenerNombreUsuario & "Contraseña: " & Gerente.ObtenerContrasenna)
+                MsgBox("Registro Exitoso: Se ha enviado los datos al correo")
             End If
         ElseIf rdbContador.Checked = True Then
             'tipo = rdbContador.Text
             Contador = New clsContadores
             If Contador.Registrar(txbNombre.Text, txbApellido.Text, txbCorreo.Text) Then
-                MsgBox("Registro Exitoso. Usuario:" & Contador.ObtenerNombreUsuario & "Contraseña: " & Contador.ObtenerContrasenna)
+                MsgBox("Registro Exitoso: Se ha enviado los datos al correo")
             End If
         End If
     End Sub

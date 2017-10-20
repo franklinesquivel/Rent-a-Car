@@ -577,37 +577,35 @@ Public Class clsCoches
 
     Public Sub opcionesBusquedaAutos(ByVal combo1 As ComboBox, ByVal combo2 As ComboBox)
         If combo1.SelectedItem.ToString = "Marca" Then
-            If Conexion.contarFilas("SELECT marca FROM coches WHERE estado = 'A'") = 0 Then
+            If Conexion.contarFilas("SELECT DISTINCT marca FROM coches WHERE estado = 'A'") = 0 Then
                 MsgBox("Error: No hay marcas registradas.")
             Else
                 Conexion.llenarCombo(combo2, "SELECT id_coche, marca FROM coches WHERE estado = 'A'", 0, 1)
             End If
         ElseIf combo1.SelectedItem.ToString = "Modelo" Then
-            If Conexion.contarFilas("SELECT modelo FROM coches WHERE estado = 'A'") = 0 Then
+            If Conexion.contarFilas("SELECT DISTINCT modelo FROM coches WHERE estado = 'A'") = 0 Then
                 MsgBox("Error: No hay marcas registradas.")
             Else
                 Conexion.llenarCombo(combo2, "SELECT id_coche, modelo FROM coches WHERE estado = 'A'", 0, 1)
-
             End If
         ElseIf combo1.SelectedItem.ToString = "Num de pasajeros" Then
-            If Conexion.contarFilas("SELECT num_pasajeros FROM coches WHERE estado = 'A'") = 0 Then
+            If Conexion.contarFilas("SELECT DISTINCT num_pasajeros FROM coches WHERE estado = 'A'") = 0 Then
                 MsgBox("Error: No hay marcas registradas.")
             Else
                 Conexion.llenarCombo(combo2, "SELECT id_coche, num_pasajeros FROM coches WHERE estado = 'A'", 0, 1)
 
             End If
         ElseIf combo1.SelectedItem.ToString = "Costo de alquiler" Then
-            If Conexion.contarFilas("SELECT precio_alquiler FROM coches WHERE estado = 'A'") = 0 Then
+            If Conexion.contarFilas("SELECT DISTINCT precio_alquiler FROM coches WHERE estado = 'A'") = 0 Then
                 MsgBox("Error: No hay marcas registradas.")
             Else
                 Conexion.llenarCombo(combo2, "SELECT id_coche, precio_alquiler FROM coches WHERE estado = 'A'", 0, 1)
             End If
         ElseIf combo1.SelectedItem.ToString = "Tipo de auto" Then
-            If Conexion.contarFilas("SELECT tipo FROM coches WHERE estado = 'A'") = 0 Then
+            If Conexion.contarFilas("SELECT DISTINCT tipo FROM coches WHERE estado = 'A'") = 0 Then
                 MsgBox("Error: No hay marcas registradas.")
             Else
                 Conexion.llenarCombo(combo2, "SELECT id_coche, tipo FROM coches WHERE estado = 'A'", 0, 1)
-
             End If
         End If
     End Sub
