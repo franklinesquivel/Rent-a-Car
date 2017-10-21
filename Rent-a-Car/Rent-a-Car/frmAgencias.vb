@@ -5,12 +5,13 @@ Public Class frmAgencias
         SkinManager.AddFormToManage(Me)
         SkinManager.Theme = MaterialSkinManager.Themes.LIGHT
         SkinManager.ColorScheme = New ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE)
-        Session.ControlarSession()
+        Session.ControlarSession() 'Se invoca el método por si alguien quiere acceder al formulario antes de iniciar sesión
     End Sub
 
     Private Sub btnAgregar_Agencia_Click(sender As Object, e As EventArgs) Handles btnAgregar_Agencia.Click
-        Agencia = New clsAgencias
-        If Agencia.registrarAgencia(txbNombre_Agencia.Text, txbDireccion.Text, txbTelefono.Text) Then
+        Agencia = New clsAgencias 'Objeto de clsAgencias
+        If Agencia.registrarAgencia(txbNombre_Agencia.Text, txbDireccion.Text, txbTelefono.Text) Then 'Invocamos el registro
+            InicializarFormulario() 'Se reestablecen los campos
             MsgBox("Registro Exitoso")
         End If
     End Sub
@@ -22,5 +23,12 @@ Public Class frmAgencias
 
     Private Sub mnsCerrar_Sesion_Click(sender As Object, e As EventArgs) Handles mnsCerrar_Sesion.Click
         Session.CerrarSession()
+    End Sub
+
+    Public Sub InicializarFormulario() 'Limpia los campos
+        txbCodigo.Text = ""
+        txbDireccion.Text = ""
+        txbNombre_Agencia.Text = ""
+        txbTelefono.Text = ""
     End Sub
 End Class

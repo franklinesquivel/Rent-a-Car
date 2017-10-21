@@ -17,30 +17,30 @@ Public Class frmCoches
         SkinManager.AddFormToManage(Me)
         SkinManager.Theme = MaterialSkinManager.Themes.LIGHT
         SkinManager.ColorScheme = New ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE)
-        Session.ControlarSession()
-        If Conexion.contarFilas("SELECT * FROM agencias;") > 0 Then
-            Conexion.llenarCombo(cmbAgenciaCoche, "SELECT * FROM agencias;", 0, 1)
+        Session.ControlarSession() 'Se controla la sesión
+        If Conexion.contarFilas("SELECT * FROM agencias;") > 0 Then 'Se verifica la existencia de agencias
+            Conexion.llenarCombo(cmbAgenciaCoche, "SELECT * FROM agencias;", 0, 1) 'Se seleccionan las agencias y se listan
         Else
             MsgBox("No hay agencias registradas en el sistema!", MsgBoxStyle.Critical, "Agencias")
             cmbAgenciaCoche.Enabled = False
         End If
-
-
     End Sub
 
     Private Sub btnAgregar_Coche_Click(sender As Object, e As EventArgs) Handles btnAgregar_Coche.Click
-        Dim key As Integer = CInt(DirectCast(cmbAgenciaCoche.SelectedItem, KeyValuePair(Of String, String)).Key)
-        Dim value As String = DirectCast(cmbAgenciaCoche.SelectedItem, KeyValuePair(Of String, String)).Value
+        Dim key As Integer = CInt(DirectCast(cmbAgenciaCoche.SelectedItem, KeyValuePair(Of String, String)).Key) 'Valor primario de las agencias
+        Dim value As String = DirectCast(cmbAgenciaCoche.SelectedItem, KeyValuePair(Of String, String)).Value 'Valor que se muestra en los combobox de las agencias
         Dim tipo As String = ""
 
-        Try
+        Try 'Controlador de errores
             tipo = obtenerRadio().Text
         Catch ex As Exception
             tipo = ""
         End Try
 
-        Coches = New clsCoches
+        Coches = New clsCoches 'Se instacia el objeto de tipo clase Coche
+        'Se lleva a cabo el registro
         If Coches.registrarCoche(txbMatricula.Text, txbMarca.Text, txbModelo.Text, txbColor.Text, txbKilometraje.Text, txbNumero_Pasajeros.Text, txbPrecio_Alquiler.Text, ofdFoto.FileName, tipo, cmbAgenciaCoche.SelectedValue) Then
+            'Se reestablecen los campos
             MsgBox("Registro de Coche Éxitoso", MsgBoxStyle.Information, "Registro de Coche")
             txbMatricula.Text = ""
             txbMarca.Text = ""
@@ -64,6 +64,7 @@ Public Class frmCoches
     End Sub
 
     Private Sub btnFoto_Click(sender As Object, e As EventArgs) Handles btnFoto.Click
+        'Agregar y verificar la foto del coche
         ofdFoto.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop)
         ofdFoto.Title = "Selecciona la imagen del coche"
         ofdFoto.Filter = "Image Files (*.png *.jpg *.jpeg *.bmp) |*.png; *.jpg; *.jpeg; *.bmp"
@@ -74,6 +75,6 @@ Public Class frmCoches
     End Sub
 
     Private Sub mnsCerrar_Sesion_Click(sender As Object, e As EventArgs) Handles mnsCerrar_Sesion.Click
-        Session.CerrarSession()
+        Session.CerrarSession() 'Cerrar Sesión
     End Sub
 End Class

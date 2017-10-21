@@ -68,7 +68,7 @@ Partial Class frmRenta_Directa
         Me.btnRentar_Coche.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.btnRentar_Coche.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnRentar_Coche.Depth = 0
-        Me.btnRentar_Coche.Location = New System.Drawing.Point(219, 507)
+        Me.btnRentar_Coche.Location = New System.Drawing.Point(208, 510)
         Me.btnRentar_Coche.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
         Me.btnRentar_Coche.MouseState = MaterialSkin.MouseState.HOVER
         Me.btnRentar_Coche.Name = "btnRentar_Coche"

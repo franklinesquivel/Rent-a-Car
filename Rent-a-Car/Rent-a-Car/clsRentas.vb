@@ -413,4 +413,12 @@ Public Class clsRentas
             Return False
         End If
     End Function
+    Public Function BuscarIndice(ByVal idReserva As String, ByVal listaRentas() As clsRentas) As Integer
+        For i As Integer = 0 To UBound(listaRentas, 1) 'Se recorre la lista de objetos de tipo Reserva
+            If listaRentas(i).ObtenerCodigoRenta() = idReserva.ToUpper Then 'Se verifica si el valor iterado es igual al parametro
+                Return i 'Se regresa el indice de la lista del array
+            End If
+        Next
+        Return -1
+    End Function
 End Class

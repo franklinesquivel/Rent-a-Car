@@ -293,7 +293,7 @@ Public Class clsClientes
         End If
     End Function
 
-    Public Function BuscarIndice(ByVal _codigoUsuario As String, ByRef listaClientes() As clsClientes) 'Busca el indice de una array de objetos tipo clsCliente
+    Public Function BuscarIndice(ByVal _codigoUsuario As String, ByVal listaClientes() As clsClientes) 'Busca el indice de una array de objetos tipo clsCliente
         If Not _noCoincide("^C{1}\L{1}\d{5}$", _codigoUsuario.ToUpper) Then 'Se verifica el patrón
             For i As Integer = 0 To UBound(listaClientes, 1) 'Se recorre array de clientes
                 If listaClientes(i).ObtenerNombreDeUsuari = _codigoUsuario.ToUpper Then 'Se verifica si son iguales

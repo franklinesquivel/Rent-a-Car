@@ -5,14 +5,15 @@ Public Class frmClientes
         SkinManager.AddFormToManage(Me)
         SkinManager.Theme = MaterialSkinManager.Themes.LIGHT
         SkinManager.ColorScheme = New ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE)
-        paises = New clsPaises()
-        paises.Listar(cmbPaises)
-        Session.ControlarSession()
+        InicializarFormulario() 'Se reestablecen los valores por defecto del formulario
+        Session.ControlarSession() 'Controla la sesión
     End Sub
 
     Private Sub btnAgregar_Cliente_Click(sender As Object, e As EventArgs) Handles btnAgregar_Cliente.Click
-        Clientes = New clsClientes
+        Clientes = New clsClientes 'Se inicializa objeto de tipo cliente
+        'Se lleva a cabo el proceso de registro
         If Clientes.registrarDatos(txbDui.Text, txbPasaporte.Text, txbNombre.Text, txbApellido.Text, txbDireccion.Text, txbCiudad.Text, txbEmail.Text, cmbPaises.SelectedIndex + 1, txbTelefono.Text) Then
+            InicializarFormulario() 'Reestablecemos el formulario
             MsgBox("Registro Exitoso")
         End If
     End Sub
@@ -23,6 +24,23 @@ Public Class frmClientes
     End Sub
 
     Private Sub mnsCerrar_Sesion_Click(sender As Object, e As EventArgs) Handles mnsCerrar_Sesion.Click
-        Session.CerrarSession()
+        Session.CerrarSession() 'Cerrar Sesión
+    End Sub
+    Private Sub InicializarFormulario()
+        'Se enlistan los paises registrados en la BDD
+        paises = New clsPaises()
+        paises.Listar(cmbPaises)
+
+        'se limpia campos
+        txbNombre.Text = ""
+        txbApellido.Text = ""
+        rbtDui.Checked = False
+        rbtPasaporte.Checked = False
+        txbDui.Text = ""
+        txbPasaporte.Text = ""
+        txbDireccion.Text = ""
+        txbEmail.Text = ""
+        txbCiudad.Text = ""
+        txbTelefono.Text = ""
     End Sub
 End Class

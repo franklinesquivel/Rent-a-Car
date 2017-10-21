@@ -68,7 +68,7 @@ Partial Class frmGestionar_Autos
         Me.txtCosto_Renta.SelectedText = ""
         Me.txtCosto_Renta.SelectionLength = 0
         Me.txtCosto_Renta.SelectionStart = 0
-        Me.txtCosto_Renta.Size = New System.Drawing.Size(344, 23)
+        Me.txtCosto_Renta.Size = New System.Drawing.Size(359, 23)
         Me.txtCosto_Renta.TabIndex = 71
         Me.txtCosto_Renta.UseSystemPasswordChar = False
         '

@@ -5,29 +5,28 @@ Public Class frmUsuarios
         SkinManager.AddFormToManage(Me)
         SkinManager.Theme = MaterialSkinManager.Themes.LIGHT
         SkinManager.ColorScheme = New ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE)
-        Session.ControlarSession()
+        Session.ControlarSession() 'controlador de sesion
     End Sub
 
     Private Sub btnAgregar_Usuario_Click(sender As Object, e As EventArgs) Handles btnAgregar_Usuario.Click
-
+        'Elegimos que clase instanciar
         If rdbAdministrador.Checked = True Then
             Administradores = New clsAdministradores
-            'tipo = rdbAdministrador.Text
             If Administradores.Registrar(txbNombre.Text, txbApellido.Text, txbCorreo.Text) Then
                 MsgBox("Registro Exitoso: Se ha enviado los datos al correo")
             End If
         ElseIf rdbAgente.Checked = True Then
-            'tipo = rdbAgente.Text
             Gerente = New clsGerentes
             If Gerente.Registrar(txbNombre.Text, txbApellido.Text, txbCorreo.Text) Then
                 MsgBox("Registro Exitoso: Se ha enviado los datos al correo")
             End If
         ElseIf rdbContador.Checked = True Then
-            'tipo = rdbContador.Text
             Contador = New clsContadores
             If Contador.Registrar(txbNombre.Text, txbApellido.Text, txbCorreo.Text) Then
                 MsgBox("Registro Exitoso: Se ha enviado los datos al correo")
             End If
+        Else
+            MsgBox("Error: Seleccione un tipo de usuario")
         End If
     End Sub
 
@@ -37,6 +36,14 @@ Public Class frmUsuarios
     End Sub
 
     Private Sub mnsCerrar_Sesion_Click(sender As Object, e As EventArgs) Handles mnsCerrar_Sesion.Click
-        Session.CerrarSession()
+        Session.CerrarSession() 'Cerrar sesión
+    End Sub
+    Private Sub InicializarFormulario()
+        txbNombre.Text = ""
+        txbApellido.Text = ""
+        txbCorreo.Text = ""
+        rdbAdministrador.Checked = False
+        rdbAgente.Checked = False
+        rdbContador.Checked = False
     End Sub
 End Class

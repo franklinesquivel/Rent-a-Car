@@ -1,7 +1,7 @@
 ﻿Imports MaterialSkin
 Imports System.IO.Path
 Public Class frmInventario_Autos
-    Dim busquedaLista() As clsCoches
+    Dim busquedaLista() As clsCoches 'Arreglo que guarda objetos de clase coche
 
     Private Sub frmRenta_Agencia_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim SkinManager As MaterialSkinManager = MaterialSkinManager.Instance
@@ -10,7 +10,7 @@ Public Class frmInventario_Autos
         SkinManager.ColorScheme = New ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE)
         Session.ControlarSession()
         Coches = New clsCoches() 'Creación de objeto
-        InicializarVista(False)
+        InicializarVista(False) 'Se esconden los labels
     End Sub
 
     Private Sub btnRegresar_Click(sender As Object, e As EventArgs) Handles btnRegresar.Click
@@ -19,14 +19,14 @@ Public Class frmInventario_Autos
     End Sub
 
     Private Sub cmbBuscar_Autos_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbBuscar_Autos.SelectedIndexChanged
-        Coches.opcionesBusquedaAutos(cmbBuscar_Autos, ComboBox1)
+        Coches.opcionesBusquedaAutos(cmbBuscar_Autos, ComboBox1) 'Se escoge porque tipo se quiere realizar la busqueda
     End Sub
     Private Sub ComboBox1_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles ComboBox1.SelectionChangeCommitted
-        Coches.mostrarDisponibles(dgvInventario_Autos, ComboBox1, cmbBuscar_Autos, busquedaLista)
+        Coches.mostrarDisponibles(dgvInventario_Autos, ComboBox1, cmbBuscar_Autos, busquedaLista) 'Se hace la busqueda más especifica
     End Sub
 
     Private Sub dgvInventario_Autos_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvInventario_Autos.CellClick
-        If dgvInventario_Autos.CurrentCell.Value <> "" Then
+        If dgvInventario_Autos.CurrentCell.Value <> "" Then 'Se agrega la información a los campos según coche seleccionado
             lblMatricula.Text = "Matricula: " & busquedaLista(dgvInventario_Autos.CurrentRow.Index).ObtenerMatricula
             lblMarca.Text = "Marca: " & busquedaLista(dgvInventario_Autos.CurrentRow.Index).ObtenerMarca
             lblModelo.Text = "Modelo: " & busquedaLista(dgvInventario_Autos.CurrentRow.Index).ObtenerModelo
@@ -40,16 +40,18 @@ Public Class frmInventario_Autos
             Else
                 lblEstado.Text = "En Reparación"
             End If
+            'Se obtiene la foto
             Dim resourcesPath = Application.StartupPath & DirectorySeparatorChar & ".." & DirectorySeparatorChar & ".." & DirectorySeparatorChar & "Resources" & DirectorySeparatorChar & "Coches" & DirectorySeparatorChar
             pcbFoto.ImageLocation = resourcesPath + busquedaLista(0).ObtenerFotografia
-            InicializarVista(True)
-            tbcInventarios.SelectTab(1)
+            InicializarVista(True) 'Se hacen visible los labels
+            tbcInventarios.SelectTab(1) 'Se cambia de tab
         Else
-            InicializarVista(False)
+            tbcInventarios.SelectTab(0) 'Se cambia de tab
+            InicializarVista(False) 'Se esconden los label
         End If
     End Sub
 
-    Public Sub InicializarVista(ByVal valor As Boolean)
+    Public Sub InicializarVista(ByVal valor As Boolean) 'Proceso para los labels de ver datos de coches
         lblMatricula.Visible = valor
         lblMarca.Visible = valor
         lblModelo.Visible = valor
@@ -62,6 +64,6 @@ Public Class frmInventario_Autos
     End Sub
 
     Private Sub mnsCerrar_Sesion_Click(sender As Object, e As EventArgs) Handles mnsCerrar_Sesion.Click
-        Session.CerrarSession()
+        Session.CerrarSession() 'Cerrar sesión
     End Sub
 End Class

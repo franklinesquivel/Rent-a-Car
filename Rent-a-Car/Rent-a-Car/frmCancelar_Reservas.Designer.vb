@@ -30,29 +30,30 @@ Partial Class frmCancelar_Reservas
         Me.mnsMenu = New System.Windows.Forms.MenuStrip()
         Me.mnsCerrar_Sesion = New System.Windows.Forms.ToolStripMenuItem()
         Me.tbcReserva = New System.Windows.Forms.TabControl()
-        Me.tpBuscador = New System.Windows.Forms.TabPage()
         Me.tpResultados = New System.Windows.Forms.TabPage()
-        Me.btnVerDatos = New MaterialSkin.Controls.MaterialFlatButton()
-        Me.lblNumReserva = New System.Windows.Forms.Label()
-        Me.lblFechaInicio = New System.Windows.Forms.Label()
-        Me.lblFechaFinal = New System.Windows.Forms.Label()
-        Me.lblPagar = New System.Windows.Forms.Label()
-        Me.lblMatricula = New System.Windows.Forms.Label()
-        Me.lblEspecidicaciones = New System.Windows.Forms.Label()
-        Me.picCoche = New System.Windows.Forms.PictureBox()
-        Me.lblNombreUsuario = New System.Windows.Forms.Label()
-        Me.lblCodigoUsuario = New System.Windows.Forms.Label()
         Me.lblCorreoUsuario = New System.Windows.Forms.Label()
+        Me.lblCodigoUsuario = New System.Windows.Forms.Label()
+        Me.lblNombreUsuario = New System.Windows.Forms.Label()
+        Me.picCoche = New System.Windows.Forms.PictureBox()
+        Me.lblEspecidicaciones = New System.Windows.Forms.Label()
+        Me.lblMatricula = New System.Windows.Forms.Label()
+        Me.lblPagar = New System.Windows.Forms.Label()
+        Me.lblFechaFinal = New System.Windows.Forms.Label()
+        Me.lblFechaInicio = New System.Windows.Forms.Label()
+        Me.lblNumReserva = New System.Windows.Forms.Label()
+        Me.tpBuscador = New System.Windows.Forms.TabPage()
+        Me.btnVerDatos = New MaterialSkin.Controls.MaterialFlatButton()
         CType(Me.dgvCancelar_Reservas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.mnsMenu.SuspendLayout()
         Me.tbcReserva.SuspendLayout()
-        Me.tpBuscador.SuspendLayout()
         Me.tpResultados.SuspendLayout()
         CType(Me.picCoche, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.tpBuscador.SuspendLayout()
         Me.SuspendLayout()
         '
         'txbCodigo_Reserva
         '
+        Me.txbCodigo_Reserva.BackColor = System.Drawing.Color.Gainsboro
         Me.txbCodigo_Reserva.Depth = 0
         Me.txbCodigo_Reserva.Hint = ""
         Me.txbCodigo_Reserva.Location = New System.Drawing.Point(190, 16)
@@ -135,27 +136,13 @@ Partial Class frmCancelar_Reservas
         '
         'tbcReserva
         '
-        Me.tbcReserva.Controls.Add(Me.tpBuscador)
         Me.tbcReserva.Controls.Add(Me.tpResultados)
+        Me.tbcReserva.Controls.Add(Me.tpBuscador)
         Me.tbcReserva.Location = New System.Drawing.Point(12, 74)
         Me.tbcReserva.Name = "tbcReserva"
         Me.tbcReserva.SelectedIndex = 0
         Me.tbcReserva.Size = New System.Drawing.Size(499, 289)
         Me.tbcReserva.TabIndex = 69
-        '
-        'tpBuscador
-        '
-        Me.tpBuscador.Controls.Add(Me.txbCodigo_Reserva)
-        Me.tpBuscador.Controls.Add(Me.lblCodigo_Reserva)
-        Me.tpBuscador.Controls.Add(Me.dgvCancelar_Reservas)
-        Me.tpBuscador.ForeColor = System.Drawing.Color.Black
-        Me.tpBuscador.Location = New System.Drawing.Point(4, 22)
-        Me.tpBuscador.Name = "tpBuscador"
-        Me.tpBuscador.Padding = New System.Windows.Forms.Padding(3)
-        Me.tpBuscador.Size = New System.Drawing.Size(491, 263)
-        Me.tpBuscador.TabIndex = 0
-        Me.tpBuscador.Text = "TabPage1"
-        Me.tpBuscador.UseVisualStyleBackColor = True
         '
         'tpResultados
         '
@@ -177,6 +164,110 @@ Partial Class frmCancelar_Reservas
         Me.tpResultados.Text = "TabPage2"
         Me.tpResultados.UseVisualStyleBackColor = True
         '
+        'lblCorreoUsuario
+        '
+        Me.lblCorreoUsuario.AutoSize = True
+        Me.lblCorreoUsuario.Location = New System.Drawing.Point(6, 226)
+        Me.lblCorreoUsuario.Name = "lblCorreoUsuario"
+        Me.lblCorreoUsuario.Size = New System.Drawing.Size(39, 13)
+        Me.lblCorreoUsuario.TabIndex = 9
+        Me.lblCorreoUsuario.Text = "Label1"
+        '
+        'lblCodigoUsuario
+        '
+        Me.lblCodigoUsuario.AutoSize = True
+        Me.lblCodigoUsuario.Location = New System.Drawing.Point(6, 196)
+        Me.lblCodigoUsuario.Name = "lblCodigoUsuario"
+        Me.lblCodigoUsuario.Size = New System.Drawing.Size(39, 13)
+        Me.lblCodigoUsuario.TabIndex = 8
+        Me.lblCodigoUsuario.Text = "Label1"
+        '
+        'lblNombreUsuario
+        '
+        Me.lblNombreUsuario.AutoSize = True
+        Me.lblNombreUsuario.Location = New System.Drawing.Point(6, 169)
+        Me.lblNombreUsuario.Name = "lblNombreUsuario"
+        Me.lblNombreUsuario.Size = New System.Drawing.Size(39, 13)
+        Me.lblNombreUsuario.TabIndex = 7
+        Me.lblNombreUsuario.Text = "Label1"
+        '
+        'picCoche
+        '
+        Me.picCoche.Location = New System.Drawing.Point(322, 6)
+        Me.picCoche.Name = "picCoche"
+        Me.picCoche.Size = New System.Drawing.Size(163, 145)
+        Me.picCoche.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.picCoche.TabIndex = 6
+        Me.picCoche.TabStop = False
+        '
+        'lblEspecidicaciones
+        '
+        Me.lblEspecidicaciones.AutoSize = True
+        Me.lblEspecidicaciones.Location = New System.Drawing.Point(6, 138)
+        Me.lblEspecidicaciones.Name = "lblEspecidicaciones"
+        Me.lblEspecidicaciones.Size = New System.Drawing.Size(39, 13)
+        Me.lblEspecidicaciones.TabIndex = 5
+        Me.lblEspecidicaciones.Text = "Label1"
+        '
+        'lblMatricula
+        '
+        Me.lblMatricula.AutoSize = True
+        Me.lblMatricula.Location = New System.Drawing.Point(6, 107)
+        Me.lblMatricula.Name = "lblMatricula"
+        Me.lblMatricula.Size = New System.Drawing.Size(39, 13)
+        Me.lblMatricula.TabIndex = 4
+        Me.lblMatricula.Text = "Label1"
+        '
+        'lblPagar
+        '
+        Me.lblPagar.AutoSize = True
+        Me.lblPagar.Location = New System.Drawing.Point(6, 83)
+        Me.lblPagar.Name = "lblPagar"
+        Me.lblPagar.Size = New System.Drawing.Size(39, 13)
+        Me.lblPagar.TabIndex = 3
+        Me.lblPagar.Text = "Label1"
+        '
+        'lblFechaFinal
+        '
+        Me.lblFechaFinal.AutoSize = True
+        Me.lblFechaFinal.Location = New System.Drawing.Point(6, 60)
+        Me.lblFechaFinal.Name = "lblFechaFinal"
+        Me.lblFechaFinal.Size = New System.Drawing.Size(39, 13)
+        Me.lblFechaFinal.TabIndex = 2
+        Me.lblFechaFinal.Text = "Label1"
+        '
+        'lblFechaInicio
+        '
+        Me.lblFechaInicio.AutoSize = True
+        Me.lblFechaInicio.Location = New System.Drawing.Point(6, 31)
+        Me.lblFechaInicio.Name = "lblFechaInicio"
+        Me.lblFechaInicio.Size = New System.Drawing.Size(39, 13)
+        Me.lblFechaInicio.TabIndex = 1
+        Me.lblFechaInicio.Text = "Label1"
+        '
+        'lblNumReserva
+        '
+        Me.lblNumReserva.AutoSize = True
+        Me.lblNumReserva.Location = New System.Drawing.Point(6, 6)
+        Me.lblNumReserva.Name = "lblNumReserva"
+        Me.lblNumReserva.Size = New System.Drawing.Size(39, 13)
+        Me.lblNumReserva.TabIndex = 0
+        Me.lblNumReserva.Text = "Label1"
+        '
+        'tpBuscador
+        '
+        Me.tpBuscador.BackColor = System.Drawing.Color.White
+        Me.tpBuscador.Controls.Add(Me.txbCodigo_Reserva)
+        Me.tpBuscador.Controls.Add(Me.lblCodigo_Reserva)
+        Me.tpBuscador.Controls.Add(Me.dgvCancelar_Reservas)
+        Me.tpBuscador.ForeColor = System.Drawing.Color.Black
+        Me.tpBuscador.Location = New System.Drawing.Point(4, 22)
+        Me.tpBuscador.Name = "tpBuscador"
+        Me.tpBuscador.Padding = New System.Windows.Forms.Padding(3)
+        Me.tpBuscador.Size = New System.Drawing.Size(491, 263)
+        Me.tpBuscador.TabIndex = 0
+        Me.tpBuscador.Text = "TabPage1"
+        '
         'btnVerDatos
         '
         Me.btnVerDatos.AutoSize = True
@@ -192,96 +283,6 @@ Partial Class frmCancelar_Reservas
         Me.btnVerDatos.TabIndex = 67
         Me.btnVerDatos.Text = "Ver Datos"
         Me.btnVerDatos.UseVisualStyleBackColor = True
-        '
-        'lblNumReserva
-        '
-        Me.lblNumReserva.AutoSize = True
-        Me.lblNumReserva.Location = New System.Drawing.Point(6, 6)
-        Me.lblNumReserva.Name = "lblNumReserva"
-        Me.lblNumReserva.Size = New System.Drawing.Size(39, 13)
-        Me.lblNumReserva.TabIndex = 0
-        Me.lblNumReserva.Text = "Label1"
-        '
-        'lblFechaInicio
-        '
-        Me.lblFechaInicio.AutoSize = True
-        Me.lblFechaInicio.Location = New System.Drawing.Point(6, 31)
-        Me.lblFechaInicio.Name = "lblFechaInicio"
-        Me.lblFechaInicio.Size = New System.Drawing.Size(39, 13)
-        Me.lblFechaInicio.TabIndex = 1
-        Me.lblFechaInicio.Text = "Label1"
-        '
-        'lblFechaFinal
-        '
-        Me.lblFechaFinal.AutoSize = True
-        Me.lblFechaFinal.Location = New System.Drawing.Point(6, 60)
-        Me.lblFechaFinal.Name = "lblFechaFinal"
-        Me.lblFechaFinal.Size = New System.Drawing.Size(39, 13)
-        Me.lblFechaFinal.TabIndex = 2
-        Me.lblFechaFinal.Text = "Label1"
-        '
-        'lblPagar
-        '
-        Me.lblPagar.AutoSize = True
-        Me.lblPagar.Location = New System.Drawing.Point(6, 83)
-        Me.lblPagar.Name = "lblPagar"
-        Me.lblPagar.Size = New System.Drawing.Size(39, 13)
-        Me.lblPagar.TabIndex = 3
-        Me.lblPagar.Text = "Label1"
-        '
-        'lblMatricula
-        '
-        Me.lblMatricula.AutoSize = True
-        Me.lblMatricula.Location = New System.Drawing.Point(6, 107)
-        Me.lblMatricula.Name = "lblMatricula"
-        Me.lblMatricula.Size = New System.Drawing.Size(39, 13)
-        Me.lblMatricula.TabIndex = 4
-        Me.lblMatricula.Text = "Label1"
-        '
-        'lblEspecidicaciones
-        '
-        Me.lblEspecidicaciones.AutoSize = True
-        Me.lblEspecidicaciones.Location = New System.Drawing.Point(6, 138)
-        Me.lblEspecidicaciones.Name = "lblEspecidicaciones"
-        Me.lblEspecidicaciones.Size = New System.Drawing.Size(39, 13)
-        Me.lblEspecidicaciones.TabIndex = 5
-        Me.lblEspecidicaciones.Text = "Label1"
-        '
-        'picCoche
-        '
-        Me.picCoche.Location = New System.Drawing.Point(322, 6)
-        Me.picCoche.Name = "picCoche"
-        Me.picCoche.Size = New System.Drawing.Size(163, 145)
-        Me.picCoche.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.picCoche.TabIndex = 6
-        Me.picCoche.TabStop = False
-        '
-        'lblNombreUsuario
-        '
-        Me.lblNombreUsuario.AutoSize = True
-        Me.lblNombreUsuario.Location = New System.Drawing.Point(6, 169)
-        Me.lblNombreUsuario.Name = "lblNombreUsuario"
-        Me.lblNombreUsuario.Size = New System.Drawing.Size(39, 13)
-        Me.lblNombreUsuario.TabIndex = 7
-        Me.lblNombreUsuario.Text = "Label1"
-        '
-        'lblCodigoUsuario
-        '
-        Me.lblCodigoUsuario.AutoSize = True
-        Me.lblCodigoUsuario.Location = New System.Drawing.Point(6, 196)
-        Me.lblCodigoUsuario.Name = "lblCodigoUsuario"
-        Me.lblCodigoUsuario.Size = New System.Drawing.Size(39, 13)
-        Me.lblCodigoUsuario.TabIndex = 8
-        Me.lblCodigoUsuario.Text = "Label1"
-        '
-        'lblCorreoUsuario
-        '
-        Me.lblCorreoUsuario.AutoSize = True
-        Me.lblCorreoUsuario.Location = New System.Drawing.Point(6, 226)
-        Me.lblCorreoUsuario.Name = "lblCorreoUsuario"
-        Me.lblCorreoUsuario.Size = New System.Drawing.Size(39, 13)
-        Me.lblCorreoUsuario.TabIndex = 9
-        Me.lblCorreoUsuario.Text = "Label1"
         '
         'frmCancelar_Reservas
         '
@@ -302,11 +303,11 @@ Partial Class frmCancelar_Reservas
         Me.mnsMenu.ResumeLayout(False)
         Me.mnsMenu.PerformLayout()
         Me.tbcReserva.ResumeLayout(False)
-        Me.tpBuscador.ResumeLayout(False)
-        Me.tpBuscador.PerformLayout()
         Me.tpResultados.ResumeLayout(False)
         Me.tpResultados.PerformLayout()
         CType(Me.picCoche, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.tpBuscador.ResumeLayout(False)
+        Me.tpBuscador.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
