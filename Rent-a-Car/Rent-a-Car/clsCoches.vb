@@ -259,55 +259,55 @@ Public Class clsCoches
         fotografia = fotografia.Trim
         tipo = tipo.Trim
 
-        If marca.Length = 0 Then
+        If marca.Length = 0 Then 'Se verifica que no sea vacío
             MsgBox("Ingrese una marca de coche!", MsgBoxStyle.Critical, "Modificar Coche")
             Return False
         Else
             _marca = marca
         End If
 
-        If kilometraje < 0 Then
+        If kilometraje < 0 Then 'Se verifica que no sea vacío
             MsgBox("Ingrese un kilometraje válido!", MsgBoxStyle.Critical, "Modificar Coche")
             Return False
         Else
             _kilometraje = kilometraje
         End If
 
-        If nPasajeros <= 0 Then
+        If nPasajeros <= 0 Then 'Se verifica que no sea vacío
             MsgBox("Ingrese una cantidad de pasajeros válida!", MsgBoxStyle.Critical, "Modificar Coche")
             Return False
         Else
             _nPasajeros = nPasajeros
         End If
 
-        If alquiler <= 0 Then
+        If alquiler <= 0 Then 'Se verifica que no sea vacío
             MsgBox("Ingrese un monto de alquiler válido!", MsgBoxStyle.Critical, "Modificar Coche")
             Return False
         Else
             _alquiler = CDbl(Format(alquiler, "0.00"))
         End If
-        If tipo.Length = 0 Then
+        If tipo.Length = 0 Then 'Se verifica que no sea vacío
             MsgBox("Ingrese un tipo de de coche!", MsgBoxStyle.Critical, "Modificar Coche")
             Return False
         Else
             _tipo = tipo
         End If
 
-        If modelo.Length = 0 Then
+        If modelo.Length = 0 Then 'Se verifica que no sea vacío
             MsgBox("Ingrese un modelo de coche!", MsgBoxStyle.Critical, "Modificar Coche")
             Return False
         Else
             _modelo = modelo
         End If
 
-        If color.Length = 0 Then
+        If color.Length = 0 Then 'Se verifica que no sea vacío
             MsgBox("Ingrese un color de de coche!", MsgBoxStyle.Critical, "Modificar Coche")
             Return False
         Else
             _color = color
         End If
 
-        If fotografia.Length = 0 Then
+        If fotografia.Length = 0 Then 'Se verifica que no sea vacío
             MsgBox("Ingrese una fotografía!", MsgBoxStyle.Critical, "Modificar Coche")
             Return False
         ElseIf Not _rutaDeArchivoValida(fotografia) Then
@@ -359,7 +359,7 @@ Public Class clsCoches
         fotografia = fotografia.Trim
         tipo = tipo.Trim
 
-        If matricula.Length = 0 Then
+        If matricula.Length = 0 Then 'Se verifica que no sea vacío
             MsgBox("Ingrese una matrícula!", MsgBoxStyle.Critical, "Registro de Coche")
             Return False
         ElseIf _noCoincide("^((O|CD|CC|MI|N|PNC|E|P|A|C|V|PR|T|RE|AB|MB|F|M|D)\d{3})((\s\d{3})|\d{3})$", matricula.ToUpper) Then
@@ -369,55 +369,55 @@ Public Class clsCoches
             _matricula = matricula.ToUpper
         End If
 
-        If marca.Length = 0 Then
+        If marca.Length = 0 Then 'Se verifica que no sea vacío
             MsgBox("Ingrese una marca de coche!", MsgBoxStyle.Critical, "Registro de Coche")
             Return False
         Else
             _marca = marca
         End If
 
-        If kilometraje < 0 Then
+        If kilometraje < 0 Then 'Se verifica que no sea vacío
             MsgBox("Ingrese un kilometraje válido!", MsgBoxStyle.Critical, "Registro de Coche")
             Return False
         Else
             _kilometraje = kilometraje
         End If
 
-        If nPasajeros <= 0 Then
+        If nPasajeros <= 0 Then 'Se verifica que no sea vacío
             MsgBox("Ingrese una cantidad de pasajeros válida!", MsgBoxStyle.Critical, "Registro de Coche")
             Return False
         Else
             _nPasajeros = nPasajeros
         End If
 
-        If alquiler <= 0 Then
+        If alquiler <= 0 Then 'Se verifica que no sea vacío
             MsgBox("Ingrese un monto de alquiler válido!", MsgBoxStyle.Critical, "Registro de Coche")
             Return False
         Else
             _alquiler = CDbl(Format(alquiler, "0.00"))
         End If
-        If tipo.Length = 0 Then
+        If tipo.Length = 0 Then 'Se verifica que no sea vacío
             MsgBox("Ingrese un tipo de de coche!", MsgBoxStyle.Critical, "Registro de Coche")
             Return False
         Else
             _tipo = tipo
         End If
 
-        If modelo.Length = 0 Then
+        If modelo.Length = 0 Then 'Se verifica que no sea vacío
             MsgBox("Ingrese un modelo de coche!", MsgBoxStyle.Critical, "Registro de Coche")
             Return False
         Else
             _modelo = modelo
         End If
 
-        If color.Length = 0 Then
+        If color.Length = 0 Then 'Se verifica que no sea vacío
             MsgBox("Ingrese un color de de coche!", MsgBoxStyle.Critical, "Registro de Coche")
             Return False
         Else
             _color = color
         End If
 
-        If fotografia.Length = 0 Then
+        If fotografia.Length = 0 Then 'Se verifica que no sea vacío
             MsgBox("Ingrese una fotografía!", MsgBoxStyle.Critical, "Registro de Coche")
             Return False
         ElseIf Not _rutaDeArchivoValida(fotografia) Then
@@ -461,6 +461,7 @@ Public Class clsCoches
     End Function
 
     Public Sub obtenerDatos(ByRef matricula As String, ByRef marca As String, ByRef modelo As String, ByRef color As String, ByRef kilometraje As Long, ByRef nPasajeros As Integer, ByRef alquiler As Decimal, ByRef fotografia As String, ByRef tipo As String, ByRef idAgencia As Integer)
+        'Se obtien los datos de la última instancia para visualizar
         matricula = _matricula
         marca = _marca
         modelo = _modelo
@@ -474,11 +475,11 @@ Public Class clsCoches
     End Sub
 
     Public Function listarCoches(ByRef listaCoches() As clsCoches, ByRef dgv As DataGridView) As Boolean
-        If Conexion.contarFilas("SELECT * FROM coches WHERE estado = 'A'") = 0 Then
+        If Conexion.contarFilas("SELECT * FROM coches WHERE estado = 'A'") = 0 Then 'Se verifica que esten activos
             Return 0
         Else
             Dim i As Integer = 0
-            Dim reader As MySqlDataReader
+            Dim reader As MySqlDataReader 'Variable de lectura
             Conexion.obtenerDatos("SELECT * FROM coches WHERE estado = 'A'", reader)
 
             'Se agrega las columnas al dgv
@@ -519,9 +520,8 @@ Public Class clsCoches
                     .Rows(i - 1).Cells(3).Value = listaCoches(i - 1).ObtenerPrecioAlquiler
                     .Rows(i - 1).Cells(4).Value = listaCoches(i - 1).ObtenerKilometraje
                 End With
-                'i += 1
             End While
-            reader.Close()
+            reader.Close() 'Se cierra la variable de lectura
             Return 1
         End If
     End Function
@@ -529,7 +529,7 @@ Public Class clsCoches
         'Verificamos el patrón
         If Not _noCoincide("^((O|CD|CC|MI|N|PNC|E|P|A|C|V|PR|T|RE|AB|MB|F|M|D)\d{3})((\s\d{3})|\d{3})$", matriculaCoche.ToUpper) Then
             For i As Integer = 0 To UBound(listaCoches, 1)
-                If listaCoches(i).ObtenerMatricula = matriculaCoche.ToUpper Then
+                If listaCoches(i).ObtenerMatricula = matriculaCoche.ToUpper Then 'Verificamos si son iguales
                     Return i
                 End If
             Next
@@ -537,9 +537,9 @@ Public Class clsCoches
         Return -1 'No cumple la condición
     End Function
     Public Sub BuscarCoche(ByVal matriculaCoche As String, ByVal listaCoches() As clsCoches, ByRef dgv As DataGridView, ByVal Optional teclaBorrar As Boolean = False)
-        Dim rgx_coche = New Regex("^" + matriculaCoche + "+")
+        Dim rgx_coche = New Regex("^" + matriculaCoche + "+") 'PAtrón de busqueda
 
-        For i As Integer = 0 To UBound(listaCoches, 1)
+        For i As Integer = 0 To UBound(listaCoches, 1) 'Recorremos la lista
             If Not rgx_coche.IsMatch(listaCoches(i).ObtenerMatricula) And Not teclaBorrar Then
                 Dim r As Integer = 0
                 For Each row As DataGridViewRow In dgv.Rows 'Filas
@@ -576,6 +576,7 @@ Public Class clsCoches
     End Sub
 
     Public Sub opcionesBusquedaAutos(ByVal combo1 As ComboBox, ByVal combo2 As ComboBox)
+        'Metodo para seleccionar el tipo de busqueda
         If combo1.SelectedItem.ToString = "Marca" Then
             If Conexion.contarFilas("SELECT DISTINCT marca FROM coches WHERE estado = 'A'") = 0 Then
                 MsgBox("Error: No hay marcas registradas.")
@@ -612,7 +613,7 @@ Public Class clsCoches
 
     Public Sub modificarCochesDisponibles(ByRef dgv As DataGridView, ByVal cmb As ComboBox, ByVal cmb2 As ComboBox, ByRef listabusqueda() As clsCoches)
         Dim i As Integer = 0
-        Dim reader As MySqlDataReader
+        Dim reader As MySqlDataReader 'Variable de lectura
 
         If cmb2.SelectedItem.ToString = "Marca" Then
 
@@ -630,7 +631,7 @@ Public Class clsCoches
             dgv.Columns(7).Name = "Tipo de coche"
             dgv.RowCount = 1
 
-            While reader.Read()
+            While reader.Read() 'Se recorre la lectura
 
                 ReDim Preserve listabusqueda(i)
                 Coches = New clsCoches 'Se crea una instancia de la clase para despues guardarla en  un array
@@ -927,9 +928,8 @@ Public Class clsCoches
                     .Rows(i - 1).Cells(3).Value = listabusqueda(i - 1).ObtenerPrecioAlquiler
                     .Rows(i - 1).Cells(4).Value = listabusqueda(i - 1).ObtenerKilometraje
                 End With
-                'i += 1
             End While
-            reader.Close()
+            reader.Close() 'Se cierra la variable de lectura
 
         ElseIf cmb2.SelectedItem.ToString = "Modelo" Then
 
@@ -974,9 +974,8 @@ Public Class clsCoches
                     .Rows(i - 1).Cells(3).Value = listabusqueda(i - 1).ObtenerPrecioAlquiler
                     .Rows(i - 1).Cells(4).Value = listabusqueda(i - 1).ObtenerKilometraje
                 End With
-                'i += 1
             End While
-            reader.Close()
+            reader.Close() 'Se cierra la variable de lectura
 
         ElseIf cmb2.SelectedItem.ToString = "Num de pasajeros" Then
 
@@ -1021,9 +1020,8 @@ Public Class clsCoches
                     .Rows(i - 1).Cells(3).Value = listabusqueda(i - 1).ObtenerPrecioAlquiler
                     .Rows(i - 1).Cells(4).Value = listabusqueda(i - 1).ObtenerKilometraje
                 End With
-                'i += 1
             End While
-            reader.Close()
+            reader.Close() 'Se cierra la variable de lectura
 
         ElseIf cmb2.SelectedItem.ToString = "Costo de alquiler" Then
             Conexion.obtenerDatos("SELECT * FROM coches WHERE estado = 'A' AND precio_alquiler = '" & cortar(cmb.SelectedItem.ToString) & "'", reader)
@@ -1067,9 +1065,8 @@ Public Class clsCoches
                     .Rows(i - 1).Cells(3).Value = listabusqueda(i - 1).ObtenerPrecioAlquiler
                     .Rows(i - 1).Cells(4).Value = listabusqueda(i - 1).ObtenerKilometraje
                 End With
-                'i += 1
             End While
-            reader.Close()
+            reader.Close() 'Se cierra la variable de lectura
 
 
         ElseIf cmb2.SelectedItem.ToString = "Tipo de auto" Then
@@ -1115,9 +1112,8 @@ Public Class clsCoches
                     .Rows(i - 1).Cells(3).Value = listabusqueda(i - 1).ObtenerPrecioAlquiler
                     .Rows(i - 1).Cells(4).Value = listabusqueda(i - 1).ObtenerKilometraje
                 End With
-                'i += 1
             End While
-            reader.Close()
+            reader.Close() 'Se cierra la variable de lectura
 
         End If
     End Sub
@@ -1134,12 +1130,14 @@ Public Class clsCoches
     End Function
 
     Public Function Reporte(ByVal matriculaCoche As String, ByRef dgv As DataGridView) As Boolean 'Reporte de coches rentados
-        If Conexion.contarFilas("SELECT * FROM rentas") = 0 Then
+        If Conexion.contarFilas("SELECT * FROM rentas") = 0 Then 'Verificamos si existen rentas
             Return 0
         Else
-            Dim reader As MySqlDataReader
+            Dim reader As MySqlDataReader 'Variable de lectura
             Dim i As Integer = 0
+            'obtenemos los datos a mostrar
             Conexion.obtenerDatos("SELECT GROUP_CONCAT(r.id_renta SEPARATOR ', '), CONCAT_WS(', ', cl.apellido, cl.nombre), c.placa, c.marca, c.modelo FROM `rentas` r INNER JOIN clientes cl ON cl.id_cliente = r.id_cliente INNER JOIN coches c ON c.id_coche = r.id_coche WHERE c.placa LIKE '" & matriculaCoche & "%' GROUP BY c.placa ORDER BY c.placa", reader)
+            'Agregamos las columnas
             dgv.ColumnCount = 5
             dgv.Columns(0).Name = "id´s renta"
             dgv.Columns(1).Name = "Nombre Cliente"
@@ -1147,10 +1145,11 @@ Public Class clsCoches
             dgv.Columns(3).Name = "Marca"
             dgv.Columns(4).Name = "Modelo"
             dgv.RowCount = 1
-            While reader.Read()
+            While reader.Read() 'Se recorre la variable de lectura
                 With dgv
                     i = .RowCount
                     .Rows.Add()
+                    'Se agrega la información al dgv
                     .Rows(i - 1).Cells(0).Value = reader(0)
                     .Rows(i - 1).Cells(1).Value = reader(1)
                     .Rows(i - 1).Cells(2).Value = reader(2)

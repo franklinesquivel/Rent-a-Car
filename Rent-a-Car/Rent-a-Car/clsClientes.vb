@@ -146,66 +146,67 @@ Public Class clsClientes
         email = email.Trim
         pais = pais.Trim
 
-        If dui.Length = 0 Then
+        If dui.Length = 0 Or _noCoincide("^\d{8}\-{1}\d{1}$", dui) Then 'verificamos que no sea vacío y cumpla con el patrón
             MsgBox("Ingrese su DUI!", MsgBoxStyle.Critical, "Registro de Cliente")
             Return False
         Else
             _Dui = dui
         End If
 
-        If pasaporte.Length = 0 Then
+        If pasaporte.Length = 0 Or _noCoincide("^A{1}\d{8}$", pasaporte.ToUpper) Then 'verificamos que no sea vacío y cumpla con el patrón
             MsgBox("Ingrese su Pasaporte!", MsgBoxStyle.Critical, "Registro de Cliente")
             Return False
         Else
             _Pasaporte = pasaporte
         End If
 
-        If nombre.Length = 0 Then
+        If nombre.Length = 0 Then 'verificamos que no sea vacío y cumpla con el patrón
             MsgBox("Ingrese su Nombre!", MsgBoxStyle.Critical, "Registro de Cliente")
             Return False
         Else
             _Nombre = nombre
         End If
 
-        If apellido.Length = 0 Then
+        If apellido.Length = 0 Then 'verificamos que no sea vacío y cumpla con el patrón
             MsgBox("Ingrese su Apellido!", MsgBoxStyle.Critical, "Registro de Cliente")
             Return False
         Else
             _Apellido = apellido
         End If
 
-        If direccion.Length = 0 Then
+        If direccion.Length = 0 Then 'verificamos que no sea vacío y cumpla con el patrón
             MsgBox("Ingrese su Dirección!", MsgBoxStyle.Critical, "Registro de Cliente")
             Return False
         Else
             _Direccion = direccion
         End If
 
-        If ciudad.Length = 0 Then
+        If ciudad.Length = 0 Then 'verificamos que no sea vacío y cumpla con el patrón
             MsgBox("Ingrese su Ciudad!", MsgBoxStyle.Critical, "Registro de Cliente")
             Return False
         Else
             _Ciudad = ciudad
         End If
 
-        If email.Length = 0 Then
+        If email.Length = 0 Or _noCoincide("^([\w-]+\.)*?[\w-]+@[\w-]+\.([\w-]+\.)*?[\w]+$", email) Then 'verificamos que no sea vacío y cumpla con el patrón
             MsgBox("Ingrese su Email!", MsgBoxStyle.Critical, "Registro de Cliente")
             Return False
         Else
             _Email = email
         End If
 
-        If pais.Length = 0 Then
+        If pais.Length = 0 Then 'verificamos que no sea vacío y cumpla con el patrón
             MsgBox("Ingrese su País!", MsgBoxStyle.Critical, "Registro de Cliente")
             Return False
         Else
             _Pais = pais
         End If
-        If VerificarCorreoUsuario() = 0 Then
+        If VerificarCorreoUsuario() = 0 Then 'Se verifica la existencia de correo electronico ingresado en la BDD
             MsgBox("Error: El correo electrónico ya esta registrado")
             Return False
         Else
-            If MyClass.CrearCodigo() Then
+            If MyClass.CrearCodigo() Then 'Se crea el código del usuari0
+                'Se ingresan datos
                 Return Conexion.modificarDatos("INSERT INTO clientes(nombre, apellido, dui, nombre_usuario, pasaporte, direccion, id_pais, correo_electronico, telefono, ciudad) VALUES('" & _Nombre & "', '" & _Apellido & "', '" & _Dui & "', '" & _NombreUsuario & "', '" & _Pasaporte & "', '" & _Direccion & "', '" & _Pais & "', '" & _Email & "', '" & _Telefono & "', '" & _Ciudad & "')")
             Else
                 Return False
@@ -221,7 +222,11 @@ Public Class clsClientes
         End If
     End Function
     Private Function VerificarCorreoUsuario() As Integer 'Verifica que el correo solo este una vez en la BDD
-        Return Conexion.contarFilas("SELECT * FROM clientes WHERE correo_electronico = '" & _Email & "'")
+        If Conexion.contarFilas("SELECT * FROM clientes WHERE correo_electronico = '" & _Email & "'") > 0 Then
+            Return 0
+        Else
+            Return 1
+        End If
     End Function
     Private Function CrearCodigo() As Boolean 'Se crea el código de cliente
         Dim nombreUsuario As String = "CL"
@@ -243,7 +248,7 @@ Public Class clsClientes
     End Function
 
     Public Function listarDatos(ByRef listaClientes() As clsClientes, ByRef dgv As DataGridView) As Boolean
-        If Conexion.contarFilas("SELECT * FROM clientes ") = 0 Then
+        If Conexion.contarFilas("SELECT * FROM clientes ") = 0 Then 'verificamos la existencia de clientes en la BDD
             Return False
         Else
             Dim i As Integer = 0
@@ -259,7 +264,7 @@ Public Class clsClientes
             dgv.Columns(4).Name = "Correo Electrónico"
             dgv.RowCount = 1
 
-            While reader.Read()
+            While reader.Read() 'Se recorre la variable de lectura
                 ReDim Preserve listaClientes(i)
                 Clientes = New clsClientes 'Se crea una instancia de la clase para despues guardarla en  un array
 
@@ -305,9 +310,9 @@ Public Class clsClientes
     End Function
 
     Public Sub BuscarCliente(ByVal codigoCliente As String, ByVal listaClientes() As clsClientes, ByRef dgv As DataGridView, Optional ByVal teclaBorrar As Boolean = False)
-        Dim rgx_cliente = New Regex("^" + codigoCliente + "+")
+        Dim rgx_cliente = New Regex("^" + codigoCliente + "+") 'Se crea el patrón de buqueda
 
-        For i As Integer = 0 To UBound(listaClientes, 1)
+        For i As Integer = 0 To UBound(listaClientes, 1) 'Se recorre la lista
             If Not rgx_cliente.IsMatch(listaClientes(i).ObtenerNombreDeUsuari) And Not teclaBorrar Then
                 Dim r As Integer = 0
                 For Each row As DataGridViewRow In dgv.Rows 'Filas
