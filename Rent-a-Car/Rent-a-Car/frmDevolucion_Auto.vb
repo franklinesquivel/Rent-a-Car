@@ -25,12 +25,12 @@ Public Class frmDevolucion_Auto
 
     Private Sub rdbChocado_CheckedChanged(sender As Object, e As EventArgs) Handles rdbChocado.CheckedChanged
         txbDescripcion_Problema.Enabled = True
-        btnConfirmar.Enabled = True
+        'btnConfirmar.Enabled = True
     End Sub
 
     Private Sub rdbBuen_Estado_CheckedChanged(sender As Object, e As EventArgs) Handles rdbBuen_Estado.CheckedChanged
         txbDescripcion_Problema.Enabled = False
-        btnConfirmar.Enabled = True
+        'btnConfirmar.Enabled = True
     End Sub
 
     Private Sub btnConfirmar_Click(sender As Object, e As EventArgs) Handles btnConfirmar.Click
@@ -73,10 +73,10 @@ Public Class frmDevolucion_Auto
         End If
     End Sub
     Private Sub dtpFecha_Devolucion_ValueChanged(sender As Object, e As EventArgs) Handles dtpFecha_Devolucion.ValueChanged
-        Dim fechaE As Date = dgvDevolucion.CurrentRow.Cells(5).Value
-        If rdbBuen_Estado.Checked And (dtpFecha_Devolucion.Value > fechaE) Then 'Se verifica la fecha
-            btnConfirmar.Enabled = False
-        End If
+        'Dim fechaE As Date = dgvDevolucion.CurrentRow.Cells(5).Value
+        'If rdbBuen_Estado.Checked And (dtpFecha_Devolucion.Value > fechaE) Then 'Se verifica la fecha
+        'btnConfirmar.Enabled = False
+        'End If
     End Sub
 
     Private Sub mnsCerrar_Sesion_Click(sender As Object, e As EventArgs) Handles mnsCerrar_Sesion.Click
