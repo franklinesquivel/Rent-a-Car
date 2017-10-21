@@ -165,12 +165,12 @@ Public Class clsRentas
             Return False
         End If
 
-        If CDate(_fechaInicio) < Date.Now Then 'Se verifica que una fecha no sea mayor a la actual
+        If CDate(_fechaInicio) < Date.Now.ToString("yyyy-MM-dd") Then 'Se verifica que una fecha no sea mayor a la actual
             MsgBox("Error: No puede ingresar una fecha de inicio menor a la actual")
             Return False
         End If
 
-        If MyClass.ChequearReserva(cliente.ObtenerIdCliente) Then 'Chequea si el cliente posee reserva activa
+        If MyClass.ChequearReserva(cliente.ObtenerIdCliente, CDate(_fechaInicio), CDate(_fechaFin)) Then 'Chequea si el cliente posee reserva activa
             If MyClass.ChequearReservaFecha(CDate(_fechaInicio), CDate(_fechaFin), coche.ObtenerIdCoche) Then 'Verifica si hay una reserva en los tiempos elegidos y si es de ese coche
                 'Establece la información en los atributos
                 MyClass.EstablecerFechaInicio = CDate(_fechaInicio)
@@ -185,11 +185,9 @@ Public Class clsRentas
                     clsArchivo.GenerarPDF(cliente, coche, _precio) 'Genera factura
                     Return True
                 End If
-            Else
-                MsgBox("Error: Se ha encontrado una reserva activa con dicho coche")
             End If
         Else
-            MsgBox("Error: El usuario tiene una reserva activa")
+            MsgBox("Error: El usuario tiene una reserva activa en dichas fechas")
         End If
         Return False
     End Function
@@ -220,11 +218,11 @@ Public Class clsRentas
         End If
     End Function
 
-    Public Function ChequearReserva(ByVal Optional indice As String = Nothing) As Boolean
-        If Conexion.contarFilas("SELECT * FROM reservas WHERE id_cliente = " & indice & " AND estado = 'Activa'") > 0 Then
-            Return True
-        Else
+    Public Function ChequearReserva(ByVal indice As String, ByVal _fechaInicio As Date, ByVal _fechaFin As Date) As Boolean
+        If Conexion.contarFilas("SELECT * FROM reservas WHERE id_cliente = " & indice & " AND ('" & _fechaInicio & "' BETWEEN fecha_retiro AND fecha_devolucion) or ('" & _fechaFin & "' BETWEEN fecha_retiro AND fecha_devolucion) AND estado = 'Activa' ") > 0 Then
             Return False
+        Else
+            Return True
         End If
     End Function
     Public Function listarRentas(ByRef listaRentas() As clsRentas, ByRef dgv As DataGridView) As Boolean 'Se listan todas las rentas
@@ -340,8 +338,8 @@ Public Class clsRentas
         End If
     End Function
     Public Function ChequearReservaFecha(ByVal _fechaInicio As Date, ByVal _fechaFin As Date, ByVal _idCoche As Integer) As Boolean 'Verificamos si hay una reserva en las fechas elegidas para la renta
-        If Conexion.contarFilas("SELECT * FROM `reservas` WHERE id_coche = " & _idCoche & " AND (" & _fechaInicio & " BETWEEN fecha_retiro AND fecha_devolucion) or (" & _fechaFin & " BETWEEN fecha_retiro AND fecha_devolucion) AND estado = 'Activa'") = 0 Then
-            MsgBox("Error: Existe una reserva en dicho período de tiempo")
+        If Conexion.contarFilas("SELECT * FROM `reservas` WHERE id_coche = " & _idCoche & " AND (('" & _fechaInicio & "' BETWEEN fecha_retiro AND fecha_devolucion) or ('" & _fechaFin & "' BETWEEN fecha_retiro AND fecha_devolucion)) AND estado = 'Activa' ") = 0 Then
+            MsgBox("Error: Existe una reserva en dicho período de tiempo para el coche seleccionado")
             Return False
         Else
             Return True

@@ -132,7 +132,7 @@ Public Class clsReservas
         Dim numFilas As Integer = Conexion.contarFilas("SELECT * FROM reservas WHERE id_reserva LIKE '" & fecha.Year & "%'")
         CodigoReserva = fecha.Year & _idAgencia & Format(numFilas + 1, "#000000")
     End Sub
-    Public Overloads Function ChequearReserva(ByVal Optional _cliente As String = Nothing) As Boolean
+    Private Overloads Function ChequearReserva(ByVal Optional _cliente As String = Nothing) As Boolean
         'Se verifica que no exista una reserva del usuario no este activa
         If Conexion.contarFilas("SELECT * FROM reservas WHERE id_cliente = '" & _cliente & "' AND estado = 'Activa'") > 0 Then
             Return False
@@ -140,18 +140,18 @@ Public Class clsReservas
             Return True
         End If
     End Function
-    Public Function ChequearReservaFecha(ByVal _fechaIncio As Date, ByVal _fechaFin As Date, ByVal _idCoche As Integer) As Boolean
+    Private Function ChequearReservaFecha(ByVal _fechaIncio As Date, ByVal _fechaFin As Date, ByVal _idCoche As Integer) As Boolean
         'Se verifica que no exista una reserva en las fechas ingresadas
-        If Conexion.contarFilas("SELECT * FROM `reservas` WHERE id_coche = " & _idCoche & " AND (" & _fechaIncio & " BETWEEN fecha_retiro AND fecha_devolucion) or (" & _fechaFin & " BETWEEN fecha_retiro AND fecha_devolucion) AND estado = 'Activa'") > 0 Then
+        If Conexion.contarFilas("SELECT * FROM `reservas` WHERE id_coche = " & _idCoche & " AND (('" & _fechaIncio.ToString("yyyy-MM-dd") & "' BETWEEN fecha_retiro AND fecha_devolucion) OR ('" & _fechaFin.ToString("yyyy-MM-dd") & "' BETWEEN fecha_retiro AND fecha_devolucion)) AND estado = 'Activa'") > 0 Then
             Return False
         Else
             Return True
         End If
     End Function
 
-    Public Function ChequearRenta(ByVal _idCoche As Integer, ByVal _fechaInicio As Date, _fechaFin As Date) As Boolean
+    Private Function ChequearRenta(ByVal _idCoche As Integer, ByVal _fechaInicio As Date, _fechaFin As Date) As Boolean
         'Se verifica que que el coche elegido no tenga una renta activa
-        If Conexion.contarFilas("SELECT * FROM rentas WHERE id_coche = " & _idCoche & " AND estado = 'Activa' AND(" & _fechaInicio & " BETWEEN fecha_retiro AND fecha_devolucion) OR (" & _fechaFin & " BETWEEN fecha_retiro AND fecha_devolucion)") > 0 Then
+        If Conexion.contarFilas("SELECT * FROM rentas WHERE id_coche = " & _idCoche & " AND estado = 'Activa' AND (('" & _fechaInicio.ToString("yyyy-MM-dd") & "' BETWEEN fecha_retiro AND fecha_devolucion) OR ('" & _fechaFin.ToString("yyyy-MM-dd") & "' BETWEEN fecha_retiro AND fecha_devolucion)) AND estado = 'Activa'") > 0 Then
             Return False
         Else
             Return True
@@ -171,7 +171,7 @@ Public Class clsReservas
             Return False
         End If
 
-        If CDate(_fechaInicio) < Date.Now Then 'Se verifica que la fecha no sea mayor a la actual
+        If CDate(_fechaInicio) < Date.Now.ToString("yyyy-MM-dd") Then 'Se verifica que la fecha no sea mayor a la actual
             MsgBox("Error: No puede ingresar una fecha de inicio menor a la actual")
             Return False
         End If
@@ -180,7 +180,6 @@ Public Class clsReservas
         If MyClass.ChequearReserva(cliente.ObtenerIdCliente) Then 'Se verifica que el usuario no tenga una reserva activa
             If MyClass.ChequearReservaFecha(CDate(_fechaInicio), CDate(_fechaFin), coche.ObtenerIdCoche) Then 'Se verifica si existe una reserva activa con el coche elegido
                 If MyClass.ChequearRenta(coche.ObtenerIdCoche, CDate(_fechaInicio), CDate(_fechaFin)) Then 'Se verifica si el coche no esta rentado
-
                     'Se establecen los datos en los atributos  de la clase
                     MyClass.EstablecerFechaInicio = CDate(_fechaInicio)
                     MyClass.EstablecerFechaFin = CDate(_fechaFin)
@@ -200,40 +199,13 @@ Public Class clsReservas
                     MsgBox("Error: El coche seleccionado esta en renta en las fechas limitadas")
                 End If
             Else
-                MsgBox("Error: Se ha encontrado una reserva en las fechas limitadas")
+                MsgBox("Error: Se ha encontrado una reserva del mismo coche en las fechas limitadas")
             End If
         Else
             MsgBox("Error: El usuario tiene una reserva activa")
         End If
         Return False
     End Function
-    'Public Function CancelarReserva(ByVal _cliente As String, ByVal _codigoReserva As String)
-    'Dim rgx_usuario = New Regex("^U{1}\d{5}") 'Patrón del código de usuario
-    'Dim rgx_codigoReserva = New Regex("^\d{11}$") 'Patrón del código de reserva
-    '
-    '   _cliente = _cliente.Trim
-    '  _codigoReserva = _codigoReserva.Trim
-    '
-    'If _cliente.Length = 0 Or rgx_usuario.IsMatch(_cliente) Then 'Se verifica el código de cliente
-    '       MsgBox("Error: Ingrese un código de cliente válido")
-    'Return False
-    'End If
-    '
-    'If _codigoReserva.Length = 0 Or rgx_codigoReserva.IsMatch(_codigoReserva) Then 'Se verifica el código de Reserva
-    '       MsgBox("Error: Ingrese un código de reserva válido")
-    'Return False
-    'End If
-    'Return True
-    'End Function
-    Public Sub verRegistros(ByRef dgv As DataGridView, ByVal _cliente As String)
-        Dim rgx_usuario = New Regex("^U{1}\d{5}")
-        _cliente = _cliente.Trim
-
-        If _cliente.Length = 0 Or Not rgx_usuario.IsMatch(_cliente) Then
-            MsgBox("Error: Ingrese un código de cliente válido")
-            Exit Sub
-        End If
-    End Sub
     Public Function listarReservas(ByRef listaReservas() As clsReservas, ByRef dgv As DataGridView) As Boolean
         If Conexion.contarFilas("SELECT * FROM reservas WHERE estado = 'Activa'") = 0 Then 'Se verifica si existen reserva
             Return 0

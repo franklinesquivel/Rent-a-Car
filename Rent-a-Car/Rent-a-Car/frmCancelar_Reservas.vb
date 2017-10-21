@@ -88,7 +88,8 @@ Public Class frmCancelar_Reservas
     Private Sub InicializarFormulario()
         Reservas = New clsReservas 'Se instancia el objeto reserva para ocuparlo durante el proceso en este formulario
         InicializarVista(False) 'Escondemos los labels de vista de datos
-
+        txbCodigo_Reserva.Text = ""
+        dgvCancelar_Reservas.Rows.Clear()
         If Reservas.listarReservas(listaReservas, dgvCancelar_Reservas) = 0 Then 'verificamos si tenemos registros en la BDD
             MsgBox("Error: No hay reservas por cancelar")
             btnCancelar_Reservas.Enabled = False
