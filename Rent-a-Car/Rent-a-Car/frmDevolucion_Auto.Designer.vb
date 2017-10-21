@@ -30,15 +30,12 @@ Partial Class frmDevolucion_Auto
         Me.lblFecha_Devolucion = New MaterialSkin.Controls.MaterialLabel()
         Me.txbDescripcion_Problema = New System.Windows.Forms.TextBox()
         Me.lblDescripcion_Problema = New MaterialSkin.Controls.MaterialLabel()
-        Me.lblMonto_Cancelar = New MaterialSkin.Controls.MaterialLabel()
-        Me.txbMonto_Cancelar = New MaterialSkin.Controls.MaterialSingleLineTextField()
         Me.btnRegresar = New MaterialSkin.Controls.MaterialRaisedButton()
         Me.mnsMenu = New System.Windows.Forms.MenuStrip()
         Me.mnsCerrar_Sesion = New System.Windows.Forms.ToolStripMenuItem()
         Me.MaterialLabel1 = New MaterialSkin.Controls.MaterialLabel()
         Me.dgvDevolucion = New System.Windows.Forms.DataGridView()
         Me.lblPlaca = New MaterialSkin.Controls.MaterialLabel()
-        Me.btnCalcular = New MaterialSkin.Controls.MaterialFlatButton()
         Me.mnsMenu.SuspendLayout()
         CType(Me.dgvDevolucion, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -154,34 +151,6 @@ Partial Class frmDevolucion_Auto
         Me.lblDescripcion_Problema.TabIndex = 56
         Me.lblDescripcion_Problema.Text = "Descripción del problema"
         '
-        'lblMonto_Cancelar
-        '
-        Me.lblMonto_Cancelar.AutoSize = True
-        Me.lblMonto_Cancelar.Depth = 0
-        Me.lblMonto_Cancelar.Font = New System.Drawing.Font("Roboto", 11.0!)
-        Me.lblMonto_Cancelar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblMonto_Cancelar.Location = New System.Drawing.Point(42, 501)
-        Me.lblMonto_Cancelar.MouseState = MaterialSkin.MouseState.HOVER
-        Me.lblMonto_Cancelar.Name = "lblMonto_Cancelar"
-        Me.lblMonto_Cancelar.Size = New System.Drawing.Size(217, 19)
-        Me.lblMonto_Cancelar.TabIndex = 57
-        Me.lblMonto_Cancelar.Text = "Monto a cancelar por el cliente"
-        '
-        'txbMonto_Cancelar
-        '
-        Me.txbMonto_Cancelar.Depth = 0
-        Me.txbMonto_Cancelar.Hint = ""
-        Me.txbMonto_Cancelar.Location = New System.Drawing.Point(46, 533)
-        Me.txbMonto_Cancelar.MouseState = MaterialSkin.MouseState.HOVER
-        Me.txbMonto_Cancelar.Name = "txbMonto_Cancelar"
-        Me.txbMonto_Cancelar.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.txbMonto_Cancelar.SelectedText = ""
-        Me.txbMonto_Cancelar.SelectionLength = 0
-        Me.txbMonto_Cancelar.SelectionStart = 0
-        Me.txbMonto_Cancelar.Size = New System.Drawing.Size(474, 23)
-        Me.txbMonto_Cancelar.TabIndex = 58
-        Me.txbMonto_Cancelar.UseSystemPasswordChar = False
-        '
         'btnRegresar
         '
         Me.btnRegresar.Cursor = System.Windows.Forms.Cursors.Hand
@@ -246,34 +215,15 @@ Partial Class frmDevolucion_Auto
         Me.lblPlaca.TabIndex = 63
         Me.lblPlaca.Text = "-"
         '
-        'btnCalcular
-        '
-        Me.btnCalcular.AutoSize = True
-        Me.btnCalcular.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.btnCalcular.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnCalcular.Depth = 0
-        Me.btnCalcular.Location = New System.Drawing.Point(281, 345)
-        Me.btnCalcular.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
-        Me.btnCalcular.MouseState = MaterialSkin.MouseState.HOVER
-        Me.btnCalcular.Name = "btnCalcular"
-        Me.btnCalcular.Primary = False
-        Me.btnCalcular.Size = New System.Drawing.Size(81, 36)
-        Me.btnCalcular.TabIndex = 64
-        Me.btnCalcular.Text = "Calcular"
-        Me.btnCalcular.UseVisualStyleBackColor = True
-        '
         'frmDevolucion_Auto
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(573, 655)
-        Me.Controls.Add(Me.btnCalcular)
         Me.Controls.Add(Me.lblPlaca)
         Me.Controls.Add(Me.dgvDevolucion)
         Me.Controls.Add(Me.MaterialLabel1)
         Me.Controls.Add(Me.btnRegresar)
-        Me.Controls.Add(Me.txbMonto_Cancelar)
-        Me.Controls.Add(Me.lblMonto_Cancelar)
         Me.Controls.Add(Me.lblDescripcion_Problema)
         Me.Controls.Add(Me.txbDescripcion_Problema)
         Me.Controls.Add(Me.dtpFecha_Devolucion)
@@ -304,13 +254,10 @@ Partial Class frmDevolucion_Auto
     Friend WithEvents lblFecha_Devolucion As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents txbDescripcion_Problema As TextBox
     Friend WithEvents lblDescripcion_Problema As MaterialSkin.Controls.MaterialLabel
-    Friend WithEvents lblMonto_Cancelar As MaterialSkin.Controls.MaterialLabel
-    Friend WithEvents txbMonto_Cancelar As MaterialSkin.Controls.MaterialSingleLineTextField
     Friend WithEvents btnRegresar As MaterialSkin.Controls.MaterialRaisedButton
     Friend WithEvents mnsMenu As MenuStrip
     Friend WithEvents mnsCerrar_Sesion As ToolStripMenuItem
     Friend WithEvents MaterialLabel1 As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents dgvDevolucion As DataGridView
     Friend WithEvents lblPlaca As MaterialSkin.Controls.MaterialLabel
-    Friend WithEvents btnCalcular As MaterialSkin.Controls.MaterialFlatButton
 End Class

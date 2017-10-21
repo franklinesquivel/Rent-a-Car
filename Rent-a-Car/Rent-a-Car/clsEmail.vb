@@ -102,8 +102,8 @@ Public Class clsEmail
             mensaje.To.Add(_correo) 'Destinatario
             mensaje.Subject = "Rent a car: Bienvenido!" 'Titulo del mensaje
             mensaje.IsBodyHtml = True 'Activamos el cuerpo del mensaje como html
-            mensaje.Body = "<b>Nombre de Usuario: </b>" & _nombreUsuario & "<br>" 'Mensaje
-            mensaje.Body = "<b>Contraseña: </b>" & _contrasenna 'Mensaje
+            mensaje.Body += "<b>Nombre de Usuario: </b>" & _nombreUsuario & "<br>" 'Mensaje
+            mensaje.Body += "<b>Contraseña: </b>" & _contrasenna 'Mensaje
             smtpServer.Send(mensaje) 'Mandamos el mensaje
             Return 1
         Catch ex As Exception

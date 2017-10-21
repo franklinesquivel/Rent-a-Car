@@ -9,12 +9,8 @@ Public Class frmDevolucion_Auto
         SkinManager.ColorScheme = New ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE)
         Session.ControlarSession() 'Se controla la sesión
 
-        Rentas = New clsRentas 'Se instancia objeto tipo clase renta
-        If Rentas.listarRentas(listaRentas, dgvDevolucion) = 0 Then 'Verificamos si hay coches por devolver
-            MsgBox("Error: No hay rentas por devolver")
-            btnConfirmar.Enabled = False
-        End If
-        txbDescripcion_Problema.Enabled = False
+        InicializarFormulario()
+
     End Sub
     Private Sub dgvDevolucion_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvDevolucion.CellClick
         If dgvDevolucion.CurrentCell.Value <> "" Then
@@ -29,13 +25,11 @@ Public Class frmDevolucion_Auto
 
     Private Sub rdbChocado_CheckedChanged(sender As Object, e As EventArgs) Handles rdbChocado.CheckedChanged
         txbDescripcion_Problema.Enabled = True
-        txbMonto_Cancelar.Enabled = True
         btnConfirmar.Enabled = True
     End Sub
 
     Private Sub rdbBuen_Estado_CheckedChanged(sender As Object, e As EventArgs) Handles rdbBuen_Estado.CheckedChanged
         txbDescripcion_Problema.Enabled = False
-        txbMonto_Cancelar.Enabled = False
         btnConfirmar.Enabled = True
     End Sub
 
@@ -50,8 +44,6 @@ Public Class frmDevolucion_Auto
 
         'Se verifica el estado del coche
         If rdbBuen_Estado.Checked = True And (dtpFecha_Devolucion.Value.ToString("yyyy-MM-dd") <= fechaE) Then
-            txbMonto_Cancelar.Enabled = False
-            btnCalcular.Enabled = False
             registro = True
             tipoDevolucion = 1
         ElseIf rdbChocado.Checked = True And (dtpFecha_Devolucion.Value.ToString("yyyy-MM-dd") <= fechaE) Then
@@ -65,9 +57,15 @@ Public Class frmDevolucion_Auto
             If indice > -1 Then 'Se verifica que exista una renta correcta
                 'Se verifica el tipo devolución a realizar
                 If tipoDevolucion = 1 Then
-                    Rentas.DevolverCoche(listaRentas(indice).ObtenerCodigoRenta, tipoDevolucion, fechaE, dtpFecha_Devolucion.Value.ToString("yyyy-MM-dd"))
+                    If Rentas.DevolverCoche(listaRentas(indice).ObtenerCodigoRenta, tipoDevolucion, fechaE, dtpFecha_Devolucion.Value.ToString("yyyy-MM-dd")) Then
+                        InicializarFormulario()
+                        MsgBox("Devolucón exitosa")
+                    End If
                 ElseIf tipoDevolucion = 2 Then
-                    Rentas.DevolverCoche(listaRentas(indice).ObtenerCodigoRenta, tipoDevolucion, fechaE, dtpFecha_Devolucion.Value.ToString("yyyy-MM-dd"), txbDescripcion_Problema.Text)
+                    If Rentas.DevolverCoche(listaRentas(indice).ObtenerCodigoRenta, tipoDevolucion, fechaE, dtpFecha_Devolucion.Value.ToString("yyyy-MM-dd"), txbDescripcion_Problema.Text) Then
+                        InicializarFormulario()
+                        MsgBox("Devolución exitosa")
+                    End If
                 End If
             Else
                 MsgBox("Error: Favor seleccionar una renta")
@@ -77,12 +75,20 @@ Public Class frmDevolucion_Auto
     Private Sub dtpFecha_Devolucion_ValueChanged(sender As Object, e As EventArgs) Handles dtpFecha_Devolucion.ValueChanged
         Dim fechaE As Date = dgvDevolucion.CurrentRow.Cells(5).Value
         If rdbBuen_Estado.Checked And (dtpFecha_Devolucion.Value > fechaE) Then 'Se verifica la fecha
-            btnCalcular.Enabled = True
             btnConfirmar.Enabled = False
         End If
     End Sub
 
     Private Sub mnsCerrar_Sesion_Click(sender As Object, e As EventArgs) Handles mnsCerrar_Sesion.Click
         Session.CerrarSession() 'Se cierra la sesión
+    End Sub
+
+    Private Sub InicializarFormulario()
+        Rentas = New clsRentas 'Se instancia objeto tipo clase renta
+        If Rentas.listarRentas(listaRentas, dgvDevolucion) = 0 Then 'Verificamos si hay coches por devolver
+            MsgBox("Error: No hay rentas por devolver")
+            btnConfirmar.Enabled = False
+        End If
+        txbDescripcion_Problema.Enabled = False
     End Sub
 End Class

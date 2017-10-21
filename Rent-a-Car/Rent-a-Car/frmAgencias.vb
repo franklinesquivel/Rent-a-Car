@@ -26,7 +26,6 @@ Public Class frmAgencias
     End Sub
 
     Public Sub InicializarFormulario() 'Limpia los campos
-        txbCodigo.Text = ""
         txbDireccion.Text = ""
         txbNombre_Agencia.Text = ""
         txbTelefono.Text = ""

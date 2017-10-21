@@ -29,14 +29,16 @@ Public Class frmRentar_Autos
         Rentas = New clsRentas 'Se instancia el objeto de tipo clsRentas
 
         Dim indice As Integer = Reservas.BuscarIndice(txbCodigo_Reserva.Text, listaReservas) 'Se obtiene el indice de reserva selccionada
-        Dim user As Integer = Rentas.ChequearReserva(listaReservas(indice).ObtenerCodigoReserva) 'Se verifica la reserva
-        Dim indiceUsuario As Integer = Session.ObtenerIdUsuario 'iD del usuario que registrara la renta
 
         If indice > -1 Then 'Se verifica que el indice exista
-            'Se lleva a cabo el proceso
-            If Rentas.registrarRenta(listaReservas(indice).ObtenerIdCliente, listaReservas(indice).ObtenerIdAgencia, listaReservas(indice).ObtenerIdCoche, indiceUsuario, listaReservas(indice).ObtenerFechaInicio.ToString("yyyy-MM-dd"), listaReservas(indice).ObtenerFechaFin.ToString("yyyy-MM-dd"), txbCodigo_Reserva.Text) Then
-                Rentas.ReservaRealizada(listaReservas(indice)) 'Se cambio el estado de la reserva
-                MsgBox("Renta Agregada con exito")
+            Dim user As Integer = Rentas.ChequearReserva(listaReservas(indice).ObtenerCodigoReserva) 'Se verifica la reserva
+            If user Then
+                Dim indiceUsuario As Integer = Session.ObtenerIdUsuario 'iD del usuario que registrara la renta
+                'Se lleva a cabo el proceso
+                If Rentas.registrarRenta(listaReservas(indice).ObtenerIdCliente, listaReservas(indice).ObtenerIdAgencia, listaReservas(indice).ObtenerIdCoche, indiceUsuario, listaReservas(indice).ObtenerFechaInicio.ToString("yyyy-MM-dd"), listaReservas(indice).ObtenerFechaFin.ToString("yyyy-MM-dd"), txbCodigo_Reserva.Text) Then
+                    Rentas.ReservaRealizada(listaReservas(indice)) 'Se cambio el estado de la reserva
+                    MsgBox("Renta Agregada con exito")
+                End If
             End If
         Else
             MsgBox("Error: Código de renta no encontrado")

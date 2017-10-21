@@ -82,9 +82,9 @@ Public Class clsUsuarios
                 Return 1
             End If
         Else
-                MsgBox("Error: El email ingresado ya existe como usuario")
-            Return 0
+            MsgBox("Error: El email ingresado ya existe como usuario")
         End If
+        Return 0
     End Function
     Public Sub CrearCodigo(ByVal _tipousuario As String)
         Dim _nombreUsuario As String

@@ -11,8 +11,19 @@ Public Class frmClientes
 
     Private Sub btnAgregar_Cliente_Click(sender As Object, e As EventArgs) Handles btnAgregar_Cliente.Click
         Clientes = New clsClientes 'Se inicializa objeto de tipo cliente
+        Dim tipoIngreso As Boolean
         'Se lleva a cabo el proceso de registro
-        If Clientes.registrarDatos(txbDui.Text, txbPasaporte.Text, txbNombre.Text, txbApellido.Text, txbDireccion.Text, txbCiudad.Text, txbEmail.Text, cmbPaises.SelectedIndex + 1, txbTelefono.Text) Then
+
+        'Se verifica si es extranjero o nacional
+        If rbtDui.Checked = True Then
+            tipoIngreso = False
+        ElseIf rbtPasaporte.Checked = True Then
+            tipoIngreso = True
+        Else
+            MsgBox("Error: Dui(Nacional), Pasaporte(Extranjero)")
+        End If
+
+        If Clientes.registrarDatos(txbDui.Text, txbPasaporte.Text, txbNombre.Text, txbApellido.Text, txbDireccion.Text, txbCiudad.Text, txbEmail.Text, cmbPaises.SelectedIndex + 1, txbTelefono.Text, tipoIngreso) Then
             InicializarFormulario() 'Reestablecemos el formulario
             MsgBox("Registro Exitoso")
         End If

@@ -160,12 +160,12 @@ Public Class clsRentas
             Return False
         End If
 
-        If CDate(_fechaInicio) >= CDate(_fechaFin) Then 'Se verifica que una fecha sea mayor a la otra
+        If CDate(_fechaInicio) > CDate(_fechaFin) Then 'Se verifica que una fecha sea mayor a la otra
             MsgBox("Error: La fecha de incio no puede ser mayor a la fecha final")
             Return False
         End If
 
-        If CDate(_fechaFin) < Date.Now Or CDate(_fechaInicio) < Date.Now Then 'Se verifica que una fecha no sea mayor a la actual
+        If CDate(_fechaInicio) < Date.Now Then 'Se verifica que una fecha no sea mayor a la actual
             MsgBox("Error: No puede ingresar una fecha de inicio menor a la actual")
             Return False
         End If
@@ -292,7 +292,7 @@ Public Class clsRentas
 
         ElseIf tipoDevolucion = 2 Then 'Daños al auto
             Dim multa As Decimal = 0
-            While multa <= 0 'Se registra la multa
+            While multa <= 0 Or Not (IsNumeric(multa)) 'Se registra la multa
                 multa = InputBox("Ingrese la Multa por el coche chocado")
             End While
 
@@ -358,9 +358,9 @@ Public Class clsRentas
         'Condicionales para elegir la consulta a realizar
         If tipo = "Agencia" Then
             If Fecha <> Nothing Then
-                consulta = "SELECT a.nombre, a.direccion, a.telefono, COUNT(DISTINCT r.id_renta) AS num_rent FROM `rentas` r INNER JOIN agencias a ON r.id_agencia = a.id_agencia WHERE date_format(r.fecha_retiro, '%m-%Y') = '" & Fecha.ToString("MM-yyyy") & "'"
+                consulta = "SELECT a.nombre, a.direccion, a.telefono, COUNT(DISTINCT r.id_renta) AS num_rent FROM `rentas` r INNER JOIN agencias a ON r.id_agencia = a.id_agencia WHERE date_format(r.fecha_retiro, '%m-%Y') = '" & Fecha.ToString("MM-yyyy") & "'  GROUP BY r.id_agencia"
             Else
-                consulta = "SELECT a.nombre, a.direccion, a.telefono, COUNT(DISTINCT r.id_renta) AS num_rent FROM `rentas` r INNER JOIN agencias a ON r.id_agencia = a.id_agencia"
+                consulta = "SELECT a.nombre, a.direccion, a.telefono, COUNT(DISTINCT r.id_renta) AS num_rent FROM `rentas` r INNER JOIN agencias a ON r.id_agencia = a.id_agencia GROUP BY r.id_agencia"
             End If
             ReDim columnas(3)
             columnas(0) = "Nombre"
@@ -369,9 +369,9 @@ Public Class clsRentas
             columnas(3) = "N° Rentas"
         ElseIf tipo = "Agente" Then
             If Fecha <> Nothing Then
-                consulta = "SELECT CONCAT_WS(', ', u.apellido, u.nombre), u.nombre_usuario, COUNT(DISTINCT r.id_renta) AS num_rent FROM rentas r INNER JOIN usuarios u ON r.id_usuario = u.id_usuario WHERE u.perfil = 'Gerente' AND date_format(r.fecha_retiro, '%m-%Y') = '" & Fecha.ToString("MM-yyyy") & "'"
+                consulta = "SELECT CONCAT_WS(', ', u.apellido, u.nombre), u.nombre_usuario, COUNT(DISTINCT r.id_renta) AS num_rent FROM rentas r INNER JOIN usuarios u ON r.id_usuario = u.id_usuario WHERE u.perfil = 'Gerente' AND date_format(r.fecha_retiro, '%m-%Y') = '" & Fecha.ToString("MM-yyyy") & "' GROUP BY u.id_usuario"
             Else
-                consulta = "SELECT CONCAT_WS(', ', u.apellido, u.nombre), u.nombre_usuario, COUNT(DISTINCT r.id_renta) AS num_rent FROM rentas r INNER JOIN usuarios u ON r.id_usuario = u.id_usuario WHERE u.perfil = 'Gerente'"
+                consulta = "SELECT CONCAT_WS(', ', u.apellido, u.nombre), u.nombre_usuario, COUNT(DISTINCT r.id_renta) AS num_rent FROM rentas r INNER JOIN usuarios u ON r.id_usuario = u.id_usuario WHERE u.perfil = 'Gerente'  GROUP BY u.id_usuario"
             End If
             ReDim columnas(2)
             columnas(0) = "Nombre"
@@ -379,9 +379,9 @@ Public Class clsRentas
             columnas(2) = "N° Rentas"
         ElseIf tipo = "Auto" Then
             If Fecha <> Nothing Then
-                consulta = "SELECT c.placa, c.tipo, COUNT(DISTINCT r.id_renta) AS num_rent FROM rentas r INNER JOIN coches c ON r.id_coche = c.id_coche WHERE date_format(r.fecha_retiro, '%m-%Y') = '" & Fecha.ToString("MM-yyyy") & "'"
+                consulta = "SELECT c.placa, c.tipo, COUNT(DISTINCT r.id_renta) AS num_rent FROM rentas r INNER JOIN coches c ON r.id_coche = c.id_coche WHERE date_format(r.fecha_retiro, '%m-%Y') = '" & Fecha.ToString("MM-yyyy") & "' GROUP BY c.placa"
             Else
-                consulta = "SELECT c.placa, c.tipo, COUNT(DISTINCT r.id_renta) AS num_rent FROM rentas r INNER JOIN coches c ON r.id_coche = c.id_coche"
+                consulta = "SELECT c.placa, c.tipo, COUNT(DISTINCT r.id_renta) AS num_rent FROM rentas r INNER JOIN coches c ON r.id_coche = c.id_coche GROUP BY c.placa"
             End If
             ReDim columnas(2)
             columnas(0) = "Matrícula"

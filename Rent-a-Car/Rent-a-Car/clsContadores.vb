@@ -21,6 +21,7 @@
         End If
 
         If _noCoincide("^([\w-]+\.)*?[\w-]+@[\w-]+\.([\w-]+\.)*?[\w]+$", _correo) Then 'Se valida el correo electrónico
+            MsgBox("Error: Ingrese un correo válido")
             Return False
         End If
 

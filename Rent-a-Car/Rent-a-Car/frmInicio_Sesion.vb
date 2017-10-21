@@ -10,7 +10,7 @@ Public Class frmInicio_Sesion
 
     Private Sub btnIniciar_sesion_Click(sender As Object, e As EventArgs) Handles btnIniciar_sesion.Click
         If Usuarios.IniciarSesion(txbNombre_Usuario.Text, txbContraseña.Text) Then 'Inicio de sesión
-            Me.Close()
+            Me.Hide()
         End If
     End Sub
 

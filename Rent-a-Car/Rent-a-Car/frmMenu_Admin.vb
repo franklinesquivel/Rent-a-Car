@@ -39,7 +39,7 @@ Public Class frmMenu_Admin
     End Sub
 
     Private Sub btnEstado_Autos_Click(sender As Object, e As EventArgs) Handles btnEstado_Autos.Click
-        frmReportes_Coches.Show()
+        frmGestionar_Autos.Show()
         Me.Hide()
     End Sub
 

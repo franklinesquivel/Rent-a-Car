@@ -24,10 +24,8 @@ Partial Class frmAgencias
     Private Sub InitializeComponent()
         Me.lblTelefono = New MaterialSkin.Controls.MaterialLabel()
         Me.lblNombre_Agencia = New MaterialSkin.Controls.MaterialLabel()
-        Me.txbCodigo = New MaterialSkin.Controls.MaterialSingleLineTextField()
         Me.btnAgregar_Agencia = New MaterialSkin.Controls.MaterialFlatButton()
         Me.lblDireccion = New MaterialSkin.Controls.MaterialLabel()
-        Me.lblCodigo = New MaterialSkin.Controls.MaterialLabel()
         Me.txbNombre_Agencia = New MaterialSkin.Controls.MaterialSingleLineTextField()
         Me.txbDireccion = New MaterialSkin.Controls.MaterialSingleLineTextField()
         Me.txbTelefono = New MaterialSkin.Controls.MaterialSingleLineTextField()
@@ -43,7 +41,7 @@ Partial Class frmAgencias
         Me.lblTelefono.Depth = 0
         Me.lblTelefono.Font = New System.Drawing.Font("Roboto", 11.0!)
         Me.lblTelefono.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblTelefono.Location = New System.Drawing.Point(26, 230)
+        Me.lblTelefono.Location = New System.Drawing.Point(26, 187)
         Me.lblTelefono.MouseState = MaterialSkin.MouseState.HOVER
         Me.lblTelefono.Name = "lblTelefono"
         Me.lblTelefono.Size = New System.Drawing.Size(69, 19)
@@ -56,28 +54,12 @@ Partial Class frmAgencias
         Me.lblNombre_Agencia.Depth = 0
         Me.lblNombre_Agencia.Font = New System.Drawing.Font("Roboto", 11.0!)
         Me.lblNombre_Agencia.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblNombre_Agencia.Location = New System.Drawing.Point(26, 141)
+        Me.lblNombre_Agencia.Location = New System.Drawing.Point(26, 93)
         Me.lblNombre_Agencia.MouseState = MaterialSkin.MouseState.HOVER
         Me.lblNombre_Agencia.Name = "lblNombre_Agencia"
         Me.lblNombre_Agencia.Size = New System.Drawing.Size(155, 19)
         Me.lblNombre_Agencia.TabIndex = 47
         Me.lblNombre_Agencia.Text = "Nombre de la agencia"
-        '
-        'txbCodigo
-        '
-        Me.txbCodigo.Depth = 0
-        Me.txbCodigo.Enabled = False
-        Me.txbCodigo.Hint = ""
-        Me.txbCodigo.Location = New System.Drawing.Point(114, 97)
-        Me.txbCodigo.MouseState = MaterialSkin.MouseState.HOVER
-        Me.txbCodigo.Name = "txbCodigo"
-        Me.txbCodigo.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.txbCodigo.SelectedText = ""
-        Me.txbCodigo.SelectionLength = 0
-        Me.txbCodigo.SelectionStart = 0
-        Me.txbCodigo.Size = New System.Drawing.Size(289, 23)
-        Me.txbCodigo.TabIndex = 46
-        Me.txbCodigo.UseSystemPasswordChar = False
         '
         'btnAgregar_Agencia
         '
@@ -85,7 +67,7 @@ Partial Class frmAgencias
         Me.btnAgregar_Agencia.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.btnAgregar_Agencia.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnAgregar_Agencia.Depth = 0
-        Me.btnAgregar_Agencia.Location = New System.Drawing.Point(138, 282)
+        Me.btnAgregar_Agencia.Location = New System.Drawing.Point(114, 249)
         Me.btnAgregar_Agencia.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
         Me.btnAgregar_Agencia.MouseState = MaterialSkin.MouseState.HOVER
         Me.btnAgregar_Agencia.Name = "btnAgregar_Agencia"
@@ -101,31 +83,18 @@ Partial Class frmAgencias
         Me.lblDireccion.Depth = 0
         Me.lblDireccion.Font = New System.Drawing.Font("Roboto", 11.0!)
         Me.lblDireccion.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblDireccion.Location = New System.Drawing.Point(26, 184)
+        Me.lblDireccion.Location = New System.Drawing.Point(26, 140)
         Me.lblDireccion.MouseState = MaterialSkin.MouseState.HOVER
         Me.lblDireccion.Name = "lblDireccion"
         Me.lblDireccion.Size = New System.Drawing.Size(73, 19)
         Me.lblDireccion.TabIndex = 44
         Me.lblDireccion.Text = "Dirección"
         '
-        'lblCodigo
-        '
-        Me.lblCodigo.AutoSize = True
-        Me.lblCodigo.Depth = 0
-        Me.lblCodigo.Font = New System.Drawing.Font("Roboto", 11.0!)
-        Me.lblCodigo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblCodigo.Location = New System.Drawing.Point(26, 101)
-        Me.lblCodigo.MouseState = MaterialSkin.MouseState.HOVER
-        Me.lblCodigo.Name = "lblCodigo"
-        Me.lblCodigo.Size = New System.Drawing.Size(57, 19)
-        Me.lblCodigo.TabIndex = 43
-        Me.lblCodigo.Text = "Código"
-        '
         'txbNombre_Agencia
         '
         Me.txbNombre_Agencia.Depth = 0
         Me.txbNombre_Agencia.Hint = ""
-        Me.txbNombre_Agencia.Location = New System.Drawing.Point(209, 137)
+        Me.txbNombre_Agencia.Location = New System.Drawing.Point(209, 89)
         Me.txbNombre_Agencia.MouseState = MaterialSkin.MouseState.HOVER
         Me.txbNombre_Agencia.Name = "txbNombre_Agencia"
         Me.txbNombre_Agencia.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -140,7 +109,7 @@ Partial Class frmAgencias
         '
         Me.txbDireccion.Depth = 0
         Me.txbDireccion.Hint = ""
-        Me.txbDireccion.Location = New System.Drawing.Point(114, 184)
+        Me.txbDireccion.Location = New System.Drawing.Point(114, 136)
         Me.txbDireccion.MouseState = MaterialSkin.MouseState.HOVER
         Me.txbDireccion.Name = "txbDireccion"
         Me.txbDireccion.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -155,14 +124,14 @@ Partial Class frmAgencias
         '
         Me.txbTelefono.Depth = 0
         Me.txbTelefono.Hint = ""
-        Me.txbTelefono.Location = New System.Drawing.Point(114, 230)
+        Me.txbTelefono.Location = New System.Drawing.Point(114, 187)
         Me.txbTelefono.MouseState = MaterialSkin.MouseState.HOVER
         Me.txbTelefono.Name = "txbTelefono"
         Me.txbTelefono.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.txbTelefono.SelectedText = ""
         Me.txbTelefono.SelectionLength = 0
         Me.txbTelefono.SelectionStart = 0
-        Me.txbTelefono.Size = New System.Drawing.Size(215, 23)
+        Me.txbTelefono.Size = New System.Drawing.Size(289, 23)
         Me.txbTelefono.TabIndex = 49
         Me.txbTelefono.UseSystemPasswordChar = False
         '
@@ -206,10 +175,8 @@ Partial Class frmAgencias
         Me.Controls.Add(Me.txbTelefono)
         Me.Controls.Add(Me.lblTelefono)
         Me.Controls.Add(Me.lblNombre_Agencia)
-        Me.Controls.Add(Me.txbCodigo)
         Me.Controls.Add(Me.btnAgregar_Agencia)
         Me.Controls.Add(Me.lblDireccion)
-        Me.Controls.Add(Me.lblCodigo)
         Me.Controls.Add(Me.txbNombre_Agencia)
         Me.Controls.Add(Me.txbDireccion)
         Me.Controls.Add(Me.mnsMenu)
@@ -226,10 +193,8 @@ Partial Class frmAgencias
 
     Friend WithEvents lblTelefono As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents lblNombre_Agencia As MaterialSkin.Controls.MaterialLabel
-    Friend WithEvents txbCodigo As MaterialSkin.Controls.MaterialSingleLineTextField
     Friend WithEvents btnAgregar_Agencia As MaterialSkin.Controls.MaterialFlatButton
     Friend WithEvents lblDireccion As MaterialSkin.Controls.MaterialLabel
-    Friend WithEvents lblCodigo As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents txbNombre_Agencia As MaterialSkin.Controls.MaterialSingleLineTextField
     Friend WithEvents txbDireccion As MaterialSkin.Controls.MaterialSingleLineTextField
     Friend WithEvents txbTelefono As MaterialSkin.Controls.MaterialSingleLineTextField

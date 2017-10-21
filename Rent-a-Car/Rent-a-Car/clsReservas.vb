@@ -149,9 +149,9 @@ Public Class clsReservas
         End If
     End Function
 
-    Public Function ChequearRenta(ByVal _idCoche As Integer) As Boolean
+    Public Function ChequearRenta(ByVal _idCoche As Integer, ByVal _fechaInicio As Date, _fechaFin As Date) As Boolean
         'Se verifica que que el coche elegido no tenga una renta activa
-        If Conexion.contarFilas("SELECT * FROM rentas WHERE id_coche = " & _idCoche & " AND estado = 'Activa'") > 0 Then
+        If Conexion.contarFilas("SELECT * FROM rentas WHERE id_coche = " & _idCoche & " AND estado = 'Activa' AND(" & _fechaInicio & " BETWEEN fecha_retiro AND fecha_devolucion) OR (" & _fechaFin & " BETWEEN fecha_retiro AND fecha_devolucion)") > 0 Then
             Return False
         Else
             Return True
@@ -166,12 +166,12 @@ Public Class clsReservas
             Return False
         End If
 
-        If CDate(_fechaInicio) >= CDate(_fechaFin) Then 'Se verifica si la fecha una es mayor que la otra
+        If CDate(_fechaInicio) > CDate(_fechaFin) Then 'Se verifica si la fecha una es mayor que la otra
             MsgBox("Error: La fecha de incio no puede ser mayor a la fecha final")
             Return False
         End If
 
-        If CDate(_fechaFin) < Date.Now Or CDate(_fechaInicio) < Date.Now Then 'Se verifica que la fecha no sea mayor a la actual
+        If CDate(_fechaInicio) < Date.Now Then 'Se verifica que la fecha no sea mayor a la actual
             MsgBox("Error: No puede ingresar una fecha de inicio menor a la actual")
             Return False
         End If
@@ -179,7 +179,7 @@ Public Class clsReservas
         MyClass.CrearCodigoReserva(_idAgencia) 'Se crea el código de reserva
         If MyClass.ChequearReserva(cliente.ObtenerIdCliente) Then 'Se verifica que el usuario no tenga una reserva activa
             If MyClass.ChequearReservaFecha(CDate(_fechaInicio), CDate(_fechaFin), coche.ObtenerIdCoche) Then 'Se verifica si existe una reserva activa con el coche elegido
-                If MyClass.ChequearRenta(coche.ObtenerIdCoche) Then 'Se verifica si el coche no esta rentado
+                If MyClass.ChequearRenta(coche.ObtenerIdCoche, CDate(_fechaInicio), CDate(_fechaFin)) Then 'Se verifica si el coche no esta rentado
 
                     'Se establecen los datos en los atributos  de la clase
                     MyClass.EstablecerFechaInicio = CDate(_fechaInicio)
@@ -192,10 +192,12 @@ Public Class clsReservas
                     Estado = "Activo"
 
                     'Se insertan los datos
-                    If Conexion.modificarDatos("INSERT INTO reservas VALUES('" & CodigoReserva & "', " & idCliente & ", " & idAgencia & ", " & idCoche & ", " & Session.ObtenerIdUsuario & ", '" & _fechaInicio & "', '" & _fechaFin & "', " & PrecioReserva & " ,'Activa')") Then
-                        clsCorreo.enviarCorreo(cliente, coche, PrecioReserva)
+                    If Conexion.modificarDatos("INSERT INTO reservas VALUES('" & CodigoReserva & "', " & idCliente & ", " & idAgencia & ", " & idCoche & ", " & Session.ObtenerIdUsuario & ", '" & _fechaInicio & "', '" & _fechaFin & "', " & Format(PrecioReserva, "0.00") & " ,'Activa')") Then
+                        clsCorreo.enviarCorreo(cliente, coche, Format(PrecioReserva, "0.00"))
                         Return True
                     End If
+                Else
+                    MsgBox("Error: El coche seleccionado esta en renta en las fechas limitadas")
                 End If
             Else
                 MsgBox("Error: Se ha encontrado una reserva en las fechas limitadas")
@@ -205,24 +207,24 @@ Public Class clsReservas
         End If
         Return False
     End Function
-    Public Function CancelarReserva(ByVal _cliente As String, ByVal _codigoReserva As String)
-        Dim rgx_usuario = New Regex("^U{1}\d{5}") 'Patrón del código de usuario
-        Dim rgx_codigoReserva = New Regex("^\d{11}$") 'Patrón del código de reserva
-
-        _cliente = _cliente.Trim
-        _codigoReserva = _codigoReserva.Trim
-
-        If _cliente.Length = 0 Or rgx_usuario.IsMatch(_cliente) Then 'Se verifica el código de cliente
-            MsgBox("Error: Ingrese un código de cliente válido")
-            Return False
-        End If
-
-        If _codigoReserva.Length = 0 Or rgx_codigoReserva.IsMatch(_codigoReserva) Then 'Se verifica el código de Reserva
-            MsgBox("Error: Ingrese un código de reserva válido")
-            Return False
-        End If
-        Return True
-    End Function
+    'Public Function CancelarReserva(ByVal _cliente As String, ByVal _codigoReserva As String)
+    'Dim rgx_usuario = New Regex("^U{1}\d{5}") 'Patrón del código de usuario
+    'Dim rgx_codigoReserva = New Regex("^\d{11}$") 'Patrón del código de reserva
+    '
+    '   _cliente = _cliente.Trim
+    '  _codigoReserva = _codigoReserva.Trim
+    '
+    'If _cliente.Length = 0 Or rgx_usuario.IsMatch(_cliente) Then 'Se verifica el código de cliente
+    '       MsgBox("Error: Ingrese un código de cliente válido")
+    'Return False
+    'End If
+    '
+    'If _codigoReserva.Length = 0 Or rgx_codigoReserva.IsMatch(_codigoReserva) Then 'Se verifica el código de Reserva
+    '       MsgBox("Error: Ingrese un código de reserva válido")
+    'Return False
+    'End If
+    'Return True
+    'End Function
     Public Sub verRegistros(ByRef dgv As DataGridView, ByVal _cliente As String)
         Dim rgx_usuario = New Regex("^U{1}\d{5}")
         _cliente = _cliente.Trim

@@ -135,8 +135,8 @@ Public Class clsClientes
     '___________________________________
     '|   Metodos generales de la clase  |
     '|__________________________________|
-    Public Function registrarDatos(ByVal dui As String, ByVal pasaporte As String, ByVal nombre As String, ByVal apellido As String, ByVal direccion As String, ByVal ciudad As String, ByVal email As String, ByVal pais As String, ByVal telefono As String) As Boolean
-        _Telefono = telefono
+    Public Function registrarDatos(ByVal dui As String, ByVal pasaporte As String, ByVal nombre As String, ByVal apellido As String, ByVal direccion As String, ByVal ciudad As String, ByVal email As String, ByVal pais As String, ByVal telefono As String, Optional ByVal extranjero As Boolean = False) As Boolean
+        telefono = telefono.Trim
         dui = dui.Trim
         pasaporte = pasaporte.Trim
         nombre = nombre.Trim
@@ -146,19 +146,28 @@ Public Class clsClientes
         email = email.Trim
         pais = pais.Trim
 
-        If dui.Length = 0 Or _noCoincide("^\d{8}\-{1}\d{1}$", dui) Then 'verificamos que no sea vacío y cumpla con el patrón
-            MsgBox("Ingrese su DUI!", MsgBoxStyle.Critical, "Registro de Cliente")
-            Return False
+        If Not extranjero Then
+            If dui.Length = 0 Or _noCoincide("^\d{8}\-{1}\d{1}$", dui) Then 'verificamos que no sea vacío y cumpla con el patrón
+                MsgBox("Ingrese su DUI!", MsgBoxStyle.Critical, "Registro de Cliente")
+                Return False
+            Else
+                _Dui = dui
+            End If
         Else
-            _Dui = dui
+            _Dui = "0"
         End If
 
-        If pasaporte.Length = 0 Or _noCoincide("^A{1}\d{8}$", pasaporte.ToUpper) Then 'verificamos que no sea vacío y cumpla con el patrón
-            MsgBox("Ingrese su Pasaporte!", MsgBoxStyle.Critical, "Registro de Cliente")
-            Return False
+        If extranjero Then
+            If pasaporte.Length = 0 Or _noCoincide("^A{1}\d{8}$", pasaporte.ToUpper) Then 'verificamos que no sea vacío y cumpla con el patrón
+                MsgBox("Ingrese su Pasaporte!", MsgBoxStyle.Critical, "Registro de Cliente")
+                Return False
+            Else
+                _Pasaporte = pasaporte
+            End If
         Else
-            _Pasaporte = pasaporte
+            _Pasaporte = "0"
         End If
+
 
         If nombre.Length = 0 Then 'verificamos que no sea vacío y cumpla con el patrón
             MsgBox("Ingrese su Nombre!", MsgBoxStyle.Critical, "Registro de Cliente")
@@ -201,6 +210,26 @@ Public Class clsClientes
         Else
             _Pais = pais
         End If
+
+        If telefono.Length = 0 Or _noCoincide("^(2|7|6)\d{3}-?\d{4}$", telefono) Then
+            MsgBox("Error: ingrese número de telefono válido")
+            Return False
+        Else
+            _Telefono = telefono
+        End If
+
+        If Not extranjero Then
+            If Not verificarDui() Then 'Se verifica si ya hay un usuario con mismo dui
+                Return False
+            End If
+        End If
+
+        If extranjero Then
+            If Not verificarPasaporte() Then 'Se verifica si ya hay un usuario con mismo numero de pasaporte
+                Return False
+            End If
+        End If
+
         If VerificarCorreoUsuario() = 0 Then 'Se verifica la existencia de correo electronico ingresado en la BDD
             MsgBox("Error: El correo electrónico ya esta registrado")
             Return False
@@ -223,6 +252,22 @@ Public Class clsClientes
     End Function
     Private Function VerificarCorreoUsuario() As Integer 'Verifica que el correo solo este una vez en la BDD
         If Conexion.contarFilas("SELECT * FROM clientes WHERE correo_electronico = '" & _Email & "'") > 0 Then
+            Return 0
+        Else
+            Return 1
+        End If
+    End Function
+    Private Function verificarDui() As Boolean
+        If Conexion.contarFilas("SELECT * FROM clientes WHERE dui = '" & _Dui & "'") > 0 Then
+            MsgBox("Error: Ya se ha registrado un usuario con mismo dui")
+            Return 0
+        Else
+            Return 1
+        End If
+    End Function
+    Private Function verificarPasaporte() As Boolean
+        If Conexion.contarFilas("SELECT * FROM clientes WHERE pasaporte = '" & _Pasaporte & "'") > 0 Then
+            MsgBox("Error: Ya se ha registrado un usuario con mismo pasaporte")
             Return 0
         Else
             Return 1
@@ -299,13 +344,13 @@ Public Class clsClientes
     End Function
 
     Public Function BuscarIndice(ByVal _codigoUsuario As String, ByVal listaClientes() As clsClientes) 'Busca el indice de una array de objetos tipo clsCliente
-        If Not _noCoincide("^C{1}\L{1}\d{5}$", _codigoUsuario.ToUpper) Then 'Se verifica el patrón
-            For i As Integer = 0 To UBound(listaClientes, 1) 'Se recorre array de clientes
+        'If Not _noCoincide("^\C{1}\L{1}\d{5}$", _codigoUsuario.ToUpper) Then 'Se verifica el patrón
+        For i As Integer = 0 To UBound(listaClientes, 1) 'Se recorre array de clientes
                 If listaClientes(i).ObtenerNombreDeUsuari = _codigoUsuario.ToUpper Then 'Se verifica si son iguales
                     Return i
                 End If
             Next
-        End If
+        'End If
         Return -1 'No cumple con la condición
     End Function
 

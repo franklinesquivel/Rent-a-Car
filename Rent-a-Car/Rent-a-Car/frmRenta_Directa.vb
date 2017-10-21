@@ -38,19 +38,20 @@ Public Class frmRenta_Directa
         Dim indiceCliente As Integer = Clientes.BuscarIndice(txbBuscar_Codigo.Text, listaClientes) 'Indice del cliente seleccionado segun arreglo
         Dim indiceCoche As Integer = Coches.BuscarIndice(txbBuscar_Coche.Text, listaCoches) 'Indice del coche seleccionado segun arreglo
 
-        If Rentas.ChequearRenta(listaCoches(indiceCoche)) = True Then 'Se verifica si no hay una renta de un coche en existencia
-            If indiceCliente > -1 Then 'Se verifica si existe un cliente válido
-                If indiceCoche > -1 Then 'Se verifica si existe un coche válido
+
+        If indiceCliente > -1 Then 'Se verifica si existe un cliente válido
+            If indiceCoche > -1 Then 'Se verifica si existe un coche válido
+                If Rentas.ChequearRenta(listaCoches(indiceCoche)) = True Then 'Se verifica si no hay una renta de un coche en existencia
                     'Se lleva a cabo el proceso
                     If Rentas.Registrar(dtpFecha_Entrega.Value.ToString("yyyy-MM-dd"), dtpFecha_Devolucion.Value.ToString("yyyy-MM-dd"), listaClientes(indiceCliente), listaCoches(indiceCoche), cmbAgencias.SelectedValue) Then
                         MsgBox("Renta exitosa")
                     End If
-                Else
-                    MsgBox("Error: Matrícula de coche no ha sido encontrada")
                 End If
             Else
-                MsgBox("Error: El nombre de usuario no se ha encontrado en la BDD")
+                MsgBox("Error: Matrícula de coche no ha sido encontrada")
             End If
+        Else
+            MsgBox("Error: El nombre de usuario no se ha encontrado en la BDD")
         End If
     End Sub
     Private Sub txbBuscar_Codigo_KeyUp(sender As Object, e As KeyEventArgs) Handles txbBuscar_Codigo.KeyUp
