@@ -28,7 +28,7 @@ Public Class frmRenta_Directa
 
     Private Sub btnRegresar_Click(sender As Object, e As EventArgs) Handles btnRegresar.Click
         frmMenu_Agentes.Show()
-        Me.Hide()
+        Me.Close()
     End Sub
 
     Private Sub btnReservar_Coche_Click(sender As Object, e As EventArgs) Handles btnRentar_Coche.Click

@@ -182,7 +182,7 @@ Public Class clsRentas
                 MyClass.EstablecerPrecio = coche.ObtenerPrecioAlquiler * DateDiff(DateInterval.Day, CDate(_fechaInicio), CDate(_fechaFin))
                 'Ingresa los datos a la BD
                 If Conexion.modificarDatos("INSERT INTO rentas VALUES(" & "NULL" & ", " & idCliente & ", " & idAgencia & ", " & idCoche & ", " & Session.ObtenerIdUsuario & ", '" & _fechaInicio & "', '" & _fechaFin & "' ,'Activa',  " & _precio & ") ") Then
-                    clsArchivo.GenerarPDF(cliente, coche, _precio) 'Genera factura
+                    clsArchivo.GenerarPDF(cliente, coche, _precio, _fechaFin) 'Genera factura
                     Return True
                 End If
             End If

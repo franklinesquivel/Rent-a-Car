@@ -41,4 +41,9 @@ Public Class frmMenu_contador
         frmGraficosRenta.Show()
         Me.Hide()
     End Sub
+
+    Private Sub btnRentasAgencias_Click(sender As Object, e As EventArgs) Handles btnRentasAgencias.Click
+        frmGraficosAgencia.Show()
+        Me.Hide()
+    End Sub
 End Class

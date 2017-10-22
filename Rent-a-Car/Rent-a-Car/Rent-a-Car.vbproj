@@ -143,6 +143,12 @@
     <Compile Include="frmGestionar_Autos.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmGraficosAgencia.Designer.vb">
+      <DependentUpon>frmGraficosAgencia.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmGraficosAgencia.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmGraficosRenta.Designer.vb">
       <DependentUpon>frmGraficosRenta.vb</DependentUpon>
     </Compile>
@@ -262,6 +268,9 @@
     <EmbeddedResource Include="frmGestionar_Autos.resx">
       <DependentUpon>frmGestionar_Autos.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmGraficosAgencia.resx">
+      <DependentUpon>frmGraficosAgencia.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmGraficosRenta.resx">
       <DependentUpon>frmGraficosRenta.vb</DependentUpon>
     </EmbeddedResource>
@@ -339,6 +348,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="rentacar.ico" />
+    <None Include="Resources\rentacar-5.png" />
     <None Include="Resources\AF.jpg" />
   </ItemGroup>
   <ItemGroup>

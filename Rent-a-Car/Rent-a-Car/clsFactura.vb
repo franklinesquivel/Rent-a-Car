@@ -6,7 +6,7 @@ Imports iTextSharp.text.pdf.parser 'Content Parser
 Imports MySql.Data.MySqlClient
 
 Public Class clsFactura
-    Public Sub GenerarPDF(ByVal cliente As clsClientes, ByVal coche As clsCoches, ByVal totalPagar As Decimal)
+    Public Sub GenerarPDF(ByVal cliente As clsClientes, ByVal coche As clsCoches, ByVal totalPagar As Decimal, ByVal fecha As Date)
         Dim oDoc As New iTextSharp.text.Document(PageSize.A4, 0, 0, 0, 0)
         Dim pdfw As iTextSharp.text.pdf.PdfWriter
         Dim cb As PdfContentByte
@@ -30,19 +30,19 @@ Public Class clsFactura
             'Seteamos el color del texto a escribir.
             cb.SetColorFill(iTextSharp.text.BaseColor.BLACK)
             'Aqui es donde se escribe el texto.
-            'Aclaracion: Por alguna razon la coordenada vertical siempre es tomada desde el borde inferior (de ahi que se calcule como "PageSize.A4.Height - 50")
-            cb.ShowTextAligned(PdfContentByte.ALIGN_LEFT, "Rent-a-Car", 200, PageSize.A4.Height - 50, 0)
-            cb.ShowTextAligned(PdfContentByte.ALIGN_LEFT, "Factura de Renta", 200, PageSize.A4.Height - 70, 0)
-            cb.ShowTextAligned(PdfContentByte.ALIGN_LEFT, "Datos del Cliente", 200, PageSize.A4.Height - 90, 0)
-            cb.ShowTextAligned(PdfContentByte.ALIGN_LEFT, "Usuario: " & cliente.ObtenerNombreCompleto, 200, PageSize.A4.Height - 110, 0)
-            cb.ShowTextAligned(PdfContentByte.ALIGN_LEFT, "Ciudad: " & cliente.ObtenerCiudad, 200, PageSize.A4.Height - 130, 0)
-            cb.ShowTextAligned(PdfContentByte.ALIGN_LEFT, "Datos del Coche:", 200, PageSize.A4.Height - 150, 0)
-            cb.ShowTextAligned(PdfContentByte.ALIGN_LEFT, "Marca: " & coche.ObtenerMarca, 200, PageSize.A4.Height - 170, 0)
-            cb.ShowTextAligned(PdfContentByte.ALIGN_LEFT, "Modelo: " & coche.ObtenerModelo, 200, PageSize.A4.Height - 190, 0)
-            cb.ShowTextAligned(PdfContentByte.ALIGN_LEFT, "Color: " & coche.ObtenerColor, 200, PageSize.A4.Height - 210, 0)
-            cb.ShowTextAligned(PdfContentByte.ALIGN_LEFT, "Num pasajeros " & coche.ObtenerNPasajeros, 200, PageSize.A4.Height - 230, 0)
-            cb.ShowTextAligned(PdfContentByte.ALIGN_LEFT, "Precio de alquiler: $" & coche.ObtenerPrecioAlquiler, 200, PageSize.A4.Height - 250, 0)
-            cb.ShowTextAligned(PdfContentByte.ALIGN_LEFT, "Total a pagar: $" & totalPagar, 200, PageSize.A4.Height - 270, 0)
+            cb.ShowTextAligned(PdfContentByte.ALIGN_LEFT, "Rent-a-Car", 75, PageSize.A4.Height - 50, 0)
+            cb.ShowTextAligned(PdfContentByte.ALIGN_LEFT, "Factura de Renta", 200, PageSize.A4.Height - 65, 0)
+            cb.ShowTextAligned(PdfContentByte.ALIGN_LEFT, "Datos del Cliente", 100, PageSize.A4.Height - 90, 0)
+            cb.ShowTextAligned(PdfContentByte.ALIGN_LEFT, "Usuario: " & cliente.ObtenerNombreCompleto, 150, PageSize.A4.Height - 115, 0)
+            cb.ShowTextAligned(PdfContentByte.ALIGN_LEFT, "Ciudad: " & cliente.ObtenerCiudad, 150, PageSize.A4.Height - 140, 0)
+            cb.ShowTextAligned(PdfContentByte.ALIGN_LEFT, "Datos del Coche:", 200, PageSize.A4.Height - 165, 0)
+            cb.ShowTextAligned(PdfContentByte.ALIGN_LEFT, "Marca: " & coche.ObtenerMarca, 150, PageSize.A4.Height - 190, 0)
+            cb.ShowTextAligned(PdfContentByte.ALIGN_LEFT, "Modelo: " & coche.ObtenerModelo, 150, PageSize.A4.Height - 215, 0)
+            cb.ShowTextAligned(PdfContentByte.ALIGN_LEFT, "Color: " & coche.ObtenerColor, 150, PageSize.A4.Height - 240, 0)
+            cb.ShowTextAligned(PdfContentByte.ALIGN_LEFT, "Num pasajeros: " & coche.ObtenerNPasajeros, 150, PageSize.A4.Height - 265, 0)
+            cb.ShowTextAligned(PdfContentByte.ALIGN_LEFT, "Fecha de devolucion: " & fecha.ToString, 350, PageSize.A4.Height - 215, 0)
+            cb.ShowTextAligned(PdfContentByte.ALIGN_LEFT, "Precio de alquiler: $" & coche.ObtenerPrecioAlquiler, 350, PageSize.A4.Height - 300, 0)
+            cb.ShowTextAligned(PdfContentByte.ALIGN_LEFT, "Total a pagar: $" & totalPagar, 350, PageSize.A4.Height - 330, 0)
             'Fin del flujo de bytes.
             cb.EndText()
             'Forzamos vaciamiento del buffer.
@@ -70,7 +70,7 @@ Public Class clsFactura
     Public Sub GenerarPDFDatosReserva(ByVal idReserva As String, ByVal TotalPagar As String)
         Dim reader As MySqlDataReader
         Dim Conexion As New clsConexion
-        Conexion.obtenerDatos("SELECT cl.nombre, cl.nombre_usuario , cl.apellido, cl.ciudad, c.marca, c.modelo, c.color, c.num_pasajeros, c.precio_alquiler FROM reservas r INNER JOIN coches c ON c.id_coche = r.id_coche INNER JOIN clientes cl ON cl.id_cliente = r.id_cliente WHERE r.id_reserva = '" & idReserva & "'", reader)
+        Conexion.obtenerDatos("SELECT cl.nombre, cl.nombre_usuario , cl.apellido, cl.ciudad, c.marca, c.modelo, c.color, c.num_pasajeros, c.precio_alquiler, r.fecha_devolucion FROM reservas r INNER JOIN coches c ON c.id_coche = r.id_coche INNER JOIN clientes cl ON cl.id_cliente = r.id_cliente WHERE r.id_reserva = '" & idReserva & "'", reader)
         reader.Read() 'Listo para lectura
         Dim oDoc As New iTextSharp.text.Document(PageSize.A4, 0, 0, 0, 0)
         Dim pdfw As iTextSharp.text.pdf.PdfWriter
@@ -96,18 +96,19 @@ Public Class clsFactura
             cb.SetColorFill(iTextSharp.text.BaseColor.BLACK)
             'Aqui es donde se escribe el texto.
             'Aclaracion: Por alguna razon la coordenada vertical siempre es tomada desde el borde inferior (de ahi que se calcule como "PageSize.A4.Height - 50")
-            cb.ShowTextAligned(PdfContentByte.ALIGN_LEFT, "Rent-a-Car", 200, PageSize.A4.Height - 50, 0)
-            cb.ShowTextAligned(PdfContentByte.ALIGN_LEFT, "Factura de Renta", 200, PageSize.A4.Height - 70, 0)
-            cb.ShowTextAligned(PdfContentByte.ALIGN_LEFT, "Datos del Cliente", 200, PageSize.A4.Height - 90, 0)
-            cb.ShowTextAligned(PdfContentByte.ALIGN_LEFT, "Usuario: " & reader(0) & " " & reader(2), 200, PageSize.A4.Height - 110, 0)
-            cb.ShowTextAligned(PdfContentByte.ALIGN_LEFT, "Ciudad: " & reader(3), 200, PageSize.A4.Height - 130, 0)
-            cb.ShowTextAligned(PdfContentByte.ALIGN_LEFT, "Datos del Coche:", 200, PageSize.A4.Height - 150, 0)
-            cb.ShowTextAligned(PdfContentByte.ALIGN_LEFT, "Marca: " & reader(4), 200, PageSize.A4.Height - 170, 0)
-            cb.ShowTextAligned(PdfContentByte.ALIGN_LEFT, "Modelo: " & reader(5), 200, PageSize.A4.Height - 190, 0)
-            cb.ShowTextAligned(PdfContentByte.ALIGN_LEFT, "Color: " & reader(6), 200, PageSize.A4.Height - 210, 0)
-            cb.ShowTextAligned(PdfContentByte.ALIGN_LEFT, "Num pasajeros " & reader(7), 200, PageSize.A4.Height - 230, 0)
-            cb.ShowTextAligned(PdfContentByte.ALIGN_LEFT, "Precio de alquiler: $" & reader(8), 200, PageSize.A4.Height - 250, 0)
-            cb.ShowTextAligned(PdfContentByte.ALIGN_LEFT, "Total a pagar: $" & TotalPagar, 200, PageSize.A4.Height - 270, 0)
+            cb.ShowTextAligned(PdfContentByte.ALIGN_LEFT, "Rent-a-Car", 75, PageSize.A4.Height - 50, 0)
+            cb.ShowTextAligned(PdfContentByte.ALIGN_LEFT, "Factura de Renta", 200, PageSize.A4.Height - 65, 0)
+            cb.ShowTextAligned(PdfContentByte.ALIGN_LEFT, "Datos del Cliente", 100, PageSize.A4.Height - 90, 0)
+            cb.ShowTextAligned(PdfContentByte.ALIGN_LEFT, "Usuario: " & reader(0) & " " & reader(2), 150, PageSize.A4.Height - 115, 0)
+            cb.ShowTextAligned(PdfContentByte.ALIGN_LEFT, "Ciudad: " & reader(3), 150, PageSize.A4.Height - 140, 0)
+            cb.ShowTextAligned(PdfContentByte.ALIGN_LEFT, "Datos del Coche:", 100, PageSize.A4.Height - 165, 0)
+            cb.ShowTextAligned(PdfContentByte.ALIGN_LEFT, "Marca: " & reader(4), 150, PageSize.A4.Height - 190, 0)
+            cb.ShowTextAligned(PdfContentByte.ALIGN_LEFT, "Modelo: " & reader(5), 150, PageSize.A4.Height - 215, 0)
+            cb.ShowTextAligned(PdfContentByte.ALIGN_LEFT, "Color: " & reader(6), 150, PageSize.A4.Height - 240, 0)
+            cb.ShowTextAligned(PdfContentByte.ALIGN_LEFT, "Num pasajeros: " & reader(7), 150, PageSize.A4.Height - 265, 0)
+            cb.ShowTextAligned(PdfContentByte.ALIGN_LEFT, "Fecha de devolucion: " & reader(9), 350, PageSize.A4.Height - 215, 0)
+            cb.ShowTextAligned(PdfContentByte.ALIGN_LEFT, "Precio de alquiler: $" & reader(8), 350, PageSize.A4.Height - 300, 0)
+            cb.ShowTextAligned(PdfContentByte.ALIGN_LEFT, "Total a pagar: $" & TotalPagar, 350, PageSize.A4.Height - 330, 0)
             'Fin del flujo de bytes.
             cb.EndText()
             'Forzamos vaciamiento del buffer.

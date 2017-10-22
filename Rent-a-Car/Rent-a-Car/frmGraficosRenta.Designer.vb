@@ -22,9 +22,9 @@ Partial Class frmGraficosRenta
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.chtGraficoRentas = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.lblSeleccionar = New System.Windows.Forms.Label()
         Me.cmbAño = New System.Windows.Forms.ComboBox()
@@ -34,19 +34,17 @@ Partial Class frmGraficosRenta
         '
         'chtGraficoRentas
         '
-        Me.chtGraficoRentas.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        ChartArea1.Name = "ChartArea1"
-        Me.chtGraficoRentas.ChartAreas.Add(ChartArea1)
-        Legend1.Name = "Legend1"
-        Me.chtGraficoRentas.Legends.Add(Legend1)
+        Me.chtGraficoRentas.Anchor = System.Windows.Forms.AnchorStyles.Left
+        ChartArea2.Name = "ChartArea1"
+        Me.chtGraficoRentas.ChartAreas.Add(ChartArea2)
+        Legend2.Name = "Legend1"
+        Me.chtGraficoRentas.Legends.Add(Legend2)
         Me.chtGraficoRentas.Location = New System.Drawing.Point(12, 78)
         Me.chtGraficoRentas.Name = "chtGraficoRentas"
-        Series1.ChartArea = "ChartArea1"
-        Series1.Legend = "Legend1"
-        Series1.Name = "Series1"
-        Me.chtGraficoRentas.Series.Add(Series1)
+        Series2.ChartArea = "ChartArea1"
+        Series2.Legend = "Legend1"
+        Series2.Name = "Series1"
+        Me.chtGraficoRentas.Series.Add(Series2)
         Me.chtGraficoRentas.Size = New System.Drawing.Size(467, 290)
         Me.chtGraficoRentas.TabIndex = 0
         Me.chtGraficoRentas.Text = "Grafico"
@@ -86,6 +84,7 @@ Partial Class frmGraficosRenta
         Me.Controls.Add(Me.cmbAño)
         Me.Controls.Add(Me.lblSeleccionar)
         Me.Controls.Add(Me.chtGraficoRentas)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.Name = "frmGraficosRenta"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Rentas por Mes"
