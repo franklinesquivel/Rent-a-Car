@@ -6,6 +6,22 @@ Public Class frmMenu_Admin
         SkinManager.Theme = MaterialSkinManager.Themes.LIGHT
         SkinManager.ColorScheme = New ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE)
         Session.ControlarSession()
+        If Session.ObtenerTipoUsuario = "A" Then
+            MsgBox("A")
+            GroupBox1.Visible = True
+            GroupBox2.Visible = False
+            GroupBox3.Visible = False
+        ElseIf Session.ObtenerTipoUsuario = "G" Then
+            MsgBox("G")
+            GroupBox1.Visible = False
+            GroupBox2.Visible = True
+            GroupBox3.Visible = False
+        ElseIf Session.ObtenerTipoUsuario = "C" Then
+            MsgBox("C")
+            GroupBox1.Visible = False
+            GroupBox2.Visible = False
+            GroupBox3.Visible = True
+        End If
     End Sub
 
     Private Sub btnRegistrar_Agencias_Click(sender As Object, e As EventArgs) Handles btnRegistrar_Agencias.Click
@@ -70,5 +86,80 @@ Public Class frmMenu_Admin
 
     Private Sub btnCerrar_Sesion_Click(sender As Object, e As EventArgs) Handles btnCerrar_Sesion.Click
         Session.CerrarSession()
+    End Sub
+
+    '________________________________
+    '|         Menú Agentes         |
+    '|______________________________|
+
+
+    Private Sub btnRentar_Auto_Click(sender As Object, e As EventArgs) Handles btnRentar_Auto.Click
+        frmRentar_Autos.Show()
+        Me.Hide()
+    End Sub
+
+    Private Sub btnRegClientesAgente_Click(sender As Object, e As EventArgs) Handles btnRegClientesAgente.Click
+        frmClientes.Show()
+        Me.Hide()
+    End Sub
+
+    Private Sub btnInventarioAutosAgente_Click(sender As Object, e As EventArgs) Handles btnInventarioAutosAgente.Click
+        frmInventario_Autos.Show()
+        Me.Hide()
+    End Sub
+
+    Private Sub btnGestionReservasAgente_Click(sender As Object, e As EventArgs) Handles btnGestionReservasAgente.Click
+        frmReservas.Show()
+        Me.Hide()
+    End Sub
+
+    Private Sub btnCancelarReservaAgente_Click(sender As Object, e As EventArgs) Handles btnCancelarReservaAgente.Click
+        frmCancelar_Reservas.Show()
+        Me.Hide()
+    End Sub
+
+    Private Sub btnDevolverAutoAgente_Click(sender As Object, e As EventArgs) Handles btnDevolverAutoAgente.Click
+        frmDevolucion_Auto.Show()
+        Me.Hide()
+    End Sub
+
+
+
+
+
+
+    Private Sub btnEstadoAutoContador_Click(sender As Object, e As EventArgs) Handles btnEstadoAutoContador.Click
+        frmGestionar_Autos.Show()
+        Me.Hide()
+    End Sub
+
+    Private Sub btnIngresarAutoContador_Click(sender As Object, e As EventArgs) Handles btnIngresarAutoContador.Click
+        frmCoches.Show()
+        Me.Hide()
+    End Sub
+
+    Private Sub btnModificarAutoContador_Click(sender As Object, e As EventArgs) Handles btnModificarAutoContador.Click
+        frmModificar_Coche.Show()
+        Me.Hide()
+    End Sub
+
+    Private Sub btnReportesRentaContador_Click(sender As Object, e As EventArgs) Handles btnReportesRentaContador.Click
+        frmReportes_Rentas.Show()
+        Me.Hide()
+    End Sub
+
+    Private Sub btnReporteCochesContador_Click(sender As Object, e As EventArgs) Handles btnReporteCochesContador.Click
+        frmReportes_Coches.Show()
+        Me.Hide()
+    End Sub
+
+    Private Sub btnGraficoMesContador_Click(sender As Object, e As EventArgs) Handles btnGraficoMesContador.Click
+        frmGraficosRenta.Show()
+        Me.Hide()
+    End Sub
+
+    Private Sub btnRentasAgenciasContador_Click(sender As Object, e As EventArgs) Handles btnRentasAgenciasContador.Click
+        frmGraficosAgencia.Show()
+        Me.Hide()
     End Sub
 End Class

@@ -46,4 +46,16 @@ Public Class frmMenu_contador
         frmGraficosAgencia.Show()
         Me.Hide()
     End Sub
+
+    Private Sub lblGraficos_Click(sender As Object, e As EventArgs) Handles lblGraficos.Click
+
+    End Sub
+
+    Private Sub lblGestionar_Autos_Click(sender As Object, e As EventArgs) Handles lblGestionar_Autos.Click
+
+    End Sub
+
+    Private Sub lblReportes_Click(sender As Object, e As EventArgs) Handles lblReportes.Click
+
+    End Sub
 End Class

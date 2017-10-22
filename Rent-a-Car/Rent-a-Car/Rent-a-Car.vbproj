@@ -167,12 +167,6 @@
     <Compile Include="frmMenu_Admin.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmMenu_Agentes.Designer.vb">
-      <DependentUpon>frmMenu_Agentes.vb</DependentUpon>
-    </Compile>
-    <Compile Include="frmMenu_Agentes.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="frmMenu_Contador.Designer.vb">
       <DependentUpon>frmMenu_Contador.vb</DependentUpon>
     </Compile>
@@ -279,9 +273,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMenu_Admin.resx">
       <DependentUpon>frmMenu_Admin.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmMenu_Agentes.resx">
-      <DependentUpon>frmMenu_Agentes.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMenu_Contador.resx">
       <DependentUpon>frmMenu_Contador.vb</DependentUpon>

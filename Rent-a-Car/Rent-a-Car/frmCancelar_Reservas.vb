@@ -11,7 +11,7 @@ Public Class frmCancelar_Reservas
     End Sub
 
     Private Sub btnRegresar_Click(sender As Object, e As EventArgs) Handles btnRegresar.Click
-        frmMenu_Agentes.Show()
+        frmMenu_Admin.Show()
         Me.Close()
     End Sub
     Private Sub dgvCancelar_Reservas_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvCancelar_Reservas.CellClick

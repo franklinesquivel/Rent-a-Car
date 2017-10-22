@@ -12,7 +12,7 @@ Public Class frmReservas
     End Sub
 
     Private Sub btnRegresar_Click(sender As Object, e As EventArgs) Handles btnRegresar.Click
-        frmMenu_Agentes.Show()
+        frmMenu_Admin.Show()
         Me.Hide()
     End Sub
 
