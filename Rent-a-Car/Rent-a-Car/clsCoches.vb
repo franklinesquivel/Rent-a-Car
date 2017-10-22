@@ -579,34 +579,36 @@ Public Class clsCoches
         'Metodo para seleccionar el tipo de busqueda
         If combo1.SelectedItem.ToString = "Marca" Then
             If Conexion.contarFilas("SELECT DISTINCT marca FROM coches WHERE estado = 'A'") = 0 Then
-                MsgBox("Error: No hay marcas registradas.")
+                MsgBox("Error: No hay marcas registradas.", MsgBoxStyle.Exclamation)
             Else
-                Conexion.llenarCombo(combo2, "SELECT id_coche, marca FROM coches WHERE estado = 'A'", 0, 1)
+                Conexion.llenarCombo(combo2, "SELECT DISTINCT marca FROM coches WHERE estado = 'A'", 0, 0)
             End If
         ElseIf combo1.SelectedItem.ToString = "Modelo" Then
             If Conexion.contarFilas("SELECT DISTINCT modelo FROM coches WHERE estado = 'A'") = 0 Then
-                MsgBox("Error: No hay marcas registradas.")
+                MsgBox("Error: No hay modelos registrados.", MsgBoxStyle.Exclamation)
             Else
-                Conexion.llenarCombo(combo2, "SELECT id_coche, modelo FROM coches WHERE estado = 'A'", 0, 1)
+                Conexion.llenarCombo(combo2, "SELECT DISTINCT  modelo FROM coches WHERE estado = 'A'", 0, 0)
             End If
         ElseIf combo1.SelectedItem.ToString = "Num de pasajeros" Then
             If Conexion.contarFilas("SELECT DISTINCT num_pasajeros FROM coches WHERE estado = 'A'") = 0 Then
-                MsgBox("Error: No hay marcas registradas.")
+                MsgBox("Error: No hay Numeros de pasajeros registrados.", MsgBoxStyle.Exclamation)
             Else
-                Conexion.llenarCombo(combo2, "SELECT id_coche, num_pasajeros FROM coches WHERE estado = 'A'", 0, 1)
+                Conexion.llenarCombo(combo2, "SELECT DISTINCT   num_pasajeros FROM coches WHERE estado = 'A'", 0, 0)
 
             End If
         ElseIf combo1.SelectedItem.ToString = "Costo de alquiler" Then
             If Conexion.contarFilas("SELECT DISTINCT precio_alquiler FROM coches WHERE estado = 'A'") = 0 Then
-                MsgBox("Error: No hay marcas registradas.")
+                MsgBox("Error: No hay Costo de alquileres registrados.", MsgBoxStyle.Exclamation)
             Else
-                Conexion.llenarCombo(combo2, "SELECT id_coche, precio_alquiler FROM coches WHERE estado = 'A'", 0, 1)
+                Conexion.llenarCombo(combo2, "SELECT DISTINCT  precio_alquiler FROM coches WHERE estado = 'A'", 0, 0)
             End If
         ElseIf combo1.SelectedItem.ToString = "Tipo de auto" Then
+
             If Conexion.contarFilas("SELECT DISTINCT tipo FROM coches WHERE estado = 'A'") = 0 Then
-                MsgBox("Error: No hay marcas registradas.")
+                MsgBox("Error: No hay Tipos de autos registrados.", MsgBoxStyle.Exclamation)
             Else
-                Conexion.llenarCombo(combo2, "SELECT id_coche, tipo FROM coches WHERE estado = 'A'", 0, 1)
+
+                Conexion.llenarCombo(combo2, "SELECT DISTINCT  tipo FROM coches WHERE estado = 'A'", 0, 0)
             End If
         End If
     End Sub
