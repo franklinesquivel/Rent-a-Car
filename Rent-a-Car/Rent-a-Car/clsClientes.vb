@@ -17,7 +17,7 @@ Public Class clsClientes
     Private _Telefono As String
 
     Private Conexion As clsConexion = New clsConexion() 'Tipo de atributo para la conexión a la BDD
-
+    Private Correo As clsEmail = New clsEmail() 'tipo de atributo para la clase que sirve para enviar correo
     'Bandera
     Private _ReservaEstado As Boolean
     '_________________________________________
@@ -146,6 +146,20 @@ Public Class clsClientes
         email = email.Trim
         pais = pais.Trim
 
+        If nombre.Length = 0 Then 'verificamos que no sea vacío y cumpla con el patrón
+            MsgBox("Ingrese su Nombre!", MsgBoxStyle.Critical, "Registro de Cliente")
+            Return False
+        Else
+            _Nombre = nombre
+        End If
+
+        If apellido.Length = 0 Then 'verificamos que no sea vacío y cumpla con el patrón
+            MsgBox("Ingrese su Apellido!", MsgBoxStyle.Critical, "Registro de Cliente")
+            Return False
+        Else
+            _Apellido = apellido
+        End If
+
         If Not extranjero Then
             If dui.Length = 0 Or _noCoincide("^\d{8}\-{1}\d{1}$", dui) Then 'verificamos que no sea vacío y cumpla con el patrón
                 MsgBox("Ingrese su DUI!", MsgBoxStyle.Critical, "Registro de Cliente")
@@ -168,21 +182,6 @@ Public Class clsClientes
             _Pasaporte = "0"
         End If
 
-
-        If nombre.Length = 0 Then 'verificamos que no sea vacío y cumpla con el patrón
-            MsgBox("Ingrese su Nombre!", MsgBoxStyle.Critical, "Registro de Cliente")
-            Return False
-        Else
-            _Nombre = nombre
-        End If
-
-        If apellido.Length = 0 Then 'verificamos que no sea vacío y cumpla con el patrón
-            MsgBox("Ingrese su Apellido!", MsgBoxStyle.Critical, "Registro de Cliente")
-            Return False
-        Else
-            _Apellido = apellido
-        End If
-
         If direccion.Length = 0 Then 'verificamos que no sea vacío y cumpla con el patrón
             MsgBox("Ingrese su Dirección!", MsgBoxStyle.Critical, "Registro de Cliente")
             Return False
@@ -190,11 +189,11 @@ Public Class clsClientes
             _Direccion = direccion
         End If
 
-        If ciudad.Length = 0 Then 'verificamos que no sea vacío y cumpla con el patrón
-            MsgBox("Ingrese su Ciudad!", MsgBoxStyle.Critical, "Registro de Cliente")
+        If pais.Length = 0 Then 'verificamos que no sea vacío y cumpla con el patrón
+            MsgBox("Ingrese su País!", MsgBoxStyle.Critical, "Registro de Cliente")
             Return False
         Else
-            _Ciudad = ciudad
+            _Pais = pais
         End If
 
         If email.Length = 0 Or _noCoincide("^([\w-]+\.)*?[\w-]+@[\w-]+\.([\w-]+\.)*?[\w]+$", email) Then 'verificamos que no sea vacío y cumpla con el patrón
@@ -204,11 +203,11 @@ Public Class clsClientes
             _Email = email
         End If
 
-        If pais.Length = 0 Then 'verificamos que no sea vacío y cumpla con el patrón
-            MsgBox("Ingrese su País!", MsgBoxStyle.Critical, "Registro de Cliente")
+        If ciudad.Length = 0 Then 'verificamos que no sea vacío y cumpla con el patrón
+            MsgBox("Ingrese su Ciudad!", MsgBoxStyle.Critical, "Registro de Cliente")
             Return False
         Else
-            _Pais = pais
+            _Ciudad = ciudad
         End If
 
         If telefono.Length = 0 Or _noCoincide("^(2|7|6)\d{3}-?\d{4}$", telefono) Then
@@ -236,6 +235,7 @@ Public Class clsClientes
         Else
             If MyClass.CrearCodigo() Then 'Se crea el código del usuari0
                 'Se ingresan datos
+                Correo.Registro(_Email, _NombreUsuario, " - ") 'Se envia su nombre de usuario por correo electrónico
                 Return Conexion.modificarDatos("INSERT INTO clientes(nombre, apellido, dui, nombre_usuario, pasaporte, direccion, id_pais, correo_electronico, telefono, ciudad) VALUES('" & _Nombre & "', '" & _Apellido & "', '" & _Dui & "', '" & _NombreUsuario & "', '" & _Pasaporte & "', '" & _Direccion & "', '" & _Pais & "', '" & _Email & "', '" & _Telefono & "', '" & _Ciudad & "')")
             Else
                 Return False

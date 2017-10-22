@@ -18,15 +18,12 @@ Public Class frmReservas
 
     Private Sub btnReservar_Coche_Click(sender As Object, e As EventArgs) Handles btnReservar_Coche.Click
         Reservas = New clsReservas() 'Creación de objeto para la reserva
-
-        Dim key As Integer = CInt(DirectCast(cmbAgencias.SelectedItem, KeyValuePair(Of String, String)).Key) 'Valor llave de la agencia
-        Dim value As String = DirectCast(cmbAgencias.SelectedItem, KeyValuePair(Of String, String)).Value 'Valor de texto de agencia
         Dim indiceCliente As Integer = Clientes.BuscarIndice(txbBuscar_Codigo.Text, listaClientes) 'Se obtiene el indice del arreglo según cliente seleccionado
         Dim indiceCoche As Integer = Coches.BuscarIndice(txbBuscar_Coche.Text, listaCoches) 'Se obtiene el indice del arreglo según coche seleccionado
 
         If indiceCliente > -1 Then 'Se verifica que el cliente sea valido
             If indiceCoche > -1 Then 'Se verifica que el coche sea valido
-                If Reservas.Registrar(dtpFecha_Entrega.Value.ToString("yyyy-MM-dd"), dtpFecha_Devolucion.Value.ToString("yyyy-MM-dd"), listaClientes(indiceCliente), listaCoches(indiceCoche), cmbAgencias.SelectedValue) Then
+                If Reservas.Registrar(dtpFecha_Entrega.Value.ToString("yyyy-MM-dd"), dtpFecha_Devolucion.Value.ToString("yyyy-MM-dd"), listaClientes(indiceCliente), listaCoches(indiceCoche)) Then
                     IncializarFormulario()
                     MsgBox("Reserva exitosa")
                 End If
@@ -82,11 +79,6 @@ Public Class frmReservas
         If Coches.listarCoches(listaCoches, dgvBuscar_Coche) = 0 Then 'Se agregan los coches al dgv
             btnReservar_Coche.Enabled = False
             MsgBox("Error: No hay coches registrados")
-        End If
-        Agencia = New clsAgencias() 'Creacion del objeto
-        If Agencia.listarAgencias(cmbAgencias) = 0 Then
-            btnReservar_Coche.Enabled = False
-            MsgBox("Error: No hay agencias registradas")
         End If
         'Se limpian los campos
         txbBuscar_Codigo.Text = ""

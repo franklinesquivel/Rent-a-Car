@@ -22,10 +22,12 @@ Public Class frmCancelar_Reservas
 
     Private Sub txbCodigo_Reserva_KeyUp(sender As Object, e As KeyEventArgs) Handles txbCodigo_Reserva.KeyUp
         Dim t As String = txbCodigo_Reserva.Text.Trim
-        If Not e.KeyCode = 8 And t.Length > 0 Then 'Condición para buscar
-            Reservas.BuscarReserva(txbCodigo_Reserva.Text.ToUpper, listaReservas, dgvCancelar_Reservas) 'Realiza Busqueda
-        ElseIf e.KeyCode = 8 Then
-            Reservas.BuscarReserva(txbCodigo_Reserva.Text.ToUpper, listaReservas, dgvCancelar_Reservas, True) 'Realiza Busqueda
+        If Not IsNothing(listaReservas) Then
+            If Not e.KeyCode = 8 And t.Length > 0 Then 'Condición para buscar
+                Reservas.BuscarReserva(txbCodigo_Reserva.Text.ToUpper, listaReservas, dgvCancelar_Reservas) 'Realiza Busqueda
+            ElseIf e.KeyCode = 8 Then
+                Reservas.BuscarReserva(txbCodigo_Reserva.Text.ToUpper, listaReservas, dgvCancelar_Reservas, True) 'Realiza Busqueda
+            End If
         End If
     End Sub
 

@@ -149,7 +149,7 @@ Public Class clsRentas
     '___________________________________
     '|   Metodos generales de la clase  |
     '|__________________________________|
-    Public Function Registrar(ByVal _fechaInicio As String, ByVal _fechaFin As String, ByVal cliente As clsClientes, ByVal coche As clsCoches, ByVal _idAgencia As String)
+    Public Function Registrar(ByVal _fechaInicio As String, ByVal _fechaFin As String, ByVal cliente As clsClientes, ByVal coche As clsCoches)
         'Función que sirve para rentar no basandose en una reserva
 
         Dim rgx_fecha = New Regex("^\d{2}\d{2}\d{4}$") 'Patrón de la fecha
@@ -175,7 +175,7 @@ Public Class clsRentas
                 'Establece la información en los atributos
                 MyClass.EstablecerFechaInicio = CDate(_fechaInicio)
                 MyClass.EstablecerFechaFin = CDate(_fechaFin)
-                MyClass.EstablecerIdAgencia = _idAgencia
+                MyClass.EstablecerIdAgencia = coche.ObtenerIdAgencia
                 MyClass.EstablecerIdCoche = coche.ObtenerIdCoche
                 MyClass.EstablecerIdCliente = cliente.ObtenerIdCliente
                 MyClass.EstablecerIdUsuario = Session.ObtenerIdUsuario
@@ -338,7 +338,7 @@ Public Class clsRentas
         End If
     End Function
     Public Function ChequearReservaFecha(ByVal _fechaInicio As Date, ByVal _fechaFin As Date, ByVal _idCoche As Integer) As Boolean 'Verificamos si hay una reserva en las fechas elegidas para la renta
-        If Conexion.contarFilas("SELECT * FROM `reservas` WHERE id_coche = " & _idCoche & " AND (('" & _fechaInicio & "' BETWEEN fecha_retiro AND fecha_devolucion) or ('" & _fechaFin & "' BETWEEN fecha_retiro AND fecha_devolucion)) AND estado = 'Activa' ") = 0 Then
+        If Conexion.contarFilas("SELECT * FROM `reservas` WHERE id_coche = " & _idCoche & " AND (('" & _fechaInicio.ToString("yyyy-MM-dd") & "' BETWEEN fecha_retiro AND fecha_devolucion) or ('" & _fechaFin.ToString("yyyy-MM-dd") & "' BETWEEN fecha_retiro AND fecha_devolucion)) AND estado = 'Activa' ") > 0 Then
             MsgBox("Error: Existe una reserva en dicho período de tiempo para el coche seleccionado")
             Return False
         Else

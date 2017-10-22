@@ -22,7 +22,6 @@ Partial Class frmRenta_Directa
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.cmbAgencias = New System.Windows.Forms.ComboBox()
         Me.btnRegresar = New MaterialSkin.Controls.MaterialRaisedButton()
         Me.btnRentar_Coche = New MaterialSkin.Controls.MaterialFlatButton()
         Me.txbBuscar_Coche = New MaterialSkin.Controls.MaterialSingleLineTextField()
@@ -31,7 +30,6 @@ Partial Class frmRenta_Directa
         Me.txbBuscar_Codigo = New MaterialSkin.Controls.MaterialSingleLineTextField()
         Me.lblBuscar_Codigo = New MaterialSkin.Controls.MaterialLabel()
         Me.dgvBuscar_Usuario = New System.Windows.Forms.DataGridView()
-        Me.lblAgencia = New MaterialSkin.Controls.MaterialLabel()
         Me.dtpFecha_Devolucion = New System.Windows.Forms.DateTimePicker()
         Me.dtpFecha_Entrega = New System.Windows.Forms.DateTimePicker()
         Me.lblFecha_Devolucion = New MaterialSkin.Controls.MaterialLabel()
@@ -40,14 +38,6 @@ Partial Class frmRenta_Directa
         CType(Me.dgvBuscar_Coche, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvBuscar_Usuario, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'cmbAgencias
-        '
-        Me.cmbAgencias.FormattingEnabled = True
-        Me.cmbAgencias.Location = New System.Drawing.Point(97, 117)
-        Me.cmbAgencias.Name = "cmbAgencias"
-        Me.cmbAgencias.Size = New System.Drawing.Size(411, 21)
-        Me.cmbAgencias.TabIndex = 93
         '
         'btnRegresar
         '
@@ -82,7 +72,7 @@ Partial Class frmRenta_Directa
         '
         Me.txbBuscar_Coche.Depth = 0
         Me.txbBuscar_Coche.Hint = ""
-        Me.txbBuscar_Coche.Location = New System.Drawing.Point(164, 337)
+        Me.txbBuscar_Coche.Location = New System.Drawing.Point(157, 312)
         Me.txbBuscar_Coche.MouseState = MaterialSkin.MouseState.HOVER
         Me.txbBuscar_Coche.Name = "txbBuscar_Coche"
         Me.txbBuscar_Coche.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -99,7 +89,7 @@ Partial Class frmRenta_Directa
         Me.lblBuscar_Coche.Depth = 0
         Me.lblBuscar_Coche.Font = New System.Drawing.Font("Roboto", 11.0!)
         Me.lblBuscar_Coche.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblBuscar_Coche.Location = New System.Drawing.Point(28, 337)
+        Me.lblBuscar_Coche.Location = New System.Drawing.Point(28, 316)
         Me.lblBuscar_Coche.MouseState = MaterialSkin.MouseState.HOVER
         Me.lblBuscar_Coche.Name = "lblBuscar_Coche"
         Me.lblBuscar_Coche.Size = New System.Drawing.Size(100, 19)
@@ -109,17 +99,17 @@ Partial Class frmRenta_Directa
         'dgvBuscar_Coche
         '
         Me.dgvBuscar_Coche.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvBuscar_Coche.Location = New System.Drawing.Point(32, 366)
+        Me.dgvBuscar_Coche.Location = New System.Drawing.Point(31, 341)
         Me.dgvBuscar_Coche.Name = "dgvBuscar_Coche"
         Me.dgvBuscar_Coche.ReadOnly = True
-        Me.dgvBuscar_Coche.Size = New System.Drawing.Size(476, 132)
+        Me.dgvBuscar_Coche.Size = New System.Drawing.Size(476, 160)
         Me.dgvBuscar_Coche.TabIndex = 88
         '
         'txbBuscar_Codigo
         '
         Me.txbBuscar_Codigo.Depth = 0
         Me.txbBuscar_Codigo.Hint = ""
-        Me.txbBuscar_Codigo.Location = New System.Drawing.Point(219, 157)
+        Me.txbBuscar_Codigo.Location = New System.Drawing.Point(212, 114)
         Me.txbBuscar_Codigo.MouseState = MaterialSkin.MouseState.HOVER
         Me.txbBuscar_Codigo.Name = "txbBuscar_Codigo"
         Me.txbBuscar_Codigo.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -136,7 +126,7 @@ Partial Class frmRenta_Directa
         Me.lblBuscar_Codigo.Depth = 0
         Me.lblBuscar_Codigo.Font = New System.Drawing.Font("Roboto", 11.0!)
         Me.lblBuscar_Codigo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblBuscar_Codigo.Location = New System.Drawing.Point(28, 157)
+        Me.lblBuscar_Codigo.Location = New System.Drawing.Point(27, 118)
         Me.lblBuscar_Codigo.MouseState = MaterialSkin.MouseState.HOVER
         Me.lblBuscar_Codigo.Name = "lblBuscar_Codigo"
         Me.lblBuscar_Codigo.Size = New System.Drawing.Size(179, 19)
@@ -146,24 +136,11 @@ Partial Class frmRenta_Directa
         'dgvBuscar_Usuario
         '
         Me.dgvBuscar_Usuario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvBuscar_Usuario.Location = New System.Drawing.Point(32, 196)
+        Me.dgvBuscar_Usuario.Location = New System.Drawing.Point(31, 152)
         Me.dgvBuscar_Usuario.Name = "dgvBuscar_Usuario"
         Me.dgvBuscar_Usuario.ReadOnly = True
-        Me.dgvBuscar_Usuario.Size = New System.Drawing.Size(476, 135)
+        Me.dgvBuscar_Usuario.Size = New System.Drawing.Size(476, 151)
         Me.dgvBuscar_Usuario.TabIndex = 85
-        '
-        'lblAgencia
-        '
-        Me.lblAgencia.AutoSize = True
-        Me.lblAgencia.Depth = 0
-        Me.lblAgencia.Font = New System.Drawing.Font("Roboto", 11.0!)
-        Me.lblAgencia.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblAgencia.Location = New System.Drawing.Point(28, 116)
-        Me.lblAgencia.MouseState = MaterialSkin.MouseState.HOVER
-        Me.lblAgencia.Name = "lblAgencia"
-        Me.lblAgencia.Size = New System.Drawing.Size(63, 19)
-        Me.lblAgencia.TabIndex = 84
-        Me.lblAgencia.Text = "Agencia"
         '
         'dtpFecha_Devolucion
         '
@@ -222,7 +199,6 @@ Partial Class frmRenta_Directa
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(535, 582)
-        Me.Controls.Add(Me.cmbAgencias)
         Me.Controls.Add(Me.btnRegresar)
         Me.Controls.Add(Me.btnRentar_Coche)
         Me.Controls.Add(Me.txbBuscar_Coche)
@@ -231,7 +207,6 @@ Partial Class frmRenta_Directa
         Me.Controls.Add(Me.txbBuscar_Codigo)
         Me.Controls.Add(Me.lblBuscar_Codigo)
         Me.Controls.Add(Me.dgvBuscar_Usuario)
-        Me.Controls.Add(Me.lblAgencia)
         Me.Controls.Add(Me.dtpFecha_Devolucion)
         Me.Controls.Add(Me.dtpFecha_Entrega)
         Me.Controls.Add(Me.lblFecha_Devolucion)
@@ -245,8 +220,6 @@ Partial Class frmRenta_Directa
         Me.PerformLayout()
 
     End Sub
-
-    Friend WithEvents cmbAgencias As ComboBox
     Friend WithEvents btnRegresar As MaterialSkin.Controls.MaterialRaisedButton
     Friend WithEvents btnRentar_Coche As MaterialSkin.Controls.MaterialFlatButton
     Friend WithEvents txbBuscar_Coche As MaterialSkin.Controls.MaterialSingleLineTextField
@@ -255,7 +228,6 @@ Partial Class frmRenta_Directa
     Friend WithEvents txbBuscar_Codigo As MaterialSkin.Controls.MaterialSingleLineTextField
     Friend WithEvents lblBuscar_Codigo As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents dgvBuscar_Usuario As DataGridView
-    Friend WithEvents lblAgencia As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents dtpFecha_Devolucion As DateTimePicker
     Friend WithEvents dtpFecha_Entrega As DateTimePicker
     Friend WithEvents lblFecha_Devolucion As MaterialSkin.Controls.MaterialLabel

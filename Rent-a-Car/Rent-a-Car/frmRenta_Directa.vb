@@ -19,11 +19,6 @@ Public Class frmRenta_Directa
             btnRentar_Coche.Enabled = False
             MsgBox("Error: No hay coches registrados")
         End If
-        Agencia = New clsAgencias() 'Creacion del objeto
-        If Agencia.listarAgencias(cmbAgencias) = 0 Then
-            btnRentar_Coche.Enabled = False
-            MsgBox("Error: No hay agencias registradas")
-        End If
     End Sub
 
     Private Sub btnRegresar_Click(sender As Object, e As EventArgs) Handles btnRegresar.Click
@@ -33,8 +28,6 @@ Public Class frmRenta_Directa
 
     Private Sub btnReservar_Coche_Click(sender As Object, e As EventArgs) Handles btnRentar_Coche.Click
         Rentas = New clsRentas() 'Creación de objeto para la reserva
-        Dim key As Integer = CInt(DirectCast(cmbAgencias.SelectedItem, KeyValuePair(Of String, String)).Key) 'Se obtiene la clave priamria de los cmb de agencia
-        Dim value As String = DirectCast(cmbAgencias.SelectedItem, KeyValuePair(Of String, String)).Value 'Se obtiene el texto de los cmb de agencia
         Dim indiceCliente As Integer = Clientes.BuscarIndice(txbBuscar_Codigo.Text, listaClientes) 'Indice del cliente seleccionado segun arreglo
         Dim indiceCoche As Integer = Coches.BuscarIndice(txbBuscar_Coche.Text, listaCoches) 'Indice del coche seleccionado segun arreglo
 
@@ -43,7 +36,7 @@ Public Class frmRenta_Directa
             If indiceCoche > -1 Then 'Se verifica si existe un coche válido
                 If Rentas.ChequearRenta(listaCoches(indiceCoche)) = True Then 'Se verifica si no hay una renta de un coche en existencia
                     'Se lleva a cabo el proceso
-                    If Rentas.Registrar(dtpFecha_Entrega.Value.ToString("yyyy-MM-dd"), dtpFecha_Devolucion.Value.ToString("yyyy-MM-dd"), listaClientes(indiceCliente), listaCoches(indiceCoche), cmbAgencias.SelectedValue) Then
+                    If Rentas.Registrar(dtpFecha_Entrega.Value.ToString("yyyy-MM-dd"), dtpFecha_Devolucion.Value.ToString("yyyy-MM-dd"), listaClientes(indiceCliente), listaCoches(indiceCoche)) Then
                         MsgBox("Renta exitosa")
                     End If
                 End If
@@ -57,20 +50,24 @@ Public Class frmRenta_Directa
     Private Sub txbBuscar_Codigo_KeyUp(sender As Object, e As KeyEventArgs) Handles txbBuscar_Codigo.KeyUp
         'Evento para buscar cliente en el dgv
         Dim t As String = txbBuscar_Codigo.Text.Trim
-        If Not e.KeyCode = 8 And t.Length > 0 Then
-            Clientes.BuscarCliente(txbBuscar_Codigo.Text.ToUpper, listaClientes, dgvBuscar_Usuario) 'Se busca el cliente siempre que se haya agregado una letra
-        ElseIf e.KeyCode = 8 Then
-            Clientes.BuscarCliente(txbBuscar_Codigo.Text.ToUpper, listaClientes, dgvBuscar_Usuario, True) 'Se busca el cliente cuando esta borrando
+        If Not IsNothing(listaClientes) Then
+            If Not e.KeyCode = 8 And t.Length > 0 Then
+                Clientes.BuscarCliente(txbBuscar_Codigo.Text.ToUpper, listaClientes, dgvBuscar_Usuario) 'Se busca el cliente siempre que se haya agregado una letra
+            ElseIf e.KeyCode = 8 Then
+                Clientes.BuscarCliente(txbBuscar_Codigo.Text.ToUpper, listaClientes, dgvBuscar_Usuario, True) 'Se busca el cliente cuando esta borrando
+            End If
         End If
     End Sub
 
     Private Sub txbBuscar_Coche_KeyUp(sender As Object, e As KeyEventArgs) Handles txbBuscar_Coche.KeyUp
         'Evento para buscar coche en el dgv
         Dim t As String = txbBuscar_Coche.Text.Trim
-        If Not e.KeyCode = 8 And t.Length > 0 Then
-            Coches.BuscarCoche(txbBuscar_Coche.Text.ToUpper, listaCoches, dgvBuscar_Coche) 'Se busca el coche siempre que se haya agregado una letra
-        ElseIf e.KeyCode = 8 Then
-            Coches.BuscarCoche(txbBuscar_Coche.Text.ToUpper, listaCoches, dgvBuscar_Coche, True) 'Se busca coche cuando esta borrando
+        If Not IsNothing(listaCoches) Then
+            If Not e.KeyCode = 8 And t.Length > 0 Then
+                Coches.BuscarCoche(txbBuscar_Coche.Text.ToUpper, listaCoches, dgvBuscar_Coche) 'Se busca el coche siempre que se haya agregado una letra
+            ElseIf e.KeyCode = 8 Then
+                Coches.BuscarCoche(txbBuscar_Coche.Text.ToUpper, listaCoches, dgvBuscar_Coche, True) 'Se busca coche cuando esta borrando
+            End If
         End If
     End Sub
 

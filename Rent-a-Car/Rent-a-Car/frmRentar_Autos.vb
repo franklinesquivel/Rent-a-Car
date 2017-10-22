@@ -14,10 +14,12 @@ Public Class frmRentar_Autos
     Private Sub txbCodigo_Reserva_KeyUp(sender As Object, e As KeyEventArgs) Handles txbCodigo_Reserva.KeyUp
         'Evento para buscar reservas en el dgv
         Dim t As String = txbCodigo_Reserva.Text.Trim
-        If Not e.KeyCode = 8 And t.Length > 0 Then 'Se busca el reserva siempre que se haya agregado una letra
-            Reservas.BuscarReserva(txbCodigo_Reserva.Text.ToUpper, listaReservas, dgvRentar_Autos)
-        ElseIf e.KeyCode = 8 Then 'Se busca reserva cuando esta borrando
-            Reservas.BuscarReserva(txbCodigo_Reserva.Text.ToUpper, listaReservas, dgvRentar_Autos, True)
+        If Not IsNothing(listaReservas) Then
+            If Not e.KeyCode = 8 And t.Length > 0 Then 'Se busca el reserva siempre que se haya agregado una letra
+                Reservas.BuscarReserva(txbCodigo_Reserva.Text.ToUpper, listaReservas, dgvRentar_Autos)
+            ElseIf e.KeyCode = 8 Then 'Se busca reserva cuando esta borrando
+                Reservas.BuscarReserva(txbCodigo_Reserva.Text.ToUpper, listaReservas, dgvRentar_Autos, True)
+            End If
         End If
     End Sub
     Private Sub dgvRentar_Autos_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvRentar_Autos.CellClick

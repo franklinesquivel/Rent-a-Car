@@ -157,7 +157,7 @@ Public Class clsReservas
             Return True
         End If
     End Function
-    Public Function Registrar(ByVal _fechaInicio As String, ByVal _fechaFin As String, ByVal cliente As clsClientes, ByVal coche As clsCoches, ByVal _idAgencia As String)
+    Public Function Registrar(ByVal _fechaInicio As String, ByVal _fechaFin As String, ByVal cliente As clsClientes, ByVal coche As clsCoches)
         Dim rgx_fecha = New Regex("^\d{2}\d{2}\d{4}$") 'Patrón de fecha
         'Dim rgx_usuario = New Regex("^C{1}\L{1}\d{5}") 'Patrón del código de usuario
 
@@ -176,14 +176,14 @@ Public Class clsReservas
             Return False
         End If
 
-        MyClass.CrearCodigoReserva(_idAgencia) 'Se crea el código de reserva
+        MyClass.CrearCodigoReserva(coche.ObtenerIdAgencia) 'Se crea el código de reserva
         If MyClass.ChequearReserva(cliente.ObtenerIdCliente) Then 'Se verifica que el usuario no tenga una reserva activa
             If MyClass.ChequearReservaFecha(CDate(_fechaInicio), CDate(_fechaFin), coche.ObtenerIdCoche) Then 'Se verifica si existe una reserva activa con el coche elegido
                 If MyClass.ChequearRenta(coche.ObtenerIdCoche, CDate(_fechaInicio), CDate(_fechaFin)) Then 'Se verifica si el coche no esta rentado
                     'Se establecen los datos en los atributos  de la clase
                     MyClass.EstablecerFechaInicio = CDate(_fechaInicio)
                     MyClass.EstablecerFechaFin = CDate(_fechaFin)
-                    MyClass.EstablecerIdAgencia = _idAgencia
+                    MyClass.EstablecerIdAgencia = coche.ObtenerIdAgencia
                     MyClass.EstablecerIdCoche = coche.ObtenerIdCoche
                     MyClass.EstablecerIdCliente = cliente.ObtenerIdCliente
                     MyClass.EstablecerIdUsuario = Session.ObtenerIdUsuario
