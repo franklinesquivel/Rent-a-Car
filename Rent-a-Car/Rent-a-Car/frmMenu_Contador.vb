@@ -36,4 +36,9 @@ Public Class frmMenu_contador
         frmInicio_Sesion.Show()
         Me.Close()
     End Sub
+
+    Private Sub btnRentasMes_Click(sender As Object, e As EventArgs) Handles btnRentasMes.Click
+        frmGraficosRenta.Show()
+        Me.Hide()
+    End Sub
 End Class

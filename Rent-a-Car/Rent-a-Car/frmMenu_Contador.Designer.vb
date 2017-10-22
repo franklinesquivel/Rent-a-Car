@@ -30,6 +30,9 @@ Partial Class frmMenu_contador
         Me.btnEstado_Autos = New MaterialSkin.Controls.MaterialFlatButton()
         Me.btnCerrar_Sesion = New MaterialSkin.Controls.MaterialRaisedButton()
         Me.lblGestionar_Autos = New MaterialSkin.Controls.MaterialLabel()
+        Me.btnRentasMes = New MaterialSkin.Controls.MaterialFlatButton()
+        Me.lblGraficos = New MaterialSkin.Controls.MaterialLabel()
+        Me.btnRentasAgencias = New MaterialSkin.Controls.MaterialFlatButton()
         Me.SuspendLayout()
         '
         'btnReportes_Rentas
@@ -129,7 +132,7 @@ Partial Class frmMenu_contador
         '
         Me.btnCerrar_Sesion.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnCerrar_Sesion.Depth = 0
-        Me.btnCerrar_Sesion.Location = New System.Drawing.Point(395, 268)
+        Me.btnCerrar_Sesion.Location = New System.Drawing.Point(395, 394)
         Me.btnCerrar_Sesion.MouseState = MaterialSkin.MouseState.HOVER
         Me.btnCerrar_Sesion.Name = "btnCerrar_Sesion"
         Me.btnCerrar_Sesion.Primary = True
@@ -151,11 +154,59 @@ Partial Class frmMenu_contador
         Me.lblGestionar_Autos.TabIndex = 14
         Me.lblGestionar_Autos.Text = "Gestionar autos"
         '
+        'btnRentasMes
+        '
+        Me.btnRentasMes.AutoSize = True
+        Me.btnRentasMes.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.btnRentasMes.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnRentasMes.Depth = 0
+        Me.btnRentasMes.Location = New System.Drawing.Point(323, 283)
+        Me.btnRentasMes.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
+        Me.btnRentasMes.MouseState = MaterialSkin.MouseState.HOVER
+        Me.btnRentasMes.Name = "btnRentasMes"
+        Me.btnRentasMes.Primary = False
+        Me.btnRentasMes.Size = New System.Drawing.Size(126, 36)
+        Me.btnRentasMes.TabIndex = 78
+        Me.btnRentasMes.Text = "Rentas por mes"
+        Me.btnRentasMes.UseVisualStyleBackColor = True
+        '
+        'lblGraficos
+        '
+        Me.lblGraficos.AutoSize = True
+        Me.lblGraficos.Depth = 0
+        Me.lblGraficos.Font = New System.Drawing.Font("Roboto", 11.0!)
+        Me.lblGraficos.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblGraficos.Location = New System.Drawing.Point(298, 244)
+        Me.lblGraficos.MouseState = MaterialSkin.MouseState.HOVER
+        Me.lblGraficos.Name = "lblGraficos"
+        Me.lblGraficos.Size = New System.Drawing.Size(66, 19)
+        Me.lblGraficos.TabIndex = 76
+        Me.lblGraficos.Text = "Graficos"
+        '
+        'btnRentasAgencias
+        '
+        Me.btnRentasAgencias.AutoSize = True
+        Me.btnRentasAgencias.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.btnRentasAgencias.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnRentasAgencias.Depth = 0
+        Me.btnRentasAgencias.Location = New System.Drawing.Point(323, 340)
+        Me.btnRentasAgencias.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
+        Me.btnRentasAgencias.MouseState = MaterialSkin.MouseState.HOVER
+        Me.btnRentasAgencias.Name = "btnRentasAgencias"
+        Me.btnRentasAgencias.Primary = False
+        Me.btnRentasAgencias.Size = New System.Drawing.Size(164, 36)
+        Me.btnRentasAgencias.TabIndex = 75
+        Me.btnRentasAgencias.Text = "Rentas por agencias"
+        Me.btnRentasAgencias.UseVisualStyleBackColor = True
+        '
         'frmMenu_contador
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(568, 320)
+        Me.ClientSize = New System.Drawing.Size(568, 447)
+        Me.Controls.Add(Me.btnRentasMes)
+        Me.Controls.Add(Me.lblGraficos)
+        Me.Controls.Add(Me.btnRentasAgencias)
         Me.Controls.Add(Me.btnCerrar_Sesion)
         Me.Controls.Add(Me.btnEstado_Autos)
         Me.Controls.Add(Me.btnModificar_Auto)
@@ -181,4 +232,7 @@ Partial Class frmMenu_contador
     Friend WithEvents btnEstado_Autos As MaterialSkin.Controls.MaterialFlatButton
     Friend WithEvents btnCerrar_Sesion As MaterialSkin.Controls.MaterialRaisedButton
     Friend WithEvents lblGestionar_Autos As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents btnRentasMes As MaterialSkin.Controls.MaterialFlatButton
+    Friend WithEvents lblGraficos As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents btnRentasAgencias As MaterialSkin.Controls.MaterialFlatButton
 End Class

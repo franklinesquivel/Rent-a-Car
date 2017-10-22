@@ -143,6 +143,12 @@
     <Compile Include="frmGestionar_Autos.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmGraficosRenta.Designer.vb">
+      <DependentUpon>frmGraficosRenta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmGraficosRenta.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmInicio_Sesion.Designer.vb">
       <DependentUpon>frmInicio_Sesion.vb</DependentUpon>
     </Compile>
@@ -255,6 +261,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmGestionar_Autos.resx">
       <DependentUpon>frmGestionar_Autos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGraficosRenta.resx">
+      <DependentUpon>frmGraficosRenta.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmInicio_Sesion.resx">
       <DependentUpon>frmInicio_Sesion.vb</DependentUpon>
