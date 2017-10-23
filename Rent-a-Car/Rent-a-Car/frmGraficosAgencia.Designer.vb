@@ -22,9 +22,9 @@ Partial Class frmGraficosAgencia
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim ChartArea5 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend5 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series5 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.cmbAño = New System.Windows.Forms.ComboBox()
         Me.chtGraficoAgencias = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.btnRegresar = New MaterialSkin.Controls.MaterialRaisedButton()
@@ -41,25 +41,25 @@ Partial Class frmGraficosAgencia
         Me.cmbAño.Location = New System.Drawing.Point(239, 87)
         Me.cmbAño.Name = "cmbAño"
         Me.cmbAño.Size = New System.Drawing.Size(121, 21)
-        Me.cmbAño.TabIndex = 6
+        Me.cmbAño.TabIndex = 0
         '
         'chtGraficoAgencias
         '
         Me.chtGraficoAgencias.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        ChartArea5.Name = "ChartArea1"
-        Me.chtGraficoAgencias.ChartAreas.Add(ChartArea5)
-        Legend5.Name = "Legend1"
-        Me.chtGraficoAgencias.Legends.Add(Legend5)
+        ChartArea1.Name = "ChartArea1"
+        Me.chtGraficoAgencias.ChartAreas.Add(ChartArea1)
+        Legend1.Name = "Legend1"
+        Me.chtGraficoAgencias.Legends.Add(Legend1)
         Me.chtGraficoAgencias.Location = New System.Drawing.Point(15, 114)
         Me.chtGraficoAgencias.Name = "chtGraficoAgencias"
-        Series5.ChartArea = "ChartArea1"
-        Series5.Legend = "Legend1"
-        Series5.Name = "Series1"
-        Me.chtGraficoAgencias.Series.Add(Series5)
+        Series1.ChartArea = "ChartArea1"
+        Series1.Legend = "Legend1"
+        Series1.Name = "Series1"
+        Me.chtGraficoAgencias.Series.Add(Series1)
         Me.chtGraficoAgencias.Size = New System.Drawing.Size(442, 313)
-        Me.chtGraficoAgencias.TabIndex = 4
+        Me.chtGraficoAgencias.TabIndex = 1
         Me.chtGraficoAgencias.Text = "Grafico"
         '
         'btnRegresar
@@ -71,7 +71,7 @@ Partial Class frmGraficosAgencia
         Me.btnRegresar.Name = "btnRegresar"
         Me.btnRegresar.Primary = True
         Me.btnRegresar.Size = New System.Drawing.Size(106, 27)
-        Me.btnRegresar.TabIndex = 60
+        Me.btnRegresar.TabIndex = 2
         Me.btnRegresar.Text = "Regresar"
         Me.btnRegresar.UseVisualStyleBackColor = True
         '

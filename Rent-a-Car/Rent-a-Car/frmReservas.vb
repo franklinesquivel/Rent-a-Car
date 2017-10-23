@@ -86,4 +86,8 @@ Public Class frmReservas
         dtpFecha_Devolucion.Value = Now
         dtpFecha_Entrega.Value = Now
     End Sub
+
+    Private Sub CerrarSesiónToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CerrarSesiónToolStripMenuItem.Click
+        Session.CerrarSession() 'Cerrar sesión
+    End Sub
 End Class

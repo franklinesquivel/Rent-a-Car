@@ -47,7 +47,7 @@ Partial Class frmMenu_contador
         Me.btnReportes_Rentas.Name = "btnReportes_Rentas"
         Me.btnReportes_Rentas.Primary = False
         Me.btnReportes_Rentas.Size = New System.Drawing.Size(208, 36)
-        Me.btnReportes_Rentas.TabIndex = 11
+        Me.btnReportes_Rentas.TabIndex = 3
         Me.btnReportes_Rentas.Text = "Reportes de renta por mes"
         Me.btnReportes_Rentas.UseVisualStyleBackColor = True
         '
@@ -63,7 +63,7 @@ Partial Class frmMenu_contador
         Me.btnIngresar_Auto.Name = "btnIngresar_Auto"
         Me.btnIngresar_Auto.Primary = False
         Me.btnIngresar_Auto.Size = New System.Drawing.Size(165, 36)
-        Me.btnIngresar_Auto.TabIndex = 10
+        Me.btnIngresar_Auto.TabIndex = 1
         Me.btnIngresar_Auto.Text = "Ingresar nuevo auto"
         Me.btnIngresar_Auto.UseVisualStyleBackColor = True
         '
@@ -92,7 +92,7 @@ Partial Class frmMenu_contador
         Me.btnReportes_Coches.Name = "btnReportes_Coches"
         Me.btnReportes_Coches.Primary = False
         Me.btnReportes_Coches.Size = New System.Drawing.Size(222, 36)
-        Me.btnReportes_Coches.TabIndex = 13
+        Me.btnReportes_Coches.TabIndex = 4
         Me.btnReportes_Coches.Text = "Reporte de coches rentados"
         Me.btnReportes_Coches.UseVisualStyleBackColor = True
         '
@@ -108,7 +108,7 @@ Partial Class frmMenu_contador
         Me.btnModificar_Auto.Name = "btnModificar_Auto"
         Me.btnModificar_Auto.Primary = False
         Me.btnModificar_Auto.Size = New System.Drawing.Size(124, 36)
-        Me.btnModificar_Auto.TabIndex = 15
+        Me.btnModificar_Auto.TabIndex = 2
         Me.btnModificar_Auto.Text = "Modificar auto"
         Me.btnModificar_Auto.UseVisualStyleBackColor = True
         '
@@ -124,7 +124,7 @@ Partial Class frmMenu_contador
         Me.btnEstado_Autos.Name = "btnEstado_Autos"
         Me.btnEstado_Autos.Primary = False
         Me.btnEstado_Autos.Size = New System.Drawing.Size(160, 36)
-        Me.btnEstado_Autos.TabIndex = 16
+        Me.btnEstado_Autos.TabIndex = 0
         Me.btnEstado_Autos.Text = "Estado de los Autos"
         Me.btnEstado_Autos.UseVisualStyleBackColor = True
         '
@@ -137,7 +137,7 @@ Partial Class frmMenu_contador
         Me.btnCerrar_Sesion.Name = "btnCerrar_Sesion"
         Me.btnCerrar_Sesion.Primary = True
         Me.btnCerrar_Sesion.Size = New System.Drawing.Size(147, 36)
-        Me.btnCerrar_Sesion.TabIndex = 74
+        Me.btnCerrar_Sesion.TabIndex = 7
         Me.btnCerrar_Sesion.Text = "Cerrar sesión"
         Me.btnCerrar_Sesion.UseVisualStyleBackColor = True
         '
@@ -166,7 +166,7 @@ Partial Class frmMenu_contador
         Me.btnRentasMes.Name = "btnRentasMes"
         Me.btnRentasMes.Primary = False
         Me.btnRentasMes.Size = New System.Drawing.Size(126, 36)
-        Me.btnRentasMes.TabIndex = 78
+        Me.btnRentasMes.TabIndex = 5
         Me.btnRentasMes.Text = "Rentas por mes"
         Me.btnRentasMes.UseVisualStyleBackColor = True
         '
@@ -195,7 +195,7 @@ Partial Class frmMenu_contador
         Me.btnRentasAgencias.Name = "btnRentasAgencias"
         Me.btnRentasAgencias.Primary = False
         Me.btnRentasAgencias.Size = New System.Drawing.Size(164, 36)
-        Me.btnRentasAgencias.TabIndex = 75
+        Me.btnRentasAgencias.TabIndex = 6
         Me.btnRentasAgencias.Text = "Rentas por agencias"
         Me.btnRentasAgencias.UseVisualStyleBackColor = True
         '

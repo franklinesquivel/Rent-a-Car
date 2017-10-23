@@ -73,7 +73,7 @@ Partial Class frmModificar_Coche
         Me.rdbMicrobuses.Name = "rdbMicrobuses"
         Me.rdbMicrobuses.Ripple = True
         Me.rdbMicrobuses.Size = New System.Drawing.Size(101, 30)
-        Me.rdbMicrobuses.TabIndex = 51
+        Me.rdbMicrobuses.TabIndex = 14
         Me.rdbMicrobuses.TabStop = True
         Me.rdbMicrobuses.Text = "Microbuses"
         Me.rdbMicrobuses.UseVisualStyleBackColor = True
@@ -91,7 +91,7 @@ Partial Class frmModificar_Coche
         Me.rdbPickups.Name = "rdbPickups"
         Me.rdbPickups.Ripple = True
         Me.rdbPickups.Size = New System.Drawing.Size(78, 30)
-        Me.rdbPickups.TabIndex = 50
+        Me.rdbPickups.TabIndex = 13
         Me.rdbPickups.TabStop = True
         Me.rdbPickups.Text = "Pickups"
         Me.rdbPickups.UseVisualStyleBackColor = True
@@ -109,7 +109,7 @@ Partial Class frmModificar_Coche
         Me.rdbSedan.Name = "rdbSedan"
         Me.rdbSedan.Ripple = True
         Me.rdbSedan.Size = New System.Drawing.Size(67, 30)
-        Me.rdbSedan.TabIndex = 49
+        Me.rdbSedan.TabIndex = 12
         Me.rdbSedan.TabStop = True
         Me.rdbSedan.Text = "Sedan"
         Me.rdbSedan.UseVisualStyleBackColor = True
@@ -126,7 +126,7 @@ Partial Class frmModificar_Coche
         Me.btnModificar_Coche.Name = "btnModificar_Coche"
         Me.btnModificar_Coche.Primary = False
         Me.btnModificar_Coche.Size = New System.Drawing.Size(133, 36)
-        Me.btnModificar_Coche.TabIndex = 48
+        Me.btnModificar_Coche.TabIndex = 15
         Me.btnModificar_Coche.Text = "Modificar coche"
         Me.btnModificar_Coche.UseVisualStyleBackColor = True
         '
@@ -155,7 +155,7 @@ Partial Class frmModificar_Coche
         Me.btnFoto.Name = "btnFoto"
         Me.btnFoto.Primary = False
         Me.btnFoto.Size = New System.Drawing.Size(141, 36)
-        Me.btnFoto.TabIndex = 46
+        Me.btnFoto.TabIndex = 11
         Me.btnFoto.Text = "+Agrege una foto"
         Me.btnFoto.UseVisualStyleBackColor = True
         '
@@ -197,7 +197,7 @@ Partial Class frmModificar_Coche
         Me.txbPrecio_Alquiler.SelectionLength = 0
         Me.txbPrecio_Alquiler.SelectionStart = 0
         Me.txbPrecio_Alquiler.Size = New System.Drawing.Size(183, 23)
-        Me.txbPrecio_Alquiler.TabIndex = 43
+        Me.txbPrecio_Alquiler.TabIndex = 7
         Me.txbPrecio_Alquiler.UseSystemPasswordChar = False
         '
         'lblNumero_Pasajeros
@@ -225,7 +225,7 @@ Partial Class frmModificar_Coche
         Me.txbNumero_Pasajeros.SelectionLength = 0
         Me.txbNumero_Pasajeros.SelectionStart = 0
         Me.txbNumero_Pasajeros.Size = New System.Drawing.Size(146, 23)
-        Me.txbNumero_Pasajeros.TabIndex = 41
+        Me.txbNumero_Pasajeros.TabIndex = 6
         Me.txbNumero_Pasajeros.UseSystemPasswordChar = False
         '
         'lblKilometraje
@@ -253,7 +253,7 @@ Partial Class frmModificar_Coche
         Me.txbKilometraje.SelectionLength = 0
         Me.txbKilometraje.SelectionStart = 0
         Me.txbKilometraje.Size = New System.Drawing.Size(218, 23)
-        Me.txbKilometraje.TabIndex = 39
+        Me.txbKilometraje.TabIndex = 5
         Me.txbKilometraje.UseSystemPasswordChar = False
         '
         'lblFoto
@@ -294,7 +294,7 @@ Partial Class frmModificar_Coche
         Me.txbColor.SelectionLength = 0
         Me.txbColor.SelectionStart = 0
         Me.txbColor.Size = New System.Drawing.Size(218, 23)
-        Me.txbColor.TabIndex = 35
+        Me.txbColor.TabIndex = 10
         Me.txbColor.UseSystemPasswordChar = False
         '
         'lblModelo
@@ -322,7 +322,7 @@ Partial Class frmModificar_Coche
         Me.txbModelo.SelectionLength = 0
         Me.txbModelo.SelectionStart = 0
         Me.txbModelo.Size = New System.Drawing.Size(218, 23)
-        Me.txbModelo.TabIndex = 33
+        Me.txbModelo.TabIndex = 9
         Me.txbModelo.UseSystemPasswordChar = False
         '
         'lblMarca
@@ -350,7 +350,7 @@ Partial Class frmModificar_Coche
         Me.txbMarca.SelectionLength = 0
         Me.txbMarca.SelectionStart = 0
         Me.txbMarca.Size = New System.Drawing.Size(218, 23)
-        Me.txbMarca.TabIndex = 31
+        Me.txbMarca.TabIndex = 4
         Me.txbMarca.UseSystemPasswordChar = False
         '
         'lblMatricula
@@ -396,7 +396,7 @@ Partial Class frmModificar_Coche
         Me.btnRegresar.Name = "btnRegresar"
         Me.btnRegresar.Primary = True
         Me.btnRegresar.Size = New System.Drawing.Size(115, 32)
-        Me.btnRegresar.TabIndex = 75
+        Me.btnRegresar.TabIndex = 16
         Me.btnRegresar.Text = "Regresar"
         Me.btnRegresar.UseVisualStyleBackColor = True
         '
@@ -426,7 +426,7 @@ Partial Class frmModificar_Coche
         Me.ComboBox1.Location = New System.Drawing.Point(16, 170)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(180, 21)
-        Me.ComboBox1.TabIndex = 78
+        Me.ComboBox1.TabIndex = 1
         '
         'cmbBuscar_Autos
         '
@@ -435,7 +435,7 @@ Partial Class frmModificar_Coche
         Me.cmbBuscar_Autos.Location = New System.Drawing.Point(16, 133)
         Me.cmbBuscar_Autos.Name = "cmbBuscar_Autos"
         Me.cmbBuscar_Autos.Size = New System.Drawing.Size(180, 21)
-        Me.cmbBuscar_Autos.TabIndex = 77
+        Me.cmbBuscar_Autos.TabIndex = 0
         '
         'cmbAgenciaCoche
         '
@@ -445,7 +445,7 @@ Partial Class frmModificar_Coche
         Me.cmbAgenciaCoche.Location = New System.Drawing.Point(172, 491)
         Me.cmbAgenciaCoche.Name = "cmbAgenciaCoche"
         Me.cmbAgenciaCoche.Size = New System.Drawing.Size(183, 24)
-        Me.cmbAgenciaCoche.TabIndex = 81
+        Me.cmbAgenciaCoche.TabIndex = 8
         '
         'picCoche
         '
@@ -463,7 +463,7 @@ Partial Class frmModificar_Coche
         Me.ComboBox2.Location = New System.Drawing.Point(27, 258)
         Me.ComboBox2.Name = "ComboBox2"
         Me.ComboBox2.Size = New System.Drawing.Size(187, 21)
-        Me.ComboBox2.TabIndex = 83
+        Me.ComboBox2.TabIndex = 2
         '
         'btnVerDatos
         '
@@ -477,7 +477,7 @@ Partial Class frmModificar_Coche
         Me.btnVerDatos.Name = "btnVerDatos"
         Me.btnVerDatos.Primary = False
         Me.btnVerDatos.Size = New System.Drawing.Size(85, 36)
-        Me.btnVerDatos.TabIndex = 84
+        Me.btnVerDatos.TabIndex = 3
         Me.btnVerDatos.Text = "Ver datos"
         Me.btnVerDatos.UseVisualStyleBackColor = True
         '

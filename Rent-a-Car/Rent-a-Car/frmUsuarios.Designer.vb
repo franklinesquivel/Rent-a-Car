@@ -51,7 +51,7 @@ Partial Class frmUsuarios
         Me.btnAgregar_Usuario.Name = "btnAgregar_Usuario"
         Me.btnAgregar_Usuario.Primary = False
         Me.btnAgregar_Usuario.Size = New System.Drawing.Size(146, 36)
-        Me.btnAgregar_Usuario.TabIndex = 51
+        Me.btnAgregar_Usuario.TabIndex = 6
         Me.btnAgregar_Usuario.Text = "+ Agregar usuario"
         Me.btnAgregar_Usuario.UseVisualStyleBackColor = True
         '
@@ -80,7 +80,7 @@ Partial Class frmUsuarios
         Me.txbNombre.SelectionLength = 0
         Me.txbNombre.SelectionStart = 0
         Me.txbNombre.Size = New System.Drawing.Size(267, 23)
-        Me.txbNombre.TabIndex = 43
+        Me.txbNombre.TabIndex = 0
         Me.txbNombre.UseSystemPasswordChar = False
         '
         'lblApellido
@@ -108,7 +108,7 @@ Partial Class frmUsuarios
         Me.txbApellido.SelectionLength = 0
         Me.txbApellido.SelectionStart = 0
         Me.txbApellido.Size = New System.Drawing.Size(267, 23)
-        Me.txbApellido.TabIndex = 41
+        Me.txbApellido.TabIndex = 1
         Me.txbApellido.UseSystemPasswordChar = False
         '
         'lblPerfil
@@ -137,7 +137,7 @@ Partial Class frmUsuarios
         Me.rdbAdministrador.Name = "rdbAdministrador"
         Me.rdbAdministrador.Ripple = True
         Me.rdbAdministrador.Size = New System.Drawing.Size(117, 30)
-        Me.rdbAdministrador.TabIndex = 56
+        Me.rdbAdministrador.TabIndex = 5
         Me.rdbAdministrador.TabStop = True
         Me.rdbAdministrador.Text = "Administrador"
         Me.rdbAdministrador.UseVisualStyleBackColor = True
@@ -155,7 +155,7 @@ Partial Class frmUsuarios
         Me.rdbContador.Name = "rdbContador"
         Me.rdbContador.Ripple = True
         Me.rdbContador.Size = New System.Drawing.Size(86, 30)
-        Me.rdbContador.TabIndex = 57
+        Me.rdbContador.TabIndex = 3
         Me.rdbContador.TabStop = True
         Me.rdbContador.Text = "Contador"
         Me.rdbContador.UseVisualStyleBackColor = True
@@ -173,7 +173,7 @@ Partial Class frmUsuarios
         Me.rdbAgente.Name = "rdbAgente"
         Me.rdbAgente.Ripple = True
         Me.rdbAgente.Size = New System.Drawing.Size(73, 30)
-        Me.rdbAgente.TabIndex = 58
+        Me.rdbAgente.TabIndex = 4
         Me.rdbAgente.TabStop = True
         Me.rdbAgente.Text = "Agente"
         Me.rdbAgente.UseVisualStyleBackColor = True
@@ -187,7 +187,7 @@ Partial Class frmUsuarios
         Me.btn_Regresar.Name = "btn_Regresar"
         Me.btn_Regresar.Primary = True
         Me.btn_Regresar.Size = New System.Drawing.Size(106, 27)
-        Me.btn_Regresar.TabIndex = 77
+        Me.btn_Regresar.TabIndex = 7
         Me.btn_Regresar.Text = "Regresar"
         Me.btn_Regresar.UseVisualStyleBackColor = True
         '
@@ -204,8 +204,8 @@ Partial Class frmUsuarios
         '
         Me.mnsCerrar_Sesion.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.mnsCerrar_Sesion.Name = "mnsCerrar_Sesion"
-        Me.mnsCerrar_Sesion.Size = New System.Drawing.Size(104, 23)
-        Me.mnsCerrar_Sesion.Text = "Cerrar_Sesion"
+        Me.mnsCerrar_Sesion.Size = New System.Drawing.Size(102, 23)
+        Me.mnsCerrar_Sesion.Text = "Cerrar Sesión"
         '
         'lblCorreo
         '
@@ -232,7 +232,7 @@ Partial Class frmUsuarios
         Me.txbCorreo.SelectionLength = 0
         Me.txbCorreo.SelectionStart = 0
         Me.txbCorreo.Size = New System.Drawing.Size(201, 23)
-        Me.txbCorreo.TabIndex = 80
+        Me.txbCorreo.TabIndex = 2
         Me.txbCorreo.UseSystemPasswordChar = False
         '
         'frmUsuarios

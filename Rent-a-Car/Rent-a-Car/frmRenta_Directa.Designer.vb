@@ -51,7 +51,7 @@ Partial Class frmRenta_Directa
         Me.btnRegresar.Name = "btnRegresar"
         Me.btnRegresar.Primary = True
         Me.btnRegresar.Size = New System.Drawing.Size(106, 27)
-        Me.btnRegresar.TabIndex = 92
+        Me.btnRegresar.TabIndex = 5
         Me.btnRegresar.Text = "Regresar"
         Me.btnRegresar.UseVisualStyleBackColor = True
         '
@@ -67,7 +67,7 @@ Partial Class frmRenta_Directa
         Me.btnRentar_Coche.Name = "btnRentar_Coche"
         Me.btnRentar_Coche.Primary = False
         Me.btnRentar_Coche.Size = New System.Drawing.Size(112, 36)
-        Me.btnRentar_Coche.TabIndex = 91
+        Me.btnRentar_Coche.TabIndex = 4
         Me.btnRentar_Coche.Text = "Rentar coche"
         Me.btnRentar_Coche.UseVisualStyleBackColor = True
         '
@@ -83,7 +83,7 @@ Partial Class frmRenta_Directa
         Me.txbBuscar_Coche.SelectionLength = 0
         Me.txbBuscar_Coche.SelectionStart = 0
         Me.txbBuscar_Coche.Size = New System.Drawing.Size(344, 23)
-        Me.txbBuscar_Coche.TabIndex = 90
+        Me.txbBuscar_Coche.TabIndex = 3
         Me.txbBuscar_Coche.UseSystemPasswordChar = False
         '
         'lblBuscar_Coche
@@ -120,7 +120,7 @@ Partial Class frmRenta_Directa
         Me.txbBuscar_Codigo.SelectionLength = 0
         Me.txbBuscar_Codigo.SelectionStart = 0
         Me.txbBuscar_Codigo.Size = New System.Drawing.Size(289, 23)
-        Me.txbBuscar_Codigo.TabIndex = 87
+        Me.txbBuscar_Codigo.TabIndex = 2
         Me.txbBuscar_Codigo.UseSystemPasswordChar = False
         '
         'lblBuscar_Codigo
@@ -154,7 +154,7 @@ Partial Class frmRenta_Directa
         Me.dtpFecha_Devolucion.MinDate = New Date(2017, 9, 23, 0, 0, 0, 0)
         Me.dtpFecha_Devolucion.Name = "dtpFecha_Devolucion"
         Me.dtpFecha_Devolucion.Size = New System.Drawing.Size(245, 23)
-        Me.dtpFecha_Devolucion.TabIndex = 83
+        Me.dtpFecha_Devolucion.TabIndex = 1
         '
         'dtpFecha_Entrega
         '
@@ -165,7 +165,7 @@ Partial Class frmRenta_Directa
         Me.dtpFecha_Entrega.MinDate = New Date(2017, 9, 23, 0, 0, 0, 0)
         Me.dtpFecha_Entrega.Name = "dtpFecha_Entrega"
         Me.dtpFecha_Entrega.Size = New System.Drawing.Size(245, 23)
-        Me.dtpFecha_Entrega.TabIndex = 82
+        Me.dtpFecha_Entrega.TabIndex = 0
         '
         'lblFecha_Devolucion
         '

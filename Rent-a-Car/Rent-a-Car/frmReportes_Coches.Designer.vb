@@ -44,7 +44,7 @@ Partial Class frmReportes_Coches
         Me.txbCodigo_Renta.SelectionLength = 0
         Me.txbCodigo_Renta.SelectionStart = 0
         Me.txbCodigo_Renta.Size = New System.Drawing.Size(433, 23)
-        Me.txbCodigo_Renta.TabIndex = 71
+        Me.txbCodigo_Renta.TabIndex = 0
         Me.txbCodigo_Renta.UseSystemPasswordChar = False
         '
         'lblCodigo_Renta
@@ -77,7 +77,7 @@ Partial Class frmReportes_Coches
         Me.btnRegrear.Name = "btnRegrear"
         Me.btnRegrear.Primary = True
         Me.btnRegrear.Size = New System.Drawing.Size(107, 37)
-        Me.btnRegrear.TabIndex = 72
+        Me.btnRegrear.TabIndex = 1
         Me.btnRegrear.Text = "Regresar"
         Me.btnRegrear.UseVisualStyleBackColor = True
         '

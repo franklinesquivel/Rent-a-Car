@@ -53,7 +53,7 @@ Partial Class frmGestionar_Autos
         Me.btnModificar_Datos.Name = "btnModificar_Datos"
         Me.btnModificar_Datos.Primary = False
         Me.btnModificar_Datos.Size = New System.Drawing.Size(132, 36)
-        Me.btnModificar_Datos.TabIndex = 69
+        Me.btnModificar_Datos.TabIndex = 6
         Me.btnModificar_Datos.Text = "Modificar datos"
         Me.btnModificar_Datos.UseVisualStyleBackColor = True
         '
@@ -69,7 +69,7 @@ Partial Class frmGestionar_Autos
         Me.txtCosto_Renta.SelectionLength = 0
         Me.txtCosto_Renta.SelectionStart = 0
         Me.txtCosto_Renta.Size = New System.Drawing.Size(359, 23)
-        Me.txtCosto_Renta.TabIndex = 71
+        Me.txtCosto_Renta.TabIndex = 3
         Me.txtCosto_Renta.UseSystemPasswordChar = False
         '
         'lblCosto_Renta
@@ -111,7 +111,7 @@ Partial Class frmGestionar_Autos
         Me.rdbReparacion.Name = "rdbReparacion"
         Me.rdbReparacion.Ripple = True
         Me.rdbReparacion.Size = New System.Drawing.Size(98, 30)
-        Me.rdbReparacion.TabIndex = 74
+        Me.rdbReparacion.TabIndex = 4
         Me.rdbReparacion.TabStop = True
         Me.rdbReparacion.Text = "Reparación"
         Me.rdbReparacion.UseVisualStyleBackColor = True
@@ -129,7 +129,7 @@ Partial Class frmGestionar_Autos
         Me.rdbActivo.Name = "rdbActivo"
         Me.rdbActivo.Ripple = True
         Me.rdbActivo.Size = New System.Drawing.Size(68, 30)
-        Me.rdbActivo.TabIndex = 75
+        Me.rdbActivo.TabIndex = 5
         Me.rdbActivo.TabStop = True
         Me.rdbActivo.Text = "Activo"
         Me.rdbActivo.UseVisualStyleBackColor = True
@@ -143,7 +143,7 @@ Partial Class frmGestionar_Autos
         Me.btnRegresar.Name = "btnRegresar"
         Me.btnRegresar.Primary = True
         Me.btnRegresar.Size = New System.Drawing.Size(106, 27)
-        Me.btnRegresar.TabIndex = 76
+        Me.btnRegresar.TabIndex = 7
         Me.btnRegresar.Text = "Regresar"
         Me.btnRegresar.UseVisualStyleBackColor = True
         '
@@ -169,7 +169,7 @@ Partial Class frmGestionar_Autos
         Me.ComboBox2.Location = New System.Drawing.Point(12, 238)
         Me.ComboBox2.Name = "ComboBox2"
         Me.ComboBox2.Size = New System.Drawing.Size(157, 21)
-        Me.ComboBox2.TabIndex = 95
+        Me.ComboBox2.TabIndex = 2
         '
         'ComboBox1
         '
@@ -177,7 +177,7 @@ Partial Class frmGestionar_Autos
         Me.ComboBox1.Location = New System.Drawing.Point(12, 154)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(157, 21)
-        Me.ComboBox1.TabIndex = 94
+        Me.ComboBox1.TabIndex = 1
         '
         'cmbBuscar_Autos
         '
@@ -186,7 +186,7 @@ Partial Class frmGestionar_Autos
         Me.cmbBuscar_Autos.Location = New System.Drawing.Point(12, 116)
         Me.cmbBuscar_Autos.Name = "cmbBuscar_Autos"
         Me.cmbBuscar_Autos.Size = New System.Drawing.Size(157, 21)
-        Me.cmbBuscar_Autos.TabIndex = 93
+        Me.cmbBuscar_Autos.TabIndex = 0
         '
         'MaterialLabel1
         '

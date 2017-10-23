@@ -73,7 +73,7 @@ Partial Class frmAgencias
         Me.btnAgregar_Agencia.Name = "btnAgregar_Agencia"
         Me.btnAgregar_Agencia.Primary = False
         Me.btnAgregar_Agencia.Size = New System.Drawing.Size(146, 36)
-        Me.btnAgregar_Agencia.TabIndex = 45
+        Me.btnAgregar_Agencia.TabIndex = 4
         Me.btnAgregar_Agencia.Text = "+ Agregar agencia"
         Me.btnAgregar_Agencia.UseVisualStyleBackColor = True
         '
@@ -102,7 +102,7 @@ Partial Class frmAgencias
         Me.txbNombre_Agencia.SelectionLength = 0
         Me.txbNombre_Agencia.SelectionStart = 0
         Me.txbNombre_Agencia.Size = New System.Drawing.Size(194, 23)
-        Me.txbNombre_Agencia.TabIndex = 42
+        Me.txbNombre_Agencia.TabIndex = 0
         Me.txbNombre_Agencia.UseSystemPasswordChar = False
         '
         'txbDireccion
@@ -117,7 +117,7 @@ Partial Class frmAgencias
         Me.txbDireccion.SelectionLength = 0
         Me.txbDireccion.SelectionStart = 0
         Me.txbDireccion.Size = New System.Drawing.Size(289, 23)
-        Me.txbDireccion.TabIndex = 41
+        Me.txbDireccion.TabIndex = 1
         Me.txbDireccion.UseSystemPasswordChar = False
         '
         'txbTelefono
@@ -132,7 +132,7 @@ Partial Class frmAgencias
         Me.txbTelefono.SelectionLength = 0
         Me.txbTelefono.SelectionStart = 0
         Me.txbTelefono.Size = New System.Drawing.Size(289, 23)
-        Me.txbTelefono.TabIndex = 49
+        Me.txbTelefono.TabIndex = 3
         Me.txbTelefono.UseSystemPasswordChar = False
         '
         'btnRegresar
@@ -144,7 +144,7 @@ Partial Class frmAgencias
         Me.btnRegresar.Name = "btnRegresar"
         Me.btnRegresar.Primary = True
         Me.btnRegresar.Size = New System.Drawing.Size(106, 27)
-        Me.btnRegresar.TabIndex = 51
+        Me.btnRegresar.TabIndex = 5
         Me.btnRegresar.Text = "Regresar"
         Me.btnRegresar.UseVisualStyleBackColor = True
         '

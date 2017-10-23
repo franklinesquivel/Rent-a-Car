@@ -49,7 +49,7 @@ Partial Class frmGraficosRenta
         Series1.Name = "Series1"
         Me.chtGraficoRentas.Series.Add(Series1)
         Me.chtGraficoRentas.Size = New System.Drawing.Size(467, 290)
-        Me.chtGraficoRentas.TabIndex = 0
+        Me.chtGraficoRentas.TabIndex = 1
         Me.chtGraficoRentas.Text = "Grafico"
         '
         'cmbAño
@@ -58,7 +58,7 @@ Partial Class frmGraficosRenta
         Me.cmbAño.Location = New System.Drawing.Point(247, 89)
         Me.cmbAño.Name = "cmbAño"
         Me.cmbAño.Size = New System.Drawing.Size(121, 21)
-        Me.cmbAño.TabIndex = 2
+        Me.cmbAño.TabIndex = 0
         '
         'lblSeleccionar
         '
@@ -82,7 +82,7 @@ Partial Class frmGraficosRenta
         Me.btnRegresar.Name = "btnRegresar"
         Me.btnRegresar.Primary = True
         Me.btnRegresar.Size = New System.Drawing.Size(106, 27)
-        Me.btnRegresar.TabIndex = 60
+        Me.btnRegresar.TabIndex = 2
         Me.btnRegresar.Text = "Regresar"
         Me.btnRegresar.UseVisualStyleBackColor = True
         '

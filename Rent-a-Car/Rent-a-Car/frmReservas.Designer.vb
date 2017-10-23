@@ -36,8 +36,10 @@ Partial Class frmReservas
         Me.btnRegresar = New MaterialSkin.Controls.MaterialRaisedButton()
         Me.mnsMenu = New System.Windows.Forms.MenuStrip()
         Me.mnsCerrar_Sesion = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CerrarSesiónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.dgvBuscar_Usuario, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvBuscar_Coche, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.mnsMenu.SuspendLayout()
         Me.SuspendLayout()
         '
         'lblFecha_Devolucion
@@ -75,7 +77,7 @@ Partial Class frmReservas
         Me.dtpFecha_Entrega.MinDate = New Date(2017, 9, 23, 0, 0, 0, 0)
         Me.dtpFecha_Entrega.Name = "dtpFecha_Entrega"
         Me.dtpFecha_Entrega.Size = New System.Drawing.Size(245, 23)
-        Me.dtpFecha_Entrega.TabIndex = 52
+        Me.dtpFecha_Entrega.TabIndex = 0
         '
         'dtpFecha_Devolucion
         '
@@ -86,7 +88,7 @@ Partial Class frmReservas
         Me.dtpFecha_Devolucion.MinDate = New Date(2017, 9, 23, 0, 0, 0, 0)
         Me.dtpFecha_Devolucion.Name = "dtpFecha_Devolucion"
         Me.dtpFecha_Devolucion.Size = New System.Drawing.Size(245, 23)
-        Me.dtpFecha_Devolucion.TabIndex = 53
+        Me.dtpFecha_Devolucion.TabIndex = 1
         '
         'txbBuscar_Codigo
         '
@@ -100,7 +102,7 @@ Partial Class frmReservas
         Me.txbBuscar_Codigo.SelectionLength = 0
         Me.txbBuscar_Codigo.SelectionStart = 0
         Me.txbBuscar_Codigo.Size = New System.Drawing.Size(289, 23)
-        Me.txbBuscar_Codigo.TabIndex = 62
+        Me.txbBuscar_Codigo.TabIndex = 2
         Me.txbBuscar_Codigo.UseSystemPasswordChar = False
         '
         'lblBuscar_Codigo
@@ -137,7 +139,7 @@ Partial Class frmReservas
         Me.txbBuscar_Coche.SelectionLength = 0
         Me.txbBuscar_Coche.SelectionStart = 0
         Me.txbBuscar_Coche.Size = New System.Drawing.Size(344, 23)
-        Me.txbBuscar_Coche.TabIndex = 65
+        Me.txbBuscar_Coche.TabIndex = 3
         Me.txbBuscar_Coche.UseSystemPasswordChar = False
         '
         'lblBuscar_Coche
@@ -174,7 +176,7 @@ Partial Class frmReservas
         Me.btnReservar_Coche.Name = "btnReservar_Coche"
         Me.btnReservar_Coche.Primary = False
         Me.btnReservar_Coche.Size = New System.Drawing.Size(128, 36)
-        Me.btnReservar_Coche.TabIndex = 66
+        Me.btnReservar_Coche.TabIndex = 4
         Me.btnReservar_Coche.Text = "Reservar coche"
         Me.btnReservar_Coche.UseVisualStyleBackColor = True
         '
@@ -187,15 +189,16 @@ Partial Class frmReservas
         Me.btnRegresar.Name = "btnRegresar"
         Me.btnRegresar.Primary = True
         Me.btnRegresar.Size = New System.Drawing.Size(106, 27)
-        Me.btnRegresar.TabIndex = 77
+        Me.btnRegresar.TabIndex = 5
         Me.btnRegresar.Text = "Regresar"
         Me.btnRegresar.UseVisualStyleBackColor = True
         '
         'mnsMenu
         '
+        Me.mnsMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CerrarSesiónToolStripMenuItem})
         Me.mnsMenu.Location = New System.Drawing.Point(0, 0)
         Me.mnsMenu.Name = "mnsMenu"
-        Me.mnsMenu.Size = New System.Drawing.Size(541, 24)
+        Me.mnsMenu.Size = New System.Drawing.Size(541, 27)
         Me.mnsMenu.TabIndex = 78
         Me.mnsMenu.Text = "MenuStrip1"
         '
@@ -205,6 +208,13 @@ Partial Class frmReservas
         Me.mnsCerrar_Sesion.Name = "mnsCerrar_Sesion"
         Me.mnsCerrar_Sesion.Size = New System.Drawing.Size(102, 23)
         Me.mnsCerrar_Sesion.Text = "Cerrar Sesión"
+        '
+        'CerrarSesiónToolStripMenuItem
+        '
+        Me.CerrarSesiónToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.CerrarSesiónToolStripMenuItem.Name = "CerrarSesiónToolStripMenuItem"
+        Me.CerrarSesiónToolStripMenuItem.Size = New System.Drawing.Size(102, 23)
+        Me.CerrarSesiónToolStripMenuItem.Text = "Cerrar Sesión"
         '
         'frmReservas
         '
@@ -231,6 +241,8 @@ Partial Class frmReservas
     "       Rent-a-Car                            "
         CType(Me.dgvBuscar_Usuario, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgvBuscar_Coche, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.mnsMenu.ResumeLayout(False)
+        Me.mnsMenu.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -250,4 +262,5 @@ Partial Class frmReservas
     Friend WithEvents btnRegresar As MaterialSkin.Controls.MaterialRaisedButton
     Friend WithEvents mnsMenu As MenuStrip
     Friend WithEvents mnsCerrar_Sesion As ToolStripMenuItem
+    Friend WithEvents CerrarSesiónToolStripMenuItem As ToolStripMenuItem
 End Class

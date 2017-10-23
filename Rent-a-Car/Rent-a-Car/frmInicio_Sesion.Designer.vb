@@ -45,7 +45,7 @@ Partial Class frmInicio_Sesion
         Me.btnIniciar_sesion.Name = "btnIniciar_sesion"
         Me.btnIniciar_sesion.Primary = False
         Me.btnIniciar_sesion.Size = New System.Drawing.Size(111, 36)
-        Me.btnIniciar_sesion.TabIndex = 59
+        Me.btnIniciar_sesion.TabIndex = 2
         Me.btnIniciar_sesion.Text = "Iniciar Sesión"
         Me.btnIniciar_sesion.UseVisualStyleBackColor = True
         '
@@ -61,7 +61,7 @@ Partial Class frmInicio_Sesion
         Me.txbNombre_Usuario.SelectionLength = 0
         Me.txbNombre_Usuario.SelectionStart = 0
         Me.txbNombre_Usuario.Size = New System.Drawing.Size(204, 23)
-        Me.txbNombre_Usuario.TabIndex = 58
+        Me.txbNombre_Usuario.TabIndex = 0
         Me.txbNombre_Usuario.UseSystemPasswordChar = False
         '
         'lblNombre_Usuario
@@ -89,7 +89,7 @@ Partial Class frmInicio_Sesion
         Me.txbContraseña.SelectionLength = 0
         Me.txbContraseña.SelectionStart = 0
         Me.txbContraseña.Size = New System.Drawing.Size(204, 23)
-        Me.txbContraseña.TabIndex = 61
+        Me.txbContraseña.TabIndex = 1
         Me.txbContraseña.UseSystemPasswordChar = True
         '
         'lblContraseña
@@ -125,7 +125,7 @@ Partial Class frmInicio_Sesion
         Me.btnRecuperar_Contraseña.Name = "btnRecuperar_Contraseña"
         Me.btnRecuperar_Contraseña.Primary = True
         Me.btnRecuperar_Contraseña.Size = New System.Drawing.Size(180, 29)
-        Me.btnRecuperar_Contraseña.TabIndex = 63
+        Me.btnRecuperar_Contraseña.TabIndex = 3
         Me.btnRecuperar_Contraseña.Text = "Recuperar contraseña"
         Me.btnRecuperar_Contraseña.UseVisualStyleBackColor = True
         '

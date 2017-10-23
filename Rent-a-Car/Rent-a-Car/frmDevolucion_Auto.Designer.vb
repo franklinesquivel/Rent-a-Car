@@ -33,7 +33,7 @@ Partial Class frmDevolucion_Auto
         Me.btnRegresar = New MaterialSkin.Controls.MaterialRaisedButton()
         Me.mnsMenu = New System.Windows.Forms.MenuStrip()
         Me.mnsCerrar_Sesion = New System.Windows.Forms.ToolStripMenuItem()
-        Me.MaterialLabel1 = New MaterialSkin.Controls.MaterialLabel()
+        Me.lblPlacaCocheDevolver = New MaterialSkin.Controls.MaterialLabel()
         Me.dgvDevolucion = New System.Windows.Forms.DataGridView()
         Me.lblPlaca = New MaterialSkin.Controls.MaterialLabel()
         Me.mnsMenu.SuspendLayout()
@@ -52,7 +52,7 @@ Partial Class frmDevolucion_Auto
         Me.btnConfirmar.Name = "btnConfirmar"
         Me.btnConfirmar.Primary = False
         Me.btnConfirmar.Size = New System.Drawing.Size(90, 36)
-        Me.btnConfirmar.TabIndex = 0
+        Me.btnConfirmar.TabIndex = 5
         Me.btnConfirmar.Text = "Confirmar"
         Me.btnConfirmar.UseVisualStyleBackColor = True
         '
@@ -114,7 +114,7 @@ Partial Class frmDevolucion_Auto
         Me.dtpFecha_Devolucion.MinDate = New Date(2017, 9, 23, 0, 0, 0, 0)
         Me.dtpFecha_Devolucion.Name = "dtpFecha_Devolucion"
         Me.dtpFecha_Devolucion.Size = New System.Drawing.Size(245, 23)
-        Me.dtpFecha_Devolucion.TabIndex = 54
+        Me.dtpFecha_Devolucion.TabIndex = 3
         '
         'lblFecha_Devolucion
         '
@@ -136,7 +136,7 @@ Partial Class frmDevolucion_Auto
         Me.txbDescripcion_Problema.Multiline = True
         Me.txbDescripcion_Problema.Name = "txbDescripcion_Problema"
         Me.txbDescripcion_Problema.Size = New System.Drawing.Size(477, 99)
-        Me.txbDescripcion_Problema.TabIndex = 55
+        Me.txbDescripcion_Problema.TabIndex = 4
         '
         'lblDescripcion_Problema
         '
@@ -160,7 +160,7 @@ Partial Class frmDevolucion_Auto
         Me.btnRegresar.Name = "btnRegresar"
         Me.btnRegresar.Primary = True
         Me.btnRegresar.Size = New System.Drawing.Size(106, 27)
-        Me.btnRegresar.TabIndex = 59
+        Me.btnRegresar.TabIndex = 6
         Me.btnRegresar.Text = "Regresar"
         Me.btnRegresar.UseVisualStyleBackColor = True
         '
@@ -180,18 +180,18 @@ Partial Class frmDevolucion_Auto
         Me.mnsCerrar_Sesion.Size = New System.Drawing.Size(102, 23)
         Me.mnsCerrar_Sesion.Text = "Cerrar Sesión"
         '
-        'MaterialLabel1
+        'lblPlacaCocheDevolver
         '
-        Me.MaterialLabel1.AutoSize = True
-        Me.MaterialLabel1.Depth = 0
-        Me.MaterialLabel1.Font = New System.Drawing.Font("Roboto", 11.0!)
-        Me.MaterialLabel1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.MaterialLabel1.Location = New System.Drawing.Point(42, 87)
-        Me.MaterialLabel1.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialLabel1.Name = "MaterialLabel1"
-        Me.MaterialLabel1.Size = New System.Drawing.Size(191, 19)
-        Me.MaterialLabel1.TabIndex = 61
-        Me.MaterialLabel1.Text = "Placa de Coche a Devolver:"
+        Me.lblPlacaCocheDevolver.AutoSize = True
+        Me.lblPlacaCocheDevolver.Depth = 0
+        Me.lblPlacaCocheDevolver.Font = New System.Drawing.Font("Roboto", 11.0!)
+        Me.lblPlacaCocheDevolver.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblPlacaCocheDevolver.Location = New System.Drawing.Point(42, 87)
+        Me.lblPlacaCocheDevolver.MouseState = MaterialSkin.MouseState.HOVER
+        Me.lblPlacaCocheDevolver.Name = "lblPlacaCocheDevolver"
+        Me.lblPlacaCocheDevolver.Size = New System.Drawing.Size(191, 19)
+        Me.lblPlacaCocheDevolver.TabIndex = 61
+        Me.lblPlacaCocheDevolver.Text = "Placa de Coche a Devolver:"
         '
         'dgvDevolucion
         '
@@ -200,7 +200,7 @@ Partial Class frmDevolucion_Auto
         Me.dgvDevolucion.Name = "dgvDevolucion"
         Me.dgvDevolucion.ReadOnly = True
         Me.dgvDevolucion.Size = New System.Drawing.Size(468, 109)
-        Me.dgvDevolucion.TabIndex = 62
+        Me.dgvDevolucion.TabIndex = 0
         '
         'lblPlaca
         '
@@ -222,7 +222,7 @@ Partial Class frmDevolucion_Auto
         Me.ClientSize = New System.Drawing.Size(573, 655)
         Me.Controls.Add(Me.lblPlaca)
         Me.Controls.Add(Me.dgvDevolucion)
-        Me.Controls.Add(Me.MaterialLabel1)
+        Me.Controls.Add(Me.lblPlacaCocheDevolver)
         Me.Controls.Add(Me.btnRegresar)
         Me.Controls.Add(Me.lblDescripcion_Problema)
         Me.Controls.Add(Me.txbDescripcion_Problema)
@@ -257,7 +257,7 @@ Partial Class frmDevolucion_Auto
     Friend WithEvents btnRegresar As MaterialSkin.Controls.MaterialRaisedButton
     Friend WithEvents mnsMenu As MenuStrip
     Friend WithEvents mnsCerrar_Sesion As ToolStripMenuItem
-    Friend WithEvents MaterialLabel1 As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents lblPlacaCocheDevolver As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents dgvDevolucion As DataGridView
     Friend WithEvents lblPlaca As MaterialSkin.Controls.MaterialLabel
 End Class

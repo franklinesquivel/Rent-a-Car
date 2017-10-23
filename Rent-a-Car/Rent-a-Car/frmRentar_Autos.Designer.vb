@@ -43,7 +43,7 @@ Partial Class frmRentar_Autos
         Me.btnRegresar.Name = "btnRegresar"
         Me.btnRegresar.Primary = True
         Me.btnRegresar.Size = New System.Drawing.Size(106, 27)
-        Me.btnRegresar.TabIndex = 72
+        Me.btnRegresar.TabIndex = 3
         Me.btnRegresar.Text = "Regresar"
         Me.btnRegresar.UseVisualStyleBackColor = True
         '
@@ -59,7 +59,7 @@ Partial Class frmRentar_Autos
         Me.btnRentar_Autos.Name = "btnRentar_Autos"
         Me.btnRentar_Autos.Primary = False
         Me.btnRentar_Autos.Size = New System.Drawing.Size(131, 36)
-        Me.btnRentar_Autos.TabIndex = 71
+        Me.btnRentar_Autos.TabIndex = 2
         Me.btnRentar_Autos.Text = "Registrar Renta"
         Me.btnRentar_Autos.UseVisualStyleBackColor = True
         '
@@ -75,7 +75,7 @@ Partial Class frmRentar_Autos
         Me.txbCodigo_Reserva.SelectionLength = 0
         Me.txbCodigo_Reserva.SelectionStart = 0
         Me.txbCodigo_Reserva.Size = New System.Drawing.Size(289, 23)
-        Me.txbCodigo_Reserva.TabIndex = 70
+        Me.txbCodigo_Reserva.TabIndex = 0
         Me.txbCodigo_Reserva.UseSystemPasswordChar = False
         '
         'lblCodigo_Reserva
@@ -112,7 +112,7 @@ Partial Class frmRentar_Autos
         Me.btnNoExiste.Name = "btnNoExiste"
         Me.btnNoExiste.Primary = False
         Me.btnNoExiste.Size = New System.Drawing.Size(143, 36)
-        Me.btnNoExiste.TabIndex = 73
+        Me.btnNoExiste.TabIndex = 1
         Me.btnNoExiste.Text = "renta sin reserva"
         Me.btnNoExiste.UseVisualStyleBackColor = True
         '

@@ -13,9 +13,13 @@ Public Class frmReportes_Rentas
         frmMenu_Admin.Show()
         Me.Close()
     End Sub
-
+    Private Function obtenerRadio() As MaterialSkin.Controls.MaterialRadioButton 'Obtener el valor de los radios
+        Dim rButton As MaterialSkin.Controls.MaterialRadioButton = Me.Controls.OfType(Of RadioButton).Where(Function(r) r.Checked = True).FirstOrDefault()
+        Return rButton
+    End Function
     Private Sub dtpFecha_Limite_ValueChanged(sender As Object, e As EventArgs) Handles dtpFecha_Limite.ValueChanged
         Dim tipo As String
+
         'Se lista los reportes por el mes seleccionado y el tipo de reporte seleccionado
         If rdbAgencia.Checked = True Then
             tipo = "Agencia"
@@ -33,7 +37,11 @@ Public Class frmReportes_Rentas
         End If
     End Sub
 
-    Private Sub rdbAgencia_CheckedChanged_1(sender As Object, e As EventArgs) Handles rdbAgencia.CheckedChanged
+    Private Sub mnsCerrar_Sesion_Click(sender As Object, e As EventArgs) Handles mnsCerrar_Sesion.Click
+        Session.CerrarSession() 'Cerrar Sesión
+    End Sub
+
+    Private Sub rdbAgencia_CheckedChanged(sender As Object, e As EventArgs) Handles rdbAgencia.CheckedChanged
         'Se ejecuta la busqueda al cambiar de estado el rdb
         If rdbAgencia.Checked = True Then
             If Not Rentas.Reportes("Agencia", dgvReportes) Then
@@ -42,7 +50,7 @@ Public Class frmReportes_Rentas
         End If
     End Sub
 
-    Private Sub rdbAgente_CheckedChanged_1(sender As Object, e As EventArgs) Handles rdbAgente.CheckedChanged
+    Private Sub rdbAgente_CheckedChanged(sender As Object, e As EventArgs) Handles rdbAgente.CheckedChanged
         'Se ejecuta la busqueda al cambiar de estado el rdb
         If rdbAgente.Checked = True Then
             If Not Rentas.Reportes("Agente", dgvReportes) Then
@@ -51,16 +59,12 @@ Public Class frmReportes_Rentas
         End If
     End Sub
 
-    Private Sub rdbTipoAuto_CheckedChanged_1(sender As Object, e As EventArgs) Handles rdbTipoAuto.CheckedChanged
+    Private Sub rdbTipoAuto_CheckedChanged(sender As Object, e As EventArgs) Handles rdbTipoAuto.CheckedChanged
         'Se ejecuta la busqueda al cambiar de estado el rdb
         If rdbTipoAuto.Checked = True Then
             If Not Rentas.Reportes("Auto", dgvReportes) Then
                 MsgBox("Error: No hay datos por mostrar")
             End If
         End If
-    End Sub
-
-    Private Sub mnsCerrar_Sesion_Click(sender As Object, e As EventArgs) Handles mnsCerrar_Sesion.Click
-        Session.CerrarSession() 'Cerrar Sesión
     End Sub
 End Class

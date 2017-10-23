@@ -123,4 +123,16 @@ Public Class frmModificar_Coche
     Private Sub mnsCerrar_Sesion_Click(sender As Object, e As EventArgs) Handles mnsCerrar_Sesion.Click
         Session.CerrarSession() 'Cerrar sesión
     End Sub
+
+    Private Sub rdbSedan_CheckedChanged(sender As Object, e As EventArgs) Handles rdbSedan.CheckedChanged
+
+    End Sub
+
+    Private Sub rdbPickups_CheckedChanged(sender As Object, e As EventArgs) Handles rdbPickups.CheckedChanged
+
+    End Sub
+
+    Private Sub rdbMicrobuses_CheckedChanged(sender As Object, e As EventArgs) Handles rdbMicrobuses.CheckedChanged
+
+    End Sub
 End Class

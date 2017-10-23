@@ -64,7 +64,7 @@ Partial Class frmCancelar_Reservas
         Me.txbCodigo_Reserva.SelectionLength = 0
         Me.txbCodigo_Reserva.SelectionStart = 0
         Me.txbCodigo_Reserva.Size = New System.Drawing.Size(289, 23)
-        Me.txbCodigo_Reserva.TabIndex = 65
+        Me.txbCodigo_Reserva.TabIndex = 0
         Me.txbCodigo_Reserva.UseSystemPasswordChar = False
         '
         'lblCodigo_Reserva
@@ -101,7 +101,7 @@ Partial Class frmCancelar_Reservas
         Me.btnCancelar_Reservas.Name = "btnCancelar_Reservas"
         Me.btnCancelar_Reservas.Primary = False
         Me.btnCancelar_Reservas.Size = New System.Drawing.Size(144, 36)
-        Me.btnCancelar_Reservas.TabIndex = 66
+        Me.btnCancelar_Reservas.TabIndex = 2
         Me.btnCancelar_Reservas.Text = "Cancelar Reserva"
         Me.btnCancelar_Reservas.UseVisualStyleBackColor = True
         '
@@ -114,7 +114,7 @@ Partial Class frmCancelar_Reservas
         Me.btnRegresar.Name = "btnRegresar"
         Me.btnRegresar.Primary = True
         Me.btnRegresar.Size = New System.Drawing.Size(106, 27)
-        Me.btnRegresar.TabIndex = 67
+        Me.btnRegresar.TabIndex = 4
         Me.btnRegresar.Text = "Regresar"
         Me.btnRegresar.UseVisualStyleBackColor = True
         '
@@ -142,7 +142,7 @@ Partial Class frmCancelar_Reservas
         Me.tbcReserva.Name = "tbcReserva"
         Me.tbcReserva.SelectedIndex = 0
         Me.tbcReserva.Size = New System.Drawing.Size(499, 289)
-        Me.tbcReserva.TabIndex = 69
+        Me.tbcReserva.TabIndex = 1
         '
         'tpResultados
         '
@@ -280,7 +280,7 @@ Partial Class frmCancelar_Reservas
         Me.btnVerDatos.Name = "btnVerDatos"
         Me.btnVerDatos.Primary = False
         Me.btnVerDatos.Size = New System.Drawing.Size(85, 36)
-        Me.btnVerDatos.TabIndex = 67
+        Me.btnVerDatos.TabIndex = 3
         Me.btnVerDatos.Text = "Ver Datos"
         Me.btnVerDatos.UseVisualStyleBackColor = True
         '

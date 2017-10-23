@@ -183,7 +183,7 @@ Partial Class frmClientes
         Me.lblDUI.Depth = 0
         Me.lblDUI.Font = New System.Drawing.Font("Roboto", 11.0!)
         Me.lblDUI.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblDUI.Location = New System.Drawing.Point(45, 209)
+        Me.lblDUI.Location = New System.Drawing.Point(45, 205)
         Me.lblDUI.MouseState = MaterialSkin.MouseState.HOVER
         Me.lblDUI.Name = "lblDUI"
         Me.lblDUI.Size = New System.Drawing.Size(33, 19)
@@ -194,7 +194,7 @@ Partial Class frmClientes
         '
         Me.txbDui.Depth = 0
         Me.txbDui.Hint = ""
-        Me.txbDui.Location = New System.Drawing.Point(97, 209)
+        Me.txbDui.Location = New System.Drawing.Point(97, 205)
         Me.txbDui.MouseState = MaterialSkin.MouseState.HOVER
         Me.txbDui.Name = "txbDui"
         Me.txbDui.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)

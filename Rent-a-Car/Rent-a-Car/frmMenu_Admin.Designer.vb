@@ -365,7 +365,7 @@ Partial Class frmMenu_Admin
         Me.btnCerrar_Sesion.Name = "btnCerrar_Sesion"
         Me.btnCerrar_Sesion.Primary = True
         Me.btnCerrar_Sesion.Size = New System.Drawing.Size(147, 36)
-        Me.btnCerrar_Sesion.TabIndex = 73
+        Me.btnCerrar_Sesion.TabIndex = 7
         Me.btnCerrar_Sesion.Text = "Cerrar sesión"
         Me.btnCerrar_Sesion.UseVisualStyleBackColor = True
         '
@@ -591,7 +591,7 @@ Partial Class frmMenu_Admin
         Me.btnGraficoMesContador.Name = "btnGraficoMesContador"
         Me.btnGraficoMesContador.Primary = False
         Me.btnGraficoMesContador.Size = New System.Drawing.Size(126, 36)
-        Me.btnGraficoMesContador.TabIndex = 88
+        Me.btnGraficoMesContador.TabIndex = 5
         Me.btnGraficoMesContador.Text = "Rentas por mes"
         Me.btnGraficoMesContador.UseVisualStyleBackColor = True
         '
@@ -621,7 +621,7 @@ Partial Class frmMenu_Admin
         Me.btnRentasAgenciasContador.Name = "btnRentasAgenciasContador"
         Me.btnRentasAgenciasContador.Primary = False
         Me.btnRentasAgenciasContador.Size = New System.Drawing.Size(164, 36)
-        Me.btnRentasAgenciasContador.TabIndex = 86
+        Me.btnRentasAgenciasContador.TabIndex = 6
         Me.btnRentasAgenciasContador.Text = "Rentas por agencias"
         Me.btnRentasAgenciasContador.UseVisualStyleBackColor = True
         '
@@ -637,7 +637,7 @@ Partial Class frmMenu_Admin
         Me.btnEstadoAutoContador.Name = "btnEstadoAutoContador"
         Me.btnEstadoAutoContador.Primary = False
         Me.btnEstadoAutoContador.Size = New System.Drawing.Size(160, 36)
-        Me.btnEstadoAutoContador.TabIndex = 85
+        Me.btnEstadoAutoContador.TabIndex = 0
         Me.btnEstadoAutoContador.Text = "Estado de los Autos"
         Me.btnEstadoAutoContador.UseVisualStyleBackColor = True
         '
@@ -653,13 +653,14 @@ Partial Class frmMenu_Admin
         Me.btnModificarAutoContador.Name = "btnModificarAutoContador"
         Me.btnModificarAutoContador.Primary = False
         Me.btnModificarAutoContador.Size = New System.Drawing.Size(124, 36)
-        Me.btnModificarAutoContador.TabIndex = 84
+        Me.btnModificarAutoContador.TabIndex = 2
         Me.btnModificarAutoContador.Text = "Modificar auto"
         Me.btnModificarAutoContador.UseVisualStyleBackColor = True
         '
         'MaterialLabel4
         '
         Me.MaterialLabel4.AutoSize = True
+        Me.MaterialLabel4.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.MaterialLabel4.Depth = 0
         Me.MaterialLabel4.Font = New System.Drawing.Font("Roboto", 11.0!)
         Me.MaterialLabel4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
@@ -682,7 +683,7 @@ Partial Class frmMenu_Admin
         Me.btnReporteCochesContador.Name = "btnReporteCochesContador"
         Me.btnReporteCochesContador.Primary = False
         Me.btnReporteCochesContador.Size = New System.Drawing.Size(222, 36)
-        Me.btnReporteCochesContador.TabIndex = 82
+        Me.btnReporteCochesContador.TabIndex = 4
         Me.btnReporteCochesContador.Text = "Reporte de coches rentados"
         Me.btnReporteCochesContador.UseVisualStyleBackColor = True
         '
@@ -712,7 +713,7 @@ Partial Class frmMenu_Admin
         Me.btnReportesRentaContador.Name = "btnReportesRentaContador"
         Me.btnReportesRentaContador.Primary = False
         Me.btnReportesRentaContador.Size = New System.Drawing.Size(208, 36)
-        Me.btnReportesRentaContador.TabIndex = 80
+        Me.btnReportesRentaContador.TabIndex = 3
         Me.btnReportesRentaContador.Text = "Reportes de renta por mes"
         Me.btnReportesRentaContador.UseVisualStyleBackColor = True
         '
@@ -728,7 +729,7 @@ Partial Class frmMenu_Admin
         Me.btnIngresarAutoContador.Name = "btnIngresarAutoContador"
         Me.btnIngresarAutoContador.Primary = False
         Me.btnIngresarAutoContador.Size = New System.Drawing.Size(165, 36)
-        Me.btnIngresarAutoContador.TabIndex = 79
+        Me.btnIngresarAutoContador.TabIndex = 1
         Me.btnIngresarAutoContador.Text = "Ingresar nuevo auto"
         Me.btnIngresarAutoContador.UseVisualStyleBackColor = True
         '

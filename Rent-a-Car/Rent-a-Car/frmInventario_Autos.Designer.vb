@@ -89,7 +89,7 @@ Partial Class frmInventario_Autos
         Me.btnRegresar.Name = "btnRegresar"
         Me.btnRegresar.Primary = True
         Me.btnRegresar.Size = New System.Drawing.Size(147, 36)
-        Me.btnRegresar.TabIndex = 72
+        Me.btnRegresar.TabIndex = 2
         Me.btnRegresar.Text = "Regresar"
         Me.btnRegresar.UseVisualStyleBackColor = True
         '
@@ -126,7 +126,7 @@ Partial Class frmInventario_Autos
         Me.tbcInventarios.Name = "tbcInventarios"
         Me.tbcInventarios.SelectedIndex = 0
         Me.tbcInventarios.Size = New System.Drawing.Size(710, 372)
-        Me.tbcInventarios.TabIndex = 2
+        Me.tbcInventarios.TabIndex = 3
         '
         'TabPage1
         '
