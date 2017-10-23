@@ -20,7 +20,7 @@
     Private Function verificarLetra(ByVal caracter As String) As String 'verifica si el parametro pasado es una letra
         For i As Long = 0 To (letras.Length - 1) 'Recorre el atributo arreglo de letras
             If caracter = letras(i) Then 'Verifica si son iguales
-                Return i 'Se retorna la letra en la iteración
+                Return CStr(i) 'Se retorna la letra en la iteración
             End If
         Next
         Return "-1" 'No cumplio con la condición
@@ -40,8 +40,8 @@
 
         For Each i As String In _contrasenna 'Se recorre el parametro pasado
             Dim _ascciCaracter, _longitudCaracter, _verificarNumero, _verificarLetra As String
-            _ascciCaracter = Asc(i) 'Se transforma el caracter iterado en código ascci
-            _longitudCaracter = _ascciCaracter.Length 'Se obtiene la longitud del caracter iterado en código ascci
+            _ascciCaracter = CStr(Asc(i)) 'Se transforma el caracter iterado en código ascci
+            _longitudCaracter = CStr(_ascciCaracter.Length) 'Se obtiene la longitud del caracter iterado en código ascci
             _verificarNumero = MyClass.verificarNumero(i) 'Se verifica si el caracter es numero
             _verificarLetra = MyClass.verificarLetra(i) 'Se verifica si el caracter es letra
             Dim _randomEspacio As New Random() 'Se instancia la clase random (Generar números aleatorio)
@@ -64,8 +64,8 @@
             If MyClass.verificarEspacio(i) Then 'Se verifica si el codigo ascci es un espacio
                 Dim _longitudPalabra, _ascciCaracter As String
                 _longitudPalabra = palabra.Substring(palabra.Length - 1) 'Obtiene la longitud caracter a caracter (Pero en ascci)
-                _ascciCaracter = palabra.Substring(0, _longitudPalabra) 'Se recorta el caracter en ascci
-                _contraDesencriptada += Chr(_ascciCaracter) 'Se desencrita el caracter
+                _ascciCaracter = palabra.Substring(0, CInt(_longitudPalabra)) 'Se recorta el caracter en ascci
+                _contraDesencriptada += Chr(CInt(_ascciCaracter)) 'Se desencrita el caracter
                 palabra = ""
             Else
                 palabra += i

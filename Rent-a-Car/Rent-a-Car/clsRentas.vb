@@ -25,34 +25,34 @@ Public Class clsRentas
         If id <> Nothing Then
             'Función para obtener datos guardados en la BDD
         Else
-            _estado = True
+            _estado = ""
         End If
     End Sub
     '_________________________________________
     '|   Propiedades de lectura de la clase   |
     '|________________________________________|
-    Public ReadOnly Property idCliente
+    Public ReadOnly Property idCliente() As Integer
         Get
             Return _idCliente
         End Get
     End Property
-    Public ReadOnly Property Total
+    Public ReadOnly Property Total() As Decimal
         Get
             Return _total
         End Get
     End Property
-    Public ReadOnly Property idAgencia
+    Public ReadOnly Property idAgencia() As Integer
         Get
             Return _idAgencia
         End Get
     End Property
-    Public ReadOnly Property idCoche
+    Public ReadOnly Property idCoche() As Integer
         Get
             Return _idCoche
         End Get
     End Property
 
-    Public ReadOnly Property estado
+    Public ReadOnly Property estado() As String
         Get
             Return _estado
         End Get
@@ -68,7 +68,7 @@ Public Class clsRentas
             Return _fechaEntrega
         End Get
     End Property
-    Public ReadOnly Property ObtenerCodigoRenta() As String
+    Public ReadOnly Property ObtenerCodigoRenta() As Integer
         Get
             Return _idRenta
         End Get
@@ -96,18 +96,18 @@ Public Class clsRentas
     '___________________________________________
     '|   Propiedades de escritura de la clase   |
     '|__________________________________________|
-    Public WriteOnly Property cambiarEstado() As Boolean
-        Set(ByVal value As Boolean)
+    Public WriteOnly Property cambiarEstado() As String
+        Set(ByVal value As String)
             _estado = value
         End Set
     End Property
-    Private WriteOnly Property EstablecerCodigoRenta() As String
-        Set(ByVal value As String)
+    Private WriteOnly Property EstablecerCodigoRenta() As Integer
+        Set(ByVal value As Integer)
             _idRenta = value
         End Set
     End Property
-    Public WriteOnly Property EstablecerIdAgencia() As String
-        Set(ByVal value As String)
+    Public WriteOnly Property EstablecerIdAgencia() As Integer
+        Set(ByVal value As Integer)
             _idAgencia = value
         End Set
     End Property
@@ -149,7 +149,7 @@ Public Class clsRentas
     '___________________________________
     '|   Metodos generales de la clase  |
     '|__________________________________|
-    Public Function Registrar(ByVal _fechaInicio As String, ByVal _fechaFin As String, ByVal cliente As clsClientes, ByVal coche As clsCoches)
+    Public Function Registrar(ByVal _fechaInicio As String, ByVal _fechaFin As String, ByVal cliente As clsClientes, ByVal coche As clsCoches) As Boolean
         'Función que sirve para rentar no basandose en una reserva
 
         Dim rgx_fecha = New Regex("^\d{2}\d{2}\d{4}$") 'Patrón de la fecha
@@ -165,7 +165,7 @@ Public Class clsRentas
             Return False
         End If
 
-        If CDate(_fechaInicio) < Date.Now.ToString("yyyy-MM-dd") Then 'Se verifica que una fecha no sea mayor a la actual
+        If CDate(_fechaInicio) < CDate(Date.Now.ToString("yyyy-MM-dd")) Then 'Se verifica que una fecha no sea mayor a la actual
             MsgBox("Error: No puede ingresar una fecha de inicio menor a la actual")
             Return False
         End If
@@ -175,14 +175,14 @@ Public Class clsRentas
                 'Establece la información en los atributos
                 MyClass.EstablecerFechaInicio = CDate(_fechaInicio)
                 MyClass.EstablecerFechaFin = CDate(_fechaFin)
-                MyClass.EstablecerIdAgencia = coche.ObtenerIdAgencia
+                MyClass.EstablecerIdAgencia = CInt(coche.ObtenerIdAgencia)
                 MyClass.EstablecerIdCoche = coche.ObtenerIdCoche
-                MyClass.EstablecerIdCliente = cliente.ObtenerIdCliente
-                MyClass.EstablecerIdUsuario = Session.ObtenerIdUsuario
-                MyClass.EstablecerPrecio = coche.ObtenerPrecioAlquiler * DateDiff(DateInterval.Day, CDate(_fechaInicio), CDate(_fechaFin))
+                MyClass.EstablecerIdCliente = CInt(cliente.ObtenerIdCliente)
+                MyClass.EstablecerIdUsuario = CInt(Session.ObtenerIdUsuario)
+                MyClass.EstablecerPrecio = CDec(CDec(coche.ObtenerPrecioAlquiler) * DateDiff(DateInterval.Day, CDate(_fechaInicio), CDate(_fechaFin)))
                 'Ingresa los datos a la BD
                 If Conexion.modificarDatos("INSERT INTO rentas VALUES(" & "NULL" & ", " & idCliente & ", " & idAgencia & ", " & idCoche & ", " & Session.ObtenerIdUsuario & ", '" & _fechaInicio & "', '" & _fechaFin & "' ,'Activa',  " & _precio & ") ") Then
-                    clsArchivo.GenerarPDF(cliente, coche, _precio, _fechaFin) 'Genera factura
+                    clsArchivo.GenerarPDF(cliente, coche, _precio, CDate(_fechaFin)) 'Genera factura
                     Return True
                 End If
             End If
@@ -201,7 +201,7 @@ Public Class clsRentas
             MsgBox(codigoReserva)
             Conexion.obtenerDatos("SELECT precio_pagar FROM reservas WHERE id_reserva = '" & codigoReserva & "'", reader) 'Obtnemos los datos de la reserva
             reader.Read()
-            Dim totalPagar = reader(0)
+            Dim totalPagar As String = CStr(reader(0))
             If Conexion.modificarDatos("INSERT INTO rentas VALUES(" & "NULL" & ", " & idCliente & ", " & idAgencia & ", " & idCoche & ", " & idUsuario & ", '" & fechaR & "', '" & fechaD & "' ,'Activa', " & totalPagar & ")") Then
                 clsArchivo.GenerarPDFDatosReserva(codigoReserva, totalPagar) 'Mandamos información al pdf
                 reader.Close() 'Se cierra la lectira
@@ -212,9 +212,9 @@ Public Class clsRentas
     End Function
     Public Function ReservaRealizada(ByVal reserva As clsReservas) As Boolean 'Si la renta fue exitosa y si en base a reserva, se cambia el estado de la reserva
         If Conexion.modificarDatos("UPDATE reservas SET estado = 'Realizada' WHERE id_reserva = '" & reserva.ObtenerCodigoReserva & "'") Then
-            Return 1
+            Return True
         Else
-            Return 0
+            Return False
         End If
     End Function
 
@@ -227,7 +227,7 @@ Public Class clsRentas
     End Function
     Public Function listarRentas(ByRef listaRentas() As clsRentas, ByRef dgv As DataGridView) As Boolean 'Se listan todas las rentas
         If Conexion.contarFilas("SELECT * FROM rentas WHERE estado = 'Activa'") = 0 Then
-            Return 0
+            Return False
         Else
             Dim i As Integer = 0
             Dim reader As MySqlDataReader
@@ -247,22 +247,22 @@ Public Class clsRentas
                 Rentas = New clsRentas 'Nuevo objeto de la clase
 
                 'Se guardan los campos en los atributos
-                Rentas.EstablecerCodigoRenta = reader(0)
-                Rentas.EstablecerIdCliente = reader(1)
-                Rentas.EstablecerIdAgencia = reader(2)
-                Rentas.EstablecerIdCoche = reader(3)
-                Rentas.EstablecerIdUsuario = reader(4)
+                Rentas.EstablecerCodigoRenta = CInt(reader(0))
+                Rentas.EstablecerIdCliente = CInt(reader(1))
+                Rentas.EstablecerIdAgencia = CInt(reader(2))
+                Rentas.EstablecerIdCoche = CInt(reader(3))
+                Rentas.EstablecerIdUsuario = CInt(reader(4))
                 Rentas.EstablecerFechaInicio = CDate(reader(5))
                 Rentas.EstablecerFechaFin = CDate(reader(6))
 
-                Rentas.EstablecerEstado = reader(7)
+                Rentas.EstablecerEstado = CStr(reader(7))
 
                 listaRentas(i) = Rentas 'Se guarda el objeto en el array
                 With dgv
                     i = .RowCount
                     .Rows.Add()
                     .Rows(i - 1).Cells(0).Value = reader(0).ToString
-                    .Rows(i - 1).Cells(1).Value = reader(9) & ", " & reader(8)
+                    .Rows(i - 1).Cells(1).Value = CStr(reader(9)) & ", " & CStr(reader(8))
                     .Rows(i - 1).Cells(2).Value = reader(10)
                     .Rows(i - 1).Cells(3).Value = reader(11)
                     .Rows(i - 1).Cells(4).Value = listaRentas(i - 1).getFechaRetiro.ToString("yyyy-MM-dd")
@@ -270,63 +270,67 @@ Public Class clsRentas
                 End With
             End While
             reader.Close()
-            Return 1
+            Return True
         End If
     End Function
 
     Public Function DevolverCoche(ByVal id As Integer, ByVal tipoDevolucion As Integer, ByVal Fecha1 As String, ByVal Fecha2 As String, Optional ByVal descripcion As String = Nothing) As Boolean
         If tipoDevolucion = 1 Then 'Condicional cuando todo va bien
 
-            If MyClass.Calcular(Fecha1, Fecha2) Then 'Registra la multa
+            If MyClass.Calcular(CDate(Fecha1), CDate(Fecha2)) Then 'Registra la multa
                 Conexion.modificarDatos("INSERT INTO multas VALUES(" & "NULL" & ", " & id & ", '" & descripcion & "', " & Total & ")")
                 MsgBox("Total a pagar de multas por tardía $" & Total)
             End If
 
             'Registro cuando todo va bien
             If Conexion.modificarDatos("UPDATE rentas SET estado = 'Devuelto' WHERE id_renta = '" & id & "'") Then
-                Return 1
+                Return True
             End If
 
 
         ElseIf tipoDevolucion = 2 Then 'Daños al auto
-            Dim multa As Decimal = 0
-            While multa <= 0 Or Not (IsNumeric(multa)) 'Se registra la multa
+            Dim multa As String = ""
+            While _noCoincide("^\d+(\.{1}\d{2}){0,1}$", multa) 'Se registra la multa
                 multa = InputBox("Ingrese la Multa por el coche chocado")
             End While
 
-            If MyClass.Calcular(Fecha1, Fecha2) Then 'Registra la multa por tardía
+            If MyClass.Calcular(CDate(Fecha1), CDate(Fecha2)) Then 'Registra la multa por tardía
                 MsgBox("Total a pagar de multas por tardía $" & Total)
             End If
+            descripcion = descripcion.Trim
+            If descripcion.Length = 0 Then
+                MsgBox("Erro: Ingrese una descripción")
+            Else
+                'Registro multa por choque
+                If Conexion.modificarDatos("INSERT INTO multas VALUES(" & "NULL" & ", " & id & ", '" & descripcion & "', " & (multa + Total) & ")") Then
+                    If Conexion.modificarDatos("UPDATE rentas SET estado = 'Devuelto' WHERE id_renta = '" & id & "'") Then
 
-            'Registro multa por choque
-            If Conexion.modificarDatos("INSERT INTO multas VALUES(" & "NULL" & ", " & id & ", '" & descripcion & "', " & (multa + Total) & ")") Then
-                If Conexion.modificarDatos("UPDATE rentas SET estado = 'Devuelto' WHERE id_renta = '" & id & "'") Then
+                        Dim reader As MySqlDataReader 'Se obtiene el id del coche
+                        Conexion.obtenerDatos("SELECT c.id_coche FROM rentas r INNER JOIN coches c ON c.id_coche = r.id_coche WHERE r.id_renta = '" & id & "'", reader)
 
-                    Dim reader As MySqlDataReader 'Se obtiene el id del coche
-                    Conexion.obtenerDatos("SELECT c.id_coche FROM rentas r INNER JOIN coches c ON c.id_coche = r.id_coche WHERE r.id_renta = '" & id & "'", reader)
-
-                    'Modifica el estado del coche
-                    reader.Read()
-                    If Conexion.modificarDatos("UPDATE coches SET estado = 'R' WHERE id_coche = '" & reader(0) & "'") Then
-                        reader.Close()
-                        Return 1
+                        'Modifica el estado del coche
+                        reader.Read()
+                        If Conexion.modificarDatos("UPDATE coches SET estado = 'R' WHERE id_coche = '" & CStr(reader(0)) & "'") Then
+                            reader.Close()
+                            Return True
+                        End If
                     End If
                 End If
             End If
         End If
-        Return 0
+        Return False
     End Function
     Public Function Calcular(ByVal fecha1 As Date, fecha2 As Date) As Boolean 'Calculamos la multa si en caso regresa el carro despues de la fecha registrada
-        _dias = (fecha2 - fecha1).TotalDays
+        _dias = CInt((fecha2 - fecha1).TotalDays)
         If _dias > 0 Then
             _total = _dias * _tasaMulta
             If Total > 0 Then
-                Return 1
+                Return True
             Else
-                Return 0
+                Return False
             End If
         Else
-            Return 0
+            Return False
         End If
     End Function
     Public Function ChequearRenta(ByVal coche As clsCoches) As Boolean 'Chequeamos si hay una renta con el coche elegido
@@ -345,7 +349,7 @@ Public Class clsRentas
             Return True
         End If
     End Function
-    Public Function Reportes(ByVal tipo As String, ByRef dgv As DataGridView, Optional ByVal Fecha As Date = Nothing) 'Reportes de renta por mes
+    Public Function Reportes(ByVal tipo As String, ByRef dgv As DataGridView, Optional ByVal Fecha As Date = Nothing) As Boolean 'Reportes de renta por mes
         If Conexion.contarFilas("SELECT * FROM rentas") = 0 Then
             Return False
         End If

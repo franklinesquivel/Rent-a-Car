@@ -53,5 +53,6 @@ Public Class frmGestionar_Autos
 
     Private Sub mnsCerrar_Sesion_Click(sender As Object, e As EventArgs) Handles mnsCerrar_Sesion.Click
         Session.CerrarSession() 'Cerrar sesión
+        Me.Close()
     End Sub
 End Class

@@ -46,11 +46,12 @@ Public Class frmGraficosRenta
     End Sub
 
     Private Sub MaterialRaisedButton1_Click(sender As Object, e As EventArgs) Handles btnRegresar.Click
-        frmMenu_contador.Show()
+        frmMenu_Admin.Show()
         Me.Close()
     End Sub
 
     Private Sub CerrarSesiónToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CerrarSesiónToolStripMenuItem.Click
         Session.CerrarSession() 'Se cierra la sesión
+        Me.Close()
     End Sub
 End Class

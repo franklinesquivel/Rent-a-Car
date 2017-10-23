@@ -55,36 +55,37 @@ Public Class clsUsuarios
         _nombreUsuario = _nombreUsuario.Trim
         Dim rgx_usuarios = New Regex("^(A{1}|G{1}|C{1})\d{5}$") 'Regex de validacion de usuario
 
-        If _nombreUsuario.Length = 0 Or Not rgx_usuarios.IsMatch(_nombreUsuario) Then 'Se verifica la regex y validación
+        If _nombreUsuario.Length = 0 Or Not rgx_usuarios.IsMatch(_nombreUsuario.ToUpper) Then 'Se verifica la regex y validación
             MsgBox("Error: Ingrese un nombre de usuario válido")
             Return False
         End If
 
         _contrasenna = _contrasenna.Trim
-        NombreUsuario = _nombreUsuario
+        NombreUsuario = _nombreUsuario.ToUpper
         Contrasenna = _contrasenna
         'Se verifica la existencia del usuario en la BDD
         If Conexion.existenciaUsuario("SELECT * FROM usuarios WHERE nombre_usuario = '" & NombreUsuario & "'", Contrasenna) Then
             Session.IniciarSesion(NombreUsuario) 'Se inicia la sesión de la estructura
             Return True
         Else
+            MsgBox("Error: El usuario ingresado es incorrecto")
             Return False
         End If
     End Function
 
-    Friend Function Registrar(ByVal _nombres As String, ByVal _apellidos As String, ByVal _tipoUsuario As String, ByVal _correo As String)
+    Friend Function Registrar(ByVal _nombres As String, ByVal _apellidos As String, ByVal _tipoUsuario As String, ByVal _correo As String) As Boolean
         'Tipos de usuarios: Administrador(A00000), Gerente(G0000), Contador(C0000)
         MyClass.CrearCodigo(_tipoUsuario) 'Se crea el código de usuario
         MyClass.CrearContrasenna() 'Se crea la contraseña de usuario
         If verificarCorreoElectronico(_correo) = 0 Then 'Se verifica que no haya un correo electrónico igual en la BDD
             If Conexion.modificarDatos("INSERT INTO usuarios(nombre, apellido, nombre_usuario, contraseña, perfil, correo_electronico) VALUES('" & _nombres & "', '" & _apellidos & "', '" & NombreUsuario & "', '" & Contrasenna & "' , '" & _tipoUsuario & "', '" & _correo & "')") Then
                 Email.Registro(_correo, NombreUsuario, Encriptacion.DesarmarEncriptacion(Contrasenna))
-                Return 1
+                Return True
             End If
         Else
             MsgBox("Error: El email ingresado ya existe como usuario")
         End If
-        Return 0
+        Return False
     End Function
     Public Sub CrearCodigo(ByVal _tipousuario As String)
         Dim _nombreUsuario As String
@@ -120,36 +121,42 @@ Public Class clsUsuarios
         Next
         MyClass.ArmarEncriptacion()
     End Sub
-    Public Sub ArmarEncriptacion() 'Se encripta la contraseña
+    Private Sub ArmarEncriptacion()  'Se encripta la contraseña
         Contrasenna = Encriptacion.ArmarEncriptacion(Contrasenna)
     End Sub
-    Public Function DesarmarEncriptacion(ByVal _contrasenna As String) 'Se desencripta la contraseña
+    Public Function DesarmarEncriptacion(ByVal _contrasenna As String) As String 'Se desencripta la contraseña
         Return Encriptacion.DesarmarEncriptacion(_contrasenna)
     End Function
-    Public Sub VerRegistros(ByVal Optional _tipoUsuario As String = Nothing)
-
-    End Sub
-    Public Function VerificarCodigoUsuario(ByVal _nombreUsuario As String) As Integer 'Verifica la existencia del codigo de usuario en la BDD
-        Return Conexion.contarFilas("SELECT * FROM usuarios WHERE nombre_usuario = '" & _nombreUsuario & "'")
+    Private Function VerificarCodigoUsuario(ByVal _nombreUsuario As String) As Boolean 'Verifica la existencia del codigo de usuario en la BDD
+        If Conexion.contarFilas("SELECT * FROM usuarios WHERE nombre_usuario = '" & _nombreUsuario & "'") = 0 Then
+            Return True
+        Else
+            Return False
+        End If
     End Function
-    Public Function verificarCorreoElectronico(ByVal _correo As String) As Integer 'Verifica la existencia de un correo electronico en la BD
+    Private Function verificarCorreoElectronico(ByVal _correo As String) As Integer 'Verifica la existencia de un correo electronico en la BD
         Return Conexion.contarFilas("SELECT * FROM usuarios WHERE correo_electronico = '" & _correo & "'")
     End Function
     Public Function recuperarContrasenna(ByVal NUsuario As String) As Boolean 'Proceso para recuparar contraseña
-        If Conexion.contarFilas("SELECT * FROM usuarios WHERE nombre_usuario = '" & NUsuario & "'") Then 'Se verifica que el nombre de usuario exista en la BD
-            Dim reader As MySqlDataReader
+        If Not _noCoincide("^C{1}|A{1}|C{1}\d{5}$", NUsuario.ToUpper) Then
+            If Conexion.contarFilas("SELECT * FROM usuarios WHERE nombre_usuario = '" & NUsuario.ToUpper & "'") > 0 Then 'Se verifica que el nombre de usuario exista en la BD
+                Dim reader As MySqlDataReader
 
-            'Se obtienen los datos según el nombre de usuario
-            Conexion.obtenerDatos("SELECT correo_electronico ,contraseña FROM usuarios WHERE nombre_usuario = '" & NUsuario & "'", reader)
-            reader.Read() 'Se abre la variable de lectura
-            If Email.RecuperarContrasenna(reader(0), Encriptacion.DesarmarEncriptacion(reader(1))) Then 'Se manda la contraseña al correo
-                reader.Close() 'Se cierra la variable de lectura
-                Return 1
+                'Se obtienen los datos según el nombre de usuario
+                Conexion.obtenerDatos("SELECT correo_electronico ,contraseña FROM usuarios WHERE nombre_usuario = '" & NUsuario.ToUpper & "'", reader)
+                reader.Read() 'Se abre la variable de lectura
+                If Email.RecuperarContrasenna(CStr(reader(0)), Encriptacion.DesarmarEncriptacion(CStr(reader(1)))) Then 'Se manda la contraseña al correo
+                    reader.Close() 'Se cierra la variable de lectura
+                    Return True
+                End If
+                Return False
+            Else
+                MsgBox("Error: Usuario no encontrado")
+                Return False
             End If
-            Return 0
         Else
-            MsgBox("Error: Usuario no encontrado")
-            Return 0
+            MsgBox("Erro: Ingrese un código de usuario válido")
+            Return False
         End If
     End Function
 End Class

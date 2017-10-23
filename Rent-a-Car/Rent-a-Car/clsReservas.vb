@@ -92,8 +92,8 @@ Public Class clsReservas
             Estado = value
         End Set
     End Property
-    Public WriteOnly Property EstablecerIdAgencia() As String
-        Set(ByVal value As String)
+    Public WriteOnly Property EstablecerIdAgencia() As Integer
+        Set(ByVal value As Integer)
             idAgencia = value
         End Set
     End Property
@@ -157,7 +157,7 @@ Public Class clsReservas
             Return True
         End If
     End Function
-    Public Function Registrar(ByVal _fechaInicio As String, ByVal _fechaFin As String, ByVal cliente As clsClientes, ByVal coche As clsCoches)
+    Public Function Registrar(ByVal _fechaInicio As String, ByVal _fechaFin As String, ByVal cliente As clsClientes, ByVal coche As clsCoches) As Boolean
         Dim rgx_fecha = New Regex("^\d{2}\d{2}\d{4}$") 'Patrón de fecha
         'Dim rgx_usuario = New Regex("^C{1}\L{1}\d{5}") 'Patrón del código de usuario
 
@@ -171,12 +171,12 @@ Public Class clsReservas
             Return False
         End If
 
-        If CDate(_fechaInicio) < Date.Now.ToString("yyyy-MM-dd") Then 'Se verifica que la fecha no sea mayor a la actual
+        If CDate(_fechaInicio) < CDate(Date.Now.ToString("yyyy-MM-dd")) Then 'Se verifica que la fecha no sea mayor a la actual
             MsgBox("Error: No puede ingresar una fecha de inicio menor a la actual")
             Return False
         End If
 
-        MyClass.CrearCodigoReserva(coche.ObtenerIdAgencia) 'Se crea el código de reserva
+        MyClass.CrearCodigoReserva(CStr(coche.ObtenerIdAgencia)) 'Se crea el código de reserva
         If MyClass.ChequearReserva(cliente.ObtenerIdCliente) Then 'Se verifica que el usuario no tenga una reserva activa
             If MyClass.ChequearReservaFecha(CDate(_fechaInicio), CDate(_fechaFin), coche.ObtenerIdCoche) Then 'Se verifica si existe una reserva activa con el coche elegido
                 If MyClass.ChequearRenta(coche.ObtenerIdCoche, CDate(_fechaInicio), CDate(_fechaFin)) Then 'Se verifica si el coche no esta rentado
@@ -185,14 +185,14 @@ Public Class clsReservas
                     MyClass.EstablecerFechaFin = CDate(_fechaFin)
                     MyClass.EstablecerIdAgencia = coche.ObtenerIdAgencia
                     MyClass.EstablecerIdCoche = coche.ObtenerIdCoche
-                    MyClass.EstablecerIdCliente = cliente.ObtenerIdCliente
-                    MyClass.EstablecerIdUsuario = Session.ObtenerIdUsuario
+                    MyClass.EstablecerIdCliente = CInt(cliente.ObtenerIdCliente)
+                    MyClass.EstablecerIdUsuario = CInt(Session.ObtenerIdUsuario)
                     MyClass.EstablecerPrecioReserva = coche.ObtenerPrecioAlquiler * DateDiff(DateInterval.Day, MyClass.ObtenerFechaInicio, MyClass.ObtenerFechaFin)
                     Estado = "Activo"
 
                     'Se insertan los datos
                     If Conexion.modificarDatos("INSERT INTO reservas VALUES('" & CodigoReserva & "', " & idCliente & ", " & idAgencia & ", " & idCoche & ", " & Session.ObtenerIdUsuario & ", '" & _fechaInicio & "', '" & _fechaFin & "', " & Format(PrecioReserva, "0.00") & " ,'Activa')") Then
-                        clsCorreo.enviarCorreo(cliente, coche, Format(PrecioReserva, "0.00"))
+                        clsCorreo.enviarCorreo(cliente, coche, CDec(Format(CDec(PrecioReserva), "0.00")))
                         Return True
                     End If
                 Else
@@ -208,7 +208,7 @@ Public Class clsReservas
     End Function
     Public Function listarReservas(ByRef listaReservas() As clsReservas, ByRef dgv As DataGridView) As Boolean
         If Conexion.contarFilas("SELECT * FROM reservas WHERE estado = 'Activa'") = 0 Then 'Se verifica si existen reserva
-            Return 0
+            Return False
         Else
             Dim i As Integer = 0
             Dim reader As MySqlDataReader
@@ -230,15 +230,15 @@ Public Class clsReservas
                 Reservas = New clsReservas 'Nuevo objeto de la clase
 
                 'Se guardan los campos en los atributos
-                Reservas.EstablecerCodigoReserva = reader(0)
-                Reservas.EstablecerIdCliente = reader(1)
-                Reservas.EstablecerIdAgencia = reader(2)
-                Reservas.EstablecerIdCoche = reader(3)
-                Reservas.EstablecerIdUsuario = reader(4)
-                Reservas.EstablecerFechaInicio = reader(5)
-                Reservas.EstablecerFechaFin = reader(6)
-                Reservas.EstablecerPrecioReserva = reader(7)
-                Reservas.EstablecerEstado = reader(8)
+                Reservas.EstablecerCodigoReserva = CStr(reader(0))
+                Reservas.EstablecerIdCliente = CInt(reader(1))
+                Reservas.EstablecerIdAgencia = CInt(reader(2))
+                Reservas.EstablecerIdCoche = CInt(reader(3))
+                Reservas.EstablecerIdUsuario = CInt(reader(4))
+                Reservas.EstablecerFechaInicio = CDate(reader(5))
+                Reservas.EstablecerFechaFin = CDate(reader(6))
+                Reservas.EstablecerPrecioReserva = CDec(reader(7))
+                Reservas.EstablecerEstado = CStr(reader(8))
 
                 listaReservas(i) = Reservas 'Se guarda el objeto en el array
 
@@ -248,7 +248,7 @@ Public Class clsReservas
 
                     'Se agregan los valores a la fila y columna con su valor respectivo
                     .Rows(i - 1).Cells(0).Value = listaReservas(i - 1).ObtenerCodigoReserva
-                    .Rows(i - 1).Cells(1).Value = reader(10) & ", " & reader(9)
+                    .Rows(i - 1).Cells(1).Value = CStr(reader(10)) & ", " & CStr(reader(9))
                     .Rows(i - 1).Cells(2).Value = reader(11)
                     .Rows(i - 1).Cells(3).Value = reader(12)
                     .Rows(i - 1).Cells(4).Value = listaReservas(i - 1).ObtenerFechaInicio.ToString("yyyy-MM-dd")
@@ -257,14 +257,14 @@ Public Class clsReservas
                 End With
             End While
             reader.Close() 'Se cierra la lectura
-            Return 1
+            Return True
         End If
     End Function
     Public Function CancelarReserva(ByVal reserva As clsReservas) As Boolean 'Función para cancelar Reserva
         If Conexion.modificarDatos("UPDATE reservas SET estado = 'Cancelada' WHERE id_reserva = '" & reserva.ObtenerCodigoReserva & "'") Then
-            Return 1
+            Return True
         Else
-            Return 0
+            Return False
         End If
     End Function
     Public Function BuscarIndice(ByVal idReserva As String, ByVal listaReservas() As clsReservas) As Integer
@@ -314,7 +314,7 @@ Public Class clsReservas
 
                             'Se agregan los valores según fila y columna apropiada
                             .Rows(j - 1).Cells(0).Value = listaReservas(x).ObtenerCodigoReserva
-                            .Rows(j - 1).Cells(1).Value = reader(10) & ", " & reader(9)
+                            .Rows(j - 1).Cells(1).Value = CStr(reader(10)) & ", " & CStr(reader(9))
                             .Rows(j - 1).Cells(2).Value = reader(11)
                             .Rows(j - 1).Cells(3).Value = reader(12)
                             .Rows(j - 1).Cells(4).Value = listaReservas(x).ObtenerFechaInicio.ToString("yyyy-MM-dd")
@@ -333,12 +333,12 @@ Public Class clsReservas
         Dim resourcesPath = Application.StartupPath & DirectorySeparatorChar & ".." & DirectorySeparatorChar & ".." & DirectorySeparatorChar & "Resources" & DirectorySeparatorChar & "Coches" & DirectorySeparatorChar 'Obtener Carpeta donde estan guardadas las imagenes
         Conexion.obtenerDatos("SELECT c.placa, CONCAT_WS(' - ', c.modelo, c.marca), c.fotografia,  CONCAT_WS(', ', CL.apellido, cl.nombre), cl.nombre_usuario, cl.correo_electronico FROM `reservas` r INNER JOIN coches c ON c.id_coche = r.id_coche INNER JOIN clientes cl ON cl.id_cliente = r.id_cliente WHERE r.id_reserva = '" & id_reserva & "'", reader)
         reader.Read() 'Se abre la lectura
-        _matricula = reader(0)
-        _especificaciones = reader(1)
-        _pic.ImageLocation = resourcesPath + reader(2)
-        _nombreCliente = reader(3)
-        _nombreUsuario = reader(4)
-        _correo = reader(5)
+        _matricula = CStr(reader(0))
+        _especificaciones = CStr(reader(1))
+        _pic.ImageLocation = resourcesPath + CStr(reader(2))
+        _nombreCliente = CStr(reader(3))
+        _nombreUsuario = CStr(reader(4))
+        _correo = CStr(reader(5))
         reader.Close() 'Se cierra la lectura
     End Sub
 End Class

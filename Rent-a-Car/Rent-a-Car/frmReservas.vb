@@ -13,7 +13,7 @@ Public Class frmReservas
 
     Private Sub btnRegresar_Click(sender As Object, e As EventArgs) Handles btnRegresar.Click
         frmMenu_Admin.Show()
-        Me.Hide()
+        Me.Close()
     End Sub
 
     Private Sub btnReservar_Coche_Click(sender As Object, e As EventArgs) Handles btnReservar_Coche.Click
@@ -89,5 +89,6 @@ Public Class frmReservas
 
     Private Sub CerrarSesiónToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CerrarSesiónToolStripMenuItem.Click
         Session.CerrarSession() 'Cerrar sesión
+        Me.Close()
     End Sub
 End Class

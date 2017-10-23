@@ -6,7 +6,7 @@
         tipoUsuario = "Contador"
     End Sub
     'Metodos de la clase
-    Public Overloads Function Registrar(ByVal _nombres As String, ByVal _apellidos As String, ByVal _correo As String)
+    Public Overloads Function Registrar(ByVal _nombres As String, ByVal _apellidos As String, ByVal _correo As String) As Boolean
         _nombres = _nombres.Trim
         _apellidos = _apellidos.Trim
 

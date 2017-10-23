@@ -42,14 +42,14 @@ Public Class frmDevolucion_Auto
         Dim tipoDevolucion As Integer = 0
 
         'Se verifica el estado del coche
-        If rdbBuen_Estado.Checked = True And (dtpFecha_Devolucion.Value.ToString("yyyy-MM-dd") <= fechaE) Then
+        If rdbBuen_Estado.Checked = True And (dtpFecha_Devolucion.Value.ToString("yyyy-MM-dd") >= dgvDevolucion.CurrentRow.Cells(4).Value) Then
             registro = True
             tipoDevolucion = 1
-        ElseIf rdbChocado.Checked = True And (dtpFecha_Devolucion.Value.ToString("yyyy-MM-dd") <= fechaE) Then
+        ElseIf rdbChocado.Checked = True And (dtpFecha_Devolucion.Value.ToString("yyyy-MM-dd") >= dgvDevolucion.CurrentRow.Cells(4).Value) Then
             registro = True
             tipoDevolucion = 2
         Else
-            MsgBox("Error: Seleccione estado del coche")
+            MsgBox("Error: Seleccione estado del coche o una fecha válida")
         End If
 
         If registro Then 'Si se selecciono uno de las dos opciones para el estado del coche
@@ -80,6 +80,7 @@ Public Class frmDevolucion_Auto
 
     Private Sub mnsCerrar_Sesion_Click(sender As Object, e As EventArgs) Handles mnsCerrar_Sesion.Click
         Session.CerrarSession() 'Se cierra la sesión
+        Me.Close()
     End Sub
 
     Private Sub InicializarFormulario()

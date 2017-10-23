@@ -36,7 +36,7 @@ Public Class clsCoches
                 _color = dataReader.GetString(4)
                 _kilometraje = CLng(dataReader.GetInt32(5))
                 _nPasajeros = dataReader.GetInt32(6)
-                _alquiler = CDbl(dataReader.GetInt32(7))
+                _alquiler = CDec(dataReader.GetInt32(7))
                 _fotografia = dataReader.GetString(8)
                 _tipo = dataReader.GetString(9)
                 _estado = dataReader.GetString(10)
@@ -49,12 +49,7 @@ Public Class clsCoches
     '_________________________________________
     '|   Propiedades de lectura de la clase   |
     '|________________________________________|
-    Public ReadOnly Property ObtenerIdCoche() As String
-        Get
-            Return _idCoche
-        End Get
-    End Property
-    Public ReadOnly Property id
+    Public ReadOnly Property ObtenerIdCoche() As Integer
         Get
             Return _idCoche
         End Get
@@ -80,17 +75,17 @@ Public Class clsCoches
             Return _color
         End Get
     End Property
-    Public ReadOnly Property ObtenerKilometraje() As String
+    Public ReadOnly Property ObtenerKilometraje() As Long
         Get
             Return _kilometraje
         End Get
     End Property
-    Public ReadOnly Property ObtenerNPasajeros() As String
+    Public ReadOnly Property ObtenerNPasajeros() As Integer
         Get
             Return _nPasajeros
         End Get
     End Property
-    Public ReadOnly Property ObtenerPrecioAlquiler() As String
+    Public ReadOnly Property ObtenerPrecioAlquiler() As Decimal
         Get
             Return _alquiler
         End Get
@@ -110,7 +105,7 @@ Public Class clsCoches
             Return _estado
         End Get
     End Property
-    Public ReadOnly Property ObtenerIdAgencia() As String
+    Public ReadOnly Property ObtenerIdAgencia() As Integer
         Get
             Return _idAgencia
         End Get
@@ -138,18 +133,18 @@ Public Class clsCoches
             _modelo = value
         End Set
     End Property
-    Public WriteOnly Property EstablecerKilometraje() As String
-        Set(ByVal value As String)
+    Public WriteOnly Property EstablecerKilometraje() As Long
+        Set(ByVal value As Long)
             _kilometraje = value
         End Set
     End Property
-    Public WriteOnly Property EstablecerNPasajeros() As String
-        Set(ByVal value As String)
+    Public WriteOnly Property EstablecerNPasajeros() As Integer
+        Set(ByVal value As Integer)
             _nPasajeros = value
         End Set
     End Property
-    Public WriteOnly Property EstablecerPrecioAlquiler() As String
-        Set(ByVal value As String)
+    Public WriteOnly Property EstablecerPrecioAlquiler() As Decimal
+        Set(ByVal value As Decimal)
             _alquiler = value
         End Set
     End Property
@@ -168,13 +163,13 @@ Public Class clsCoches
             _estado = value
         End Set
     End Property
-    Public WriteOnly Property EstablecerIdAgencia() As String
-        Set(ByVal value As String)
+    Public WriteOnly Property EstablecerIdAgencia() As Integer
+        Set(ByVal value As Integer)
             _idAgencia = value
         End Set
     End Property
-    Public WriteOnly Property EstablecerIdCoche() As String
-        Set(ByVal value As String)
+    Public WriteOnly Property EstablecerIdCoche() As Integer
+        Set(ByVal value As Integer)
             _idCoche = value
         End Set
     End Property
@@ -189,16 +184,16 @@ Public Class clsCoches
         placa = placa.Trim
         Conexion.obtenerDatos("SELECT marca,modelo,color,kilometraje,num_pasajeros,precio_alquiler,fotografia,tipo,id_agencia FROM coches WHERE placa = '" & placa & "'", reader)
         While reader.Read() 'Se abre la lectura
-            marca = reader(0)
-            modelo = reader(1)
-            color = reader(2)
-            kilometraje = reader(3)
-            nPasajeros = reader(4)
-            alquiler = reader(5)
-            fotografia.Text = reader(6)
-            tipo = reader(7)
-            idAgencia = reader(8)
-            picFoto.ImageLocation = resourcesPath + reader(6)
+            marca = CStr(reader(0))
+            modelo = CStr(reader(1))
+            color = CStr(reader(2))
+            kilometraje = CStr(reader(3))
+            nPasajeros = CStr(reader(4))
+            alquiler = CStr(reader(5))
+            fotografia.Text = CStr(reader(6))
+            tipo = CStr(reader(7))
+            idAgencia = CStr(reader(8))
+            picFoto.ImageLocation = resourcesPath + CStr(reader(6))
         End While
         reader.Close() 'Se cierra la lectura
         Return True
@@ -221,7 +216,7 @@ Public Class clsCoches
             MsgBox("Ingrese un monto de alquiler válido!", MsgBoxStyle.Critical, "Modificar Renta Coche")
             Return False
         Else
-            _alquiler = CDbl(Format(alquiler, "0.00"))
+            _alquiler = CDec(Format(alquiler, "0.00"))
         End If
         If tipo.Length = 0 Then
             MsgBox("Ingrese un tipo de de coche!", MsgBoxStyle.Critical, "Modificar Renta Coche")
@@ -240,7 +235,7 @@ Public Class clsCoches
         Dim coch As String
         Conexion.obtenerDatos("SELECT id_coche FROM coches WHERE placa = '" & _matricula & "'", reader)
         While reader.Read()
-            coch = reader(0)
+            coch = CStr(reader(0))
         End While
         reader.Close()
         Dim queryU As String = "UPDATE coches SET precio_alquiler = '" & _alquiler.ToString & "', estado = '" & _tipo & "' WHERE id_coche = '" & coch & "';"
@@ -284,7 +279,7 @@ Public Class clsCoches
             MsgBox("Ingrese un monto de alquiler válido!", MsgBoxStyle.Critical, "Modificar Coche")
             Return False
         Else
-            _alquiler = CDbl(Format(alquiler, "0.00"))
+            _alquiler = CDec(Format(alquiler, "0.00"))
         End If
         If tipo.Length = 0 Then 'Se verifica que no sea vacío
             MsgBox("Ingrese un tipo de de coche!", MsgBoxStyle.Critical, "Modificar Coche")
@@ -334,7 +329,7 @@ Public Class clsCoches
         Dim coch As String
         Conexion.obtenerDatos("SELECT id_coche FROM coches WHERE placa = '" & _matricula & "'", reader)
         While reader.Read()
-            coch = reader(0)
+            coch = CStr(reader(0))
         End While
         reader.Close()
         Dim queryU As String = "UPDATE coches SET marca = '" & _marca & "', modelo = '" & _modelo & "', color = '" & _color & "', kilometraje = '" & _kilometraje.ToString & "', num_pasajeros = '" & _nPasajeros.ToString & "', precio_alquiler = '" & _alquiler.ToString & "', fotografia = '" & _fotografia & "', tipo = '" & _tipo & "', estado = 'A', id_agencia = '" & _idAgencia & "' WHERE id_coche = '" & coch & "';"
@@ -394,7 +389,7 @@ Public Class clsCoches
             MsgBox("Ingrese un monto de alquiler válido!", MsgBoxStyle.Critical, "Registro de Coche")
             Return False
         Else
-            _alquiler = CDbl(Format(alquiler, "0.00"))
+            _alquiler = CDec(Format(alquiler, "0.00"))
         End If
         If tipo.Length = 0 Then 'Se verifica que no sea vacío
             MsgBox("Ingrese un tipo de de coche!", MsgBoxStyle.Critical, "Registro de Coche")
@@ -476,7 +471,7 @@ Public Class clsCoches
 
     Public Function listarCoches(ByRef listaCoches() As clsCoches, ByRef dgv As DataGridView) As Boolean
         If Conexion.contarFilas("SELECT * FROM coches WHERE estado = 'A'") = 0 Then 'Se verifica que esten activos
-            Return 0
+            Return False
         Else
             Dim i As Integer = 0
             Dim reader As MySqlDataReader 'Variable de lectura
@@ -496,18 +491,18 @@ Public Class clsCoches
                 Coches = New clsCoches 'Se crea una instancia de la clase para despues guardarla en  un array
 
                 'Se guardan los atributos
-                Coches.EstablecerIdCoche = reader(0)
-                Coches.EstablecerMatricula = reader(1)
-                Coches.EstablecerMarca = reader(2)
-                Coches.EstablecerModelo = reader(3)
-                Coches.EstablecerColor = reader(4)
-                Coches.EstablecerKilometraje = reader(5)
-                Coches.EstablecerNPasajeros = reader(6)
-                Coches.EstablecerPrecioAlquiler = reader(7)
-                Coches.EstablecerFotografia = reader(8)
-                Coches.EstablecerTipo = reader(9)
-                Coches.EstablecerEstado = reader(10)
-                Coches.EstablecerIdAgencia = reader(11)
+                Coches.EstablecerIdCoche = CInt(reader(0))
+                Coches.EstablecerMatricula = CStr(reader(1))
+                Coches.EstablecerMarca = CStr(reader(2))
+                Coches.EstablecerModelo = CStr(reader(3))
+                Coches.EstablecerColor = CStr(reader(4))
+                Coches.EstablecerKilometraje = CLng(reader(5))
+                Coches.EstablecerNPasajeros = CInt(reader(6))
+                Coches.EstablecerPrecioAlquiler = CDec(reader(7))
+                Coches.EstablecerFotografia = CStr(reader(8))
+                Coches.EstablecerTipo = CStr(reader(9))
+                Coches.EstablecerEstado = CStr(reader(10))
+                Coches.EstablecerIdAgencia = CInt(reader(11))
 
                 listaCoches(i) = Coches 'Se guarda la instancia de la clase en el array
 
@@ -522,7 +517,7 @@ Public Class clsCoches
                 End With
             End While
             reader.Close() 'Se cierra la variable de lectura
-            Return 1
+            Return True
         End If
     End Function
     Public Function BuscarIndice(ByVal matriculaCoche As String, ByRef listaCoches() As clsCoches) As Integer 'Busca el indice de un array de tipo clsCoches
@@ -639,18 +634,18 @@ Public Class clsCoches
                 Coches = New clsCoches 'Se crea una instancia de la clase para despues guardarla en  un array
 
                 'Se guardan los atributos
-                Coches.EstablecerIdCoche = reader(0)
-                Coches.EstablecerMatricula = reader(1)
-                Coches.EstablecerMarca = reader(2)
-                Coches.EstablecerModelo = reader(3)
-                Coches.EstablecerColor = reader(4)
-                Coches.EstablecerKilometraje = reader(5)
-                Coches.EstablecerNPasajeros = reader(6)
-                Coches.EstablecerPrecioAlquiler = reader(7)
-                Coches.EstablecerFotografia = reader(8)
-                Coches.EstablecerTipo = reader(9)
-                Coches.EstablecerEstado = reader(10)
-                Coches.EstablecerIdAgencia = reader(11)
+                Coches.EstablecerIdCoche = CInt(reader(0))
+                Coches.EstablecerMatricula = CStr(reader(1))
+                Coches.EstablecerMarca = CStr(reader(2))
+                Coches.EstablecerModelo = CStr(reader(3))
+                Coches.EstablecerColor = CStr(reader(4))
+                Coches.EstablecerKilometraje = CLng(reader(5))
+                Coches.EstablecerNPasajeros = CInt(reader(6))
+                Coches.EstablecerPrecioAlquiler = CDec(reader(7))
+                Coches.EstablecerFotografia = CStr(reader(8))
+                Coches.EstablecerTipo = CStr(reader(9))
+                Coches.EstablecerEstado = CStr(reader(10))
+                Coches.EstablecerIdAgencia = CInt(reader(11))
 
                 listabusqueda(i) = Coches 'Se guarda la instancia de la clase en el array
 
@@ -692,18 +687,18 @@ Public Class clsCoches
                 Coches = New clsCoches 'Se crea una instancia de la clase para despues guardarla en  un array
 
                 'Se guardan los atributos
-                Coches.EstablecerIdCoche = reader(0)
-                Coches.EstablecerMatricula = reader(1)
-                Coches.EstablecerMarca = reader(2)
-                Coches.EstablecerModelo = reader(3)
-                Coches.EstablecerColor = reader(4)
-                Coches.EstablecerKilometraje = reader(5)
-                Coches.EstablecerNPasajeros = reader(6)
-                Coches.EstablecerPrecioAlquiler = reader(7)
-                Coches.EstablecerFotografia = reader(8)
-                Coches.EstablecerTipo = reader(9)
-                Coches.EstablecerEstado = reader(10)
-                Coches.EstablecerIdAgencia = reader(11)
+                Coches.EstablecerIdCoche = CInt(reader(0))
+                Coches.EstablecerMatricula = CStr(reader(1))
+                Coches.EstablecerMarca = CStr(reader(2))
+                Coches.EstablecerModelo = CStr(reader(3))
+                Coches.EstablecerColor = CStr(reader(4))
+                Coches.EstablecerKilometraje = CLng(reader(5))
+                Coches.EstablecerNPasajeros = CInt(reader(6))
+                Coches.EstablecerPrecioAlquiler = CDec(reader(7))
+                Coches.EstablecerFotografia = CStr(reader(8))
+                Coches.EstablecerTipo = CStr(reader(9))
+                Coches.EstablecerEstado = CStr(reader(10))
+                Coches.EstablecerIdAgencia = CInt(reader(11))
 
                 listabusqueda(i) = Coches 'Se guarda la instancia de la clase en el array
 
@@ -745,18 +740,18 @@ Public Class clsCoches
                 Coches = New clsCoches 'Se crea una instancia de la clase para despues guardarla en  un array
 
                 'Se guardan los atributos
-                Coches.EstablecerIdCoche = reader(0)
-                Coches.EstablecerMatricula = reader(1)
-                Coches.EstablecerMarca = reader(2)
-                Coches.EstablecerModelo = reader(3)
-                Coches.EstablecerColor = reader(4)
-                Coches.EstablecerKilometraje = reader(5)
-                Coches.EstablecerNPasajeros = reader(6)
-                Coches.EstablecerPrecioAlquiler = reader(7)
-                Coches.EstablecerFotografia = reader(8)
-                Coches.EstablecerTipo = reader(9)
-                Coches.EstablecerEstado = reader(10)
-                Coches.EstablecerIdAgencia = reader(11)
+                Coches.EstablecerIdCoche = CInt(reader(0))
+                Coches.EstablecerMatricula = CStr(reader(1))
+                Coches.EstablecerMarca = CStr(reader(2))
+                Coches.EstablecerModelo = CStr(reader(3))
+                Coches.EstablecerColor = CStr(reader(4))
+                Coches.EstablecerKilometraje = CLng(reader(5))
+                Coches.EstablecerNPasajeros = CInt(reader(6))
+                Coches.EstablecerPrecioAlquiler = CDec(reader(7))
+                Coches.EstablecerFotografia = CStr(reader(8))
+                Coches.EstablecerTipo = CStr(reader(9))
+                Coches.EstablecerEstado = CStr(reader(10))
+                Coches.EstablecerIdAgencia = CInt(reader(11))
 
                 listabusqueda(i) = Coches 'Se guarda la instancia de la clase en el array
 
@@ -797,18 +792,18 @@ Public Class clsCoches
                 Coches = New clsCoches 'Se crea una instancia de la clase para despues guardarla en  un array
 
                 'Se guardan los atributos
-                Coches.EstablecerIdCoche = reader(0)
-                Coches.EstablecerMatricula = reader(1)
-                Coches.EstablecerMarca = reader(2)
-                Coches.EstablecerModelo = reader(3)
-                Coches.EstablecerColor = reader(4)
-                Coches.EstablecerKilometraje = reader(5)
-                Coches.EstablecerNPasajeros = reader(6)
-                Coches.EstablecerPrecioAlquiler = reader(7)
-                Coches.EstablecerFotografia = reader(8)
-                Coches.EstablecerTipo = reader(9)
-                Coches.EstablecerEstado = reader(10)
-                Coches.EstablecerIdAgencia = reader(11)
+                Coches.EstablecerIdCoche = CInt(reader(0))
+                Coches.EstablecerMatricula = CStr(reader(1))
+                Coches.EstablecerMarca = CStr(reader(2))
+                Coches.EstablecerModelo = CStr(reader(3))
+                Coches.EstablecerColor = CStr(reader(4))
+                Coches.EstablecerKilometraje = CLng(reader(5))
+                Coches.EstablecerNPasajeros = CInt(reader(6))
+                Coches.EstablecerPrecioAlquiler = CDec(reader(7))
+                Coches.EstablecerFotografia = CStr(reader(8))
+                Coches.EstablecerTipo = CStr(reader(9))
+                Coches.EstablecerEstado = CStr(reader(10))
+                Coches.EstablecerIdAgencia = CInt(reader(11))
 
                 listabusqueda(i) = Coches 'Se guarda la instancia de la clase en el array
 
@@ -851,18 +846,18 @@ Public Class clsCoches
                 Coches = New clsCoches 'Se crea una instancia de la clase para despues guardarla en  un array
 
                 'Se guardan los atributos
-                Coches.EstablecerIdCoche = reader(0)
-                Coches.EstablecerMatricula = reader(1)
-                Coches.EstablecerMarca = reader(2)
-                Coches.EstablecerModelo = reader(3)
-                Coches.EstablecerColor = reader(4)
-                Coches.EstablecerKilometraje = reader(5)
-                Coches.EstablecerNPasajeros = reader(6)
-                Coches.EstablecerPrecioAlquiler = reader(7)
-                Coches.EstablecerFotografia = reader(8)
-                Coches.EstablecerTipo = reader(9)
-                Coches.EstablecerEstado = reader(10)
-                Coches.EstablecerIdAgencia = reader(11)
+                Coches.EstablecerIdCoche = CInt(reader(0))
+                Coches.EstablecerMatricula = CStr(reader(1))
+                Coches.EstablecerMarca = CStr(reader(2))
+                Coches.EstablecerModelo = CStr(reader(3))
+                Coches.EstablecerColor = CStr(reader(4))
+                Coches.EstablecerKilometraje = CLng(reader(5))
+                Coches.EstablecerNPasajeros = CInt(reader(6))
+                Coches.EstablecerPrecioAlquiler = CDec(reader(7))
+                Coches.EstablecerFotografia = CStr(reader(8))
+                Coches.EstablecerTipo = CStr(reader(9))
+                Coches.EstablecerEstado = CStr(reader(10))
+                Coches.EstablecerIdAgencia = CInt(reader(11))
 
                 listabusqueda(i) = Coches 'Se guarda la instancia de la clase en el array
 
@@ -906,18 +901,18 @@ Public Class clsCoches
                 Coches = New clsCoches 'Se crea una instancia de la clase para despues guardarla en  un array
 
                 'Se guardan los atributos
-                Coches.EstablecerIdCoche = reader(0)
-                Coches.EstablecerMatricula = reader(1)
-                Coches.EstablecerMarca = reader(2)
-                Coches.EstablecerModelo = reader(3)
-                Coches.EstablecerColor = reader(4)
-                Coches.EstablecerKilometraje = reader(5)
-                Coches.EstablecerNPasajeros = reader(6)
-                Coches.EstablecerPrecioAlquiler = reader(7)
-                Coches.EstablecerFotografia = reader(8)
-                Coches.EstablecerTipo = reader(9)
-                Coches.EstablecerEstado = reader(10)
-                Coches.EstablecerIdAgencia = reader(11)
+                Coches.EstablecerIdCoche = CInt(reader(0))
+                Coches.EstablecerMatricula = CStr(reader(1))
+                Coches.EstablecerMarca = CStr(reader(2))
+                Coches.EstablecerModelo = CStr(reader(3))
+                Coches.EstablecerColor = CStr(reader(4))
+                Coches.EstablecerKilometraje = CLng(reader(5))
+                Coches.EstablecerNPasajeros = CInt(reader(6))
+                Coches.EstablecerPrecioAlquiler = CDec(reader(7))
+                Coches.EstablecerFotografia = CStr(reader(8))
+                Coches.EstablecerTipo = CStr(reader(9))
+                Coches.EstablecerEstado = CStr(reader(10))
+                Coches.EstablecerIdAgencia = CInt(reader(11))
 
                 listabusqueda(i) = Coches 'Se guarda la instancia de la clase en el array
 
@@ -952,18 +947,18 @@ Public Class clsCoches
                 Coches = New clsCoches 'Se crea una instancia de la clase para despues guardarla en  un array
 
                 'Se guardan los atributos
-                Coches.EstablecerIdCoche = reader(0)
-                Coches.EstablecerMatricula = reader(1)
-                Coches.EstablecerMarca = reader(2)
-                Coches.EstablecerModelo = reader(3)
-                Coches.EstablecerColor = reader(4)
-                Coches.EstablecerKilometraje = reader(5)
-                Coches.EstablecerNPasajeros = reader(6)
-                Coches.EstablecerPrecioAlquiler = reader(7)
-                Coches.EstablecerFotografia = reader(8)
-                Coches.EstablecerTipo = reader(9)
-                Coches.EstablecerEstado = reader(10)
-                Coches.EstablecerIdAgencia = reader(11)
+                Coches.EstablecerIdCoche = CInt(reader(0))
+                Coches.EstablecerMatricula = CStr(reader(1))
+                Coches.EstablecerMarca = CStr(reader(2))
+                Coches.EstablecerModelo = CStr(reader(3))
+                Coches.EstablecerColor = CStr(reader(4))
+                Coches.EstablecerKilometraje = CLng(reader(5))
+                Coches.EstablecerNPasajeros = CInt(reader(6))
+                Coches.EstablecerPrecioAlquiler = CDec(reader(7))
+                Coches.EstablecerFotografia = CStr(reader(8))
+                Coches.EstablecerTipo = CStr(reader(9))
+                Coches.EstablecerEstado = CStr(reader(10))
+                Coches.EstablecerIdAgencia = CInt(reader(11))
 
                 listabusqueda(i) = Coches 'Se guarda la instancia de la clase en el array
 
@@ -998,18 +993,18 @@ Public Class clsCoches
                 Coches = New clsCoches 'Se crea una instancia de la clase para despues guardarla en  un array
 
                 'Se guardan los atributos
-                Coches.EstablecerIdCoche = reader(0)
-                Coches.EstablecerMatricula = reader(1)
-                Coches.EstablecerMarca = reader(2)
-                Coches.EstablecerModelo = reader(3)
-                Coches.EstablecerColor = reader(4)
-                Coches.EstablecerKilometraje = reader(5)
-                Coches.EstablecerNPasajeros = reader(6)
-                Coches.EstablecerPrecioAlquiler = reader(7)
-                Coches.EstablecerFotografia = reader(8)
-                Coches.EstablecerTipo = reader(9)
-                Coches.EstablecerEstado = reader(10)
-                Coches.EstablecerIdAgencia = reader(11)
+                Coches.EstablecerIdCoche = CInt(reader(0))
+                Coches.EstablecerMatricula = CStr(reader(1))
+                Coches.EstablecerMarca = CStr(reader(2))
+                Coches.EstablecerModelo = CStr(reader(3))
+                Coches.EstablecerColor = CStr(reader(4))
+                Coches.EstablecerKilometraje = CLng(reader(5))
+                Coches.EstablecerNPasajeros = CInt(reader(6))
+                Coches.EstablecerPrecioAlquiler = CDec(reader(7))
+                Coches.EstablecerFotografia = CStr(reader(8))
+                Coches.EstablecerTipo = CStr(reader(9))
+                Coches.EstablecerEstado = CStr(reader(10))
+                Coches.EstablecerIdAgencia = CInt(reader(11))
 
                 listabusqueda(i) = Coches 'Se guarda la instancia de la clase en el array
 
@@ -1043,18 +1038,18 @@ Public Class clsCoches
                 Coches = New clsCoches 'Se crea una instancia de la clase para despues guardarla en  un array
 
                 'Se guardan los atributos
-                Coches.EstablecerIdCoche = reader(0)
-                Coches.EstablecerMatricula = reader(1)
-                Coches.EstablecerMarca = reader(2)
-                Coches.EstablecerModelo = reader(3)
-                Coches.EstablecerColor = reader(4)
-                Coches.EstablecerKilometraje = reader(5)
-                Coches.EstablecerNPasajeros = reader(6)
-                Coches.EstablecerPrecioAlquiler = reader(7)
-                Coches.EstablecerFotografia = reader(8)
-                Coches.EstablecerTipo = reader(9)
-                Coches.EstablecerEstado = reader(10)
-                Coches.EstablecerIdAgencia = reader(11)
+                Coches.EstablecerIdCoche = CInt(reader(0))
+                Coches.EstablecerMatricula = CStr(reader(1))
+                Coches.EstablecerMarca = CStr(reader(2))
+                Coches.EstablecerModelo = CStr(reader(3))
+                Coches.EstablecerColor = CStr(reader(4))
+                Coches.EstablecerKilometraje = CLng(reader(5))
+                Coches.EstablecerNPasajeros = CInt(reader(6))
+                Coches.EstablecerPrecioAlquiler = CDec(reader(7))
+                Coches.EstablecerFotografia = CStr(reader(8))
+                Coches.EstablecerTipo = CStr(reader(9))
+                Coches.EstablecerEstado = CStr(reader(10))
+                Coches.EstablecerIdAgencia = CInt(reader(11))
 
                 listabusqueda(i) = Coches 'Se guarda la instancia de la clase en el array
 
@@ -1090,18 +1085,18 @@ Public Class clsCoches
                 Coches = New clsCoches 'Se crea una instancia de la clase para despues guardarla en  un array
 
                 'Se guardan los atributos
-                Coches.EstablecerIdCoche = reader(0)
-                Coches.EstablecerMatricula = reader(1)
-                Coches.EstablecerMarca = reader(2)
-                Coches.EstablecerModelo = reader(3)
-                Coches.EstablecerColor = reader(4)
-                Coches.EstablecerKilometraje = reader(5)
-                Coches.EstablecerNPasajeros = reader(6)
-                Coches.EstablecerPrecioAlquiler = reader(7)
-                Coches.EstablecerFotografia = reader(8)
-                Coches.EstablecerTipo = reader(9)
-                Coches.EstablecerEstado = reader(10)
-                Coches.EstablecerIdAgencia = reader(11)
+                Coches.EstablecerIdCoche = CInt(reader(0))
+                Coches.EstablecerMatricula = CStr(reader(1))
+                Coches.EstablecerMarca = CStr(reader(2))
+                Coches.EstablecerModelo = CStr(reader(3))
+                Coches.EstablecerColor = CStr(reader(4))
+                Coches.EstablecerKilometraje = CLng(reader(5))
+                Coches.EstablecerNPasajeros = CInt(reader(6))
+                Coches.EstablecerPrecioAlquiler = CDec(reader(7))
+                Coches.EstablecerFotografia = CStr(reader(8))
+                Coches.EstablecerTipo = CStr(reader(9))
+                Coches.EstablecerEstado = CStr(reader(10))
+                Coches.EstablecerIdAgencia = CInt(reader(11))
 
                 listabusqueda(i) = Coches 'Se guarda la instancia de la clase en el array
 
@@ -1120,7 +1115,7 @@ Public Class clsCoches
         End If
     End Sub
 
-    Public Function cortar(ByVal con As String)
+    Public Function cortar(ByVal con As String) As String
         Dim i As Integer = 0
         For Each x As String In con
             i += 1
@@ -1133,7 +1128,7 @@ Public Class clsCoches
 
     Public Function Reporte(ByVal matriculaCoche As String, ByRef dgv As DataGridView) As Boolean 'Reporte de coches rentados
         If Conexion.contarFilas("SELECT * FROM rentas") = 0 Then 'Verificamos si existen rentas
-            Return 0
+            Return False
         Else
             Dim reader As MySqlDataReader 'Variable de lectura
             Dim i As Integer = 0
@@ -1159,7 +1154,7 @@ Public Class clsCoches
                     .Rows(i - 1).Cells(4).Value = reader(4)
                 End With
             End While
-            Return 1
+            Return True
         End If
     End Function
 End Class

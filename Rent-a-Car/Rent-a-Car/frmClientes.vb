@@ -36,6 +36,7 @@ Public Class frmClientes
 
     Private Sub mnsCerrar_Sesion_Click(sender As Object, e As EventArgs) Handles mnsCerrar_Sesion.Click
         Session.CerrarSession() 'Cerrar Sesión
+        Me.Close()
     End Sub
     Private Sub InicializarFormulario()
         'Se enlistan los paises registrados en la BDD

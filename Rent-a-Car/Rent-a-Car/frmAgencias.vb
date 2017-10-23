@@ -23,6 +23,7 @@ Public Class frmAgencias
 
     Private Sub mnsCerrar_Sesion_Click(sender As Object, e As EventArgs) Handles mnsCerrar_Sesion.Click
         Session.CerrarSession()
+        Me.Close()
     End Sub
 
     Public Sub InicializarFormulario() 'Limpia los campos

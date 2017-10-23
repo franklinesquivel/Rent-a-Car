@@ -34,11 +34,13 @@ Public Class frmReportes_Rentas
         End If
         If Not Rentas.Reportes(tipo, dgvReportes, dtpFecha_Limite.Value.ToString("yyyy-MM-dd")) Then 'Se procesa la petición
             MsgBox("Error: No hay datos por mostrar")
+            dgvReportes.Rows.Clear()
         End If
     End Sub
 
     Private Sub mnsCerrar_Sesion_Click(sender As Object, e As EventArgs) Handles mnsCerrar_Sesion.Click
         Session.CerrarSession() 'Cerrar Sesión
+        Me.Close()
     End Sub
 
     Private Sub rdbAgencia_CheckedChanged(sender As Object, e As EventArgs) Handles rdbAgencia.CheckedChanged
@@ -46,6 +48,7 @@ Public Class frmReportes_Rentas
         If rdbAgencia.Checked = True Then
             If Not Rentas.Reportes("Agencia", dgvReportes) Then
                 MsgBox("Error: No hay datos por mostrar")
+                dgvReportes.Rows.Clear()
             End If
         End If
     End Sub
@@ -55,6 +58,7 @@ Public Class frmReportes_Rentas
         If rdbAgente.Checked = True Then
             If Not Rentas.Reportes("Agente", dgvReportes) Then
                 MsgBox("Error: No hay datos por mostrar")
+                dgvReportes.Rows.Clear()
             End If
         End If
     End Sub
@@ -64,6 +68,7 @@ Public Class frmReportes_Rentas
         If rdbTipoAuto.Checked = True Then
             If Not Rentas.Reportes("Auto", dgvReportes) Then
                 MsgBox("Error: No hay datos por mostrar")
+                dgvReportes.Rows.Clear()
             End If
         End If
     End Sub

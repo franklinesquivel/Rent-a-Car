@@ -61,7 +61,7 @@ Partial Class frmUsuarios
         Me.lblNombre.Depth = 0
         Me.lblNombre.Font = New System.Drawing.Font("Roboto", 11.0!)
         Me.lblNombre.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblNombre.Location = New System.Drawing.Point(33, 94)
+        Me.lblNombre.Location = New System.Drawing.Point(34, 143)
         Me.lblNombre.MouseState = MaterialSkin.MouseState.HOVER
         Me.lblNombre.Name = "lblNombre"
         Me.lblNombre.Size = New System.Drawing.Size(63, 19)
@@ -72,7 +72,7 @@ Partial Class frmUsuarios
         '
         Me.txbNombre.Depth = 0
         Me.txbNombre.Hint = ""
-        Me.txbNombre.Location = New System.Drawing.Point(113, 94)
+        Me.txbNombre.Location = New System.Drawing.Point(113, 139)
         Me.txbNombre.MouseState = MaterialSkin.MouseState.HOVER
         Me.txbNombre.Name = "txbNombre"
         Me.txbNombre.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -89,7 +89,7 @@ Partial Class frmUsuarios
         Me.lblApellido.Depth = 0
         Me.lblApellido.Font = New System.Drawing.Font("Roboto", 11.0!)
         Me.lblApellido.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblApellido.Location = New System.Drawing.Point(33, 139)
+        Me.lblApellido.Location = New System.Drawing.Point(33, 186)
         Me.lblApellido.MouseState = MaterialSkin.MouseState.HOVER
         Me.lblApellido.Name = "lblApellido"
         Me.lblApellido.Size = New System.Drawing.Size(64, 19)
@@ -100,7 +100,7 @@ Partial Class frmUsuarios
         '
         Me.txbApellido.Depth = 0
         Me.txbApellido.Hint = ""
-        Me.txbApellido.Location = New System.Drawing.Point(113, 135)
+        Me.txbApellido.Location = New System.Drawing.Point(113, 182)
         Me.txbApellido.MouseState = MaterialSkin.MouseState.HOVER
         Me.txbApellido.Name = "txbApellido"
         Me.txbApellido.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -117,7 +117,7 @@ Partial Class frmUsuarios
         Me.lblPerfil.Depth = 0
         Me.lblPerfil.Font = New System.Drawing.Font("Roboto", 11.0!)
         Me.lblPerfil.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblPerfil.Location = New System.Drawing.Point(33, 232)
+        Me.lblPerfil.Location = New System.Drawing.Point(33, 88)
         Me.lblPerfil.MouseState = MaterialSkin.MouseState.HOVER
         Me.lblPerfil.Name = "lblPerfil"
         Me.lblPerfil.Size = New System.Drawing.Size(44, 19)
@@ -130,7 +130,7 @@ Partial Class frmUsuarios
         Me.rdbAdministrador.Cursor = System.Windows.Forms.Cursors.Hand
         Me.rdbAdministrador.Depth = 0
         Me.rdbAdministrador.Font = New System.Drawing.Font("Roboto", 10.0!)
-        Me.rdbAdministrador.Location = New System.Drawing.Point(282, 227)
+        Me.rdbAdministrador.Location = New System.Drawing.Point(282, 83)
         Me.rdbAdministrador.Margin = New System.Windows.Forms.Padding(0)
         Me.rdbAdministrador.MouseLocation = New System.Drawing.Point(-1, -1)
         Me.rdbAdministrador.MouseState = MaterialSkin.MouseState.HOVER
@@ -148,7 +148,7 @@ Partial Class frmUsuarios
         Me.rdbContador.Cursor = System.Windows.Forms.Cursors.Hand
         Me.rdbContador.Depth = 0
         Me.rdbContador.Font = New System.Drawing.Font("Roboto", 10.0!)
-        Me.rdbContador.Location = New System.Drawing.Point(87, 227)
+        Me.rdbContador.Location = New System.Drawing.Point(87, 83)
         Me.rdbContador.Margin = New System.Windows.Forms.Padding(0)
         Me.rdbContador.MouseLocation = New System.Drawing.Point(-1, -1)
         Me.rdbContador.MouseState = MaterialSkin.MouseState.HOVER
@@ -166,7 +166,7 @@ Partial Class frmUsuarios
         Me.rdbAgente.Cursor = System.Windows.Forms.Cursors.Hand
         Me.rdbAgente.Depth = 0
         Me.rdbAgente.Font = New System.Drawing.Font("Roboto", 10.0!)
-        Me.rdbAgente.Location = New System.Drawing.Point(188, 227)
+        Me.rdbAgente.Location = New System.Drawing.Point(188, 83)
         Me.rdbAgente.Margin = New System.Windows.Forms.Padding(0)
         Me.rdbAgente.MouseLocation = New System.Drawing.Point(-1, -1)
         Me.rdbAgente.MouseState = MaterialSkin.MouseState.HOVER
@@ -213,7 +213,7 @@ Partial Class frmUsuarios
         Me.lblCorreo.Depth = 0
         Me.lblCorreo.Font = New System.Drawing.Font("Roboto", 11.0!)
         Me.lblCorreo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblCorreo.Location = New System.Drawing.Point(33, 177)
+        Me.lblCorreo.Location = New System.Drawing.Point(33, 229)
         Me.lblCorreo.MouseState = MaterialSkin.MouseState.HOVER
         Me.lblCorreo.Name = "lblCorreo"
         Me.lblCorreo.Size = New System.Drawing.Size(140, 19)
@@ -224,7 +224,7 @@ Partial Class frmUsuarios
         '
         Me.txbCorreo.Depth = 0
         Me.txbCorreo.Hint = ""
-        Me.txbCorreo.Location = New System.Drawing.Point(179, 177)
+        Me.txbCorreo.Location = New System.Drawing.Point(179, 229)
         Me.txbCorreo.MouseState = MaterialSkin.MouseState.HOVER
         Me.txbCorreo.Name = "txbCorreo"
         Me.txbCorreo.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)

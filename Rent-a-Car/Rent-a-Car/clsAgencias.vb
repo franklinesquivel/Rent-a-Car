@@ -23,7 +23,7 @@ Public Class clsAgencias
         End If
     End Sub
 
-    Public ReadOnly Property id
+    Public ReadOnly Property id() As Integer
         Get
             Return _idAgencia
         End Get

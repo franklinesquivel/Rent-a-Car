@@ -65,5 +65,6 @@ Public Class frmRentar_Autos
 
     Private Sub CerrarSesiónToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CerrarSesiónToolStripMenuItem.Click
         Session.CerrarSession() 'Cerrar sesión
+        Me.Close()
     End Sub
 End Class

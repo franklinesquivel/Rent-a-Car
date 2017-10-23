@@ -66,12 +66,15 @@ Module mdlDeclaracionClases
         '|               Metodos de la estructura            |
         '|___________________________________________________|
         Public Sub CerrarSession() 'Funcion que estara en todo los eventos click de 'Cerrar Sesión'
-            For Each f As Form In Application.OpenForms 'Se cierran los forms abiertos
-                f.Hide()
-            Next
-            frmInicio_Sesion.Show()
-            _tipoUsuario = Nothing
-            _idUsuario = Nothing
+            If _tipoUsuario <> Nothing And _idUsuario <> Nothing Then
+                'For Each e As Form In Application.OpenForms 'Se cierran los forms abiertos
+                'e.Hide()
+                'e.Close()
+                'Next
+                frmInicio_Sesion.Show()
+                _tipoUsuario = Nothing
+                _idUsuario = Nothing
+            End If
         End Sub
 
         Public Sub ControlarSession() 'Función que estará en todo evento load de cada form
@@ -92,25 +95,22 @@ Module mdlDeclaracionClases
                 EstablecerTipoUsuario = "A"
                 Conexion.obtenerDatos("SELECT * FROM usuarios WHERE nombre_usuario = '" & ObtenerNombreUsuario & "'", reader)
                 reader.Read()
-                EstablecerIdUsuario = reader(0)
+                EstablecerIdUsuario = CStr(reader(0))
                 reader.Close()
-                frmMenu_Admin.Show()
             ElseIf ObtenerNombreUsuario.Substring(0, 1).ToUpper = "G" Then
                 EstablecerTipoUsuario = "G"
                 Conexion.obtenerDatos("SELECT * FROM usuarios WHERE nombre_usuario = '" & ObtenerNombreUsuario & "'", reader)
                 reader.Read()
-                EstablecerIdUsuario = reader(0)
+                EstablecerIdUsuario = CStr(reader(0))
                 reader.Close()
-                frmMenu_Admin.Show()
             ElseIf ObtenerNombreUsuario.Substring(0, 1).ToUpper = "C" Then
                 EstablecerTipoUsuario = "C"
                 Conexion.obtenerDatos("SELECT * FROM usuarios WHERE nombre_usuario = '" & ObtenerNombreUsuario & "'", reader)
                 reader.Read()
-                EstablecerIdUsuario = reader(0)
+                EstablecerIdUsuario = CStr(reader(0))
                 reader.Close()
-                frmMenu_Admin.Show()
             End If
-
+            frmMenu_Admin.Show()
         End Sub
     End Structure
 End Module
