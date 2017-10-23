@@ -64,7 +64,6 @@ Public Class frmModificar_Coche
             ComboBox1.SelectedValue = ""
             tipo = ""
             cmbAgenciaCoche.SelectedValue = 0
-
             btnFoto.Text = "+ Agregue una foto"
             picCoche.ImageLocation = Nothing
             obtenerRadio().Checked = False

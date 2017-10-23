@@ -578,7 +578,6 @@ Partial Class frmMenu_Admin
         Me.GroupBox3.Size = New System.Drawing.Size(805, 352)
         Me.GroupBox3.TabIndex = 76
         Me.GroupBox3.TabStop = False
-        Me.GroupBox3.Text = "GroupBox3"
         '
         'btnGraficoMesContador
         '

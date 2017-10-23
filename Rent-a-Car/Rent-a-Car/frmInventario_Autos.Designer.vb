@@ -77,8 +77,8 @@ Partial Class frmInventario_Autos
         Me.cmbBuscar_Autos.Items.AddRange(New Object() {"Marca", "Modelo", "Num de pasajeros", "Costo de alquiler", "Tipo de auto"})
         Me.cmbBuscar_Autos.Location = New System.Drawing.Point(254, 21)
         Me.cmbBuscar_Autos.Name = "cmbBuscar_Autos"
-        Me.cmbBuscar_Autos.Size = New System.Drawing.Size(236, 21)
-        Me.cmbBuscar_Autos.TabIndex = 71
+        Me.cmbBuscar_Autos.Size = New System.Drawing.Size(236, 23)
+        Me.cmbBuscar_Autos.TabIndex = 0
         '
         'btnRegresar
         '
@@ -114,18 +114,19 @@ Partial Class frmInventario_Autos
         Me.ComboBox1.FormattingEnabled = True
         Me.ComboBox1.Location = New System.Drawing.Point(254, 48)
         Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(236, 21)
-        Me.ComboBox1.TabIndex = 74
+        Me.ComboBox1.Size = New System.Drawing.Size(236, 23)
+        Me.ComboBox1.TabIndex = 1
         '
         'tbcInventarios
         '
         Me.tbcInventarios.Controls.Add(Me.TabPage1)
         Me.tbcInventarios.Controls.Add(Me.TabPage2)
+        Me.tbcInventarios.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbcInventarios.Location = New System.Drawing.Point(12, 86)
         Me.tbcInventarios.Name = "tbcInventarios"
         Me.tbcInventarios.SelectedIndex = 0
         Me.tbcInventarios.Size = New System.Drawing.Size(710, 372)
-        Me.tbcInventarios.TabIndex = 75
+        Me.tbcInventarios.TabIndex = 2
         '
         'TabPage1
         '
@@ -133,10 +134,10 @@ Partial Class frmInventario_Autos
         Me.TabPage1.Controls.Add(Me.cmbBuscar_Autos)
         Me.TabPage1.Controls.Add(Me.ComboBox1)
         Me.TabPage1.Controls.Add(Me.dgvInventario_Autos)
-        Me.TabPage1.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage1.Location = New System.Drawing.Point(4, 24)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(702, 346)
+        Me.TabPage1.Size = New System.Drawing.Size(702, 344)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Buscador"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -153,10 +154,10 @@ Partial Class frmInventario_Autos
         Me.TabPage2.Controls.Add(Me.lblModelo)
         Me.TabPage2.Controls.Add(Me.lblMarca)
         Me.TabPage2.Controls.Add(Me.lblMatricula)
-        Me.TabPage2.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage2.Location = New System.Drawing.Point(4, 24)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(702, 346)
+        Me.TabPage2.Size = New System.Drawing.Size(702, 344)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Resultados"
         Me.TabPage2.UseVisualStyleBackColor = True
@@ -176,7 +177,7 @@ Partial Class frmInventario_Autos
         Me.lblTipo.AutoSize = True
         Me.lblTipo.Location = New System.Drawing.Point(48, 276)
         Me.lblTipo.Name = "lblTipo"
-        Me.lblTipo.Size = New System.Drawing.Size(39, 13)
+        Me.lblTipo.Size = New System.Drawing.Size(41, 15)
         Me.lblTipo.TabIndex = 8
         Me.lblTipo.Text = "Label1"
         '
@@ -185,7 +186,7 @@ Partial Class frmInventario_Autos
         Me.lblEstado.AutoSize = True
         Me.lblEstado.Location = New System.Drawing.Point(48, 310)
         Me.lblEstado.Name = "lblEstado"
-        Me.lblEstado.Size = New System.Drawing.Size(39, 13)
+        Me.lblEstado.Size = New System.Drawing.Size(41, 15)
         Me.lblEstado.TabIndex = 7
         Me.lblEstado.Text = "Label1"
         '
@@ -194,7 +195,7 @@ Partial Class frmInventario_Autos
         Me.lblPrecio.AutoSize = True
         Me.lblPrecio.Location = New System.Drawing.Point(48, 242)
         Me.lblPrecio.Name = "lblPrecio"
-        Me.lblPrecio.Size = New System.Drawing.Size(39, 13)
+        Me.lblPrecio.Size = New System.Drawing.Size(41, 15)
         Me.lblPrecio.TabIndex = 6
         Me.lblPrecio.Text = "Label1"
         '
@@ -203,7 +204,7 @@ Partial Class frmInventario_Autos
         Me.lblNumPasajeros.AutoSize = True
         Me.lblNumPasajeros.Location = New System.Drawing.Point(48, 203)
         Me.lblNumPasajeros.Name = "lblNumPasajeros"
-        Me.lblNumPasajeros.Size = New System.Drawing.Size(39, 13)
+        Me.lblNumPasajeros.Size = New System.Drawing.Size(41, 15)
         Me.lblNumPasajeros.TabIndex = 5
         Me.lblNumPasajeros.Text = "Label1"
         '
@@ -212,7 +213,7 @@ Partial Class frmInventario_Autos
         Me.lblKm.AutoSize = True
         Me.lblKm.Location = New System.Drawing.Point(48, 165)
         Me.lblKm.Name = "lblKm"
-        Me.lblKm.Size = New System.Drawing.Size(39, 13)
+        Me.lblKm.Size = New System.Drawing.Size(41, 15)
         Me.lblKm.TabIndex = 4
         Me.lblKm.Text = "Label1"
         '
@@ -221,7 +222,7 @@ Partial Class frmInventario_Autos
         Me.lblColor.AutoSize = True
         Me.lblColor.Location = New System.Drawing.Point(48, 132)
         Me.lblColor.Name = "lblColor"
-        Me.lblColor.Size = New System.Drawing.Size(39, 13)
+        Me.lblColor.Size = New System.Drawing.Size(41, 15)
         Me.lblColor.TabIndex = 3
         Me.lblColor.Text = "Label1"
         '
@@ -230,7 +231,7 @@ Partial Class frmInventario_Autos
         Me.lblModelo.AutoSize = True
         Me.lblModelo.Location = New System.Drawing.Point(48, 94)
         Me.lblModelo.Name = "lblModelo"
-        Me.lblModelo.Size = New System.Drawing.Size(39, 13)
+        Me.lblModelo.Size = New System.Drawing.Size(41, 15)
         Me.lblModelo.TabIndex = 2
         Me.lblModelo.Text = "Label1"
         '
@@ -239,7 +240,7 @@ Partial Class frmInventario_Autos
         Me.lblMarca.AutoSize = True
         Me.lblMarca.Location = New System.Drawing.Point(48, 59)
         Me.lblMarca.Name = "lblMarca"
-        Me.lblMarca.Size = New System.Drawing.Size(39, 13)
+        Me.lblMarca.Size = New System.Drawing.Size(41, 15)
         Me.lblMarca.TabIndex = 1
         Me.lblMarca.Text = "Label1"
         '
@@ -248,7 +249,7 @@ Partial Class frmInventario_Autos
         Me.lblMatricula.AutoSize = True
         Me.lblMatricula.Location = New System.Drawing.Point(48, 25)
         Me.lblMatricula.Name = "lblMatricula"
-        Me.lblMatricula.Size = New System.Drawing.Size(39, 13)
+        Me.lblMatricula.Size = New System.Drawing.Size(41, 15)
         Me.lblMatricula.TabIndex = 0
         Me.lblMatricula.Text = "Label1"
         '
@@ -263,8 +264,8 @@ Partial Class frmInventario_Autos
         Me.MainMenuStrip = Me.mnsMenu
         Me.Name = "frmInventario_Autos"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Inventario de autos                                                       Rent-a-" &
-    "Car"
+        Me.Text = "Inventario de autos                                                              " &
+    "                                                       Rent-a-Car"
         CType(Me.dgvInventario_Autos, System.ComponentModel.ISupportInitialize).EndInit()
         Me.mnsMenu.ResumeLayout(False)
         Me.mnsMenu.PerformLayout()

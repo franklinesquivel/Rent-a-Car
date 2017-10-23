@@ -1,5 +1,6 @@
 ﻿Imports System.Windows.Forms.DataVisualization.Charting
 Imports MySql.Data.MySqlClient
+Imports MaterialSkin
 Public Class frmGraficosRenta
     Private Conexion As clsConexion = New clsConexion()
     Private Sub frmGraficosRenta_Load(sender As Object, e As EventArgs) Handles Me.Load
@@ -7,6 +8,11 @@ Public Class frmGraficosRenta
         cmbAño.SelectedItem = Nothing
         chtGraficoRentas.Series.Clear()
         chtGraficoRentas.Titles.Clear()
+        Dim SkinManager As MaterialSkinManager = MaterialSkinManager.Instance
+        SkinManager.AddFormToManage(Me)
+        SkinManager.Theme = MaterialSkinManager.Themes.LIGHT
+        SkinManager.ColorScheme = New ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE)
+        Session.ControlarSession() 'Se controla la sesión
         'Agregar el titulo de la grafica
         chtGraficoRentas.Titles.Add("Rentas por Mes")
 
@@ -39,9 +45,12 @@ Public Class frmGraficosRenta
         End If
     End Sub
 
-
-    Private Sub btnRegresar_Click(sender As Object, e As EventArgs) Handles btnRegresar.Click
+    Private Sub MaterialRaisedButton1_Click(sender As Object, e As EventArgs) Handles btnRegresar.Click
         frmMenu_contador.Show()
         Me.Close()
+    End Sub
+
+    Private Sub CerrarSesiónToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CerrarSesiónToolStripMenuItem.Click
+        Session.CerrarSession() 'Se cierra la sesión
     End Sub
 End Class

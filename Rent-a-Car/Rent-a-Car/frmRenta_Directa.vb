@@ -7,7 +7,7 @@ Public Class frmRenta_Directa
         'SkinManager.AddFormToManage(Me)
         SkinManager.Theme = MaterialSkinManager.Themes.LIGHT
         SkinManager.ColorScheme = New ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE)
-
+        Session.ControlarSession()
         'Se verifica el estado de los objetos participantes en el formulario
         Clientes = New clsClientes() 'Creación del objeto
         If Clientes.listarDatos(listaClientes, dgvBuscar_Usuario) = 0 Then 'Se agregan los usuarios al dgv
@@ -83,5 +83,9 @@ Public Class frmRenta_Directa
         If dgvBuscar_Coche.CurrentCell.Value <> "" Then
             txbBuscar_Coche.Text = dgvBuscar_Coche.CurrentRow.Cells(0).Value
         End If
+    End Sub
+
+    Private Sub CerrarSesiónToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CerrarSesiónToolStripMenuItem.Click
+        Session.CerrarSession() 'Cerrar sesión
     End Sub
 End Class

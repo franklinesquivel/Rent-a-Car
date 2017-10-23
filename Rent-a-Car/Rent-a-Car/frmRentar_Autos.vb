@@ -5,6 +5,11 @@ Public Class frmRentar_Autos
     Dim listaCoches() As clsCoches 'Arreglo que guarda objetos de tipo clsCoches
     Dim listaAgencias() As clsAgencias 'Arreglo que guarda objetos de tipo clsaAgencias
     Private Sub frmRentar_Autos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim SkinManager As MaterialSkinManager = MaterialSkinManager.Instance
+        'SkinManager.AddFormToManage(Me)
+        SkinManager.Theme = MaterialSkinManager.Themes.LIGHT
+        SkinManager.ColorScheme = New ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE)
+        Session.ControlarSession()
         Reservas = New clsReservas 'Se instancia el objeto de tipo clsReservas
         If Reservas.listarReservas(listaReservas, dgvRentar_Autos) = 0 Then 'Se verifica si hay reservas activas
             MsgBox("No existen Reservas activas")
@@ -56,5 +61,9 @@ Public Class frmRentar_Autos
     Private Sub btnNoExiste_Click(sender As Object, e As EventArgs) Handles btnNoExiste.Click
         frmRenta_Directa.Show()
         Me.Close()
+    End Sub
+
+    Private Sub CerrarSesiónToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CerrarSesiónToolStripMenuItem.Click
+        Session.CerrarSession() 'Cerrar sesión
     End Sub
 End Class

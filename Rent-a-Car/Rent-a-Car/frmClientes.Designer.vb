@@ -61,7 +61,7 @@ Partial Class frmClientes
         Me.btnAgregar_Cliente.Name = "btnAgregar_Cliente"
         Me.btnAgregar_Cliente.Primary = False
         Me.btnAgregar_Cliente.Size = New System.Drawing.Size(142, 36)
-        Me.btnAgregar_Cliente.TabIndex = 36
+        Me.btnAgregar_Cliente.TabIndex = 11
         Me.btnAgregar_Cliente.Text = "+ Agregar cliente"
         Me.btnAgregar_Cliente.UseVisualStyleBackColor = True
         '
@@ -103,7 +103,7 @@ Partial Class frmClientes
         Me.txbCiudad.SelectionLength = 0
         Me.txbCiudad.SelectionStart = 0
         Me.txbCiudad.Size = New System.Drawing.Size(255, 23)
-        Me.txbCiudad.TabIndex = 33
+        Me.txbCiudad.TabIndex = 9
         Me.txbCiudad.UseSystemPasswordChar = False
         '
         'lblDireccion
@@ -131,7 +131,7 @@ Partial Class frmClientes
         Me.txbDireccion.SelectionLength = 0
         Me.txbDireccion.SelectionStart = 0
         Me.txbDireccion.Size = New System.Drawing.Size(580, 23)
-        Me.txbDireccion.TabIndex = 31
+        Me.txbDireccion.TabIndex = 6
         Me.txbDireccion.UseSystemPasswordChar = False
         '
         'txbEmail
@@ -146,7 +146,7 @@ Partial Class frmClientes
         Me.txbEmail.SelectionLength = 0
         Me.txbEmail.SelectionStart = 0
         Me.txbEmail.Size = New System.Drawing.Size(237, 23)
-        Me.txbEmail.TabIndex = 29
+        Me.txbEmail.TabIndex = 8
         Me.txbEmail.UseSystemPasswordChar = False
         '
         'lblNombre
@@ -174,7 +174,7 @@ Partial Class frmClientes
         Me.txbNombre.SelectionLength = 0
         Me.txbNombre.SelectionStart = 0
         Me.txbNombre.Size = New System.Drawing.Size(263, 23)
-        Me.txbNombre.TabIndex = 23
+        Me.txbNombre.TabIndex = 0
         Me.txbNombre.UseSystemPasswordChar = False
         '
         'lblDUI
@@ -202,7 +202,7 @@ Partial Class frmClientes
         Me.txbDui.SelectionLength = 0
         Me.txbDui.SelectionStart = 0
         Me.txbDui.Size = New System.Drawing.Size(259, 23)
-        Me.txbDui.TabIndex = 21
+        Me.txbDui.TabIndex = 4
         Me.txbDui.UseSystemPasswordChar = False
         '
         'lblTelefono
@@ -243,7 +243,7 @@ Partial Class frmClientes
         Me.txbTelefono.SelectionLength = 0
         Me.txbTelefono.SelectionStart = 0
         Me.txbTelefono.Size = New System.Drawing.Size(159, 23)
-        Me.txbTelefono.TabIndex = 37
+        Me.txbTelefono.TabIndex = 10
         Me.txbTelefono.UseSystemPasswordChar = False
         '
         'btnRegresar
@@ -255,7 +255,7 @@ Partial Class frmClientes
         Me.btnRegresar.Name = "btnRegresar"
         Me.btnRegresar.Primary = True
         Me.btnRegresar.Size = New System.Drawing.Size(106, 27)
-        Me.btnRegresar.TabIndex = 52
+        Me.btnRegresar.TabIndex = 12
         Me.btnRegresar.Text = "Regresar"
         Me.btnRegresar.UseVisualStyleBackColor = True
         '
@@ -300,7 +300,7 @@ Partial Class frmClientes
         Me.txbPasaporte.SelectionLength = 0
         Me.txbPasaporte.SelectionStart = 0
         Me.txbPasaporte.Size = New System.Drawing.Size(224, 23)
-        Me.txbPasaporte.TabIndex = 54
+        Me.txbPasaporte.TabIndex = 5
         Me.txbPasaporte.UseSystemPasswordChar = False
         '
         'rbtPasaporte
@@ -316,7 +316,7 @@ Partial Class frmClientes
         Me.rbtPasaporte.Name = "rbtPasaporte"
         Me.rbtPasaporte.Ripple = True
         Me.rbtPasaporte.Size = New System.Drawing.Size(92, 30)
-        Me.rbtPasaporte.TabIndex = 59
+        Me.rbtPasaporte.TabIndex = 3
         Me.rbtPasaporte.TabStop = True
         Me.rbtPasaporte.Text = "Pasaporte"
         Me.rbtPasaporte.UseVisualStyleBackColor = True
@@ -334,7 +334,7 @@ Partial Class frmClientes
         Me.rbtDui.Name = "rbtDui"
         Me.rbtDui.Ripple = True
         Me.rbtDui.Size = New System.Drawing.Size(49, 30)
-        Me.rbtDui.TabIndex = 58
+        Me.rbtDui.TabIndex = 2
         Me.rbtDui.TabStop = True
         Me.rbtDui.Text = "Dui"
         Me.rbtDui.UseVisualStyleBackColor = True
@@ -364,7 +364,7 @@ Partial Class frmClientes
         Me.txbApellido.SelectionLength = 0
         Me.txbApellido.SelectionStart = 0
         Me.txbApellido.Size = New System.Drawing.Size(263, 23)
-        Me.txbApellido.TabIndex = 61
+        Me.txbApellido.TabIndex = 1
         Me.txbApellido.UseSystemPasswordChar = False
         '
         'cmbPaises
@@ -373,7 +373,7 @@ Partial Class frmClientes
         Me.cmbPaises.Location = New System.Drawing.Point(119, 306)
         Me.cmbPaises.Name = "cmbPaises"
         Me.cmbPaises.Size = New System.Drawing.Size(255, 21)
-        Me.cmbPaises.TabIndex = 62
+        Me.cmbPaises.TabIndex = 7
         '
         'frmClientes
         '

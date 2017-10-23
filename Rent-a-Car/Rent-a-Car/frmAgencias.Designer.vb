@@ -67,7 +67,7 @@ Partial Class frmAgencias
         Me.btnAgregar_Agencia.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.btnAgregar_Agencia.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnAgregar_Agencia.Depth = 0
-        Me.btnAgregar_Agencia.Location = New System.Drawing.Point(114, 249)
+        Me.btnAgregar_Agencia.Location = New System.Drawing.Point(153, 246)
         Me.btnAgregar_Agencia.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
         Me.btnAgregar_Agencia.MouseState = MaterialSkin.MouseState.HOVER
         Me.btnAgregar_Agencia.Name = "btnAgregar_Agencia"

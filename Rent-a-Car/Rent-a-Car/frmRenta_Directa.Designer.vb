@@ -1,6 +1,6 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
 Partial Class frmRenta_Directa
-    Inherits System.Windows.Forms.Form
+    Inherits MaterialSkin.Controls.MaterialForm
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
     <System.Diagnostics.DebuggerNonUserCode()> _
@@ -35,15 +35,18 @@ Partial Class frmRenta_Directa
         Me.lblFecha_Devolucion = New MaterialSkin.Controls.MaterialLabel()
         Me.lblFecha_Entrega = New MaterialSkin.Controls.MaterialLabel()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
+        Me.mnsMenu = New System.Windows.Forms.MenuStrip()
+        Me.CerrarSesiónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.dgvBuscar_Coche, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvBuscar_Usuario, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.mnsMenu.SuspendLayout()
         Me.SuspendLayout()
         '
         'btnRegresar
         '
         Me.btnRegresar.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnRegresar.Depth = 0
-        Me.btnRegresar.Location = New System.Drawing.Point(402, 519)
+        Me.btnRegresar.Location = New System.Drawing.Point(402, 599)
         Me.btnRegresar.MouseState = MaterialSkin.MouseState.HOVER
         Me.btnRegresar.Name = "btnRegresar"
         Me.btnRegresar.Primary = True
@@ -58,7 +61,7 @@ Partial Class frmRenta_Directa
         Me.btnRentar_Coche.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.btnRentar_Coche.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnRentar_Coche.Depth = 0
-        Me.btnRentar_Coche.Location = New System.Drawing.Point(208, 510)
+        Me.btnRentar_Coche.Location = New System.Drawing.Point(212, 571)
         Me.btnRentar_Coche.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
         Me.btnRentar_Coche.MouseState = MaterialSkin.MouseState.HOVER
         Me.btnRentar_Coche.Name = "btnRentar_Coche"
@@ -72,7 +75,7 @@ Partial Class frmRenta_Directa
         '
         Me.txbBuscar_Coche.Depth = 0
         Me.txbBuscar_Coche.Hint = ""
-        Me.txbBuscar_Coche.Location = New System.Drawing.Point(157, 312)
+        Me.txbBuscar_Coche.Location = New System.Drawing.Point(157, 373)
         Me.txbBuscar_Coche.MouseState = MaterialSkin.MouseState.HOVER
         Me.txbBuscar_Coche.Name = "txbBuscar_Coche"
         Me.txbBuscar_Coche.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -89,7 +92,7 @@ Partial Class frmRenta_Directa
         Me.lblBuscar_Coche.Depth = 0
         Me.lblBuscar_Coche.Font = New System.Drawing.Font("Roboto", 11.0!)
         Me.lblBuscar_Coche.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblBuscar_Coche.Location = New System.Drawing.Point(28, 316)
+        Me.lblBuscar_Coche.Location = New System.Drawing.Point(28, 377)
         Me.lblBuscar_Coche.MouseState = MaterialSkin.MouseState.HOVER
         Me.lblBuscar_Coche.Name = "lblBuscar_Coche"
         Me.lblBuscar_Coche.Size = New System.Drawing.Size(100, 19)
@@ -99,7 +102,7 @@ Partial Class frmRenta_Directa
         'dgvBuscar_Coche
         '
         Me.dgvBuscar_Coche.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvBuscar_Coche.Location = New System.Drawing.Point(31, 341)
+        Me.dgvBuscar_Coche.Location = New System.Drawing.Point(31, 402)
         Me.dgvBuscar_Coche.Name = "dgvBuscar_Coche"
         Me.dgvBuscar_Coche.ReadOnly = True
         Me.dgvBuscar_Coche.Size = New System.Drawing.Size(476, 160)
@@ -109,7 +112,7 @@ Partial Class frmRenta_Directa
         '
         Me.txbBuscar_Codigo.Depth = 0
         Me.txbBuscar_Codigo.Hint = ""
-        Me.txbBuscar_Codigo.Location = New System.Drawing.Point(212, 114)
+        Me.txbBuscar_Codigo.Location = New System.Drawing.Point(212, 175)
         Me.txbBuscar_Codigo.MouseState = MaterialSkin.MouseState.HOVER
         Me.txbBuscar_Codigo.Name = "txbBuscar_Codigo"
         Me.txbBuscar_Codigo.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -126,7 +129,7 @@ Partial Class frmRenta_Directa
         Me.lblBuscar_Codigo.Depth = 0
         Me.lblBuscar_Codigo.Font = New System.Drawing.Font("Roboto", 11.0!)
         Me.lblBuscar_Codigo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblBuscar_Codigo.Location = New System.Drawing.Point(27, 118)
+        Me.lblBuscar_Codigo.Location = New System.Drawing.Point(27, 179)
         Me.lblBuscar_Codigo.MouseState = MaterialSkin.MouseState.HOVER
         Me.lblBuscar_Codigo.Name = "lblBuscar_Codigo"
         Me.lblBuscar_Codigo.Size = New System.Drawing.Size(179, 19)
@@ -136,7 +139,7 @@ Partial Class frmRenta_Directa
         'dgvBuscar_Usuario
         '
         Me.dgvBuscar_Usuario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvBuscar_Usuario.Location = New System.Drawing.Point(31, 152)
+        Me.dgvBuscar_Usuario.Location = New System.Drawing.Point(31, 213)
         Me.dgvBuscar_Usuario.Name = "dgvBuscar_Usuario"
         Me.dgvBuscar_Usuario.ReadOnly = True
         Me.dgvBuscar_Usuario.Size = New System.Drawing.Size(476, 151)
@@ -146,7 +149,7 @@ Partial Class frmRenta_Directa
         '
         Me.dtpFecha_Devolucion.CalendarFont = New System.Drawing.Font("Segoe UI Semilight", 9.0!)
         Me.dtpFecha_Devolucion.Font = New System.Drawing.Font("Segoe UI Semilight", 9.0!)
-        Me.dtpFecha_Devolucion.Location = New System.Drawing.Point(263, 75)
+        Me.dtpFecha_Devolucion.Location = New System.Drawing.Point(263, 136)
         Me.dtpFecha_Devolucion.MaxDate = New Date(2100, 12, 31, 0, 0, 0, 0)
         Me.dtpFecha_Devolucion.MinDate = New Date(2017, 9, 23, 0, 0, 0, 0)
         Me.dtpFecha_Devolucion.Name = "dtpFecha_Devolucion"
@@ -157,7 +160,7 @@ Partial Class frmRenta_Directa
         '
         Me.dtpFecha_Entrega.CalendarFont = New System.Drawing.Font("Segoe UI Semilight", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtpFecha_Entrega.Font = New System.Drawing.Font("Segoe UI Semilight", 9.0!)
-        Me.dtpFecha_Entrega.Location = New System.Drawing.Point(263, 37)
+        Me.dtpFecha_Entrega.Location = New System.Drawing.Point(263, 98)
         Me.dtpFecha_Entrega.MaxDate = New Date(2100, 12, 31, 0, 0, 0, 0)
         Me.dtpFecha_Entrega.MinDate = New Date(2017, 9, 23, 0, 0, 0, 0)
         Me.dtpFecha_Entrega.Name = "dtpFecha_Entrega"
@@ -170,7 +173,7 @@ Partial Class frmRenta_Directa
         Me.lblFecha_Devolucion.Depth = 0
         Me.lblFecha_Devolucion.Font = New System.Drawing.Font("Roboto", 11.0!)
         Me.lblFecha_Devolucion.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblFecha_Devolucion.Location = New System.Drawing.Point(27, 75)
+        Me.lblFecha_Devolucion.Location = New System.Drawing.Point(27, 136)
         Me.lblFecha_Devolucion.MouseState = MaterialSkin.MouseState.HOVER
         Me.lblFecha_Devolucion.Name = "lblFecha_Devolucion"
         Me.lblFecha_Devolucion.Size = New System.Drawing.Size(230, 19)
@@ -183,7 +186,7 @@ Partial Class frmRenta_Directa
         Me.lblFecha_Entrega.Depth = 0
         Me.lblFecha_Entrega.Font = New System.Drawing.Font("Roboto", 11.0!)
         Me.lblFecha_Entrega.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblFecha_Entrega.Location = New System.Drawing.Point(27, 37)
+        Me.lblFecha_Entrega.Location = New System.Drawing.Point(27, 98)
         Me.lblFecha_Entrega.MouseState = MaterialSkin.MouseState.HOVER
         Me.lblFecha_Entrega.Name = "lblFecha_Entrega"
         Me.lblFecha_Entrega.Size = New System.Drawing.Size(207, 19)
@@ -194,11 +197,27 @@ Partial Class frmRenta_Directa
         '
         Me.OpenFileDialog1.FileName = "OpenFileDialog1"
         '
+        'mnsMenu
+        '
+        Me.mnsMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CerrarSesiónToolStripMenuItem})
+        Me.mnsMenu.Location = New System.Drawing.Point(0, 0)
+        Me.mnsMenu.Name = "mnsMenu"
+        Me.mnsMenu.Size = New System.Drawing.Size(535, 27)
+        Me.mnsMenu.TabIndex = 93
+        Me.mnsMenu.Text = "MenuStrip1"
+        '
+        'CerrarSesiónToolStripMenuItem
+        '
+        Me.CerrarSesiónToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.CerrarSesiónToolStripMenuItem.Name = "CerrarSesiónToolStripMenuItem"
+        Me.CerrarSesiónToolStripMenuItem.Size = New System.Drawing.Size(102, 23)
+        Me.CerrarSesiónToolStripMenuItem.Text = "Cerrar Sesión"
+        '
         'frmRenta_Directa
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(535, 582)
+        Me.ClientSize = New System.Drawing.Size(535, 638)
         Me.Controls.Add(Me.btnRegresar)
         Me.Controls.Add(Me.btnRentar_Coche)
         Me.Controls.Add(Me.txbBuscar_Coche)
@@ -211,11 +230,16 @@ Partial Class frmRenta_Directa
         Me.Controls.Add(Me.dtpFecha_Entrega)
         Me.Controls.Add(Me.lblFecha_Devolucion)
         Me.Controls.Add(Me.lblFecha_Entrega)
+        Me.Controls.Add(Me.mnsMenu)
+        Me.MainMenuStrip = Me.mnsMenu
         Me.Name = "frmRenta_Directa"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "frmRenta_Directa"
+        Me.Text = "Renta Directa                                                                    " &
+    "             Rent a Car"
         CType(Me.dgvBuscar_Coche, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgvBuscar_Usuario, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.mnsMenu.ResumeLayout(False)
+        Me.mnsMenu.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -233,4 +257,6 @@ Partial Class frmRenta_Directa
     Friend WithEvents lblFecha_Devolucion As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents lblFecha_Entrega As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents OpenFileDialog1 As OpenFileDialog
+    Friend WithEvents mnsMenu As MenuStrip
+    Friend WithEvents CerrarSesiónToolStripMenuItem As ToolStripMenuItem
 End Class
