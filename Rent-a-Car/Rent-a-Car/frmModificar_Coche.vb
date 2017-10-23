@@ -6,6 +6,7 @@ Public Class frmModificar_Coche
     Dim busquedaLista() As clsCoches 'Arreglo que guarda objetos de tipo clsCoches
     Dim Conexion As clsConexion = New clsConexion() 'Clase que posee metodos que interactuan con la BDD
     Dim dataReader As MySqlDataReader 'Variable de tipo lectora
+    Dim btnClick As Boolean = False
 
     Private Sub frmModificar_Coche_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim SkinManager As MaterialSkinManager = MaterialSkinManager.Instance
@@ -31,7 +32,7 @@ Public Class frmModificar_Coche
     End Sub
 
     Private Sub cmbBuscar_Autos_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbBuscar_Autos.SelectedIndexChanged
-        Coches.opcionesBusquedaAutos(cmbBuscar_Autos, ComboBox1) 'Se esocge un tipo de busqueda
+        Coches.opcionesBusquedaAutos(cmbBuscar_Autos, ComboBox1) 'Se escoge un tipo de busqueda
     End Sub
     Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
         Coches.modificarCochesDisponibles(dgvBuscar_Coche, ComboBox1, cmbBuscar_Autos, busquedaLista) 'Se realica una busqueda más especifica
@@ -41,34 +42,60 @@ Public Class frmModificar_Coche
         Dim key As Integer = CInt(DirectCast(cmbAgenciaCoche.SelectedItem, KeyValuePair(Of String, String)).Key) 'Valor primario de las agencais
         Dim value As String = DirectCast(cmbAgenciaCoche.SelectedItem, KeyValuePair(Of String, String)).Value 'Texto del combobox agencias
         Dim tipo As String = ""
-
+        'La matricula
+        Dim indiceCoche As Integer = Coches.BuscarIndice(ComboBox2.SelectedValue, busquedaLista)
         Try 'Controlador de errores
             tipo = obtenerRadio().Text
         Catch ex As Exception
             tipo = ""
         End Try
-
-        'Se lleva a cabo el proceso de modificar coches
-        If Coches.ModificarCoches(txbMarca.Text, txbModelo.Text, txbColor.Text, txbKilometraje.Text, txbNumero_Pasajeros.Text, txbPrecio_Alquiler.Text, ofdFoto.FileName, tipo, cmbAgenciaCoche.SelectedValue) Then
-            MsgBox("Auto modificado con exito", MsgBoxStyle.Information)
-            'Se reestablece el formulario
-            txbMarca.Text = ""
-            txbModelo.Text = ""
-            txbColor.Text = ""
-            txbKilometraje.Text = ""
-            txbNumero_Pasajeros.Text = ""
-            txbPrecio_Alquiler.Text = ""
-            ofdFoto.FileName = ""
-            btnModificar_Coche.Enabled = False
-            btnVerDatos.Enabled = True
-            ComboBox1.SelectedValue = ""
-            tipo = ""
-            cmbAgenciaCoche.SelectedValue = 0
-            btnFoto.Text = "+ Agregue una foto"
-            picCoche.ImageLocation = Nothing
-            obtenerRadio().Checked = False
+        If btnClick = True Then
+            'Se lleva a cabo el proceso de modificar coches
+            If Coches.ModificarCoches(busquedaLista(indiceCoche).ObtenerMatricula, txbMarca.Text, txbModelo.Text, txbColor.Text, txbKilometraje.Text, txbNumero_Pasajeros.Text, txbPrecio_Alquiler.Text, ofdFoto.FileName, tipo, cmbAgenciaCoche.SelectedValue) Then
+                MsgBox("Auto modificado con exito", MsgBoxStyle.Information)
+                'Se reestablece el formulario
+                txbMarca.Text = ""
+                txbModelo.Text = ""
+                txbColor.Text = ""
+                txbKilometraje.Text = ""
+                txbNumero_Pasajeros.Text = ""
+                txbPrecio_Alquiler.Text = ""
+                ofdFoto.FileName = ""
+                btnModificar_Coche.Enabled = False
+                btnVerDatos.Enabled = True
+                tipo = ""
+                cmbAgenciaCoche.SelectedValue = 0
+                btnClick = False
+                btnFoto.Text = "+ Agregue una foto"
+                picCoche.ImageLocation = Nothing
+                obtenerRadio().Checked = False
+                Coches.opcionesBusquedaAutos(cmbBuscar_Autos, ComboBox1)
+            End If
         End If
-
+        If btnClick = False Then
+            'Se lleva a cabo el proceso de modificar coches
+            MsgBox(txbPrecio_Alquiler.Text)
+            If Coches.ModificarCochesFoto(txbMarca.Text, txbModelo.Text, txbColor.Text, txbKilometraje.Text, txbNumero_Pasajeros.Text, txbPrecio_Alquiler.Text, btnFoto.Text, tipo, cmbAgenciaCoche.SelectedValue) Then
+                MsgBox("Auto modificado con exito", MsgBoxStyle.Information)
+                'Se reestablece el formulario
+                txbMarca.Text = ""
+                txbModelo.Text = ""
+                txbColor.Text = ""
+                txbKilometraje.Text = ""
+                txbNumero_Pasajeros.Text = ""
+                txbPrecio_Alquiler.Text = ""
+                ofdFoto.FileName = ""
+                btnModificar_Coche.Enabled = False
+                btnVerDatos.Enabled = True
+                tipo = ""
+                btnClick = False
+                cmbAgenciaCoche.SelectedValue = 0
+                btnFoto.Text = "+ Agregue una foto"
+                picCoche.ImageLocation = Nothing
+                obtenerRadio().Checked = False
+                Coches.opcionesBusquedaAutos(cmbBuscar_Autos, ComboBox1)
+            End If
+        End If
     End Sub
     Private Function obtenerRadio() As MaterialSkin.Controls.MaterialRadioButton 'Obtener el valor de los radios
         Dim rButton As MaterialSkin.Controls.MaterialRadioButton = Me.Controls.OfType(Of RadioButton).Where(Function(r) r.Checked = True).FirstOrDefault()
@@ -83,7 +110,9 @@ Public Class frmModificar_Coche
         If ofdFoto.ShowDialog() = DialogResult.OK Then
             btnFoto.Text = Path.GetFileName(ofdFoto.FileName)
             picCoche.ImageLocation = ofdFoto.FileName
+            btnClick = True
         End If
+
     End Sub
 
     Private Sub btnVerDatos_Click(sender As Object, e As EventArgs) Handles btnVerDatos.Click
@@ -97,10 +126,12 @@ Public Class frmModificar_Coche
         Dim alquiler As String
         Dim agencia As String
         Dim tipo As String = ""
+        Dim ruta_alterna As String
+
 
         'Se lleva a cabo la extracción de la información mediante variables por referencia
         placa = ComboBox2.SelectedValue
-        If Coches.LlenarDatosModificar(placa, marca, modelo, color, kilometraje, N_pasa, alquiler, btnFoto, tipo, agencia, picCoche) Then
+        If Coches.LlenarDatosModificar(placa, marca, modelo, color, kilometraje, N_pasa, alquiler, btnFoto, tipo, agencia, picCoche, ruta_alterna) Then
             btnModificar_Coche.Enabled = True
             txbMarca.Text = marca
             txbModelo.Text = modelo
@@ -123,17 +154,5 @@ Public Class frmModificar_Coche
     Private Sub mnsCerrar_Sesion_Click(sender As Object, e As EventArgs) Handles mnsCerrar_Sesion.Click
         Session.CerrarSession() 'Cerrar sesión
         Me.Close()
-    End Sub
-
-    Private Sub rdbSedan_CheckedChanged(sender As Object, e As EventArgs) Handles rdbSedan.CheckedChanged
-
-    End Sub
-
-    Private Sub rdbPickups_CheckedChanged(sender As Object, e As EventArgs) Handles rdbPickups.CheckedChanged
-
-    End Sub
-
-    Private Sub rdbMicrobuses_CheckedChanged(sender As Object, e As EventArgs) Handles rdbMicrobuses.CheckedChanged
-
     End Sub
 End Class

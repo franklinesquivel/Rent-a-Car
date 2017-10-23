@@ -176,7 +176,7 @@ Public Class clsCoches
     '___________________________________
     '|   Metodos generales de la clase  |
     '|__________________________________|
-    Public Function LlenarDatosModificar(ByRef placa As String, ByRef marca As String, ByRef modelo As String, ByRef color As String, ByRef kilometraje As String, ByRef nPasajeros As String, ByRef alquiler As String, ByVal fotografia As Button, ByRef tipo As String, ByRef idAgencia As String, ByRef picFoto As PictureBox) As Boolean
+    Public Function LlenarDatosModificar(ByRef placa As String, ByRef marca As String, ByRef modelo As String, ByRef color As String, ByRef kilometraje As String, ByRef nPasajeros As String, ByRef alquiler As String, ByVal fotografia As Button, ByRef tipo As String, ByRef idAgencia As String, ByRef picFoto As PictureBox, ByRef ruta_alterna As String) As Boolean
         'Función que nos sirve para obtener los datos del coche, con la finalidad de mostrarlo
         Dim reader As MySqlDataReader
         Dim resourcesPath = Application.StartupPath & DirectorySeparatorChar & ".." & DirectorySeparatorChar & ".." & DirectorySeparatorChar & "Resources" & DirectorySeparatorChar & "Coches" & DirectorySeparatorChar
@@ -194,6 +194,7 @@ Public Class clsCoches
             tipo = CStr(reader(7))
             idAgencia = CStr(reader(8))
             picFoto.ImageLocation = resourcesPath + CStr(reader(6))
+            ruta_alterna = resourcesPath + CStr(reader(6))
         End While
         reader.Close() 'Se cierra la lectura
         Return True
@@ -245,7 +246,7 @@ Public Class clsCoches
             Return False
         End If
     End Function
-    Public Function ModificarCoches(ByVal marca As String, ByVal modelo As String, ByVal color As String, ByVal kilometraje As Long, ByVal nPasajeros As Integer, ByVal alquiler As Decimal, ByVal fotografia As String, ByVal tipo As String, ByVal idAgencia As Integer) As Boolean
+    Public Function ModificarCoches(ByVal diego As String, ByVal marca As String, ByVal modelo As String, ByVal color As String, ByVal kilometraje As Long, ByVal nPasajeros As Integer, ByVal alquiler As Decimal, ByVal fotografia As String, ByVal tipo As String, ByVal idAgencia As Integer) As Boolean
         Dim resourcesPath = Application.StartupPath & DirectorySeparatorChar & ".." & DirectorySeparatorChar & ".." & DirectorySeparatorChar & "Resources" & DirectorySeparatorChar & "Coches" & DirectorySeparatorChar
 
         marca = marca.Trim
@@ -327,7 +328,7 @@ Public Class clsCoches
         Dim reader As MySqlDataReader
         Dim auxId As Integer = 1
         Dim coch As String
-        Conexion.obtenerDatos("SELECT id_coche FROM coches WHERE placa = '" & _matricula & "'", reader)
+        Conexion.obtenerDatos("SELECT id_coche FROM coches WHERE placa = '" & diego & "'", reader)
         While reader.Read()
             coch = CStr(reader(0))
         End While
@@ -335,10 +336,98 @@ Public Class clsCoches
         Dim queryU As String = "UPDATE coches SET marca = '" & _marca & "', modelo = '" & _modelo & "', color = '" & _color & "', kilometraje = '" & _kilometraje.ToString & "', num_pasajeros = '" & _nPasajeros.ToString & "', precio_alquiler = '" & _alquiler.ToString & "', fotografia = '" & _fotografia & "', tipo = '" & _tipo & "', estado = 'A', id_agencia = '" & _idAgencia & "' WHERE id_coche = '" & coch & "';"
         If Conexion.modificarDatos(queryU, auxId) Then
             'OBTENER ÍNDICE GUARDADO Y GUARDARLO EN _idCoche
-            _idCoche = auxId
+
+            _idCoche = coch
             Dim extension As String = Split(_fotografia, ".")(Split(_fotografia, ".").Length - 1)
             FileSystem.FileCopy(fotografia, Combine(resourcesPath, (_idCoche & "." & extension)))
             Conexion.modificarDatos("UPDATE coches SET fotografia = '" & (_idCoche & "." & extension) & "' WHERE id_coche = " & _idCoche)
+            Return True
+        Else
+            Return False
+        End If
+    End Function
+    Public Function ModificarCochesFoto(ByVal marca As String, ByVal modelo As String, ByVal color As String, ByVal kilometraje As Long, ByVal nPasajeros As Integer, ByVal alquiler As Decimal, ByVal fotografia As String, ByVal tipo As String, ByVal idAgencia As Integer) As Boolean
+        Dim resourcesPath = Application.StartupPath & DirectorySeparatorChar & ".." & DirectorySeparatorChar & ".." & DirectorySeparatorChar & "Resources" & DirectorySeparatorChar & "Coches" & DirectorySeparatorChar
+
+        marca = marca.Trim
+        modelo = modelo.Trim
+        color = color.Trim
+        fotografia = fotografia.Trim
+        tipo = tipo.Trim
+
+        If marca.Length = 0 Then 'Se verifica que no sea vacío
+            MsgBox("Ingrese una marca de coche!", MsgBoxStyle.Critical, "Modificar Coche")
+            Return False
+        Else
+            _marca = marca
+        End If
+
+        If kilometraje < 0 Then 'Se verifica que no sea vacío
+            MsgBox("Ingrese un kilometraje válido!", MsgBoxStyle.Critical, "Modificar Coche")
+            Return False
+        Else
+            _kilometraje = kilometraje
+        End If
+
+        If nPasajeros <= 0 Then 'Se verifica que no sea vacío
+            MsgBox("Ingrese una cantidad de pasajeros válida!", MsgBoxStyle.Critical, "Modificar Coche")
+            Return False
+        Else
+            _nPasajeros = nPasajeros
+        End If
+
+        If alquiler <= 0 Then 'Se verifica que no sea vacío
+            MsgBox("Ingrese un monto de alquiler válido!", MsgBoxStyle.Critical, "Modificar Coche")
+            Return False
+        Else
+            _alquiler = CDec(Format(alquiler, "0.00"))
+        End If
+        If tipo.Length = 0 Then 'Se verifica que no sea vacío
+            MsgBox("Ingrese un tipo de de coche!", MsgBoxStyle.Critical, "Modificar Coche")
+            Return False
+        Else
+            _tipo = tipo
+        End If
+
+        If modelo.Length = 0 Then 'Se verifica que no sea vacío
+            MsgBox("Ingrese un modelo de coche!", MsgBoxStyle.Critical, "Modificar Coche")
+            Return False
+        Else
+            _modelo = modelo
+        End If
+
+        If color.Length = 0 Then 'Se verifica que no sea vacío
+            MsgBox("Ingrese un color de de coche!", MsgBoxStyle.Critical, "Modificar Coche")
+            Return False
+        Else
+            _color = color
+        End If
+
+        If fotografia.Length = 0 Then 'Se verifica que no sea vacío
+            MsgBox("Ingrese una fotografía!", MsgBoxStyle.Critical, "Modificar Coche")
+            Return False
+        Else
+            _fotografia = fotografia
+        End If
+
+        If _buscarRegistro("agencias", "id_agencia", idAgencia.ToString) Then
+            _idAgencia = idAgencia
+        Else
+            MsgBox("Seleccione una agencia que exista!", MsgBoxStyle.Critical, "Modificar Coche")
+            Return False
+        End If
+
+        'Se modifica el coche al pasar las validaciones
+        Dim reader As MySqlDataReader
+        Dim auxId As Integer = 1
+        Dim coch As String
+        Conexion.obtenerDatos("SELECT id_coche FROM coches WHERE placa = '" & _matricula & "'", reader)
+        While reader.Read()
+            coch = CStr(reader(0))
+        End While
+        reader.Close()
+        Dim queryU As String = "UPDATE coches SET marca = '" & _marca & "', modelo = '" & _modelo & "', color = '" & _color & "', kilometraje = '" & _kilometraje.ToString & "', num_pasajeros = '" & _nPasajeros.ToString & "', precio_alquiler = '" & _alquiler.ToString & "', fotografia = '" & _fotografia & "', tipo = '" & _tipo & "', estado = 'A', id_agencia = '" & _idAgencia & "' WHERE id_coche = '" & coch & "';"
+        If Conexion.modificarDatos(queryU, auxId) Then
             Return True
         Else
             Return False
