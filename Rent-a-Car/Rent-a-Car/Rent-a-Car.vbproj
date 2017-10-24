@@ -37,7 +37,9 @@
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
     <DocumentationFile>Rent-a-Car.xml</DocumentationFile>
-    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</NoWarn>
+    <WarningsAsErrors>
+    </WarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -47,7 +49,9 @@
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DocumentationFile>Rent-a-Car.xml</DocumentationFile>
-    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</NoWarn>
+    <WarningsAsErrors>
+    </WarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup>
     <OptionExplicit>On</OptionExplicit>
@@ -65,15 +69,20 @@
     <ApplicationIcon>rentacar.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="itextsharp">
+      <HintPath>Resources\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="MaterialSkin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialSkin.0.2.1\lib\MaterialSkin.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -94,13 +103,136 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmBase.vb">
+    <Compile Include="clsClientes.vb" />
+    <Compile Include="clsAdministradores.vb" />
+    <Compile Include="clsAgencias.vb" />
+    <Compile Include="clsCoches.vb" />
+    <Compile Include="clsConexion.vb" />
+    <Compile Include="clsContadores.vb" />
+    <Compile Include="clsEmail.vb" />
+    <Compile Include="clsEncriptacion.vb" />
+    <Compile Include="clsFactura.vb" />
+    <Compile Include="clsGerentes.vb" />
+    <Compile Include="clsMultas.vb" />
+    <Compile Include="clsPaises.vb" />
+    <Compile Include="clsRentas.vb" />
+    <Compile Include="clsUsuarios.vb" />
+    <Compile Include="frmAgencias.Designer.vb">
+      <DependentUpon>frmAgencias.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmAgencias.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmBase.Designer.vb">
-      <DependentUpon>frmBase.vb</DependentUpon>
+    <Compile Include="frmCancelar_Reservas.Designer.vb">
+      <DependentUpon>frmCancelar_Reservas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmCancelar_Reservas.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmCoches.Designer.vb">
+      <DependentUpon>frmCoches.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmCoches.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDevolucion_Auto.Designer.vb">
+      <DependentUpon>frmDevolucion_Auto.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmDevolucion_Auto.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGestionar_Autos.Designer.vb">
+      <DependentUpon>frmGestionar_Autos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmGestionar_Autos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGraficosAgencia.Designer.vb">
+      <DependentUpon>frmGraficosAgencia.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmGraficosAgencia.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGraficosRenta.Designer.vb">
+      <DependentUpon>frmGraficosRenta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmGraficosRenta.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInicio_Sesion.Designer.vb">
+      <DependentUpon>frmInicio_Sesion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmInicio_Sesion.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMenu_Admin.Designer.vb">
+      <DependentUpon>frmMenu_Admin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmMenu_Admin.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMenu_Contador.Designer.vb">
+      <DependentUpon>frmMenu_Contador.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmMenu_Contador.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModificar_Coche.Designer.vb">
+      <DependentUpon>frmModificar_Coche.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmModificar_Coche.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInventario_Autos.Designer.vb">
+      <DependentUpon>frmInventario_Autos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmInventario_Autos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRentar_Autos.Designer.vb">
+      <DependentUpon>frmRentar_Autos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmRentar_Autos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRenta_Directa.Designer.vb">
+      <DependentUpon>frmRenta_Directa.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmRenta_Directa.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReportes_Coches.Designer.vb">
+      <DependentUpon>frmReportes_Coches.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmReportes_Coches.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReportes_Rentas.Designer.vb">
+      <DependentUpon>frmReportes_Rentas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmReportes_Rentas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReservas.Designer.vb">
+      <DependentUpon>frmReservas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmReservas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmClientes.Designer.vb">
+      <DependentUpon>frmClientes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmClientes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUsuarios.Designer.vb">
+      <DependentUpon>frmUsuarios.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmUsuarios.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="mdlDeclaracionClases.vb" />
+    <Compile Include="mdlValidaciones.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -116,10 +248,65 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="clsReservas.vb" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="frmBase.resx">
-      <DependentUpon>frmBase.vb</DependentUpon>
+    <EmbeddedResource Include="frmAgencias.resx">
+      <DependentUpon>frmAgencias.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCancelar_Reservas.resx">
+      <DependentUpon>frmCancelar_Reservas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCoches.resx">
+      <DependentUpon>frmCoches.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDevolucion_Auto.resx">
+      <DependentUpon>frmDevolucion_Auto.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGestionar_Autos.resx">
+      <DependentUpon>frmGestionar_Autos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGraficosAgencia.resx">
+      <DependentUpon>frmGraficosAgencia.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGraficosRenta.resx">
+      <DependentUpon>frmGraficosRenta.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInicio_Sesion.resx">
+      <DependentUpon>frmInicio_Sesion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMenu_Admin.resx">
+      <DependentUpon>frmMenu_Admin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMenu_Contador.resx">
+      <DependentUpon>frmMenu_Contador.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmModificar_Coche.resx">
+      <DependentUpon>frmModificar_Coche.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInventario_Autos.resx">
+      <DependentUpon>frmInventario_Autos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRentar_Autos.resx">
+      <DependentUpon>frmRentar_Autos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRenta_Directa.resx">
+      <DependentUpon>frmRenta_Directa.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReportes_Coches.resx">
+      <DependentUpon>frmReportes_Coches.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReportes_Rentas.resx">
+      <DependentUpon>frmReportes_Rentas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReservas.resx">
+      <DependentUpon>frmReservas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmClientes.resx">
+      <DependentUpon>frmClientes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUsuarios.resx">
+      <DependentUpon>frmUsuarios.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -129,6 +316,8 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram2.cd" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -155,6 +344,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="rentacar.ico" />
+    <None Include="Resources\rentacar-5.png" />
+    <None Include="Resources\AF.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\Coches\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
