@@ -79,9 +79,9 @@ Module mdlDeclaracionClases
 
         Public Sub ControlarSession() 'Función que estará en todo evento load de cada form
             If _tipoUsuario = Nothing And _idUsuario = Nothing Then
-                For Each f As Form In Application.OpenForms 'Se cierran los forms abiertos
-                    f.Close()
-                Next
+                'For Each f As Form In Application.OpenForms 'Se cierran los forms abiertos
+                'f.Close()
+                'Next
                 frmInicio_Sesion.Show()
             End If
         End Sub
