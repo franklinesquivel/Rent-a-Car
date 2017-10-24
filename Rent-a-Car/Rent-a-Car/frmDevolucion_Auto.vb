@@ -37,7 +37,7 @@ Public Class frmDevolucion_Auto
         Dim indice As Integer = Rentas.BuscarIndice(dgvDevolucion.CurrentRow.Cells(0).Value, listaRentas) 'Se obtiene el id
         Dim fechaE As Date = dgvDevolucion.CurrentRow.Cells(5).Value
         Dim descripcion = txbDescripcion_Problema.Text
-
+        Dim frmDevolu As frmDevolucion_Auto
         Dim registro As Boolean = False
         Dim tipoDevolucion As Integer = 0
 
@@ -58,12 +58,18 @@ Public Class frmDevolucion_Auto
                 If tipoDevolucion = 1 Then
                     If Rentas.DevolverCoche(listaRentas(indice).ObtenerCodigoRenta, tipoDevolucion, fechaE, dtpFecha_Devolucion.Value.ToString("yyyy-MM-dd")) Then
                         InicializarFormulario()
-                        MsgBox("Devolucón exitosa")
+                        MsgBox("Devolución exitosa")
+                        frmDevolu = New frmDevolucion_Auto
+                        frmDevolu.Show()
+                        Me.Close()
                     End If
                 ElseIf tipoDevolucion = 2 Then
                     If Rentas.DevolverCoche(listaRentas(indice).ObtenerCodigoRenta, tipoDevolucion, fechaE, dtpFecha_Devolucion.Value.ToString("yyyy-MM-dd"), txbDescripcion_Problema.Text) Then
                         InicializarFormulario()
                         MsgBox("Devolución exitosa")
+                        frmDevolu = New frmDevolucion_Auto
+                        frmDevolu.Show()
+                        Me.Close()
                     End If
                 End If
             Else

@@ -198,7 +198,6 @@ Public Class clsRentas
             MsgBox("Error: El código de reserva no existe")
         Else
             Dim reader As MySqlDataReader 'Variable de lectura
-            MsgBox(codigoReserva)
             Conexion.obtenerDatos("SELECT precio_pagar FROM reservas WHERE id_reserva = '" & codigoReserva & "'", reader) 'Obtnemos los datos de la reserva
             reader.Read()
             Dim totalPagar As String = CStr(reader(0))
@@ -299,7 +298,7 @@ Public Class clsRentas
             End If
             descripcion = descripcion.Trim
             If descripcion.Length = 0 Then
-                MsgBox("Erro: Ingrese una descripción")
+                MsgBox("Error: Ingrese una descripción")
             Else
                 'Registro multa por choque
                 If Conexion.modificarDatos("INSERT INTO multas VALUES(" & "NULL" & ", " & id & ", '" & descripcion & "', " & (multa + Total) & ")") Then

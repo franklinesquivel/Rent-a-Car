@@ -31,7 +31,7 @@ Public Class frmClientes
 
     Private Sub btnRegresar_Click(sender As Object, e As EventArgs) Handles btnRegresar.Click
         frmMenu_Admin.Show()
-        Me.Hide()
+        Me.Close()
     End Sub
 
     Private Sub mnsCerrar_Sesion_Click(sender As Object, e As EventArgs) Handles mnsCerrar_Sesion.Click

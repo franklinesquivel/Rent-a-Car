@@ -1,18 +1,18 @@
-﻿Imports System.IO 'Working With Files
-Imports System.Text 'Working With Text
-Imports iTextSharp.text 'Core PDF Text Functionalities
-Imports iTextSharp.text.pdf 'PDF Content
-Imports iTextSharp.text.pdf.parser 'Content Parser
+﻿Imports System.IO 'Trabajar con archivos de texto
+Imports System.Text 'Trabajar con texto
+Imports iTextSharp.text 'libreria pdf
+Imports iTextSharp.text.pdf 'PDF contenido
+Imports iTextSharp.text.pdf.parser
 Imports MySql.Data.MySqlClient
 
 Public Class clsFactura
     Public Sub GenerarPDF(ByVal cliente As clsClientes, ByVal coche As clsCoches, ByVal totalPagar As Decimal, ByVal fecha As Date)
-        Dim oDoc As New iTextSharp.text.Document(PageSize.A4, 0, 0, 0, 0)
-        Dim pdfw As iTextSharp.text.pdf.PdfWriter
-        Dim cb As PdfContentByte
+        Dim oDoc As New iTextSharp.text.Document(PageSize.A4, 0, 0, 0, 0) 'se crea el tipo y tamaño
+        Dim pdfw As iTextSharp.text.pdf.PdfWriter 'forma de escritura
+        Dim cb As PdfContentByte 'texto que ira en el pdf
         Dim fuente As iTextSharp.text.pdf.BaseFont
-        Dim nombre = cliente.ObtenerNombreDeUsuari
-        Dim NombreArchivo As String = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) & "/" & nombre & ".pdf"
+        Dim nombre = cliente.ObtenerNombreDeUsuari 'se obtiene el usuario del cliente
+        Dim NombreArchivo As String = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) & "/" & nombre & ".pdf" 'nombre y ruta de archivo
         Try
             pdfw = PdfWriter.GetInstance(oDoc, New FileStream(NombreArchivo,
             FileMode.Create, FileAccess.Write, FileShare.None))
@@ -133,7 +133,7 @@ Public Class clsFactura
         EjecutarArchivos(NombreArchivo)
         reader.Close() 'Se cierra la lectura
     End Sub
-    Public Sub EjecutarArchivos(ruta As String)
+    Public Sub EjecutarArchivos(ruta As String) 'ejecutar el pdf creado
         Dim ejecutarShell As Object
         ejecutarShell = Shell("rundll32.exe url.dll,FileProtocolHandler " & (ruta), 1)
         Exit Sub

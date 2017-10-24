@@ -191,7 +191,7 @@ Public Class clsReservas
                     Estado = "Activo"
 
                     'Se insertan los datos
-                    If Conexion.modificarDatos("INSERT INTO reservas VALUES('" & CodigoReserva & "', " & idCliente & ", " & idAgencia & ", " & idCoche & ", " & Session.ObtenerIdUsuario & ", '" & _fechaInicio & "', '" & _fechaFin & "', " & Format(PrecioReserva, "0.00") & " ,'Activa')") Then
+                    If Conexion.modificarDatos("INSERT INTO reservas VALUES(" & CodigoReserva & ", " & idCliente & ", " & idAgencia & ", " & idCoche & ", " & Session.ObtenerIdUsuario & ", '" & _fechaInicio & "', '" & _fechaFin & "', " & Format(PrecioReserva, "0.00") & " ,'Activa')") Then
                         clsCorreo.enviarCorreo(cliente, coche, CDec(Format(CDec(PrecioReserva), "0.00")))
                         Return True
                     End If

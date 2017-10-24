@@ -30,7 +30,7 @@ Public Class frmRenta_Directa
         Rentas = New clsRentas() 'Creación de objeto para la reserva
         Dim indiceCliente As Integer = Clientes.BuscarIndice(txbBuscar_Codigo.Text, listaClientes) 'Indice del cliente seleccionado segun arreglo
         Dim indiceCoche As Integer = Coches.BuscarIndice(txbBuscar_Coche.Text, listaCoches) 'Indice del coche seleccionado segun arreglo
-
+        Dim frmRentaDir As frmRenta_Directa
 
         If indiceCliente > -1 Then 'Se verifica si existe un cliente válido
             If indiceCoche > -1 Then 'Se verifica si existe un coche válido
@@ -38,6 +38,9 @@ Public Class frmRenta_Directa
                     'Se lleva a cabo el proceso
                     If Rentas.Registrar(dtpFecha_Entrega.Value.ToString("yyyy-MM-dd"), dtpFecha_Devolucion.Value.ToString("yyyy-MM-dd"), listaClientes(indiceCliente), listaCoches(indiceCoche)) Then
                         MsgBox("Renta exitosa")
+                        frmRentaDir = New frmRenta_Directa
+                        frmRentaDir.Show()
+                        Me.Close()
                     End If
                 End If
             Else

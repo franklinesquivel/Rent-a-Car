@@ -400,6 +400,7 @@ Partial Class frmMenu_Admin
         'GroupBox2
         '
         Me.GroupBox2.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.GroupBox2.Controls.Add(Me.GroupBox3)
         Me.GroupBox2.Controls.Add(Me.btnRentar_Auto)
         Me.GroupBox2.Controls.Add(Me.MaterialLabel1)
         Me.GroupBox2.Controls.Add(Me.MaterialLabel2)
@@ -414,7 +415,6 @@ Partial Class frmMenu_Admin
         Me.GroupBox2.Size = New System.Drawing.Size(805, 352)
         Me.GroupBox2.TabIndex = 75
         Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = "GroupBox2"
         '
         'btnRentar_Auto
         '
@@ -573,7 +573,7 @@ Partial Class frmMenu_Admin
         Me.GroupBox3.Controls.Add(Me.MaterialLabel5)
         Me.GroupBox3.Controls.Add(Me.btnReportesRentaContador)
         Me.GroupBox3.Controls.Add(Me.btnIngresarAutoContador)
-        Me.GroupBox3.Location = New System.Drawing.Point(23, 83)
+        Me.GroupBox3.Location = New System.Drawing.Point(0, 0)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(805, 352)
         Me.GroupBox3.TabIndex = 76
@@ -738,7 +738,6 @@ Partial Class frmMenu_Admin
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(851, 533)
-        Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.btnCerrar_Sesion)

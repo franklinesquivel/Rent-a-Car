@@ -19,7 +19,7 @@ Public Class frmGestionar_Autos
 
     Private Sub btnRegresar_Click(sender As Object, e As EventArgs) Handles btnRegresar.Click
         frmMenu_Admin.Show()
-        Me.Hide()
+        Me.Close()
     End Sub
     Private Function obtenerRadio() As MaterialSkin.Controls.MaterialRadioButton 'Obtener los valores del radio
         Dim rButton As MaterialSkin.Controls.MaterialRadioButton = Me.Controls.OfType(Of RadioButton).Where(Function(r) r.Checked = True).FirstOrDefault()
