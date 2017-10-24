@@ -18,7 +18,7 @@ Public Class clsConexion
             _aceptarConexion = True
             _conn.Close()
         Catch ex As Exception
-            MsgBox("Ha ocurrido un error en la conexión")
+            MsgBox("Ha ocurrido un error en la conexión", MsgBoxStyle.Critical)
             _aceptarConexion = False
         End Try
     End Sub

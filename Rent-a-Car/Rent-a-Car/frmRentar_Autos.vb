@@ -12,7 +12,7 @@ Public Class frmRentar_Autos
         Session.ControlarSession()
         Reservas = New clsReservas 'Se instancia el objeto de tipo clsReservas
         If Reservas.listarReservas(listaReservas, dgvRentar_Autos) = 0 Then 'Se verifica si hay reservas activas
-            MsgBox("No existen Reservas activas")
+            MsgBox("No existen Reservas activas", MsgBoxStyle.Information)
             btnRentar_Autos.Enabled = False
         End If
     End Sub
@@ -45,14 +45,14 @@ Public Class frmRentar_Autos
                 'Se lleva a cabo el proceso
                 If Rentas.registrarRenta(listaReservas(indice).ObtenerIdCliente, listaReservas(indice).ObtenerIdAgencia, listaReservas(indice).ObtenerIdCoche, indiceUsuario, listaReservas(indice).ObtenerFechaInicio.ToString("yyyy-MM-dd"), listaReservas(indice).ObtenerFechaFin.ToString("yyyy-MM-dd"), txbCodigo_Reserva.Text) Then
                     Rentas.ReservaRealizada(listaReservas(indice)) 'Se cambio el estado de la reserva
-                MsgBox("Renta Agregada con exito")
+                MsgBox("Renta Agregada con exito", MsgBoxStyle.Information)
                 frmrentas = New frmRentar_Autos
                 frmrentas.Show()
                 Me.Close()
             End If
             'End If
         Else
-            MsgBox("Error: Código de renta no encontrado")
+            MsgBox("Error: Código de renta no encontrado", MsgBoxStyle.Critical)
         End If
 
     End Sub

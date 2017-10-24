@@ -11,17 +11,17 @@
         _apellidos = _apellidos.Trim
 
         If _nombres.Length = 0 Then 'Se verifica que el nombre no este vacío
-            MsgBox("Error: Ingrese nombres")
+            MsgBox("Error: Ingrese nombres", MsgBoxStyle.Exclamation)
             Return False
         End If
 
         If _apellidos.Length = 0 Then 'Se verifica que el apellido no este vacío 
-            MsgBox("Error: Ingrese apellidos")
+            MsgBox("Error: Ingrese apellidos", MsgBoxStyle.Exclamation)
             Return False
         End If
 
         If _noCoincide("^([\w-]+\.)*?[\w-]+@[\w-]+\.([\w-]+\.)*?[\w]+$", _correo) Then 'Se valida el correo electrónico
-            MsgBox("Error: Ingrese un correo válido")
+            MsgBox("Error: Ingrese un correo válido", MsgBoxStyle.Exclamation)
             Return False
         End If
 

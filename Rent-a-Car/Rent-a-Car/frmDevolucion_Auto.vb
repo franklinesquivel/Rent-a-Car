@@ -49,7 +49,7 @@ Public Class frmDevolucion_Auto
             registro = True
             tipoDevolucion = 2
         Else
-            MsgBox("Error: Seleccione estado del coche o una fecha válida")
+            MsgBox("Error: Seleccione estado del coche o una fecha válida", MsgBoxStyle.Exclamation)
         End If
 
         If registro Then 'Si se selecciono uno de las dos opciones para el estado del coche
@@ -58,7 +58,7 @@ Public Class frmDevolucion_Auto
                 If tipoDevolucion = 1 Then
                     If Rentas.DevolverCoche(listaRentas(indice).ObtenerCodigoRenta, tipoDevolucion, fechaE, dtpFecha_Devolucion.Value.ToString("yyyy-MM-dd")) Then
                         InicializarFormulario()
-                        MsgBox("Devolución exitosa")
+                        MsgBox("Devolución exitosa", MsgBoxStyle.Information)
                         frmDevolu = New frmDevolucion_Auto
                         frmDevolu.Show()
                         Me.Close()
@@ -66,14 +66,14 @@ Public Class frmDevolucion_Auto
                 ElseIf tipoDevolucion = 2 Then
                     If Rentas.DevolverCoche(listaRentas(indice).ObtenerCodigoRenta, tipoDevolucion, fechaE, dtpFecha_Devolucion.Value.ToString("yyyy-MM-dd"), txbDescripcion_Problema.Text) Then
                         InicializarFormulario()
-                        MsgBox("Devolución exitosa")
+                        MsgBox("Devolución exitosa", MsgBoxStyle.Information)
                         frmDevolu = New frmDevolucion_Auto
                         frmDevolu.Show()
                         Me.Close()
                     End If
                 End If
             Else
-                MsgBox("Error: Favor seleccionar una renta")
+                MsgBox("Error: Favor seleccionar una renta", MsgBoxStyle.Exclamation)
             End If
         End If
     End Sub

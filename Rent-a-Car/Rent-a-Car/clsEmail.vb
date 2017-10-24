@@ -65,7 +65,7 @@ Public Class clsEmail
             mensaje.Attachments.Add(attachement) 'Se agrega al cuerpo del mensaje
             smtpServer.Send(mensaje) 'Se manda el mensaje
         Catch ex As Exception
-            MsgBox("Error: El correo electrónico no se ha enviado correctamente")
+            MsgBox("Error: El correo electrónico no se ha enviado correctamente", MsgBoxStyle.Critical)
         End Try
     End Sub
 
@@ -85,7 +85,7 @@ Public Class clsEmail
             smtpServer.Send(mensaje) 'Mandamos el mensaje
             Return 1
         Catch ex As Exception
-            MsgBox("Error: El correo electrónico no se ha enviado correctamente")
+            MsgBox("Error: El correo electrónico no se ha enviado correctamente", MsgBoxStyle.Critical)
             Return 0
         End Try
     End Function
@@ -107,7 +107,7 @@ Public Class clsEmail
             smtpServer.Send(mensaje) 'Mandamos el mensaje
             Return 1
         Catch ex As Exception
-            MsgBox("Error: El correo electrónico no se ha enviado correctamente")
+            MsgBox("Error: El correo electrónico no se ha enviado correctamente", MsgBoxStyle.Critical)
             Return 0
         End Try
     End Function

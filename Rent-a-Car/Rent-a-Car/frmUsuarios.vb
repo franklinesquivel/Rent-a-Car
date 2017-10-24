@@ -13,23 +13,23 @@ Public Class frmUsuarios
         If rdbAdministrador.Checked = True Then
             Administradores = New clsAdministradores
             If Administradores.Registrar(txbNombre.Text, txbApellido.Text, txbCorreo.Text) Then
-                MsgBox("Registro Exitoso: Se ha enviado los datos al correo")
+                MsgBox("Registro Exitoso: Se ha enviado los datos al correo", MsgBoxStyle.Information)
                 InicializarFormulario()
             End If
         ElseIf rdbAgente.Checked = True Then
             Gerente = New clsGerentes
             If Gerente.Registrar(txbNombre.Text, txbApellido.Text, txbCorreo.Text) Then
-                MsgBox("Registro Exitoso: Se ha enviado los datos al correo")
+                MsgBox("Registro Exitoso: Se ha enviado los datos al correo", MsgBoxStyle.Information)
                 InicializarFormulario()
             End If
         ElseIf rdbContador.Checked = True Then
             Contador = New clsContadores
             If Contador.Registrar(txbNombre.Text, txbApellido.Text, txbCorreo.Text) Then
-                MsgBox("Registro Exitoso: Se ha enviado los datos al correo")
+                MsgBox("Registro Exitoso: Se ha enviado los datos al correo", MsgBoxStyle.Information)
                 InicializarFormulario()
             End If
         Else
-            MsgBox("Error: Seleccione un tipo de usuario")
+            MsgBox("Error: Seleccione un tipo de usuario", MsgBoxStyle.Exclamation)
         End If
     End Sub
 

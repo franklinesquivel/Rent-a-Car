@@ -35,13 +35,13 @@ Public Class frmCancelar_Reservas
         Dim indice = Reservas.BuscarIndice(txbCodigo_Reserva.Text, listaReservas) 'Obtenemos el indice del dato a modificar según el array
         If indice > -1 Then 'Verificamos si el indice es verdadero, osea, si existe
             If Reservas.CancelarReserva(listaReservas(indice)) Then 'Cancelamos la reserva
-                MsgBox("Reserva cancelada con exito")
+                MsgBox("Reserva cancelada con exito", MsgBoxStyle.Information)
                 InicializarFormulario() 'Reiniciamos el formulario
             Else
-                MsgBox("Error: Problemas de ejecución")
+                MsgBox("Error: Problemas de ejecución", MsgBoxStyle.Critical)
             End If
         Else
-            MsgBox("Error: El código de reserva no esta registrado")
+            MsgBox("Error: El código de reserva no esta registrado", MsgBoxStyle.Critical)
         End If
     End Sub
 

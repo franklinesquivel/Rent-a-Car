@@ -19,7 +19,7 @@ Public Class frmInicio_Sesion
         Dim correoElectronico As String = ""
         correoElectronico = InputBox("Ingrese su nombre de usuario") 'Inputbox para ingresar el código de usuario
         If Usuarios.recuperarContrasenna(correoElectronico) Then 'Proceso para recupear contraseña
-            MsgBox("Contraseña enviada a su correo electrónico")
+            MsgBox("Contraseña enviada a su correo electrónico", MsgBoxStyle.Information)
         End If
     End Sub
 End Class

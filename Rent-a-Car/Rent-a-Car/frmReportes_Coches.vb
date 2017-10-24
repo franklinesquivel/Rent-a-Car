@@ -9,7 +9,7 @@ Public Class frmReportes_Coches
         Session.ControlarSession()
         Coches = New clsCoches 'Se insancia objeto de coches
         If Not Coches.Reporte("", dgvCodigo_Renta) Then 'Se enlistan los coches
-            MsgBox("Error: No hay datos por mostrar")
+            MsgBox("Error: No hay datos por mostrar", MsgBoxStyle.Information)
             txbCodigo_Renta.Enabled = False
         End If
     End Sub

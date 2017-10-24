@@ -156,17 +156,17 @@ Public Class clsRentas
         'Dim rgx_usuario = New Regex("^C{1}\L{1}\d{5}") 'Patron de cpodigo de Usuario
 
         If rgx_fecha.IsMatch(_fechaInicio) Or rgx_fecha.IsMatch(_fechaFin) Then 'Se verifican las fechas
-            MsgBox("Error: Ingrese un fecha válida")
+            MsgBox("Error: Ingrese un fecha válida", MsgBoxStyle.Critical)
             Return False
         End If
 
         If CDate(_fechaInicio) > CDate(_fechaFin) Then 'Se verifica que una fecha sea mayor a la otra
-            MsgBox("Error: La fecha de incio no puede ser mayor a la fecha final")
+            MsgBox("Error: La fecha de incio no puede ser mayor a la fecha final", MsgBoxStyle.Critical)
             Return False
         End If
 
         If CDate(_fechaInicio) < CDate(Date.Now.ToString("yyyy-MM-dd")) Then 'Se verifica que una fecha no sea mayor a la actual
-            MsgBox("Error: No puede ingresar una fecha de inicio menor a la actual")
+            MsgBox("Error: No puede ingresar una fecha de inicio menor a la actual", MsgBoxStyle.Critical)
             Return False
         End If
 
@@ -187,7 +187,7 @@ Public Class clsRentas
                 End If
             End If
         Else
-            MsgBox("Error: El usuario tiene una reserva activa en dichas fechas")
+            MsgBox("Error: El usuario tiene una reserva activa en dichas fechas", MsgBoxStyle.Critical)
         End If
         Return False
     End Function
@@ -195,7 +195,7 @@ Public Class clsRentas
     Public Function registrarRenta(ByVal idCliente As Integer, ByVal idAgencia As Integer, ByVal idCoche As Integer, ByVal idUsuario As Integer, ByVal fechaR As String, ByVal fechaD As String, ByVal codigoReserva As String) As Boolean
         'Metodo que registra una renta basandose en una reserva
         If Conexion.contarFilas("SELECT * FROM reservas WHERE id_reserva = '" & codigoReserva & "'") = 0 Then 'Se verifica si el codigo de reserva existe en la BDD
-            MsgBox("Error: El código de reserva no existe")
+            MsgBox("Error: El código de reserva no existe", MsgBoxStyle.Critical)
         Else
             Dim reader As MySqlDataReader 'Variable de lectura
             Conexion.obtenerDatos("SELECT precio_pagar FROM reservas WHERE id_reserva = '" & codigoReserva & "'", reader) 'Obtnemos los datos de la reserva
@@ -278,7 +278,7 @@ Public Class clsRentas
 
             If MyClass.Calcular(CDate(Fecha1), CDate(Fecha2)) Then 'Registra la multa
                 Conexion.modificarDatos("INSERT INTO multas VALUES(" & "NULL" & ", " & id & ", '" & descripcion & "', " & Total & ")")
-                MsgBox("Total a pagar de multas por tardía $" & Total)
+                MsgBox("Total a pagar de multas por tardía $" & Total, MsgBoxStyle.Information)
             End If
 
             'Registro cuando todo va bien
@@ -294,11 +294,11 @@ Public Class clsRentas
             End While
 
             If MyClass.Calcular(CDate(Fecha1), CDate(Fecha2)) Then 'Registra la multa por tardía
-                MsgBox("Total a pagar de multas por tardía $" & Total)
+                MsgBox("Total a pagar de multas por tardía $" & Total, MsgBoxStyle.Information)
             End If
             descripcion = descripcion.Trim
             If descripcion.Length = 0 Then
-                MsgBox("Error: Ingrese una descripción")
+                MsgBox("Error: Ingrese una descripción", MsgBoxStyle.Critical)
             Else
                 'Registro multa por choque
                 If Conexion.modificarDatos("INSERT INTO multas VALUES(" & "NULL" & ", " & id & ", '" & descripcion & "', " & (multa + Total) & ")") Then
@@ -334,7 +334,7 @@ Public Class clsRentas
     End Function
     Public Function ChequearRenta(ByVal coche As clsCoches) As Boolean 'Chequeamos si hay una renta con el coche elegido
         If Conexion.contarFilas("SELECT * FROM rentas WHERE id_coche = '" & coche.ObtenerIdCoche & "' AND estado = 'Activa'") > 0 Then
-            MsgBox("Error: Existe una Renta Activa de este coche")
+            MsgBox("Error: Existe una Renta Activa de este coche", MsgBoxStyle.Critical)
             Return False
         Else
             Return True
@@ -342,7 +342,7 @@ Public Class clsRentas
     End Function
     Public Function ChequearReservaFecha(ByVal _fechaInicio As Date, ByVal _fechaFin As Date, ByVal _idCoche As Integer) As Boolean 'Verificamos si hay una reserva en las fechas elegidas para la renta
         If Conexion.contarFilas("SELECT * FROM `reservas` WHERE id_coche = " & _idCoche & " AND (('" & _fechaInicio.ToString("yyyy-MM-dd") & "' BETWEEN fecha_retiro AND fecha_devolucion) or ('" & _fechaFin.ToString("yyyy-MM-dd") & "' BETWEEN fecha_retiro AND fecha_devolucion)) AND estado = 'Activa' ") > 0 Then
-            MsgBox("Error: Existe una reserva en dicho período de tiempo para el coche seleccionado")
+            MsgBox("Error: Existe una reserva en dicho período de tiempo para el coche seleccionado", MsgBoxStyle.Critical)
             Return False
         Else
             Return True

@@ -211,7 +211,7 @@ Public Class clsClientes
         End If
 
         If telefono.Length = 0 Or _noCoincide("^(2|7|6)\d{3}-?\d{4}$", telefono) Then
-            MsgBox("Error: ingrese número de telefono válido")
+            MsgBox("Error: ingrese número de telefono válido", MsgBoxStyle.Critical, "Registro de Cliente")
             Return False
         Else
             _Telefono = telefono
@@ -230,7 +230,7 @@ Public Class clsClientes
         End If
 
         If VerificarCorreoUsuario() = 0 Then 'Se verifica la existencia de correo electronico ingresado en la BDD
-            MsgBox("Error: El correo electrónico ya esta registrado")
+            MsgBox("Error: El correo electrónico ya esta registrado", MsgBoxStyle.Critical)
             Return False
         Else
             If MyClass.CrearCodigo() Then 'Se crea el código del usuari0
@@ -259,7 +259,7 @@ Public Class clsClientes
     End Function
     Private Function verificarDui() As Boolean
         If Conexion.contarFilas("SELECT * FROM clientes WHERE dui = '" & _Dui & "'") > 0 Then
-            MsgBox("Error: Ya se ha registrado un usuario con mismo dui")
+            MsgBox("Error: Ya se ha registrado un usuario con mismo dui", MsgBoxStyle.Critical)
             Return 0
         Else
             Return 1
@@ -267,7 +267,7 @@ Public Class clsClientes
     End Function
     Private Function verificarPasaporte() As Boolean
         If Conexion.contarFilas("SELECT * FROM clientes WHERE pasaporte = '" & _Pasaporte & "'") > 0 Then
-            MsgBox("Error: Ya se ha registrado un usuario con mismo pasaporte")
+            MsgBox("Error: Ya se ha registrado un usuario con mismo pasaporte", MsgBoxStyle.Critical)
             Return 0
         Else
             Return 1

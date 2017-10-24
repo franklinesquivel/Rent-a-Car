@@ -56,7 +56,7 @@ Public Class clsUsuarios
         Dim rgx_usuarios = New Regex("^(A{1}|G{1}|C{1})\d{5}$") 'Regex de validacion de usuario
 
         If _nombreUsuario.Length = 0 Or Not rgx_usuarios.IsMatch(_nombreUsuario.ToUpper) Then 'Se verifica la regex y validación
-            MsgBox("Error: Ingrese un nombre de usuario válido")
+            MsgBox("Error: Ingrese un nombre de usuario válido", MsgBoxStyle.Critical)
             Return False
         End If
 
@@ -68,7 +68,7 @@ Public Class clsUsuarios
             Session.IniciarSesion(NombreUsuario) 'Se inicia la sesión de la estructura
             Return True
         Else
-            MsgBox("Error: El usuario ingresado es incorrecto")
+            MsgBox("Error: El usuario ingresado es incorrecto", MsgBoxStyle.Critical)
             Return False
         End If
     End Function
@@ -83,7 +83,7 @@ Public Class clsUsuarios
                 Return True
             End If
         Else
-            MsgBox("Error: El email ingresado ya existe como usuario")
+            MsgBox("Error: El email ingresado ya existe como usuario", MsgBoxStyle.Exclamation)
         End If
         Return False
     End Function
@@ -151,11 +151,11 @@ Public Class clsUsuarios
                 End If
                 Return False
             Else
-                MsgBox("Error: Usuario no encontrado")
+                MsgBox("Error: Usuario no encontrado", MsgBoxStyle.Critical)
                 Return False
             End If
         Else
-            MsgBox("Erro: Ingrese un código de usuario válido")
+            MsgBox("Erro: Ingrese un código de usuario válido", MsgBoxStyle.Critical)
             Return False
         End If
     End Function

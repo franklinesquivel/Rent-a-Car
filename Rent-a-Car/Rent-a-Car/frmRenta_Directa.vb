@@ -12,12 +12,12 @@ Public Class frmRenta_Directa
         Clientes = New clsClientes() 'Creación del objeto
         If Clientes.listarDatos(listaClientes, dgvBuscar_Usuario) = 0 Then 'Se agregan los usuarios al dgv
             btnRentar_Coche.Enabled = False
-            MsgBox("Error: No hay clientes registrados")
+            MsgBox("Error: No hay clientes registrados", MsgBoxStyle.Exclamation)
         End If
         Coches = New clsCoches() 'Creación de objeto
         If Coches.listarCoches(listaCoches, dgvBuscar_Coche) = 0 Then 'Se agregan los coches al dgv
             btnRentar_Coche.Enabled = False
-            MsgBox("Error: No hay coches registrados")
+            MsgBox("Error: No hay coches registrados", MsgBoxStyle.Exclamation)
         End If
     End Sub
 
@@ -37,17 +37,17 @@ Public Class frmRenta_Directa
                 If Rentas.ChequearRenta(listaCoches(indiceCoche)) = True Then 'Se verifica si no hay una renta de un coche en existencia
                     'Se lleva a cabo el proceso
                     If Rentas.Registrar(dtpFecha_Entrega.Value.ToString("yyyy-MM-dd"), dtpFecha_Devolucion.Value.ToString("yyyy-MM-dd"), listaClientes(indiceCliente), listaCoches(indiceCoche)) Then
-                        MsgBox("Renta exitosa")
+                        MsgBox("Renta exitosa", MsgBoxStyle.Information)
                         frmRentaDir = New frmRenta_Directa
                         frmRentaDir.Show()
                         Me.Close()
                     End If
                 End If
             Else
-                MsgBox("Error: Matrícula de coche no ha sido encontrada")
+                MsgBox("Error: Matrícula de coche no ha sido encontrada", MsgBoxStyle.Critical)
             End If
         Else
-            MsgBox("Error: El nombre de usuario no se ha encontrado en la BDD")
+            MsgBox("Error: El nombre de usuario no se ha encontrado en la BDD", MsgBoxStyle.Critical)
         End If
     End Sub
     Private Sub txbBuscar_Codigo_KeyUp(sender As Object, e As KeyEventArgs) Handles txbBuscar_Codigo.KeyUp

@@ -20,12 +20,12 @@ Public Class frmClientes
         ElseIf rbtPasaporte.Checked = True Then
             tipoIngreso = True
         Else
-            MsgBox("Error: Dui(Nacional), Pasaporte(Extranjero)")
+            MsgBox("Error: Dui(Nacional), Pasaporte(Extranjero)", MsgBoxStyle.Critical)
         End If
 
         If Clientes.registrarDatos(txbDui.Text, txbPasaporte.Text, txbNombre.Text, txbApellido.Text, txbDireccion.Text, txbCiudad.Text, txbEmail.Text, cmbPaises.SelectedIndex + 1, txbTelefono.Text, tipoIngreso) Then
             InicializarFormulario() 'Reestablecemos el formulario
-            MsgBox("Registro Exitoso")
+            MsgBox("Registro Exitoso", MsgBoxStyle.Information)
         End If
     End Sub
 

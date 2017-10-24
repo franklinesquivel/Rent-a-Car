@@ -17,13 +17,13 @@
         If objReserva.ObtenerCodigoReserva = reservaCodigo Then
             If CInt(horas) > 24 Then
                 multaTotal = CInt(dias) * objReserva.ObtenerPrecioReserva
-                MsgBox("Debido a su demora el Total a pagar es de : $" & multaTotal)
+                MsgBox("Debido a su demora el Total a pagar es de : $" & multaTotal, MsgBoxStyle.Information)
                 objReserva.EstablecerEstado = "Cancelada"
             Else
-                MsgBox("Total a Pagar : $" & objReserva.ObtenerPrecioReserva)
+                MsgBox("Total a Pagar : $" & objReserva.ObtenerPrecioReserva, MsgBoxStyle.Information)
             End If
         Else
-            MsgBox("Error: Revise el codigo de la reserva.")
+            MsgBox("Error: Revise el codigo de la reserva.", MsgBoxStyle.Critical)
         End If
 
     End Sub

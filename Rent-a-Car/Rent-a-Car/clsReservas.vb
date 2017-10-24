@@ -162,17 +162,17 @@ Public Class clsReservas
         'Dim rgx_usuario = New Regex("^C{1}\L{1}\d{5}") 'Patrón del código de usuario
 
         If rgx_fecha.IsMatch(_fechaInicio) Or rgx_fecha.IsMatch(_fechaFin) Then 'Se verifica el patron de las fechas
-            MsgBox("Error: Ingrese un fecha válida")
+            MsgBox("Error: Ingrese un fecha válida", MsgBoxStyle.Critical)
             Return False
         End If
 
         If CDate(_fechaInicio) > CDate(_fechaFin) Then 'Se verifica si la fecha una es mayor que la otra
-            MsgBox("Error: La fecha de incio no puede ser mayor a la fecha final")
+            MsgBox("Error: La fecha de incio no puede ser mayor a la fecha final", MsgBoxStyle.Critical)
             Return False
         End If
 
         If CDate(_fechaInicio) < CDate(Date.Now.ToString("yyyy-MM-dd")) Then 'Se verifica que la fecha no sea mayor a la actual
-            MsgBox("Error: No puede ingresar una fecha de inicio menor a la actual")
+            MsgBox("Error: No puede ingresar una fecha de inicio menor a la actual", MsgBoxStyle.Critical)
             Return False
         End If
 
@@ -196,13 +196,13 @@ Public Class clsReservas
                         Return True
                     End If
                 Else
-                    MsgBox("Error: El coche seleccionado esta en renta en las fechas limitadas")
+                    MsgBox("Error: El coche seleccionado esta en renta en las fechas limitadas", MsgBoxStyle.Exclamation)
                 End If
             Else
-                MsgBox("Error: Se ha encontrado una reserva del mismo coche en las fechas limitadas")
+                MsgBox("Error: Se ha encontrado una reserva del mismo coche en las fechas limitadas", MsgBoxStyle.Exclamation)
             End If
         Else
-            MsgBox("Error: El usuario tiene una reserva activa")
+            MsgBox("Error: El usuario tiene una reserva activa", MsgBoxStyle.Critical)
         End If
         Return False
     End Function

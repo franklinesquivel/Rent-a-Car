@@ -50,51 +50,60 @@ Public Class frmModificar_Coche
             tipo = ""
         End Try
         If btnClick = True Then
-            'Se lleva a cabo el proceso de modificar coches
-            If Coches.ModificarCoches(busquedaLista(indiceCoche).ObtenerMatricula, txbMarca.Text, txbModelo.Text, txbColor.Text, txbKilometraje.Text, txbNumero_Pasajeros.Text, txbPrecio_Alquiler.Text, ofdFoto.FileName, tipo, cmbAgenciaCoche.SelectedValue) Then
-                MsgBox("Auto modificado con exito", MsgBoxStyle.Information)
-                'Se reestablece el formulario
-                txbMarca.Text = ""
-                txbModelo.Text = ""
-                txbColor.Text = ""
-                txbKilometraje.Text = ""
-                txbNumero_Pasajeros.Text = ""
-                txbPrecio_Alquiler.Text = ""
-                ofdFoto.FileName = ""
-                btnModificar_Coche.Enabled = False
-                btnVerDatos.Enabled = True
-                tipo = ""
-                cmbAgenciaCoche.SelectedValue = 0
-                btnClick = False
-                btnFoto.Text = "+ Agregue una foto"
-                picCoche.ImageLocation = Nothing
-                obtenerRadio().Checked = False
-                Coches.opcionesBusquedaAutos(cmbBuscar_Autos, ComboBox1)
+            If indiceCoche > -1 Then
+                'Se lleva a cabo el proceso de modificar coches
+                If Coches.ModificarCoches(busquedaLista(indiceCoche).ObtenerMatricula, txbMarca.Text, txbModelo.Text, txbColor.Text, txbKilometraje.Text, txbNumero_Pasajeros.Text, txbPrecio_Alquiler.Text, ofdFoto.FileName, tipo, cmbAgenciaCoche.SelectedValue) Then
+                    MsgBox("Auto modificado con exito", MsgBoxStyle.Information)
+                    'Se reestablece el formulario
+                    txbMarca.Text = ""
+                    txbModelo.Text = ""
+                    txbColor.Text = ""
+                    txbKilometraje.Text = ""
+                    txbNumero_Pasajeros.Text = ""
+                    txbPrecio_Alquiler.Text = ""
+                    ofdFoto.FileName = ""
+                    btnModificar_Coche.Enabled = False
+                    btnVerDatos.Enabled = True
+                    tipo = ""
+                    cmbAgenciaCoche.SelectedValue = 0
+                    btnClick = False
+                    btnFoto.Text = "+ Agregue una foto"
+                    picCoche.ImageLocation = Nothing
+                    obtenerRadio().Checked = False
+                    Coches.opcionesBusquedaAutos(cmbBuscar_Autos, ComboBox1)
+                Else
+                    MsgBox("Error: Seleccione coche", MsgBoxStyle.Exclamation)
+                End If
             End If
-        End If
-        If btnClick = False Then
-            'Se lleva a cabo el proceso de modificar coches
-            MsgBox(txbPrecio_Alquiler.Text)
-            If Coches.ModificarCochesFoto(txbMarca.Text, txbModelo.Text, txbColor.Text, txbKilometraje.Text, txbNumero_Pasajeros.Text, txbPrecio_Alquiler.Text, btnFoto.Text, tipo, cmbAgenciaCoche.SelectedValue) Then
-                MsgBox("Auto modificado con exito", MsgBoxStyle.Information)
-                'Se reestablece el formulario
-                txbMarca.Text = ""
-                txbModelo.Text = ""
-                txbColor.Text = ""
-                txbKilometraje.Text = ""
-                txbNumero_Pasajeros.Text = ""
-                txbPrecio_Alquiler.Text = ""
-                ofdFoto.FileName = ""
-                btnModificar_Coche.Enabled = False
-                btnVerDatos.Enabled = True
-                tipo = ""
-                btnClick = False
-                cmbAgenciaCoche.SelectedValue = 0
-                btnFoto.Text = "+ Agregue una foto"
-                picCoche.ImageLocation = Nothing
-                obtenerRadio().Checked = False
-                Coches.opcionesBusquedaAutos(cmbBuscar_Autos, ComboBox1)
+
+
+        Else
+            If indiceCoche > -1 Then
+                'Se lleva a cabo el proceso de modificar coches
+                If Coches.ModificarCochesFoto(txbMarca.Text, txbModelo.Text, txbColor.Text, txbKilometraje.Text, txbNumero_Pasajeros.Text, txbPrecio_Alquiler.Text, btnFoto.Text, tipo, cmbAgenciaCoche.SelectedValue) Then
+                    MsgBox("Auto modificado con exito", MsgBoxStyle.Information)
+                    'Se reestablece el formulario
+                    txbMarca.Text = ""
+                    txbModelo.Text = ""
+                    txbColor.Text = ""
+                    txbKilometraje.Text = ""
+                    txbNumero_Pasajeros.Text = ""
+                    txbPrecio_Alquiler.Text = ""
+                    ofdFoto.FileName = ""
+                    btnModificar_Coche.Enabled = False
+                    btnVerDatos.Enabled = True
+                    tipo = ""
+                    btnClick = False
+                    cmbAgenciaCoche.SelectedValue = 0
+                    btnFoto.Text = "+ Agregue una foto"
+                    picCoche.ImageLocation = Nothing
+                    obtenerRadio().Checked = False
+                    Coches.opcionesBusquedaAutos(cmbBuscar_Autos, ComboBox1)
+                End If
+            Else
+                MsgBox("Error: Seleccione coche", MsgBoxStyle.Exclamation)
             End If
+
         End If
     End Sub
     Private Function obtenerRadio() As MaterialSkin.Controls.MaterialRadioButton 'Obtener el valor de los radios

@@ -12,7 +12,7 @@ Public Class frmAgencias
         Agencia = New clsAgencias 'Objeto de clsAgencias
         If Agencia.registrarAgencia(txbNombre_Agencia.Text, txbDireccion.Text, txbTelefono.Text) Then 'Invocamos el registro
             InicializarFormulario() 'Se reestablecen los campos
-            MsgBox("Registro Exitoso")
+            MsgBox("Registro Exitoso", MsgBoxStyle.Information)
         End If
     End Sub
 

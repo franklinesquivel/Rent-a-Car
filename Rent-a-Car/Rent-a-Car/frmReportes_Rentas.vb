@@ -29,11 +29,11 @@ Public Class frmReportes_Rentas
         ElseIf rdbTipoAuto.Checked = True Then
             tipo = "Auto"
         Else
-            MsgBox("Error: Debe elegir porque tipo desea desglosar")
+            MsgBox("Error: Debe elegir porque tipo desea desglosar", MsgBoxStyle.Exclamation)
             Exit Sub
         End If
         If Not Rentas.Reportes(tipo, dgvReportes, dtpFecha_Limite.Value.ToString("yyyy-MM-dd")) Then 'Se procesa la petición
-            MsgBox("Error: No hay datos por mostrar")
+            MsgBox("Error: No hay datos por mostrar", MsgBoxStyle.Exclamation)
             dgvReportes.Rows.Clear()
         End If
     End Sub
@@ -47,7 +47,7 @@ Public Class frmReportes_Rentas
         'Se ejecuta la busqueda al cambiar de estado el rdb
         If rdbAgencia.Checked = True Then
             If Not Rentas.Reportes("Agencia", dgvReportes) Then
-                MsgBox("Error: No hay datos por mostrar")
+                MsgBox("Error: No hay datos por mostrar", , MsgBoxStyle.Information)
                 dgvReportes.Rows.Clear()
             End If
         End If
@@ -57,7 +57,7 @@ Public Class frmReportes_Rentas
         'Se ejecuta la busqueda al cambiar de estado el rdb
         If rdbAgente.Checked = True Then
             If Not Rentas.Reportes("Agente", dgvReportes) Then
-                MsgBox("Error: No hay datos por mostrar")
+                MsgBox("Error: No hay datos por mostrar", MsgBoxStyle.Information)
                 dgvReportes.Rows.Clear()
             End If
         End If
@@ -67,7 +67,7 @@ Public Class frmReportes_Rentas
         'Se ejecuta la busqueda al cambiar de estado el rdb
         If rdbTipoAuto.Checked = True Then
             If Not Rentas.Reportes("Auto", dgvReportes) Then
-                MsgBox("Error: No hay datos por mostrar")
+                MsgBox("Error: No hay datos por mostrar", MsgBoxStyle.Information)
                 dgvReportes.Rows.Clear()
             End If
         End If
